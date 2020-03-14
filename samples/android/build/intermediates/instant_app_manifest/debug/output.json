@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "artifactType": {
+    "type": "INSTANT_APP_MANIFEST",
+    "kind": "Directory"
+  },
+  "applicationId": "com.maximbircu.devtools",
+  "variantName": "debug",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "properties": [
+        {
+          "key": "packageId",
+          "value": "com.maximbircu.devtools"
+        },
+        {
+          "key": "split",
+          "value": ""
+        },
+        {
+          "key": "minSdkVersion",
+          "value": "16"
+        }
+      ],
+      "versionCode": 1,
+      "versionName": "1.0",
+      "enabled": true,
+      "outputFile": "AndroidManifest.xml"
+    }
+  ]
+}

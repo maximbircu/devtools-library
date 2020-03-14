@@ -1,0 +1,4 @@
+#Sat Mar 14 19:05:18 EET 2020
+base.0=/Users/mbircu/Documents/devtools-library/samples/android/build/intermediates/dex/debug/mergeDexDebug/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
