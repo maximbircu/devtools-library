@@ -18,11 +18,7 @@ interface DevToolsListPresenter : Presenter {
 private class DevToolsListPresenterImpl(
     view: DevToolsListView
 ) : BasePresenter<DevToolsListView>(view), DevToolsListPresenter {
-    override fun onBind(devtools: List<DevTool<*>>) {
-        view.showDevTools(devtools)
-    }
+    override fun onBind(devtools: List<DevTool<*>>) = view.showDevTools(devtools)
 
-    override fun onUpdateDevTools() {
-        view.updateDevTools()
-    }
+    override fun onUpdateDevTools() = view.updateDevTools()
 }
