@@ -13,7 +13,7 @@ interface DevToolsParser {
     }
 }
 
-private class DevToolsParserImpl(private val sources: List<DevToolsSource>): DevToolsParser {
+private class DevToolsParserImpl(private val sources: List<DevToolsSource>) : DevToolsParser {
     override fun getDevTools(): Map<String, DevTool<Any>> {
         val readers = sources.map { it.getReader() }
         return readers.fold(mapOf(), { accumulator, reader -> accumulator + reader.getDevTools() })

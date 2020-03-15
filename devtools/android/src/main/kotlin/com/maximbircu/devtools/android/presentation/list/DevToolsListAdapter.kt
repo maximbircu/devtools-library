@@ -7,7 +7,7 @@ import com.maximbircu.devtools.android.DevToolsViewRegistry
 import com.maximbircu.devtools.android.presentation.tool.DevToolLayout
 import com.maximbircu.devtools.common.core.DevTool
 
-class DevToolsListAdapter(
+internal class DevToolsListAdapter(
     private val devtools: List<DevTool<*>>
 ) : RecyclerView.Adapter<ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

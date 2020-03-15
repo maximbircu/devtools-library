@@ -8,7 +8,7 @@ import com.maximbircu.devtools.common.presentation.tools.toggle.ToggleToolPresen
 import com.maximbircu.devtools.common.presentation.tools.toggle.ToggleToolView
 import kotlinx.android.synthetic.main.layout_toggle_tool.view.toggleValue
 
-class ToggleToolLayout(context: Context) : DevToolLayout<ToggleTool>(context), ToggleToolView {
+internal class ToggleToolLayout(context: Context) : DevToolLayout<ToggleTool>(context), ToggleToolView {
     private val presenter = ToggleToolPresenter.create(this)
     override val layoutRes: Int get() = R.layout.layout_toggle_tool
 

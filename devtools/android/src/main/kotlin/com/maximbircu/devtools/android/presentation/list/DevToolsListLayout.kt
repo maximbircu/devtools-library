@@ -11,7 +11,7 @@ import com.maximbircu.devtools.common.core.DevTool
 import com.maximbircu.devtools.common.presentation.list.DevToolsListPresenter
 import com.maximbircu.devtools.common.presentation.list.DevToolsListView
 
-class DevToolsListLayout @JvmOverloads constructor(
+internal class DevToolsListLayout @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAtr: Int = 0

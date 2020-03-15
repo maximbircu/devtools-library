@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.layout_config_screen.view.applyButton
 import kotlinx.android.synthetic.main.layout_config_screen.view.devToolsList
 
 @SuppressLint("ViewConstructor")
-class ConfigScreenLayout(
+internal class ConfigScreenLayout(
     context: Context,
     devTools: DevTools
 ) : FrameLayout(context), ConfigScreenView {
