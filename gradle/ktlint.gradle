@@ -20,9 +20,3 @@ subprojects {
         args "-F", "/**/src/**/*.kt"
     }
 }
-
-allprojects {
-    afterEvaluate {
-        tasks.findByName('check')?.dependsOn("ktlint")
-    }
-}

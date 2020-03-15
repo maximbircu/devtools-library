@@ -18,7 +18,7 @@ jobs:
       - name: checkstyle
         uses: vgaidarji/android-github-actions-build@v1.0.1
         with:
-          args: "./gradlew check"
+          args: "./gradlew check detekt ktlint"
 
       # Test
       - name: unit tests
