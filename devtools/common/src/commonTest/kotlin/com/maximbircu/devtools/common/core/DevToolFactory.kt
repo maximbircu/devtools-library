@@ -21,6 +21,7 @@ fun <T : Any> DevTool<T>.mockWith(model: DevToolMokData<T>) {
     every { store }.returns(model.store)
     model.storedData?.let { every { store.restore() }.returns(it) }
     every { store.isEnabled }.returns(model.enabled)
+    every { isEnabled }.returns(model.enabled)
 }
 
 class DevToolMokData<T : Any> : DevTool<T>() {

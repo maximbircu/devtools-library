@@ -31,7 +31,7 @@ abstract class DevToolLayout<T : DevTool<*>>(
         onBind(tool as T)
         presenter.onBind(tool)
         toolEnableToggle.setOnCheckedChangeListener { _, isEnabled ->
-            presenter.onToolEnableToggle(isEnabled)
+            presenter.onToolEnableToggleUpdated(isEnabled)
         }
     }
 
