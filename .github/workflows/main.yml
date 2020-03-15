@@ -14,11 +14,17 @@ jobs:
       - name: scm
         uses: actions/checkout@v2
 
-      # Check
+      # Checkstyle
       - name: checkstyle
         uses: vgaidarji/android-github-actions-build@v1.0.1
         with:
           args: "./gradlew check"
+
+      # Test
+      - name: unit tests
+        uses: vgaidarji/android-github-actions-build@v1.0.1
+        with:
+          args: "./gradlew test"
 
       # Build
       - name: build
