@@ -8,17 +8,13 @@ interface DevToolsStorage {
     fun isEnabled(key: String): Boolean
 }
 
-internal class DevToolsStorageImpl(
+class DevToolsStorageImpl(
     override val tools: Map<String, DevTool<*>>
 ) : DevToolsStorage {
     @Suppress("UNCHECKED_CAST")
-    override fun <T> getValue(key: String): T {
-        return getDevTool(key).store.restore() as T
-    }
+    override fun <T> getValue(key: String): T = getDevTool(key).store.restore() as T
 
-    override fun isEnabled(key: String): Boolean {
-        return getDevTool(key).store.isEnabled
-    }
+    override fun isEnabled(key: String): Boolean = getDevTool(key).store.isEnabled
 
     private fun getDevTool(key: String): DevTool<*> {
         if (key in tools.keys) {
