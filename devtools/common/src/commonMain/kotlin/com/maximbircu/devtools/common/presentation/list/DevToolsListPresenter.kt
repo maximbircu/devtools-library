@@ -9,9 +9,7 @@ interface DevToolsListPresenter : Presenter {
     fun onUpdateDevTools()
 
     companion object {
-        fun create(view: DevToolsListView): DevToolsListPresenter {
-            return DevToolsListPresenterImpl(view)
-        }
+        fun create(view: DevToolsListView): DevToolsListPresenter = DevToolsListPresenterImpl(view)
     }
 }
 
