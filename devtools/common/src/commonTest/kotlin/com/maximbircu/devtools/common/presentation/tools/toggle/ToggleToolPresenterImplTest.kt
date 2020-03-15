@@ -1,8 +1,8 @@
 package com.maximbircu.devtools.common.presentation.tools.toggle
 
-import com.maximbircu.devtools.common.presentation.tools.toggle.core.createTool
-import com.maximbircu.devtools.common.presentation.tools.toggle.mvp.PresenterTest
-import com.maximbircu.devtools.common.presentation.tools.toggle.utils.mockk
+import com.maximbircu.devtools.common.core.createTool
+import com.maximbircu.devtools.common.mvp.PresenterTest
+import com.maximbircu.devtools.common.utils.mockk
 import io.mockk.verify
 import kotlin.test.Test
 

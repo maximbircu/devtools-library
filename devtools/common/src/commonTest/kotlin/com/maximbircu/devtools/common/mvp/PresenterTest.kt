@@ -1,4 +1,4 @@
-package com.maximbircu.devtools.common.presentation.tools.toggle.mvp
+package com.maximbircu.devtools.common.mvp
 
 import com.maximbircu.devtools.common.core.mvp.BaseView
 import com.maximbircu.devtools.common.core.mvp.Presenter
