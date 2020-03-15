@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.widget.FrameLayout
 import com.maximbircu.devtools.android.R
+import com.maximbircu.devtools.android.extensions.setOnClickListener
 import com.maximbircu.devtools.common.DevTools
 import com.maximbircu.devtools.common.core.DevTool
 import com.maximbircu.devtools.common.presentation.configscreen.ConfigScreenPresenter
@@ -21,7 +22,7 @@ class ConfigScreenLayout(
     init {
         inflate(context, R.layout.layout_config_screen, this)
         presenter.onCreate()
-        applyButton.setOnClickListener { presenter.onApplyConfig() }
+        applyButton.setOnClickListener(presenter::onApplyConfig)
     }
 
     override fun showDevTools(tools: List<DevTool<*>>) = devToolsList.bind(tools)

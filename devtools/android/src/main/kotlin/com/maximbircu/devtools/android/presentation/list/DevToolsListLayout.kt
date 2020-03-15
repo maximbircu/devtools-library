@@ -16,7 +16,7 @@ class DevToolsListLayout @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAtr: Int = 0
 ) : RecyclerView(context, attrs, defStyleAtr), DevToolsListView {
-    private lateinit var presenter: DevToolsListPresenter
+    private val presenter = DevToolsListPresenter.create(this)
     private val devToolsItems: List<DevToolLayout<*>>
         get() = children().filterIsInstance<DevToolLayout<*>>()
 
@@ -26,20 +26,19 @@ class DevToolsListLayout @JvmOverloads constructor(
         descendantFocusability = ViewGroup.FOCUS_BEFORE_DESCENDANTS
     }
 
-    fun bind(devTools: List<DevTool<*>>) {
-        presenter = DevToolsListPresenter.create(this, devTools)
-        presenter.onCreate()
-    }
+    fun bind(devTools: List<DevTool<*>>) = presenter.onBind(devTools)
 
-    fun updateConfig() {
-        devToolsItems.forEach { it.updateConfig() }
-    }
+    fun updateConfig() = presenter.onUpdateDevTools()
 
     override fun showDevTools(tools: List<DevTool<*>>) {
         adapter = DevToolsListAdapter(tools)
     }
 
+    override fun updateDevTools() {
+        devToolsItems.forEach { view -> view.updateConfig() }
+    }
+
     fun setDevToolEnabled(isEnabled: Boolean) {
-        devToolsItems.forEach { it.setDevToolEnabled(isEnabled) }
+        devToolsItems.forEach { view -> view.setDevToolEnabled(isEnabled) }
     }
 }

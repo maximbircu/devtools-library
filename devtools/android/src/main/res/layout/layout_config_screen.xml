@@ -7,12 +7,12 @@
         android:id="@+id/devToolsList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="100dp"
+        android:clipToPadding="false"
         android:fadingEdge="vertical"
         android:fadingEdgeLength="100dp"
-        android:clipToPadding="false"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
+        android:paddingBottom="100dp"
         />
 
     <FrameLayout
@@ -29,7 +29,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/apply"
-            android:textColor="?attr/colorAccent"
             android:textAllCaps="true"
             android:textSize="18sp"
             />

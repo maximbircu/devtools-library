@@ -5,28 +5,24 @@ import com.maximbircu.devtools.common.core.mvp.BasePresenter
 import com.maximbircu.devtools.common.core.mvp.Presenter
 
 interface DevToolsListPresenter : Presenter {
-    fun onCreate()
+    fun onBind(devtools: List<DevTool<*>>)
     fun onUpdateDevTools()
 
     companion object {
-        fun create(
-            view: DevToolsListView,
-            devtools: List<DevTool<*>>
-        ): DevToolsListPresenter {
-            return DevToolsListPresenterImpl(view, devtools)
+        fun create(view: DevToolsListView): DevToolsListPresenter {
+            return DevToolsListPresenterImpl(view)
         }
     }
 }
 
 private class DevToolsListPresenterImpl(
-    view: DevToolsListView,
-    private val devtools: List<DevTool<*>>
+    view: DevToolsListView
 ) : BasePresenter<DevToolsListView>(view), DevToolsListPresenter {
-    override fun onCreate() {
+    override fun onBind(devtools: List<DevTool<*>>) {
         view.showDevTools(devtools)
     }
 
     override fun onUpdateDevTools() {
-//        view.notifyConfigUpdate()
+        view.updateDevTools()
     }
 }
