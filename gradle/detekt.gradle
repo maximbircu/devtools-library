@@ -1,0 +1,14 @@
+detekt {
+    toolVersion = "1.6.0"
+    input = files("$projectDir")
+    reports {
+        xml {
+            enabled = true
+            destination = file("build/reports/detekt.xml")
+        }
+        html {
+            enabled = true
+            destination = file("build/reports/detekt.html")
+        }
+    }
+}
