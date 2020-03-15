@@ -19,18 +19,6 @@ class ToggleToolPresenterImplTest : PresenterTest<ToggleToolView, ToggleToolPres
     }
 
     @Test
-    fun `sets title on bind`() {
-        val tool: ToggleTool = createTool {
-            storedData = false
-            title = "Toggle tool title"
-        }
-
-        presenter.onBind(tool)
-
-        verify { view.setTitle("Toggle tool title") }
-    }
-
-    @Test
     fun `stores new configuration value on update`() {
         val tool: ToggleTool = createTool { storedData = false }
         presenter.onBind(tool)

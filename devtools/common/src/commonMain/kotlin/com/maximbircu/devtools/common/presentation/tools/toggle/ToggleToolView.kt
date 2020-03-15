@@ -4,5 +4,4 @@ import com.maximbircu.devtools.common.core.mvp.BaseView
 
 interface ToggleToolView : BaseView {
     fun setValue(value: Boolean)
-    fun setTitle(title: String?)
 }

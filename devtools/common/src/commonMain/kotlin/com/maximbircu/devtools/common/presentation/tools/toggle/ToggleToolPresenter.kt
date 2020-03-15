@@ -22,7 +22,6 @@ private class ToggleToolPresenterImpl(
     override fun onBind(tool: ToggleTool) {
         this.tool = tool
         view.setValue(tool.store.restore())
-        view.setTitle(tool.title)
     }
 
     override fun onUpdate(data: Boolean) {
