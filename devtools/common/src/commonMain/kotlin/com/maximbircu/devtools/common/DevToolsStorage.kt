@@ -11,6 +11,7 @@ interface DevToolsStorage {
 internal class DevToolsStorageImpl(
     override val tools: Map<String, DevTool<*>>
 ) : DevToolsStorage {
+    @Suppress("UNCHECKED_CAST")
     override fun <T> getValue(key: String): T {
         return getDevTool(key).store.restore() as T
     }

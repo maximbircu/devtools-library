@@ -26,6 +26,7 @@ abstract class DevToolLayout<T : DevTool<*>>(
         inflate(context, layoutRes, devToolContentContainer)
     }
 
+    @Suppress("UNCHECKED_CAST")
     fun bind(tool: DevTool<*>) {
         onBind(tool as T)
         presenter.onBind(tool)

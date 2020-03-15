@@ -22,6 +22,12 @@ apply from: 'gradle/ktlint.gradle'
 allprojects {
     apply plugin: 'io.gitlab.arturbosch.detekt'
 
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+        kotlinOptions {
+            allWarningsAsErrors = true
+        }
+    }
+
     repositories {
         google()
         jcenter()

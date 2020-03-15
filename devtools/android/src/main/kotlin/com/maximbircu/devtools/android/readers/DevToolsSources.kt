@@ -6,6 +6,7 @@ import com.maximbircu.devtools.common.core.reader.DevToolsSource
 import com.maximbircu.devtools.common.presentation.tools.toggle.ToggleTool
 import com.maximbircu.devtools.common.readers.DevToolsSources
 
+@Suppress("UNCHECKED_CAST")
 fun DevToolsSources.memory(): DevToolsSource = object : DevToolsSource {
     override fun getReader(): DevToolsReader {
         return object : DevToolsReader {
