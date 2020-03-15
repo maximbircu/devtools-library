@@ -11,9 +11,8 @@ class DevToolsParser(private val readers: List<DevToolsReader>) {
         }
     }
 
-    fun getDevTools(): Map<String, DevTool<Any>> {
-        return readers.fold(mapOf(), { accumulator, devToolsReader ->
-            accumulator + devToolsReader.getDevTools()
-        })
-    }
+    fun getDevTools(): Map<String, DevTool<Any>> = readers.fold(
+        mapOf(),
+        { accumulator, devToolsReader -> accumulator + devToolsReader.getDevTools() }
+    )
 }
