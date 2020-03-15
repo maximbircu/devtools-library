@@ -9,7 +9,7 @@ import io.mockk.every
 import io.mockk.verify
 import kotlin.test.Test
 
-class ConfigScreenBasePresenterImplTest :
+class ConfigScreenPresenterImplTest :
     BasePresenterTest<ConfigScreenView, ConfigScreenPresenter>(mockk()) {
     private val devTools: DevTools = mockk()
 
