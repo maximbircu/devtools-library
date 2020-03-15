@@ -21,10 +21,13 @@ android {
 }
 
 dependencies {
-    compile(project(':devtools:common')) { transitive = true }
+    api(project(':devtools:common')) { transitive = true }
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0'
+
+    // androidx
+    implementation "androidx.appcompat:appcompat:1.1.0"
+    implementation "androidx.cardview:cardview:1.0.0"
     implementation "androidx.recyclerview:recyclerview:1.1.0"
     implementation "androidx.constraintlayout:constraintlayout:2.0.0-beta4"
 }

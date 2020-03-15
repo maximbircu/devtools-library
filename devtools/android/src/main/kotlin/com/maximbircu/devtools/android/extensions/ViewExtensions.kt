@@ -15,7 +15,7 @@ internal fun ViewGroup.children() = object : Iterable<View> {
     override fun iterator() = object : Iterator<View> {
         var index = 0
         override fun hasNext() = index < childCount
-        override fun next() = getChildAt(index++)
+        override fun next() = getChildAt(index++) ?: throw NoSuchElementException()
     }
 }
 

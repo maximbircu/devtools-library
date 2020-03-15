@@ -24,4 +24,3 @@ class ToggleToolLayout(context: Context) : DevToolLayout<ToggleTool>(context), T
         presenter.onUpdate(toggleValue.isChecked)
     }
 }
-
