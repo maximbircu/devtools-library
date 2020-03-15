@@ -3,14 +3,14 @@ package com.maximbircu.devtools.common.presentation.configscreen
 import com.maximbircu.devtools.common.DevTools
 import com.maximbircu.devtools.common.core.DevTool
 import com.maximbircu.devtools.common.core.createTool
-import com.maximbircu.devtools.common.mvp.PresenterTest
+import com.maximbircu.devtools.common.mvp.BasePresenterTest
 import com.maximbircu.devtools.common.utils.mockk
 import io.mockk.every
 import io.mockk.verify
 import kotlin.test.Test
 
-class ConfigScreenPresenterImplTest :
-    PresenterTest<ConfigScreenView, ConfigScreenPresenter>(mockk()) {
+class ConfigScreenBasePresenterImplTest :
+    BasePresenterTest<ConfigScreenView, ConfigScreenPresenter>(mockk()) {
     private val devTools: DevTools = mockk()
 
     override fun createPresenter() = ConfigScreenPresenter.create(view, devTools)

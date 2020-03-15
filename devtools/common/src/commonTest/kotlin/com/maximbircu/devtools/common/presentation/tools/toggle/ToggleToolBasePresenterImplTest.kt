@@ -1,12 +1,13 @@
 package com.maximbircu.devtools.common.presentation.tools.toggle
 
 import com.maximbircu.devtools.common.core.createTool
-import com.maximbircu.devtools.common.mvp.PresenterTest
+import com.maximbircu.devtools.common.mvp.BasePresenterTest
 import com.maximbircu.devtools.common.utils.mockk
 import io.mockk.verify
 import kotlin.test.Test
 
-class ToggleToolPresenterImplTest : PresenterTest<ToggleToolView, ToggleToolPresenter>(mockk()) {
+class ToggleToolBasePresenterImplTest :
+    BasePresenterTest<ToggleToolView, ToggleToolPresenter>(mockk()) {
     override fun createPresenter() = ToggleToolPresenter.create(view)
 
     @Test
