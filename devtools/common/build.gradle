@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-multiplatform'
+apply from: '../../gradle/jacoco.gradle'
 
 android {
     compileSdkVersion 29
