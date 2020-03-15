@@ -12,15 +12,15 @@ class ToggleToolLayout(context: Context) : DevToolLayout<ToggleTool>(context), T
     private val presenter = ToggleToolPresenter.create(this)
     override val layoutRes: Int get() = R.layout.layout_toggle_tool
 
-    override fun setValue(value: Boolean) {
-        toggleValue.isChecked = value
-    }
-
     override fun onBind(tool: ToggleTool) {
         presenter.onBind(tool)
     }
 
     override fun onUpdate() {
         presenter.onUpdate(toggleValue.isChecked)
+    }
+
+    override fun setValue(value: Boolean) {
+        toggleValue.isChecked = value
     }
 }
