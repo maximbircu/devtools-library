@@ -16,8 +16,8 @@ internal class ToggleToolLayout(context: Context) : DevToolLayout<ToggleTool>(co
         presenter.onBind(tool)
     }
 
-    override fun storeNewConfig() {
-        presenter.onConfigUpdate(toggleValue.isChecked)
+    override fun storeConfigValue() {
+        presenter.onStoreToolState(toggleValue.isChecked)
     }
 
     override fun setValue(value: Boolean) {

@@ -60,7 +60,7 @@ class DevToolPresenterImplTest : BasePresenterTest<DevToolView, DevToolPresenter
         presenter.onBind(tool)
         every { view.isToolEnabled }.returns(false)
 
-        presenter.onConfigUpdate()
+        presenter.onPersistToolState()
 
         verify { tool.store.isEnabled = false }
     }

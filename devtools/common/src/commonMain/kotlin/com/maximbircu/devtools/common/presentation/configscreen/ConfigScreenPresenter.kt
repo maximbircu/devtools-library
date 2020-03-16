@@ -41,7 +41,7 @@ private class ConfigScreenPresenterImpl(
     }
 
     override fun onApplyConfig() {
-        devToolsList.devToolViews.forEach { it.triggerConfigUpdate() }
+        devToolsList.devToolViews.forEach { it.persistToolState() }
         devTools.onConfigUpdate.invoke()
     }
 }

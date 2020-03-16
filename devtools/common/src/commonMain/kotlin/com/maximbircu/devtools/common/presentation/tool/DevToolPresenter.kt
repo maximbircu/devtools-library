@@ -7,7 +7,7 @@ import com.maximbircu.devtools.common.core.mvp.Presenter
 interface DevToolPresenter : Presenter {
     fun onBind(tool: DevTool<*>)
     fun onToolEnableToggleUpdated(enabled: Boolean)
-    fun onConfigUpdate()
+    fun onPersistToolState()
 
     companion object {
         fun create(view: DevToolView): DevToolPresenter {
@@ -32,7 +32,7 @@ private class DevToolPresenterImpl(
         view.setDevToolEnabled(enabled)
     }
 
-    override fun onConfigUpdate() {
+    override fun onPersistToolState() {
         tool.store.isEnabled = view.isToolEnabled
     }
 

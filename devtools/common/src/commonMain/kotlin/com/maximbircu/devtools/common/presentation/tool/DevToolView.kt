@@ -38,5 +38,5 @@ interface DevToolView : BaseView {
     /**
      * Should be called when the user triggers a configuration update.
      */
-    fun triggerConfigUpdate()
+    fun persistToolState()
 }

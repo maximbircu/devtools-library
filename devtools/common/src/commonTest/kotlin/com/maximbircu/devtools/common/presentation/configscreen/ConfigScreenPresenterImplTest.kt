@@ -39,7 +39,7 @@ class ConfigScreenPresenterImplTest :
 
         presenter.onApplyConfig()
 
-        devToolsList.devToolViews.forEach { view -> verify { view.triggerConfigUpdate() } }
+        devToolsList.devToolViews.forEach { view -> verify { view.persistToolState() } }
     }
 
     @Test

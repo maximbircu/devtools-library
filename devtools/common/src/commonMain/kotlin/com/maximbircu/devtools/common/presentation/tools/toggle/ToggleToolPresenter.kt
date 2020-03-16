@@ -16,7 +16,7 @@ interface ToggleToolPresenter : Presenter {
      *
      * @param data the currently selected value of the toggle
      */
-    fun onConfigUpdate(data: Boolean)
+    fun onStoreToolState(data: Boolean)
 
     companion object {
         fun create(view: ToggleToolView): ToggleToolPresenter {
@@ -35,7 +35,7 @@ private class ToggleToolPresenterImpl(
         view.setValue(tool.store.restore())
     }
 
-    override fun onConfigUpdate(data: Boolean) {
+    override fun onStoreToolState(data: Boolean) {
         tool.store.store(data)
     }
 }

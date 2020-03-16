@@ -2,6 +2,7 @@ package com.maximbircu.devtools.android.presentation.tool
 
 import android.content.Context
 import android.widget.RelativeLayout
+import androidx.annotation.CallSuper
 import com.maximbircu.devtools.android.R
 import com.maximbircu.devtools.android.extensions.hide
 import com.maximbircu.devtools.android.extensions.setEnabledRecursively
@@ -35,12 +36,13 @@ abstract class DevToolLayout<T : DevTool<*>>(
         }
     }
 
-    override fun triggerConfigUpdate() {
-        presenter.onConfigUpdate()
-        storeNewConfig()
+    @CallSuper
+    override fun persistToolState() {
+        presenter.onPersistToolState()
+        storeConfigValue()
     }
 
-    abstract fun storeNewConfig()
+    abstract fun storeConfigValue()
 
     open fun onBind(tool: T) {}
 
