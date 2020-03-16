@@ -5,8 +5,19 @@ import com.maximbircu.devtools.common.core.mvp.BasePresenter
 import com.maximbircu.devtools.common.core.mvp.Presenter
 
 interface DevToolPresenter : Presenter {
+    /**
+     * Should be called as soon as view receives its tool model.
+     */
     fun onToolBind(tool: DevTool<*>)
+
+    /**
+     * Should be called whenever the user toggles the tool enable toggle.
+     */
     fun onToolEnableToggleUpdated(enabled: Boolean)
+
+    /**
+     * Should be called when the view receives the tool persist event.
+     */
     fun onPersistToolState()
 
     companion object {

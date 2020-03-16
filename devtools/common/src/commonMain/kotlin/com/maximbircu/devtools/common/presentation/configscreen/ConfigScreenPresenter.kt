@@ -16,7 +16,7 @@ interface ConfigScreenPresenter : Presenter {
     /**
      * Should be invoked when the user wants to apply the dev tools changes he made.
      *
-     * Triggers a global dev tools update and makes each tool persist its currently selected value.
+     * Iterates through each tool view and makes it persist its state.
      */
     fun onApplyConfig()
 

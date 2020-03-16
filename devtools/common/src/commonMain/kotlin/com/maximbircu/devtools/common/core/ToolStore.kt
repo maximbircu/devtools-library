@@ -10,7 +10,6 @@ interface ToolStore<T> {
      */
     var isEnabled: Boolean
 
-
     /**
      * This method is called when a config value of a dev tool should be persisted.
      *
