@@ -44,7 +44,7 @@ abstract class DevToolLayout<T : DevTool<*>>(
 
     abstract fun storeConfigValue()
 
-    open fun onBind(tool: T) {}
+    abstract fun onBind(tool: T)
 
     override fun showEnableToggle() = toolEnableToggle.show()
 
