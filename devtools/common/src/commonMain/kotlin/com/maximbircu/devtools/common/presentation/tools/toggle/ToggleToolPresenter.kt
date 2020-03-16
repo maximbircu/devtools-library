@@ -4,8 +4,19 @@ import com.maximbircu.devtools.common.core.mvp.BasePresenter
 import com.maximbircu.devtools.common.core.mvp.Presenter
 
 interface ToggleToolPresenter : Presenter {
+    /**
+     * Should be called when as soon as a tool object was provided to the view.
+     */
     fun onBind(tool: ToggleTool)
-    fun onUpdate(data: Boolean)
+
+    /**
+     * Should be called as soon as a configuration update was triggered.
+     *
+     * Will persist the currently selected value when called.
+     *
+     * @param data the currently selected value of the toggle
+     */
+    fun onConfigUpdate(data: Boolean)
 
     companion object {
         fun create(view: ToggleToolView): ToggleToolPresenter {
@@ -24,7 +35,7 @@ private class ToggleToolPresenterImpl(
         view.setValue(tool.store.restore())
     }
 
-    override fun onUpdate(data: Boolean) {
+    override fun onConfigUpdate(data: Boolean) {
         tool.store.store(data)
     }
 }

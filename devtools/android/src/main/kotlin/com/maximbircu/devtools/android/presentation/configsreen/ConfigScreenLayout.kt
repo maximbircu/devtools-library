@@ -25,7 +25,8 @@ internal class ConfigScreenLayout(
         applyButton.setOnClickListener(presenter::onApplyConfig)
     }
 
+
     override fun showDevTools(tools: List<DevTool<*>>) = devToolsList.bind(tools)
 
-    override fun triggerConfigUpdate() = devToolsList.updateConfig()
+    override fun triggerConfigUpdate() = devToolsList.triggerConfigUpdate()
 }

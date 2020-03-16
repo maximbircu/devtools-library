@@ -35,12 +35,12 @@ abstract class DevToolLayout<T : DevTool<*>>(
         }
     }
 
-    fun updateConfig() {
+    override fun triggerConfigUpdate() {
         presenter.onConfigUpdate()
-        onUpdate()
+        storeNewConfig()
     }
 
-    abstract fun onUpdate()
+    abstract fun storeNewConfig()
 
     open fun onBind(tool: T) {}
 

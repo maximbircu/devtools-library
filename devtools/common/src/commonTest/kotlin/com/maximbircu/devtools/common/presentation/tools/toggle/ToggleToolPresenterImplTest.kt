@@ -24,7 +24,7 @@ class ToggleToolPresenterImplTest :
         val tool: ToggleTool = createTool { storedData = false }
         presenter.onBind(tool)
 
-        presenter.onUpdate(true)
+        presenter.onConfigUpdate(true)
 
         verify { tool.store.store(true) }
     }

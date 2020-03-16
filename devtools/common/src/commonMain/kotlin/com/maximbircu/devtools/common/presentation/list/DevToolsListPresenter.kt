@@ -6,7 +6,7 @@ import com.maximbircu.devtools.common.core.mvp.Presenter
 
 interface DevToolsListPresenter : Presenter {
     fun onBind(devtools: List<DevTool<*>>)
-    fun onUpdateDevTools()
+    fun onConfigUpdate()
 
     companion object {
         fun create(view: DevToolsListView): DevToolsListPresenter = DevToolsListPresenterImpl(view)
@@ -18,5 +18,7 @@ private class DevToolsListPresenterImpl(
 ) : BasePresenter<DevToolsListView>(view), DevToolsListPresenter {
     override fun onBind(devtools: List<DevTool<*>>) = view.showDevTools(devtools)
 
-    override fun onUpdateDevTools() = view.updateDevTools()
+    override fun onConfigUpdate() {
+        view.devToolViews.forEach { it.triggerConfigUpdate() }
+    }
 }
