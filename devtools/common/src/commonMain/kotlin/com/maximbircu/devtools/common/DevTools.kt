@@ -15,7 +15,7 @@ interface DevTools : DevToolsStorage {
 
     companion object {
         /**
-         * Crates a new instance of [DevTools]
+         * Crates a new instance of [DevTools].
          *
          * @param devToolsSource a collection of sources used by the library to gather dev tools
          * @param onConfigUpdate function to be invoked whenever any config value is updated

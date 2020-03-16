@@ -1,6 +1,7 @@
 detekt {
     toolVersion = "1.6.0"
-    input = files("$projectDir")
+    input = files("$rootDir")
+    config = files("$rootDir/gradle/detekt.yml")
     reports {
         xml {
             enabled = true

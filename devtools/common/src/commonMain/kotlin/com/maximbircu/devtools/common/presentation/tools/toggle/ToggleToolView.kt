@@ -7,7 +7,7 @@ import com.maximbircu.devtools.common.core.mvp.BaseView
  */
 interface ToggleToolView : BaseView {
     /**
-     * Should set the toggle to [value]
+     * Should set the toggle to [value].
      */
     fun setValue(value: Boolean)
 }
