@@ -30,7 +30,7 @@ abstract class DevToolLayout<T : DevTool<*>>(
     @Suppress("UNCHECKED_CAST")
     fun bind(tool: DevTool<*>) {
         onBind(tool as T)
-        presenter.onBind(tool)
+        presenter.onToolBind(tool)
         toolEnableToggle.setOnCheckedChangeListener { _, isEnabled ->
             presenter.onToolEnableToggleUpdated(isEnabled)
         }

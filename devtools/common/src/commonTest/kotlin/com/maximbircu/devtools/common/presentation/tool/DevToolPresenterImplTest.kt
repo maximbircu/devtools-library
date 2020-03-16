@@ -15,7 +15,7 @@ class DevToolPresenterImplTest : BasePresenterTest<DevToolView, DevToolPresenter
     fun `sets title on bind`() {
         val tool: ToggleTool = createTool { title = "Toggle tool title" }
 
-        presenter.onBind(tool)
+        presenter.onToolBind(tool)
 
         verify { view.setTitle("Toggle tool title") }
     }
@@ -24,7 +24,7 @@ class DevToolPresenterImplTest : BasePresenterTest<DevToolView, DevToolPresenter
     fun `shows enable toggle if tool can be disabled on bind`() {
         val tool: ToggleTool = createTool { canBeDisabled = true }
 
-        presenter.onBind(tool)
+        presenter.onToolBind(tool)
 
         verify { view.showEnableToggle() }
     }
@@ -33,7 +33,7 @@ class DevToolPresenterImplTest : BasePresenterTest<DevToolView, DevToolPresenter
     fun `hides enable toggle if tool can not be disabled on bind`() {
         val tool: ToggleTool = createTool { canBeDisabled = false }
 
-        presenter.onBind(tool)
+        presenter.onToolBind(tool)
 
         verify { view.hideEnableToggle() }
     }
@@ -42,7 +42,7 @@ class DevToolPresenterImplTest : BasePresenterTest<DevToolView, DevToolPresenter
     fun `sets tool enabled value on bind`() {
         val tool: ToggleTool = createTool { enabled = false }
 
-        presenter.onBind(tool)
+        presenter.onToolBind(tool)
 
         verify { view.setDevToolEnabled(isEnabled = false) }
     }
@@ -57,7 +57,7 @@ class DevToolPresenterImplTest : BasePresenterTest<DevToolView, DevToolPresenter
     @Test
     fun `stores new tool enabled value on config updated`() {
         val tool: ToggleTool = createTool { enabled = false }
-        presenter.onBind(tool)
+        presenter.onToolBind(tool)
         every { view.isToolEnabled }.returns(false)
 
         presenter.onPersistToolState()

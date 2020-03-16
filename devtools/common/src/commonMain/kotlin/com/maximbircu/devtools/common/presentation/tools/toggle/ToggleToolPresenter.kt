@@ -7,7 +7,7 @@ interface ToggleToolPresenter : Presenter {
     /**
      * Should be called when as soon as a tool object was provided to the view.
      */
-    fun onBind(tool: ToggleTool)
+    fun onToolBind(tool: ToggleTool)
 
     /**
      * Should be called as soon as a configuration update was triggered.
@@ -16,12 +16,10 @@ interface ToggleToolPresenter : Presenter {
      *
      * @param data the currently selected value of the toggle
      */
-    fun onStoreToolState(data: Boolean)
+    fun onStoreConfigValue(data: Boolean)
 
     companion object {
-        fun create(view: ToggleToolView): ToggleToolPresenter {
-            return ToggleToolPresenterImpl(view)
-        }
+        fun create(view: ToggleToolView): ToggleToolPresenter = ToggleToolPresenterImpl(view)
     }
 }
 
@@ -30,12 +28,12 @@ private class ToggleToolPresenterImpl(
 ) : BasePresenter<ToggleToolView>(view), ToggleToolPresenter {
     private lateinit var tool: ToggleTool
 
-    override fun onBind(tool: ToggleTool) {
+    override fun onToolBind(tool: ToggleTool) {
         this.tool = tool
         view.setValue(tool.store.restore())
     }
 
-    override fun onStoreToolState(data: Boolean) {
+    override fun onStoreConfigValue(data: Boolean) {
         tool.store.store(data)
     }
 }

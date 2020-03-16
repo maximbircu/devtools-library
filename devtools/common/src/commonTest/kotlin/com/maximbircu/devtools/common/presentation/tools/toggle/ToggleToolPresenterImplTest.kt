@@ -14,7 +14,7 @@ class ToggleToolPresenterImplTest :
     fun `sets tool stored configuration value on bind`() {
         val tool: ToggleTool = createTool { storedData = false }
 
-        presenter.onBind(tool)
+        presenter.onToolBind(tool)
 
         verify { view.setValue(false) }
     }
@@ -22,9 +22,9 @@ class ToggleToolPresenterImplTest :
     @Test
     fun `stores new configuration value on update`() {
         val tool: ToggleTool = createTool { storedData = false }
-        presenter.onBind(tool)
+        presenter.onToolBind(tool)
 
-        presenter.onStoreToolState(true)
+        presenter.onStoreConfigValue(true)
 
         verify { tool.store.store(true) }
     }

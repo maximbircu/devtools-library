@@ -5,7 +5,7 @@ import com.maximbircu.devtools.common.core.mvp.BasePresenter
 import com.maximbircu.devtools.common.core.mvp.Presenter
 
 interface DevToolPresenter : Presenter {
-    fun onBind(tool: DevTool<*>)
+    fun onToolBind(tool: DevTool<*>)
     fun onToolEnableToggleUpdated(enabled: Boolean)
     fun onPersistToolState()
 
@@ -21,10 +21,10 @@ private class DevToolPresenterImpl(
 ) : BasePresenter<DevToolView>(view), DevToolPresenter {
     private lateinit var tool: DevTool<*>
 
-    override fun onBind(tool: DevTool<*>) {
+    override fun onToolBind(tool: DevTool<*>) {
         this.tool = tool
-        view.setTitle(tool.title)
         setUpToolEnableToggle()
+        view.setTitle(tool.title)
         view.setDevToolEnabled(tool.isEnabled)
     }
 
