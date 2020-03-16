@@ -3,6 +3,7 @@ package com.maximbircu.devtools.common.presentation.configscreen
 import com.maximbircu.devtools.common.DevTools
 import com.maximbircu.devtools.common.core.mvp.BasePresenter
 import com.maximbircu.devtools.common.core.mvp.Presenter
+import com.maximbircu.devtools.common.presentation.list.DevToolsListView
 
 interface ConfigScreenPresenter : Presenter {
     /**
@@ -19,24 +20,28 @@ interface ConfigScreenPresenter : Presenter {
      */
     fun onApplyConfig()
 
-
     companion object {
-        fun create(view: ConfigScreenView, devTools: DevTools): ConfigScreenPresenter {
-            return ConfigScreenPresenterImpl(view, devTools)
+        fun create(
+            view: ConfigScreenView,
+            devTools: DevTools,
+            devToolsList: DevToolsListView
+        ): ConfigScreenPresenter {
+            return ConfigScreenPresenterImpl(view, devTools, devToolsList)
         }
     }
 }
 
 private class ConfigScreenPresenterImpl(
     view: ConfigScreenView,
-    private val devTools: DevTools
+    private val devTools: DevTools,
+    private val devToolsList: DevToolsListView
 ) : BasePresenter<ConfigScreenView>(view), ConfigScreenPresenter {
     override fun onCreate() {
-        view.showDevTools(devTools.tools.values.toList())
+        devToolsList.showDevTools(devTools.tools.values.toList())
     }
 
     override fun onApplyConfig() {
-        view.triggerConfigUpdate()
+        devToolsList.devToolViews.forEach { it.triggerConfigUpdate() }
         devTools.onConfigUpdate.invoke()
     }
 }
