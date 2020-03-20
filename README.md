@@ -1,4 +1,5 @@
 ![CI](https://github.com/maximbircu/devtools-library/workflows/CI/badge.svg?branch=master)
+[![codecov](https://codecov.io/gh/maximbircu/devtools-library/branch/master/graph/badge.svg?token=TP8XUCW2HB)](https://codecov.io/gh/maximbircu/devtools-library)
 
 # Devtools
 
