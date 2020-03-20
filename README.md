@@ -1,3 +1,5 @@
+![CI](https://github.com/maximbircu/devtools-library/workflows/CI/badge.svg?branch=master)
+
 # Devtools
 
 Devtools is a pluggable, extensible, and dynamic config library that supports YAML or JSON as a source.

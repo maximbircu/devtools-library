@@ -1,0 +1,22 @@
+def disabledRules = []
+
+allprojects {
+    afterEvaluate {
+        if (it.hasProperty('android')) {
+            android {
+                lintOptions {
+                    abortOnError true
+                    ignoreWarnings false
+                    warningsAsErrors true
+                    ignoreTestSources true
+
+                    checkReleaseBuilds true
+                    htmlReport true
+                    xmlReport true
+                    disable = disabledRules
+                    checkDependencies true
+                }
+            }
+        }
+    }
+}

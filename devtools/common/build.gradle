@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-multiplatform'
+apply from: '../../gradle/jacoco.gradle'
 
 android {
     compileSdkVersion 29
@@ -29,7 +30,21 @@ android {
 kotlin {
     targets {
         fromPreset(presets.android, 'android')
-        fromPreset(presets.iosX64, 'ios') { binaries { framework { baseName = "devtools" } } }
+
+        fromPreset(presets.iosX64, 'ios') {
+            binaries { framework([DEBUG]) { baseName = "devtools" } }
+            binaries { framework([RELEASE]) { baseName = "devtools" } }
+        }
+
+        fromPreset(presets.iosArm64, 'iosArm64') {
+            binaries { framework { baseName = "devtools" } }
+            sourceSets["iosArm64Main"].dependsOn(sourceSets["iosMain"])
+        }
+
+        fromPreset(presets.iosArm32, 'iosArm32') {
+            binaries { framework { baseName = "devtools" } }
+            sourceSets["iosArm32Main"].dependsOn(sourceSets["iosMain"])
+        }
     }
 
     sourceSets {
@@ -71,6 +86,37 @@ kotlin {
         iosTest {
             dependencies {
                 implementation "org.jetbrains.kotlin:kotlin-test-testng"
+            }
+        }
+    }
+
+    task debugFatFramework(type: org.jetbrains.kotlin.gradle.tasks.FatFrameworkTask) {
+        baseName = "counter"
+        destinationDir = file("$buildDir/fat-framework/debug")
+        from(
+                targets.ios.binaries.getFramework("DEBUG"),
+                targets.iosArm32.binaries.getFramework("DEBUG"),
+                targets.iosArm64.binaries.getFramework("DEBUG")
+        )
+    }
+
+    task releaseFatFramework(type: org.jetbrains.kotlin.gradle.tasks.FatFrameworkTask) {
+        baseName = "counter"
+        destinationDir = file("$buildDir/fat-framework/release")
+        from(
+                targets.ios.binaries.getFramework("RELEASE"),
+                targets.iosArm32.binaries.getFramework("RELEASE"),
+                targets.iosArm64.binaries.getFramework("RELEASE")
+        )
+    }
+
+    afterEvaluate {
+        tasks.forEach { task ->
+            if (task.name.contains("assembleDebug")) {
+                task.dependsOn "debugFatFramework"
+            }
+            if (task.name.contains("assembleRelease")) {
+                task.dependsOn "releaseFatFramework"
             }
         }
     }
