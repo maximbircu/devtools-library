@@ -47,8 +47,6 @@ kotlin {
             binaries { framework { baseName = "devtools" } }
             sourceSets["iosArm32Main"].dependsOn(sourceSets["iosMain"])
         }
-
-        presets.forEach { println(it.name) }
     }
 
     sourceSets {

@@ -22,6 +22,6 @@ afterEvaluate {
                 excludes: []
         )
 
-        sourceDirectories.from = files(["src/main/kotlin"])
+        sourceDirectories.from = files(kotlin.sourceSets.commonMain.kotlin.srcDirs)
     }
 }
