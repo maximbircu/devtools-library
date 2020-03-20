@@ -32,6 +32,14 @@ allprojects {
         google()
         jcenter()
     }
+
+    configurations.all {
+        resolutionStrategy.eachDependency {
+            if (requested.group == "org.jetbrains.kotlin") {
+                useVersion(kotlin_version)
+            }
+        }
+    }
 }
 
 task clean(type: Delete) {
