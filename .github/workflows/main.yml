@@ -11,17 +11,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Checkout
-      - name: scm
+      - name: SCM
         uses: actions/checkout@v2
 
       # Checkstyle
-      - name: checkstyle (check, detekt, ktlint)
+      - name: Checkstyle (check, detekt, ktlint)
         uses: vgaidarji/android-github-actions-build@v1.0.1
         with:
           args: "./gradlew check detekt ktlint"
 
       # Test
-      - name: unit tests
+      - name: Unit tests
         uses: vgaidarji/android-github-actions-build@v1.0.1
         with:
           args: "./gradlew test"
@@ -32,14 +32,14 @@ jobs:
           args: "./gradlew jacocoTestReport"
 
       # Codecov
-      - name: codecov
+      - name: Codecov
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true
 
       # Assemble artifacts
-      - name: assemble
+      - name: Assemble
         uses: vgaidarji/android-github-actions-build@v1.0.1
         with:
           args: "./gradlew assemble"
