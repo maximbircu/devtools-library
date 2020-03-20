@@ -2,7 +2,8 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - '*'
   pull_request:
     branches: [ master ]
 
@@ -13,6 +14,14 @@ jobs:
       # Checkout
       - name: SCM
         uses: actions/checkout@v2
+
+      - name: Check branch name
+        uses: deepakputhraya/action-branch-name@master
+        with:
+          regex: '\d+(-([a-z])+)+' # https://regex101.com/r/LSmW0I/1
+          ignore: master
+          min_length: 20
+          max_length: 72
 
       # Checkstyle
       - name: Checkstyle (check, detekt, ktlint)
