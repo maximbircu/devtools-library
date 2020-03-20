@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.tasks.FatFrameworkTask
-
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-multiplatform'
 apply from: '../../gradle/jacoco.gradle'
@@ -92,7 +90,7 @@ kotlin {
         }
     }
 
-    task debugFatFramework(type: FatFrameworkTask) {
+    task debugFatFramework(type: org.jetbrains.kotlin.gradle.tasks.FatFrameworkTask) {
         baseName = "counter"
         destinationDir = file("$buildDir/fat-framework/debug")
         from(
@@ -102,7 +100,7 @@ kotlin {
         )
     }
 
-    task releaseFatFramework(type: FatFrameworkTask) {
+    task releaseFatFramework(type: org.jetbrains.kotlin.gradle.tasks.FatFrameworkTask) {
         baseName = "counter"
         destinationDir = file("$buildDir/fat-framework/release")
         from(
