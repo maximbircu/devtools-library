@@ -3,6 +3,10 @@ Changelog
 
 ## Version 1.0.0 *(In development)*
 
+Issue: [#5](https://github.com/maximbircu/devtools-library/issues/3)
+- Integrate codecov to the main workflow
+- Adjust CI steps names
+
 Issue: [#3](https://github.com/maximbircu/devtools-library/issues/3)
 - Implement DevTool skeleton
 - Implement ToggleTool, a dev tool to manipulate boolean configuration values.
