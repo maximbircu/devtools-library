@@ -11,7 +11,7 @@ import java.lang.Double.doubleToRawLongBits
 import java.lang.Double.longBitsToDouble
 
 @SuppressLint("ApplySharedPref")
-actual open class PreferencesToolStore<T> actual constructor(
+actual open class PreferencesToolStore<T: Any> actual constructor(
     private val tool: DevTool<T>
 ) : ToolStore<T> {
     private val preferences = application.getSharedPreferences("DEV_TOOLS", MODE_PRIVATE)
@@ -21,16 +21,15 @@ actual open class PreferencesToolStore<T> actual constructor(
         get() = preferences.getBoolean("${tool.key}_enabled", tool.defaultEnabledValue)
 
     override fun store(value: T) {
-        preferences.edit().put(tool.key, value as Any).commit()
+        preferences.edit().put(tool.key, value).commit()
     }
 
-    @Suppress("UNCHECKED_CAST")
     override fun restore(): T {
-        return preferences.get(tool.key, tool.getDefaultValue() as Any) as T
+        return preferences.get(tool.key, tool.getDefaultValue())
     }
 }
 
-private fun Editor.put(key: String?, value: Any): Editor {
+private fun <T: Any> Editor.put(key: String?, value: T): Editor {
     when (value) {
         is Int -> putInt(key, value)
         is Long -> putLong(key, value)
@@ -43,7 +42,8 @@ private fun Editor.put(key: String?, value: Any): Editor {
     return this
 }
 
-private fun SharedPreferences.get(key: String?, defaultValue: Any): Any {
+private fun <T: Any> SharedPreferences.get(key: String?, defaultValue: T): T {
+    @Suppress("UNCHECKED_CAST")
     return when (defaultValue) {
         is Int -> getInt(key, defaultValue)
         is Long -> getLong(key, defaultValue)
@@ -52,17 +52,15 @@ private fun SharedPreferences.get(key: String?, defaultValue: Any): Any {
         is Boolean -> getBoolean(key, defaultValue)
         is Double -> getDouble(key, defaultValue)
         else -> throw IllegalArgumentException("${defaultValue::class} is not supported!")
-    }
+    } as T
 }
 
 private fun Editor.putDouble(key: String?, value: Double): Editor {
     return putLong(key, doubleToRawLongBits(value))
 }
 
-internal fun SharedPreferences.getDouble(key: String?, defaultValue: Double): Double {
-    return if (contains(key)) {
-        longBitsToDouble(all[key] as Long)
-    } else {
-        defaultValue
-    }
+internal fun SharedPreferences.getDouble(key: String?, defaultValue: Double) = if (contains(key)) {
+    longBitsToDouble(all[key] as Long)
+} else {
+    defaultValue
 }

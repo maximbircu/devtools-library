@@ -44,6 +44,6 @@ abstract class DevTool<T>(
     abstract fun getDefaultValue(): T
 }
 
-abstract class PreferencesDevTool<T> : DevTool<T>() {
+abstract class PreferencesDevTool<T: Any> : DevTool<T>() {
     override val store: ToolStore<T> get() = PreferencesToolStore(this)
 }

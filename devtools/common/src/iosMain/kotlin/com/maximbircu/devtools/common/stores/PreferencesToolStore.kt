@@ -5,7 +5,7 @@ import com.maximbircu.devtools.common.core.ToolStore
 import platform.Foundation.NSUserDefaults
 import platform.darwin.NSInteger
 
-actual open class PreferencesToolStore<T> actual constructor(
+actual open class PreferencesToolStore<T : Any> actual constructor(
     private val tool: DevTool<T>
 ) : ToolStore<T> {
     private val nsUserDefaults: NSUserDefaults = NSUserDefaults("DEV_TOOLS")
@@ -19,15 +19,16 @@ actual open class PreferencesToolStore<T> actual constructor(
         )
 
     override fun store(value: T) {
-        nsUserDefaults.set(value as Any, tool.key)
+        nsUserDefaults.set(value, tool.key)
     }
 
     override fun restore(): T {
-        return nsUserDefaults.get(tool.key, tool.getDefaultValue() as Any) as T
+        return nsUserDefaults.get(tool.key, tool.getDefaultValue())
     }
 }
 
-private fun NSUserDefaults.get(key: String, defaultValue: Any): Any {
+private fun <T : Any> NSUserDefaults.get(key: String, defaultValue: T): T {
+    @Suppress("UNCHECKED_CAST")
     return when (defaultValue) {
         is NSInteger -> getOrDefault(key, defaultValue, ::integerForKey)
         is String -> getOrDefault(key, defaultValue, ::objectForKey)!!
@@ -35,6 +36,17 @@ private fun NSUserDefaults.get(key: String, defaultValue: Any): Any {
         is Boolean -> getOrDefault(key, defaultValue, ::boolForKey)
         is Double -> getOrDefault(key, defaultValue, ::doubleForKey)
         else -> throw IllegalArgumentException("${defaultValue::class} is not supported!")
+    } as T
+}
+
+private fun <T : Any> NSUserDefaults.set(value: T, key: String) {
+    when (value) {
+        is NSInteger -> setInteger(value, key)
+        is String -> setObject(value, key)
+        is Float -> setFloat(value, key)
+        is Boolean -> setBool(value, key)
+        is Double -> setDouble(value, key)
+        else -> throw IllegalArgumentException("${value::class} is not supported!")
     }
 }
 
@@ -43,16 +55,5 @@ private fun <T> NSUserDefaults.getOrDefault(key: String, default: T, action: (St
         action(key)
     } else {
         default
-    }
-}
-
-private fun NSUserDefaults.set(value: Any, key: String) {
-    when (value) {
-        is NSInteger -> setInteger(value, key)
-        is String -> setObject(value, key)
-        is Float -> setFloat(value, key)
-        is Boolean -> setBool(value, key)
-        is Double -> setDouble(value, key)
-        else -> throw IllegalArgumentException("${value::class} is not supported!")
     }
 }
