@@ -51,6 +51,6 @@ abstract class DevTool<T>(
  * This dev tool could be extended by any other tool model which is storing the config value to
  * the device preferences and have Boolean, String, Float, Int, Double, or Long config value type.
  */
-abstract class PreferencesDevTool<T: Any> : DevTool<T>() {
+abstract class PreferencesDevTool<T : Any> : DevTool<T>() {
     override val store: ToolStore<T> get() = PreferencesToolStore(this)
 }

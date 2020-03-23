@@ -9,4 +9,4 @@ import com.maximbircu.devtools.common.core.ToolStore
  *
  * @param tool the preference might use some tool metadata like [DevTool.key] for store actions
  */
-expect open class PreferencesToolStore<T: Any>(tool: DevTool<T>) : ToolStore<T>
+expect open class PreferencesToolStore<T : Any>(tool: DevTool<T>) : ToolStore<T>
