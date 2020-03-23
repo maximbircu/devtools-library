@@ -3,9 +3,12 @@ package com.maximbircu.devtools.common.presentation.tools.toggle
 import com.maximbircu.devtools.common.core.mvp.BasePresenter
 import com.maximbircu.devtools.common.core.mvp.Presenter
 
+/**
+ * Encapsulates the logic which stands behind the [ToggleToolView].
+ */
 interface ToggleToolPresenter : Presenter {
     /**
-     * Should be called when as soon as a tool object was provided to the view.
+     * Should be called as soon as a tool object was provided to the view.
      */
     fun onToolBind(tool: ToggleTool)
 
