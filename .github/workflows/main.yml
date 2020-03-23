@@ -16,6 +16,7 @@ jobs:
           commit-message-title-regex: '^[A-Z].*'
 
   checkstyle:
+    name: "Check project styling (Android lint, Detekt and Ktlint)"
     runs-on: ubuntu-latest
     steps:
       - name: SCM
@@ -37,6 +38,7 @@ jobs:
           args: "./gradlew ktlint"
 
   test:
+    name: "Unit tests"
     runs-on: ubuntu-latest
     steps:
       - name: SCM
@@ -59,6 +61,7 @@ jobs:
           fail_ci_if_error: true
 
   build:
+    name: "Assemble artifacts"
     runs-on: ubuntu-latest
     steps:
       # Checkout
