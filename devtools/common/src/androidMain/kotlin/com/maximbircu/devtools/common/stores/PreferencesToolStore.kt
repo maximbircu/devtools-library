@@ -1,20 +1,19 @@
 package com.maximbircu.devtools.common.stores
 
 import android.annotation.SuppressLint
-import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import android.content.SharedPreferences.Editor
-import com.maximbircu.devtools.common.application
+import com.maximbircu.devtools.common.SharedPreferencesProvider
 import com.maximbircu.devtools.common.core.DevTool
 import com.maximbircu.devtools.common.core.ToolStore
 import java.lang.Double.doubleToRawLongBits
 import java.lang.Double.longBitsToDouble
 
 @SuppressLint("ApplySharedPref")
-actual open class PreferencesToolStore<T: Any> actual constructor(
+actual open class PreferencesToolStore<T : Any> actual constructor(
     private val tool: DevTool<T>
 ) : ToolStore<T> {
-    private val preferences = application.getSharedPreferences("DEV_TOOLS", MODE_PRIVATE)
+    private var preferences = SharedPreferencesProvider.getSharedPreferences("DEV_TOOLS")
 
     override var isEnabled: Boolean
         set(value) { preferences.edit().putBoolean("${tool.key}_enabled", value).commit() }
@@ -29,7 +28,7 @@ actual open class PreferencesToolStore<T: Any> actual constructor(
     }
 }
 
-private fun <T: Any> Editor.put(key: String?, value: T): Editor {
+private fun <T : Any> Editor.put(key: String?, value: T): Editor {
     when (value) {
         is Int -> putInt(key, value)
         is Long -> putLong(key, value)
@@ -42,7 +41,7 @@ private fun <T: Any> Editor.put(key: String?, value: T): Editor {
     return this
 }
 
-private fun <T: Any> SharedPreferences.get(key: String?, defaultValue: T): T {
+private fun <T : Any> SharedPreferences.get(key: String?, defaultValue: T): T {
     @Suppress("UNCHECKED_CAST")
     return when (defaultValue) {
         is Int -> getInt(key, defaultValue)
