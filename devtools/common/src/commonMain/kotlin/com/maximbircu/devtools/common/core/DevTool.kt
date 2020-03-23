@@ -1,5 +1,7 @@
 package com.maximbircu.devtools.common.core
 
+import com.maximbircu.devtools.common.stores.PreferencesToolStore
+
 /**
  * Base model for a dev tool, each dev tool should extend it to be consumable by the library.
  *
@@ -40,4 +42,8 @@ abstract class DevTool<T>(
      * @return default configuration value
      */
     abstract fun getDefaultValue(): T
+}
+
+abstract class PreferencesDevTool<T> : DevTool<T>() {
+    override val store: ToolStore<T> get() = PreferencesToolStore(this)
 }
