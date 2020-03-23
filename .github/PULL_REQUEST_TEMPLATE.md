@@ -1,4 +1,4 @@
-**Issue:** <!-- Add a link to the issue you're this PR belongs to -->
+Closes: <!-- Add a link to the issue this PR relates to -->
 
 - [ ] Unit tests  <!-- Check this if you covered your code with unit tests -->
 - [ ] Changelog <!-- Check this if you updated the changelog file  -->
@@ -10,7 +10,7 @@
 
 ### Screenshots
 Android | iOS
-:-: | :-: 
+:-: | :-:
 ||
 
 ### How to test
