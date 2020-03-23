@@ -3,7 +3,11 @@ Changelog
 
 ## Version 1.0.0 *(In development)*
 
-Issue: [#5](https://github.com/maximbircu/devtools-library/issues/3)
+Issue: [#7](https://github.com/maximbircu/devtools-library/issues/7)
+- Add branch name and commit message style checks using [github-action-pull-request-checkstyle](https://github.com/maximbircu/github-action-pull-request-checkstyle/tags)
+- Split CI steps to different jobs to increase the build type
+
+Issue: [#5](https://github.com/maximbircu/devtools-library/issues/5)
 - Integrate codecov to the main workflow
 - Adjust CI steps names
 

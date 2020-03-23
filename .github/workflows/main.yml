@@ -1,27 +1,50 @@
 name: CI
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on: [pull_request]
 
 jobs:
-  build:
+  pullreqest:
+    name: "Check pull request styling"
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+    steps:
+      - name: "Check branch name and commit messages style"
+        uses: maximbircu/github-action-pull-request-checkstyle@v1.0.0
+        with:
+          branch-name-regex: '\d+(-([a-z])+)+'
+          commit-message-title-regex: '^[A-Z].*'
+
+  checkstyle:
+    name: "Check project styling (Android lint, Detekt and Ktlint)"
     runs-on: ubuntu-latest
     steps:
-      # Checkout
       - name: SCM
         uses: actions/checkout@v2
 
-      # Checkstyle
-      - name: Checkstyle (check, detekt, ktlint)
+      - name: Android lint
         uses: vgaidarji/android-github-actions-build@v1.0.1
         with:
-          args: "./gradlew check detekt ktlint"
+          args: "./gradlew check"
 
-      # Test
-      - name: Unit tests
+      - name: Detekt
+        uses: vgaidarji/android-github-actions-build@v1.0.1
+        with:
+          args: "./gradlew detekt"
+
+      - name: Ktlint
+        uses: vgaidarji/android-github-actions-build@v1.0.1
+        with:
+          args: "./gradlew ktlint"
+
+  test:
+    name: "Unit tests"
+    runs-on: ubuntu-latest
+    steps:
+      - name: SCM
+        uses: actions/checkout@v2
+
+      - name: Test
         uses: vgaidarji/android-github-actions-build@v1.0.1
         with:
           args: "./gradlew test"
@@ -31,15 +54,22 @@ jobs:
         with:
           args: "./gradlew jacocoTestReport"
 
-      # Codecov
       - name: Codecov
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true
 
+  build:
+    name: "Assemble artifacts"
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout
+      - name: SCM
+        uses: actions/checkout@v2
+
       # Assemble artifacts
-      - name: Assemble
+      - name: Assembled
         uses: vgaidarji/android-github-actions-build@v1.0.1
         with:
           args: "./gradlew assemble"
