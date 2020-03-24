@@ -1,10 +1,9 @@
-package com.maximbircu.devtools.common.utils.stores
+package com.maximbircu.devtools.common.stores
 
 import android.content.SharedPreferences
 import com.maximbircu.devtools.common.SharedPreferencesProvider
 import com.maximbircu.devtools.common.mvp.BaseTest
 import com.maximbircu.devtools.common.presentation.tools.toggle.ToggleTool
-import com.maximbircu.devtools.common.stores.PreferencesToolStore
 import com.maximbircu.devtools.common.utils.mockk
 import io.mockk.every
 import io.mockk.mockkObject
@@ -12,7 +11,7 @@ import io.mockk.verify
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
-class PreferencesToolStoreTest : BaseTest() {
+class PreferencesToolStoreImplTest : BaseTest() {
     private val sharedPrefsEditor = mockk<SharedPreferences.Editor>(relaxed = true)
     private val sharedPrefs = mockk<SharedPreferences>()
 
@@ -59,7 +58,7 @@ class PreferencesToolStoreTest : BaseTest() {
 
     private fun createPreferencesStore(
         toolKey: String = "toggle_tool"
-    ): PreferencesToolStore<Boolean> = PreferencesToolStore(
+    ): PreferencesToolStoreImpl<Boolean> = PreferencesToolStoreImpl(
         mockk<ToggleTool>(relaxed = true).apply { every { key }.returns(toolKey) }
     )
 }

@@ -1,13 +1,12 @@
 package com.maximbircu.devtools.common.stores
 
 import com.maximbircu.devtools.common.core.DevTool
-import com.maximbircu.devtools.common.core.ToolStore
 import platform.Foundation.NSUserDefaults
 import platform.darwin.NSInteger
 
-actual open class PreferencesToolStore<T : Any> actual constructor(
+actual open class PreferencesToolStoreImpl<T : Any> actual constructor(
     private val tool: DevTool<T>
-) : ToolStore<T> {
+) : PreferencesToolStore<T> {
     private val nsUserDefaults: NSUserDefaults = NSUserDefaults("DEV_TOOLS")
 
     override var isEnabled: Boolean
