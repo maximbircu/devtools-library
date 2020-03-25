@@ -1,5 +1,8 @@
 package com.maximbircu.devtools.common.core
 
+import com.maximbircu.devtools.common.stores.PreferencesToolStore
+import com.maximbircu.devtools.common.stores.PreferencesToolStoreImpl
+
 /**
  * Base model for a dev tool, each dev tool should extend it to be consumable by the library.
  *
@@ -40,4 +43,15 @@ abstract class DevTool<T>(
      * @return default configuration value
      */
     abstract fun getDefaultValue(): T
+}
+
+/**
+ * A [DevTool] extension which uses [PreferencesToolStoreImpl] to store the tool metadata, and the
+ * configuration value it manages.
+ *
+ * This dev tool could be extended by any other tool model which is storing the config value to
+ * the device preferences and have Boolean, String, Float, Int, Double, or Long config value type.
+ */
+abstract class PreferencesDevTool<T : Any> : DevTool<T>() {
+    override val store: ToolStore<T> get() = PreferencesToolStore.create(this)
 }

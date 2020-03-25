@@ -13,6 +13,7 @@ fun DevToolsSources.memory(): DevToolsSource = object : DevToolsSource {
             override fun getDevTools(): Map<String, DevTool<Any>> {
                 val toggleTool = ToggleTool(defaultValue = false)
                 toggleTool.title = "Toggle dev tool"
+                toggleTool.key = "toggle-tool"
                 return mapOf("toggle-tool" to toggleTool) as Map<String, DevTool<Any>>
             }
         }

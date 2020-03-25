@@ -52,6 +52,7 @@ complexity:
     ignoredLabels: ""
   LargeClass:
     active: true
+    excludes: '**/**Test/**,**/test/**'
     threshold: 80
   LongMethod:
     active: true
@@ -73,6 +74,7 @@ complexity:
     excludeStringsWithLessThan5Characters: true
     ignoreStringsRegex: '$^'
   TooManyFunctions:
+    excludes: '**/**Test/**,**/test/**'
     active: true
     thresholdInFiles: 11
     thresholdInClasses: 11
@@ -347,6 +349,7 @@ style:
     active: true
     maxJumpCount: 1
   MagicNumber:
+    excludes: '**/**Test/**,**/test/**'
     active: true
     ignoreNumbers: '-1,0,1,2'
     ignoreHashCodeFunction: true

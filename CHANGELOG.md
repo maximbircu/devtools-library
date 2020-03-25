@@ -3,6 +3,14 @@ Changelog
 
 ## Version 1.0.0 *(In development)*
 
+Issue: [#6](https://github.com/maximbircu/devtools-library/issues/6)
+- Add preferences tool store interface with implementations for both iOS and Android platforms
+- Increase code coverage
+- Fix and adjust KDocs
+- Adjust Detekt configuration excluding test files from several rules
+- Update PR description template
+- Disable `import-ordering` Ktlint rule
+
 Issue: [#7](https://github.com/maximbircu/devtools-library/issues/7)
 - Add branch name and commit message style checks using [github-action-pull-request-checkstyle](https://github.com/maximbircu/github-action-pull-request-checkstyle/tags)
 - Split CI steps to different jobs to increase the build type
