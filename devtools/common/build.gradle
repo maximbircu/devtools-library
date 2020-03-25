@@ -1,6 +1,9 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-multiplatform'
-apply from: '../../gradle/jacoco.gradle'
+
+configureJacoco {
+    srcDirs = kotlin.sourceSets.commonMain.kotlin.srcDirs
+}
 
 android {
     compileSdkVersion 29

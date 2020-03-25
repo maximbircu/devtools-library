@@ -1,27 +1,63 @@
-apply plugin: 'jacoco'
+allprojects {
+    apply plugin: 'jacoco'
 
-jacoco {
-    toolVersion = "0.8.4"
-    reportsDir = file("$buildDir/reports")
-}
+    jacoco {
+        toolVersion = "0.8.4"
+        reportsDir = file("$buildDir/reports")
+    }
 
-afterEvaluate {
-    tasks.register("jacocoTestReport", JacocoReport).configure {
-        group = "Verification"
-        description = "Generates code coverage report for the test task."
-        reports {
-            xml.enabled = true
-            html.enabled = true
+    ext.configureJacoco = { Closure getConfig ->
+        def config = new JacocoConfiguration()
+        getConfig.delegate = config
+        getConfig.run()
+        afterEvaluate {
+            tasks.register("jacocoTestReport", JacocoReport).configure {
+                group = "Verification"
+                description = "Generates code coverage report for the test task."
+
+                reports {
+                    xml.enabled = true
+                    html.enabled = true
+                }
+
+                dependsOn(tasks.named("test"))
+
+                executionData.from = files("$buildDir/jacoco/testDebugUnitTest.exec")
+                classDirectories.from = fileTree(
+                        dir: "$buildDir/tmp/kotlin-classes/debug",
+                        excludes: config.excludes
+                )
+                sourceDirectories.from = files(config.srcDirs)
+            }
         }
-
-        dependsOn(tasks.named("test"))
-        executionData.from = files("$buildDir/jacoco/testDebugUnitTest.exec")
-
-        classDirectories.from = fileTree(
-                dir: "$buildDir/tmp/kotlin-classes/debug",
-                excludes: []
-        )
-
-        sourceDirectories.from = files(kotlin.sourceSets.commonMain.kotlin.srcDirs)
     }
 }
+
+class JacocoConfiguration {
+    Collection srcDirs = []
+    Collection excludes = []
+}
+
+tasks.register("jacocoTestReport", JacocoReport) {
+    group = "Verification"
+    description = "Generates and agregates jacoco report coverage for all subprojects."
+
+    def tasks = subprojects.collect { it.tasks.withType(JacocoReport) }.flatten()
+    dependsOn tasks
+
+    sourceDirectories.from = files(tasks.collect { it.sourceDirectories })
+    classDirectories.from = files(tasks.collect { it.classDirectories })
+    executionData.from = files(tasks.executionData)
+
+    setOnlyIf { executionData.files.any { it.exists() } }
+
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+
+    doFirst {
+        executionData.from = files(executionData.findAll { it.exists() })
+    }
+}
+
