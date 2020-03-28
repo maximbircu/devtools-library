@@ -83,6 +83,7 @@ kotlin {
             dependsOn commonMain
             dependencies {
                 implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:0.14.0"
+                implementation "org.jetbrains.kotlinx:devtools:android:0.14.0"
             }
         }
 
