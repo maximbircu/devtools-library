@@ -14,7 +14,7 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
     steps:
       - name: "Check branch name and commit messages style"
-        uses: maximbircu/github-action-pull-request-checkstyle@v1.0.0
+        uses: maximbircu/pull-request-checkstyle@v1.0.0
         with:
           branch-name-regex: '\d+(-([a-z])+)+'
           commit-message-title-regex: '^[A-Z].*'
