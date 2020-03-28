@@ -1,4 +1,4 @@
-package com.maximbircu.devtools.android.readers.soruces.yml
+package com.maximbircu.devtools.android.readers.soruces.yaml
 
 import com.maximbircu.devtools.common.core.DevTool
 import com.maximbircu.devtools.common.core.reader.DevToolsReader

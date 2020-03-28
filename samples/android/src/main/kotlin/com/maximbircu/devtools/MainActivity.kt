@@ -3,7 +3,7 @@ package com.maximbircu.devtools
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.memorySourceTools
-import kotlinx.android.synthetic.main.activity_main.ymlSourceTools
+import kotlinx.android.synthetic.main.activity_main.yamlSourceTools
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -11,6 +11,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         memorySourceTools.setOnClickListener { MemoryToolsActivity.start(this) }
-        ymlSourceTools.setOnClickListener { YmlToolsActivity.start(this) }
+        yamlSourceTools.setOnClickListener { YamlToolsActivity.start(this) }
     }
 }

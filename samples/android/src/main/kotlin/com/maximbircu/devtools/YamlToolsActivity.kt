@@ -10,12 +10,12 @@ import com.maximbircu.devtools.common.DevTools
 import com.maximbircu.devtools.common.readers.DevToolsSources
 import kotlinx.android.synthetic.main.layout_tools_container.devToolsContainer
 
-class YmlToolsActivity : AppCompatActivity() {
+class YamlToolsActivity : AppCompatActivity() {
     private lateinit var devtools: DevTools
 
     companion object {
         fun start(context: Context) {
-            val intent = Intent(context, YmlToolsActivity::class.java)
+            val intent = Intent(context, YamlToolsActivity::class.java)
             context.startActivity(intent)
         }
     }

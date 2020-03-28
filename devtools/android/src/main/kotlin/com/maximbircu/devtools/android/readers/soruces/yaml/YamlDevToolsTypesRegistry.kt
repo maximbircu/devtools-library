@@ -1,4 +1,4 @@
-package com.maximbircu.devtools.android.readers.soruces.yml
+package com.maximbircu.devtools.android.readers.soruces.yaml
 
 import org.yaml.snakeyaml.TypeDescription
 import org.yaml.snakeyaml.Yaml
