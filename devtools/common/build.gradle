@@ -83,7 +83,6 @@ kotlin {
             dependsOn commonMain
             dependencies {
                 implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:0.14.0"
-                implementation "org.jetbrains.kotlinx:devtools:android:0.14.0"
             }
         }
 
@@ -95,7 +94,7 @@ kotlin {
     }
 
     task debugFatFramework(type: org.jetbrains.kotlin.gradle.tasks.FatFrameworkTask) {
-        baseName = "counter"
+        baseName = "devtools"
         destinationDir = file("$buildDir/fat-framework/debug")
         from(
                 targets.ios.binaries.getFramework("DEBUG"),
@@ -105,7 +104,7 @@ kotlin {
     }
 
     task releaseFatFramework(type: org.jetbrains.kotlin.gradle.tasks.FatFrameworkTask) {
-        baseName = "counter"
+        baseName = "devtools"
         destinationDir = file("$buildDir/fat-framework/release")
         from(
                 targets.ios.binaries.getFramework("RELEASE"),

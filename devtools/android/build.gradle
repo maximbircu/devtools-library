@@ -34,6 +34,7 @@ android {
 dependencies {
     api(project(':devtools:common')) { transitive = true }
 
+    // kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     // androidx
@@ -41,6 +42,8 @@ dependencies {
     implementation "androidx.cardview:cardview:1.0.0"
     implementation "androidx.recyclerview:recyclerview:1.1.0"
     implementation "androidx.constraintlayout:constraintlayout:2.0.0-beta4"
+
+    implementation "org.yaml:snakeyaml:1.25"
 
     // test
     testImplementation "org.jetbrains.kotlin:kotlin-test"

@@ -1,0 +1,27 @@
+package com.maximbircu.devtools.android.readers.soruces.yml
+
+import com.maximbircu.devtools.common.core.DevTool
+import com.maximbircu.devtools.common.core.reader.DevToolsReader
+import org.yaml.snakeyaml.Yaml
+import java.io.InputStream
+
+internal class YamlDevToolsReader(
+    typesRegistry: YamlDevToolsTypesRegistry,
+    private val toolsInputStream: InputStream
+) : DevToolsReader {
+    private val yaml = Yaml(typesRegistry.constructor)
+
+    override fun getDevTools(): Map<String, DevTool<Any>> {
+        val devTools = toolsInputStream.load<Map<String, DevTool<Any>>>() ?: emptyMap()
+        devTools.forEach { (key, tool) -> tool.key = key }
+        return devTools
+    }
+
+    private fun <T> InputStream.load(): T? {
+        val data = reader().readText()
+        if (data.isBlank()) {
+            return null
+        }
+        return yaml.load(data) as T
+    }
+}

@@ -1,0 +1,3 @@
+toggle-dev-tool: !toggle {
+  title: "Toggle dev tool"
+}
