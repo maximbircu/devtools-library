@@ -6,8 +6,8 @@ import com.maximbircu.devtools.common.core.reader.DevToolsSource
 import java.io.InputStream
 
 internal class YamlDevToolsSource(
-    val assetManager: AssetManager,
-    val inputStream: InputStream
+    private val assetManager: AssetManager,
+    private val inputStream: InputStream
 ) : DevToolsSource {
     override fun getReader(): DevToolsReader = YamlDevToolsReader(
         YamlDevToolsTypesRegistry.create(assetManager.open("dev-tools-types.yml")),

@@ -22,25 +22,14 @@ private class YamlDevToolsTypesRegistryImpl(
     override val constructor = Constructor()
 
     init {
-        inputStream.forEach { stream ->
-            stream.load<Map<String, String>>()?.asIterable()?.associateTo(
-                mutableMapOf(),
-                { entry -> Class.forName(entry.key) to entry.value }
-            )?.let(::addTypeDescriptions)
-        }
+        inputStream.forEach { stream -> stream.loadTypeDescriptions() }
     }
 
-    private fun addTypeDescriptions(typeDescriptions: Map<Class<*>, String>) {
-        typeDescriptions.forEach { (key, value) ->
-            constructor.addTypeDescription(TypeDescription(key, value))
+    private fun InputStream.loadTypeDescriptions() {
+        val types = yaml.load<Map<String, String>>(this)
+        types.forEach { (classPackageName, toolName) ->
+            val type = Class.forName(classPackageName)
+            constructor.addTypeDescription(TypeDescription(type, toolName))
         }
-    }
-
-    private fun <T> InputStream.load(): T? {
-        val data = reader().readText()
-        if (data.isBlank()) {
-            return null
-        }
-        return yaml.load(data) as T
     }
 }

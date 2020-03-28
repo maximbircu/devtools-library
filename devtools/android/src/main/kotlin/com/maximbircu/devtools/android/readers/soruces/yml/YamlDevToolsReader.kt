@@ -12,16 +12,8 @@ internal class YamlDevToolsReader(
     private val yaml = Yaml(typesRegistry.constructor)
 
     override fun getDevTools(): Map<String, DevTool<Any>> {
-        val devTools = toolsInputStream.load<Map<String, DevTool<Any>>>() ?: emptyMap()
+        val devTools: Map<String, DevTool<Any>> = yaml.load(toolsInputStream) ?: emptyMap()
         devTools.forEach { (key, tool) -> tool.key = key }
         return devTools
-    }
-
-    private fun <T> InputStream.load(): T? {
-        val data = reader().readText()
-        if (data.isBlank()) {
-            return null
-        }
-        return yaml.load(data) as T
     }
 }
