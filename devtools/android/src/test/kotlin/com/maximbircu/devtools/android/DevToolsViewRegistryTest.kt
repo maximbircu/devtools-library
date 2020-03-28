@@ -53,7 +53,6 @@ class DevToolsViewRegistryTest : BaseTest() {
         }
         DevToolsViewRegistry.register(fakeDevToolModel::class) { mockk() }
 
-
         assertFailsWith(IllegalArgumentException::class) {
             DevToolsViewRegistry.register(fakeDevToolModel::class) { mockk() }
         }
