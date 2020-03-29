@@ -1,8 +1,13 @@
 package com.maximbircu.devtools.android.readers.soruces.yaml
 
 import com.maximbircu.devtools.android.BaseTest
+import com.maximbircu.devtools.common.core.DevTool
 import com.maximbircu.devtools.common.presentation.tools.toggle.ToggleTool
+import io.mockk.every
+import io.mockk.mockkConstructor
 import org.junit.Test
+import org.yaml.snakeyaml.Yaml
+import java.io.InputStream
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
@@ -18,18 +23,17 @@ class YamlDevToolsReaderTest : BaseTest() {
     }
 
     @Test
+    @Suppress("UNCHECKED_CAST")
     fun `returns proper dev tool`() {
-        val expectedTool = ToggleTool().apply { key = "toggle-dev-tool" }
-        val devToolsConfig = """
-            toggle-dev-tool: !toggle {
-              title: "Toggle dev tool"
-            }
-        """.trimIndent().byteInputStream()
-        val reader = YamlDevToolsReader(createTypeRegistry(), devToolsConfig)
+        mockkConstructor(Yaml::class)
+        val reader = YamlDevToolsReader(createTypeRegistry(), "".byteInputStream())
+        every {
+            anyConstructed<Yaml>().load<Map<String, DevTool<Any>>>(any<InputStream>())
+        } returns mapOf("toggle-tool" to ToggleTool()) as Map<String, DevTool<Any>>
 
-        val devTools = reader.getDevTools()
+        val tools = reader.getDevTools()
 
-        assertEquals(expectedTool, devTools["toggle-dev-tool"] as ToggleTool)
+        assertEquals(tools.getValue("toggle-tool").key, "toggle-tool")
     }
 
     private fun createTypeRegistry(): YamlDevToolsTypesRegistry = YamlDevToolsTypesRegistry.create(
