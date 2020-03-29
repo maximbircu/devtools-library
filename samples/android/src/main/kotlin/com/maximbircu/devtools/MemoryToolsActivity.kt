@@ -9,7 +9,7 @@ import com.maximbircu.devtools.android.readers.memory
 import com.maximbircu.devtools.common.DevTools
 import com.maximbircu.devtools.common.presentation.tools.toggle.ToggleTool
 import com.maximbircu.devtools.common.readers.DevToolsSources
-import kotlinx.android.synthetic.main.layout_tools_container.devToolsContainer
+import kotlinx.android.synthetic.main.activity_tools_container.devToolsContainer
 
 class MemoryToolsActivity : AppCompatActivity() {
     private lateinit var devtools: DevTools
@@ -23,7 +23,7 @@ class MemoryToolsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.layout_tools_container)
+        setContentView(R.layout.activity_tools_container)
 
         val toggleTool = ToggleTool(defaultValue = false)
         toggleTool.title = "Toggle dev tool"

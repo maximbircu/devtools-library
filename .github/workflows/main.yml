@@ -29,7 +29,7 @@ jobs:
       - name: Android lint
         uses: vgaidarji/android-github-actions-build@v1.0.1
         with:
-          args: "./gradlew check"
+          args: "./gradlew lint"
 
       - name: Detekt
         uses: vgaidarji/android-github-actions-build@v1.0.1

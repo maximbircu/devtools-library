@@ -8,7 +8,7 @@ import com.maximbircu.devtools.android.DevToolsConfigurationScreen
 import com.maximbircu.devtools.android.readers.yaml
 import com.maximbircu.devtools.common.DevTools
 import com.maximbircu.devtools.common.readers.DevToolsSources
-import kotlinx.android.synthetic.main.layout_tools_container.devToolsContainer
+import kotlinx.android.synthetic.main.activity_tools_container.devToolsContainer
 
 class YamlToolsActivity : AppCompatActivity() {
     private lateinit var devtools: DevTools
@@ -22,7 +22,7 @@ class YamlToolsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.layout_tools_container)
+        setContentView(R.layout.activity_tools_container)
 
         val source = DevToolsSources.yaml(assets, "dev-tools.yml")
         devtools = DevTools.create(source)
