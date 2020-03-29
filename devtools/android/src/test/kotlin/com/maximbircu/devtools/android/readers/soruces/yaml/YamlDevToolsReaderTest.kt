@@ -1,12 +1,8 @@
 package com.maximbircu.devtools.android.readers.soruces.yaml
 
 import com.maximbircu.devtools.android.BaseTest
-import com.maximbircu.devtools.android.utils.mockk
 import com.maximbircu.devtools.common.presentation.tools.toggle.ToggleTool
-import io.mockk.every
 import org.junit.Test
-import org.yaml.snakeyaml.TypeDescription
-import org.yaml.snakeyaml.constructor.Constructor
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
@@ -36,13 +32,8 @@ class YamlDevToolsReaderTest : BaseTest() {
         assertEquals(expectedTool, devTools["toggle-dev-tool"] as ToggleTool)
     }
 
-    private fun createTypeRegistry(): YamlDevToolsTypesRegistry {
-        return mockk<YamlDevToolsTypesRegistry>(relaxed = true).apply {
-            every { constructor }.returns(
-                Constructor().apply {
-                    addTypeDescription(TypeDescription(ToggleTool::class.java, "!toggle"))
-                }
-            )
-        }
-    }
+    private fun createTypeRegistry(): YamlDevToolsTypesRegistry = YamlDevToolsTypesRegistry.create(
+        """com.maximbircu.devtools.common.presentation.tools.toggle.ToggleTool : "!toggle""""
+            .trimIndent().byteInputStream()
+    )
 }
