@@ -20,7 +20,7 @@ allprojects {
                     html.enabled = true
                 }
 
-                dependsOn(tasks.named("test"))
+                dependsOn(tasks.named("testDebugUnitTest"))
 
                 executionData.from = files("$buildDir/jacoco/testDebugUnitTest.exec")
                 classDirectories.from = fileTree(
