@@ -5,20 +5,20 @@ on:
     branches: [ master ]
 
 jobs:
-  pullreqest:
   checkstyle:
-    name: "Check project styling (Android lint, Detekt and Ktlint)"
+    name: Check project styling (Android lint, Detekt and Ktlint)
     runs-on: ubuntu-latest
     steps:
       - name: SCM
         uses: actions/checkout@v2
 
-      uses: eskatos/gradle-command-action@v1
-      with:
-        arguments: lintDebug detekt ktlint
+      - name: Check project styling
+        uses: eskatos/gradle-command-action@v1
+        with:
+          arguments: lintDebug detekt ktlint
 
   test:
-    name: "Unit tests"
+    name: Unit tests
     runs-on: ubuntu-latest
     steps:
       - name: SCM
@@ -41,14 +41,12 @@ jobs:
           fail_ci_if_error: true
 
   build:
-    name: "Assemble artifacts"
+    name: Assemble artifacts
     runs-on: macos-latest
     steps:
-      # Checkout
       - name: SCM
         uses: actions/checkout@v2
 
-      # Assemble artifacts
       - name: Assemble
         uses: eskatos/gradle-command-action@v1
         with:

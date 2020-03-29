@@ -6,19 +6,19 @@ on:
 
 jobs:
   pullreqest:
-    name: "Check pull request styling"
+    name: Check pull request styling
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
     steps:
-      - name: "Check branch name and commit messages style"
+      - name: Check branch name and commit messages style
         uses: maximbircu/pull-request-checkstyle@v1.0.0
         with:
           branch-name-regex: '\d+(-([a-z])+)+'
           commit-message-title-regex: '^[A-Z].*'
 
   checkstyle:
-    name: "Check project styling (Android lint, Detekt and Ktlint)"
+    name: Check project styling (Android lint, Detekt and Ktlint)
     runs-on: ubuntu-latest
     steps:
       - name: SCM
@@ -40,7 +40,7 @@ jobs:
           arguments: ktlint
 
   test:
-    name: "Unit tests"
+    name: Unit tests
     runs-on: ubuntu-latest
     steps:
       - name: SCM
@@ -63,14 +63,12 @@ jobs:
           fail_ci_if_error: true
 
   build:
-    name: "Assemble artifacts"
+    name: Assemble artifacts
     runs-on: ubuntu-latest # TODO replace with macos-latest so the iOS frameworks a build too
     steps:
-      # Checkout
       - name: SCM
         uses: actions/checkout@v2
 
-      # Assemble artifacts
       - name: Assemble
         uses: eskatos/gradle-command-action@v1
         with:
