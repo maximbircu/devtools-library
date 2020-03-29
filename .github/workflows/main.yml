@@ -9,7 +9,7 @@ on:
 jobs:
   pullreqest:
     name: "Check pull request styling"
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
     steps:
