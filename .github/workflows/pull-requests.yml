@@ -64,7 +64,7 @@ jobs:
 
   build:
     name: Assemble artifacts
-    runs-on: ubuntu-latest # TODO replace with macos-latest so the iOS frameworks a build too
+    runs-on: ubuntu-latest # TODO #16 Replace with macos-latest so the iOS frameworks a build too.
     steps:
       - name: SCM
         uses: actions/checkout@v2
