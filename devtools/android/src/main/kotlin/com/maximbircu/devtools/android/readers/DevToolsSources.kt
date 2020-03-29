@@ -12,10 +12,10 @@ fun DevToolsSources.memory(devTools: Map<String, DevTool<*>>): DevToolsSource {
     return MemoryDevToolsSource(devTools)
 }
 
-fun DevToolsSources.yaml(assetManager: AssetManager, inputStream: InputStream): DevToolsSource {
-    return YamlDevToolsSource(assetManager, inputStream)
+fun DevToolsSources.yaml(assetManager: AssetManager, fileName: String): DevToolsSource {
+    return yaml(assetManager, assetManager.open(fileName))
 }
 
-fun DevToolsSources.yaml(assetManager: AssetManager, fileName: String): DevToolsSource {
-    return YamlDevToolsSource(assetManager, assetManager.open(fileName))
+fun DevToolsSources.yaml(assetManager: AssetManager, inputStream: InputStream): DevToolsSource {
+    return YamlDevToolsSource(assetManager, inputStream)
 }
