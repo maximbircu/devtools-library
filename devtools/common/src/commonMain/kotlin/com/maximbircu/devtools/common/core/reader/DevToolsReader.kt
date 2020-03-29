@@ -9,5 +9,5 @@ interface DevToolsReader {
     /**
      * @return key value pair collection of devtools
      */
-    fun getDevTools(): Map<String, DevTool<Any>>
+    fun getDevTools(): Map<String, DevTool<*>>
 }
