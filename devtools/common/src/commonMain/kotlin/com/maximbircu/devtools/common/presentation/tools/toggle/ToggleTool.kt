@@ -8,7 +8,7 @@ import com.maximbircu.devtools.common.core.PreferencesDevTool
  *
  * @property defaultValue default value which will be set from on of the supported tools sources
  */
-class ToggleTool(
+data class ToggleTool(
     private val defaultValue: Boolean = false
 ) : PreferencesDevTool<Boolean>() {
     override fun getDefaultValue(): Boolean = defaultValue
