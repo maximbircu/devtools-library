@@ -51,6 +51,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintWidth_max="256dp"
             tools:ignore="UnusedAttribute"
+            tools:textColor="#000"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
