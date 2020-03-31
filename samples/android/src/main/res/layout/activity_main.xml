@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="32dp"
+    android:layout_margin="64dp"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity"
@@ -15,13 +15,13 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:text="@string/select_tools_source"
-        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/memorySourceTools"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.26999998"
         app:layout_constraintVertical_chainStyle="packed"
+        android:textAppearance="?attr/textAppearanceHeadline6"
         />
 
     <Button

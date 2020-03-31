@@ -31,6 +31,15 @@ class ViewExtensionsKtTest : BaseTest() {
     }
 
     @Test
+    fun `sets view visibility to invisible`() {
+        val view: View = mockk()
+
+        view.makeInvisible()
+
+        verify { view.visibility = View.INVISIBLE }
+    }
+
+    @Test
     fun `returns proper views`() {
         val children = listOf<View>(mockk(), mockk())
         val rootView = createViewGroup(children)

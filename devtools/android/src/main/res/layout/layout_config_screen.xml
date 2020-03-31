@@ -1,57 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@style/DevTools"
     >
     <com.maximbircu.devtools.android.presentation.list.DevToolsListLayout
         android:id="@+id/devToolsList"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:clipToPadding="false"
         android:fadingEdge="vertical"
         android:paddingLeft="16dp"
-        android:paddingTop="16dp"
         android:paddingRight="16dp"
-        android:paddingBottom="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:paddingTop="16dp"
+        android:paddingBottom="64dp"
         />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/applyButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/config_screen_list_bottom_gradient"
-        android:paddingTop="64dp"
-        android:paddingBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:ignore="ContentDescription"
-        >
-        <TextView
-            android:id="@+id/applyButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/apply_button_border"
-            android:foreground="?attr/selectableItemBackground"
-            android:gravity="center"
-            android:padding="16dp"
-            android:text="@string/apply"
-            android:textAllCaps="true"
-            android:textColor="?attr/colorAccent"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintWidth_max="256dp"
-            tools:ignore="UnusedAttribute"
-            tools:textColor="#000"
-            />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_margin="8dp"
+        android:contentDescription="@string/config_screen_apply_button"
+        android:text="@string/config_screen_apply_button"
+        app:icon="@android:drawable/ic_menu_save"
+        app:layout_anchor="@id/devToolsList"
+        app:layout_anchorGravity="bottom|right|end"
+        android:layerType="hardware"
+        />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
