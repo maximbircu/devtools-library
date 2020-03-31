@@ -14,14 +14,14 @@ inline fun <T : Any, reified DT : DevTool<T>> createTool(
 }
 
 fun <T : Any> DevTool<T>.mockWith(model: DevToolMokData<T>) {
-    every { title }.returns(model.title)
-    every { description }.returns(model.description)
-    every { canBeDisabled }.returns(model.canBeDisabled)
-    every { defaultEnabledValue }.returns(model.defaultEnabledValue)
-    every { store }.returns(model.store)
-    model.storedData?.let { every { store.restore() }.returns(it) }
-    every { store.isEnabled }.returns(model.enabled)
-    every { isEnabled }.returns(model.enabled)
+    every { title } returns model.title
+    every { description } returns model.description
+    every { canBeDisabled } returns model.canBeDisabled
+    every { defaultEnabledValue } returns model.defaultEnabledValue
+    every { store } returns model.store
+    model.storedData?.let { every { store.restore() } returns it }
+    every { store.isEnabled } returns model.enabled
+    every { isEnabled } returns model.enabled
 }
 
 class DevToolMokData<T : Any> : DevTool<T>() {

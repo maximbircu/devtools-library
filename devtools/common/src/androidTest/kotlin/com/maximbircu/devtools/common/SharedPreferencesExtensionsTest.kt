@@ -15,8 +15,8 @@ class SharedPreferencesExtensionsTest : BaseTest() {
     private val sharedPrefs = mockk<SharedPreferences>(relaxed = true)
 
     init {
-        every { sharedPrefsEditor.putBoolean(any(), any()) }.returns(sharedPrefsEditor)
-        every { sharedPrefs.edit() }.returns(sharedPrefsEditor)
+        every { sharedPrefsEditor.putBoolean(any(), any()) } returns sharedPrefsEditor
+        every { sharedPrefs.edit() } returns sharedPrefsEditor
     }
 
     // Store methods Editor.put(key: String?, value: T)
@@ -136,8 +136,8 @@ class SharedPreferencesExtensionsTest : BaseTest() {
 
     @Test
     fun `restores double value properly if the key exists and it was stored`() {
-        every { sharedPrefs.contains("radio-tool") }.returns(true)
-        every { sharedPrefs.all["radio-tool"] }.returns(doubleToRawLongBits(25.3))
+        every { sharedPrefs.contains("radio-tool") } returns true
+        every { sharedPrefs.all["radio-tool"] } returns doubleToRawLongBits(25.3)
 
         val actualValue = sharedPrefs.getDouble("radio-tool", 30.0)
 
@@ -146,7 +146,7 @@ class SharedPreferencesExtensionsTest : BaseTest() {
 
     @Test
     fun `returns default value if the key doesn't exist and no value was stored`() {
-        every { sharedPrefs.contains("radio-tool") }.returns(false)
+        every { sharedPrefs.contains("radio-tool") } returns false
 
         val actualValue = sharedPrefs.getDouble("radio-tool", 30.0)
 

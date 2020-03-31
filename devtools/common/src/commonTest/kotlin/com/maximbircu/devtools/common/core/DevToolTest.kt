@@ -12,7 +12,7 @@ class DevToolTest : BaseTest() {
     @Test
     fun `restores proper enabled value`() {
         val devTool = createDevTool()
-        every { devTool.store.isEnabled }.returns(true)
+        every { devTool.store.isEnabled } returns true
 
         assertTrue(devTool.isEnabled)
     }
@@ -20,7 +20,7 @@ class DevToolTest : BaseTest() {
     @Test
     fun `some test`() {
         mockkObject(PreferencesToolStore)
-        every { PreferencesToolStore.create<Any>(any()) }.returns(mockk(relaxed = true))
+        every { PreferencesToolStore.create<Any>(any()) } returns mockk(relaxed = true)
 
         val devTool = createPreferencesDevTool()
 

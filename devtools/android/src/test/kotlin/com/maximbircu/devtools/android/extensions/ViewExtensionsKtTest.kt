@@ -76,8 +76,8 @@ class ViewExtensionsKtTest : BaseTest() {
 
     private fun createViewGroup(views: List<View> = emptyList()): ViewGroup {
         val view = mockk<ViewGroup>(relaxed = true)
-        every { view.childCount } returns(views.size)
-        views.forEachIndexed { index, child -> every { view.getChildAt(index) }.returns(child) }
+        every { view.childCount } returns views.size
+        views.forEachIndexed { index, child -> every { view.getChildAt(index) } returns child }
         return view
     }
 }
