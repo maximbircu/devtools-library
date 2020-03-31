@@ -27,7 +27,7 @@ jobs:
       - name: Android lint
         uses: eskatos/gradle-command-action@v1
         with:
-          arguments: lintDebug
+          arguments: lint
 
       - name: Detekt
         uses: eskatos/gradle-command-action@v1
