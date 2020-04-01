@@ -3,6 +3,15 @@ Changelog
 
 ## Version 1.0.0 *(In development)*
 
+Issue: [#11](https://github.com/maximbircu/devtools-library/issues/11)
+- Update Kotlin to `1.3.71`
+- Update to Gradle `4.1.0-alpha04`
+- Split master and PR GitHub actions workflow
+- Make JaCoCo run on all modules
+- Cover all android module code with unit tests
+- Add YML dev tools input source support
+- Add material design and adjust the UI
+
 Issue: [#6](https://github.com/maximbircu/devtools-library/issues/6)
 - Add preferences tool store interface with implementations for both iOS and Android platforms
 - Increase code coverage
