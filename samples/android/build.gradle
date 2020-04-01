@@ -43,5 +43,10 @@ dependencies {
     implementation project(':devtools:android')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0'
+
+    implementation "com.google.android.material:material:1.1.0"
+
+    // androidx
+    implementation "androidx.appcompat:appcompat:1.1.0"
+    implementation "androidx.constraintlayout:constraintlayout:1.1.3"
 }

@@ -16,10 +16,10 @@ class PreferencesToolStoreImplTest : BaseTest() {
     private val sharedPrefs = mockk<SharedPreferences>()
 
     init {
-        every { sharedPrefsEditor.putBoolean(any(), any()) }.returns(sharedPrefsEditor)
-        every { sharedPrefs.edit() }.returns(sharedPrefsEditor)
+        every { sharedPrefsEditor.putBoolean(any(), any()) } returns sharedPrefsEditor
+        every { sharedPrefs.edit() } returns sharedPrefsEditor
         mockkObject(SharedPreferencesProvider)
-        every { SharedPreferencesProvider.getSharedPreferences(any()) }.returns(sharedPrefs)
+        every { SharedPreferencesProvider.getSharedPreferences(any()) } returns sharedPrefs
     }
 
     @Test
@@ -34,7 +34,7 @@ class PreferencesToolStoreImplTest : BaseTest() {
     @Test
     fun `restores tool enabled value`() {
         val preferencesStore = createPreferencesStore(toolKey = "radio-tool")
-        every { sharedPrefs.getBoolean("radio-tool_enabled", false) }.returns(true)
+        every { sharedPrefs.getBoolean("radio-tool_enabled", false) } returns true
 
         assertTrue(preferencesStore.isEnabled)
     }
@@ -51,7 +51,7 @@ class PreferencesToolStoreImplTest : BaseTest() {
     @Test
     fun `restores tool config value`() {
         val preferencesStore = createPreferencesStore(toolKey = "toggle-tool")
-        every { sharedPrefs.getBoolean("toggle-tool", false) }.returns(true)
+        every { sharedPrefs.getBoolean("toggle-tool", false) } returns true
 
         assertTrue(preferencesStore.restore())
     }
@@ -59,6 +59,6 @@ class PreferencesToolStoreImplTest : BaseTest() {
     private fun createPreferencesStore(
         toolKey: String = "toggle_tool"
     ): PreferencesToolStoreImpl<Boolean> = PreferencesToolStoreImpl(
-        mockk<ToggleTool>(relaxed = true).apply { every { key }.returns(toolKey) }
+        mockk<ToggleTool>(relaxed = true).apply { every { key } returns toolKey }
     )
 }

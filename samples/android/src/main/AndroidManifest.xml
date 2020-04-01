@@ -19,5 +19,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".YamlToolsActivity" android:label="@string/yaml_dev_tools"/>
+        <activity android:name=".MemoryToolsActivity" android:label="@string/memory_dev_tools" />
     </application>
 </manifest>

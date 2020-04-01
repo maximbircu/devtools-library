@@ -24,7 +24,7 @@ class ConfigScreenPresenterImplTest :
             "first-tool" to createTool(),
             "second-tool" to createTool()
         )
-        every { devTools.tools }.returns(tools)
+        every { devTools.tools } returns tools
 
         presenter.onCreate()
 
@@ -34,8 +34,8 @@ class ConfigScreenPresenterImplTest :
     @Test
     fun `triggers config update when the user applies config`() {
         val devToolsViews = listOf<DevToolView>(mockk(), mockk(), mockk())
-        every { devTools.onConfigUpdate }.returns(mockk(relaxed = true))
-        every { devToolsList.devToolViews }.returns(devToolsViews)
+        every { devTools.onConfigUpdate } returns mockk(relaxed = true)
+        every { devToolsList.devToolViews } returns devToolsViews
 
         presenter.onApplyConfig()
 
@@ -45,8 +45,8 @@ class ConfigScreenPresenterImplTest :
     @Test
     fun `notifies listener about configuration update on apply`() {
         val listener: () -> Unit = mockk(relaxed = true)
-        every { devTools.onConfigUpdate }.returns(listener)
-        every { devToolsList.devToolViews }.returns(emptyList())
+        every { devTools.onConfigUpdate } returns listener
+        every { devToolsList.devToolViews } returns emptyList()
 
         presenter.onApplyConfig()
 

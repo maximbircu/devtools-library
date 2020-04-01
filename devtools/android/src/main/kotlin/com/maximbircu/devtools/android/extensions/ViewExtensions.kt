@@ -11,17 +11,13 @@ internal fun View.hide() {
     visibility = View.GONE
 }
 
-internal fun ViewGroup.children() = object : Iterable<View> {
-    override fun iterator() = object : Iterator<View> {
-        var index = 0
-        override fun hasNext() = index < childCount
-        override fun next() = getChildAt(index++) ?: throw NoSuchElementException()
-    }
+internal fun View.makeInvisible() {
+    visibility = View.INVISIBLE
 }
 
-internal fun View.setOnClickListener(action: () -> Unit) {
-    this.setOnClickListener { action() }
-}
+internal fun ViewGroup.children(): List<View> = (0 until childCount).map { getChildAt(it) }
+
+internal fun View.setOnClickListener(action: () -> Unit) = this.setOnClickListener { action() }
 
 internal fun View.setEnabledRecursively(isEnabled: Boolean) {
     this.isEnabled = isEnabled

@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">devtools</string>
+    <string name="app_name">Dev tools</string>
+    <string name="select_tools_source">Select Tools Source</string>
+    <string name="memory_dev_tools">Dev tools [Memory]</string>
+    <string name="yaml_dev_tools">Dev tools [YAML]</string>
+    <string name="memory_source_tools_button_text">Memory</string>
+    <string name="yaml_source_tools_button_text">YAML</string>
 </resources>

@@ -2,6 +2,16 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
+configureJacoco {
+    srcDirs = android.sourceSets.main.kotlin.srcDirs
+    excludes = [
+            '**/*Fragment*',
+            '**/*Activity*.*',
+            '**/*Layout*.*',
+            '**/*Adapter*.*'
+    ]
+}
+
 android {
     compileSdkVersion 29
 
@@ -15,6 +25,7 @@ android {
 
     sourceSets {
         main.java.srcDir 'src/main/kotlin'
+        test.java.srcDir 'src/test/kotlin'
     }
 
     libraryVariants.all { it.generateBuildConfig.enabled = false }
@@ -23,6 +34,10 @@ android {
 dependencies {
     api(project(':devtools:common')) { transitive = true }
 
+    implementation "org.yaml:snakeyaml:1.25"
+    implementation "com.google.android.material:material:1.1.0"
+
+    // kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     // androidx
@@ -30,4 +45,9 @@ dependencies {
     implementation "androidx.cardview:cardview:1.0.0"
     implementation "androidx.recyclerview:recyclerview:1.1.0"
     implementation "androidx.constraintlayout:constraintlayout:2.0.0-beta4"
+
+    // test
+    testImplementation "org.jetbrains.kotlin:kotlin-test"
+    testImplementation "org.jetbrains.kotlin:kotlin-test-junit"
+    testImplementation "io.mockk:mockk:1.9.3"
 }

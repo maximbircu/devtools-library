@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
+    android:theme="@style/DevTools"
     >
     <TextView
         android:id="@+id/toolTitle"
@@ -12,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:includeFontPadding="false"
-        android:textSize="18sp"
+        android:textAppearance="?attr/textAppearanceHeadline6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/toolEnableToggle"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,10 +22,10 @@
         />
 
     <CheckBox
+        android:gravity="center"
         android:id="@+id/toolEnableToggle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:checked="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

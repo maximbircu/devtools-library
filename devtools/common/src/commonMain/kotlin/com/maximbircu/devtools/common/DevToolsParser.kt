@@ -4,7 +4,7 @@ import com.maximbircu.devtools.common.core.DevTool
 import com.maximbircu.devtools.common.core.reader.DevToolsSource
 
 interface DevToolsParser {
-    fun getDevTools(): Map<String, DevTool<Any>>
+    fun getDevTools(): Map<String, DevTool<*>>
 
     companion object {
         fun create(devToolsSources: List<DevToolsSource>): DevToolsParser {
@@ -14,7 +14,7 @@ interface DevToolsParser {
 }
 
 private class DevToolsParserImpl(private val sources: List<DevToolsSource>) : DevToolsParser {
-    override fun getDevTools(): Map<String, DevTool<Any>> {
+    override fun getDevTools(): Map<String, DevTool<*>> {
         val readers = sources.map { it.getReader() }
         return readers.fold(mapOf(), { accumulator, reader -> accumulator + reader.getDevTools() })
     }

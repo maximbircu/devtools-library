@@ -1,0 +1,6 @@
+toggle-dev-tool: !toggle {
+  title: "Toggle dev tool",
+  description: "Some description goes here",
+  canBeDisabled: true,
+  defaultEnabledValue: false
+}

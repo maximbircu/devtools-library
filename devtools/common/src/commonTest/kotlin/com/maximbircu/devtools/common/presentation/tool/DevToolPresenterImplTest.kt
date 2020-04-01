@@ -58,7 +58,7 @@ class DevToolPresenterImplTest : BasePresenterTest<DevToolView, DevToolPresenter
     fun `stores new tool enabled value on config updated`() {
         val tool: ToggleTool = createTool { enabled = false }
         presenter.onToolBind(tool)
-        every { view.isToolEnabled }.returns(false)
+        every { view.isToolEnabled } returns false
 
         presenter.onPersistToolState()
 

@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="apply">Apply</string>
+    <!-- Config screen -->
+    <string name="config_screen_apply_button">Apply</string>
+
+    <!-- Toggle tool -->
+    <string name="toggle_tool_is_enabled">Is enabled</string>
 </resources>

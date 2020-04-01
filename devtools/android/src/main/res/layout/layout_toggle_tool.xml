@@ -3,4 +3,6 @@
     android:id="@+id/toggleValue"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:text="@string/toggle_tool_is_enabled"
+    android:theme="@style/DevTools"
     />

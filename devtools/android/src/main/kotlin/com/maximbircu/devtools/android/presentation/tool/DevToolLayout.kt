@@ -4,7 +4,7 @@ import android.content.Context
 import android.widget.RelativeLayout
 import androidx.annotation.CallSuper
 import com.maximbircu.devtools.android.R
-import com.maximbircu.devtools.android.extensions.hide
+import com.maximbircu.devtools.android.extensions.makeInvisible
 import com.maximbircu.devtools.android.extensions.setEnabledRecursively
 import com.maximbircu.devtools.android.extensions.show
 import com.maximbircu.devtools.common.core.DevTool
@@ -48,7 +48,7 @@ abstract class DevToolLayout<T : DevTool<*>>(
 
     override fun showEnableToggle() = toolEnableToggle.show()
 
-    override fun hideEnableToggle() = toolEnableToggle.hide()
+    override fun hideEnableToggle() = toolEnableToggle.makeInvisible()
 
     override fun setDevToolEnabled(isEnabled: Boolean) {
         this.isEnabled = isEnabled
