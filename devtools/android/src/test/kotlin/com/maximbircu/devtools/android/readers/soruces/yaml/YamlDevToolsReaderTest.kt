@@ -4,6 +4,7 @@ import com.maximbircu.devtools.android.BaseTest
 import com.maximbircu.devtools.common.core.DevTool
 import com.maximbircu.devtools.common.presentation.tools.toggle.ToggleTool
 import io.mockk.every
+import io.mockk.mockk
 import io.mockk.mockkConstructor
 import org.junit.Test
 import org.yaml.snakeyaml.Yaml
@@ -14,8 +15,8 @@ import kotlin.test.assertTrue
 class YamlDevToolsReaderTest : BaseTest() {
     @Test
     fun `returns empty map if config is empty`() {
-        val devToolsConfig = ""
-        val reader = YamlDevToolsReader(createTypeRegistry(), devToolsConfig.byteInputStream())
+        enqueueTools(null)
+        val reader = YamlDevToolsReader(mockk(relaxed = true), "".byteInputStream())
 
         val devTools = reader.getDevTools()
 
@@ -23,21 +24,20 @@ class YamlDevToolsReaderTest : BaseTest() {
     }
 
     @Test
-    @Suppress("UNCHECKED_CAST")
     fun `returns proper dev tool`() {
-        mockkConstructor(Yaml::class)
-        val reader = YamlDevToolsReader(createTypeRegistry(), "".byteInputStream())
-        every {
-            anyConstructed<Yaml>().load<Map<String, DevTool<Any>>>(any<InputStream>())
-        } returns mapOf("toggle-tool" to ToggleTool()) as Map<String, DevTool<Any>>
+        enqueueTools(mapOf("toggle-tool" to ToggleTool()))
+        val reader = YamlDevToolsReader(mockk(relaxed = true), "".byteInputStream())
 
         val tools = reader.getDevTools()
 
         assertEquals(tools.getValue("toggle-tool").key, "toggle-tool")
     }
 
-    private fun createTypeRegistry(): YamlDevToolsTypesRegistry = YamlDevToolsTypesRegistry.create(
-        """com.maximbircu.devtools.common.presentation.tools.toggle.ToggleTool : "!toggle""""
-            .trimIndent().byteInputStream()
-    )
+    @Suppress("UNCHECKED_CAST")
+    private fun enqueueTools(tools: Map<String, DevTool<*>>? = null) {
+        mockkConstructor(Yaml::class)
+        every {
+            anyConstructed<Yaml>().load<Map<String, DevTool<Any>>>(any<InputStream>())
+        } returns tools as? Map<String, DevTool<Any>>?
+    }
 }
