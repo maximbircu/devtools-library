@@ -1,6 +1,33 @@
 toggle-dev-tool: !toggle {
   title: "Toggle dev tool",
-  description: "Some description goes here",
+  description: "A boolean configuration value dev tool",
   canBeDisabled: true,
   defaultEnabledValue: false
+}
+
+text-dev-tool: !text {
+  title: "Text dev tool",
+  description: "A text configuration value dev tool",
+  canBeDisabled: true,
+  defaultEnabledValue: false,
+  defaultValue: "Here can go any text value",
+  hint: "This is a hint"
+}
+
+text-dev-tool-integer: !text {
+  title: "Text dev tool",
+  description: "A text configuration value dev tool",
+  canBeDisabled: true,
+  defaultEnabledValue: false,
+  defaultValue: 4,
+  hint: "This is a hint"
+}
+
+text-dev-tool-float: !text {
+  title: "Text dev tool",
+  description: "A text configuration value dev tool",
+  canBeDisabled: true,
+  defaultEnabledValue: false,
+  defaultValue: 3.4,
+  hint: "This is a hint"
 }
