@@ -15,17 +15,17 @@ class TextTool(
         Double::class
     )
 
-    val dataType: KClass<*>
-        get() {
-            val defaultValueType = getDefaultValue()::class
-            return if (supportedTypes.contains(defaultValueType)) {
-                defaultValueType
-            } else {
-                throw IllegalArgumentException("${defaultValueType.simpleName} type not supported")
-            }
-        }
+    val dataType: KClass<*> get() = getDefaultValue()::class
 
     override fun getDefaultValue(): Any {
-        return defaultValue ?: throw NullPointerException("Default val required")
+        val value = defaultValue ?: throw NullPointerException("Default val required")
+        assertTypeSupported(value::class)
+        return value
+    }
+
+    private fun assertTypeSupported(type: KClass<*>) {
+        if (!supportedTypes.contains(type)) {
+            throw IllegalArgumentException("${type.simpleName} type not supported")
+        }
     }
 }
