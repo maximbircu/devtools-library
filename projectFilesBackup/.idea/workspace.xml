@@ -1,0 +1,653 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7004266b-2727-4c42-a107-9797ac3283ff" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/devtools/android/src/test/kotlin/com/maximbircu/devtools/android/DevToolsViewRegistryTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/devtools/android/src/test/kotlin/com/maximbircu/devtools/android/DevToolsViewRegistryTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/devtools/common/src/commonMain/kotlin/com/maximbircu/devtools/common/presentation/tool/DevToolPresenter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/devtools/common/src/commonMain/kotlin/com/maximbircu/devtools/common/presentation/tool/DevToolPresenter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/devtools/common/src/commonTest/kotlin/com/maximbircu/devtools/common/DevToolsParserImplTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/devtools/common/src/commonTest/kotlin/com/maximbircu/devtools/common/DevToolsParserImplTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/devtools/common/src/commonTest/kotlin/com/maximbircu/devtools/common/DevToolsStorageImplTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/devtools/common/src/commonTest/kotlin/com/maximbircu/devtools/common/DevToolsStorageImplTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/devtools/common/src/commonTest/kotlin/com/maximbircu/devtools/common/core/DevToolFactory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/devtools/common/src/commonTest/kotlin/com/maximbircu/devtools/common/core/DevToolFactory.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/devtools/common/src/commonTest/kotlin/com/maximbircu/devtools/common/presentation/tool/DevToolPresenterImplTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/devtools/common/src/commonTest/kotlin/com/maximbircu/devtools/common/presentation/tool/DevToolPresenterImplTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/devtools/common/src/commonTest/kotlin/com/maximbircu/devtools/common/presentation/tools/toggle/ToggleToolPresenterImplTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/devtools/common/src/commonTest/kotlin/com/maximbircu/devtools/common/presentation/tools/toggle/ToggleToolPresenterImplTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/devtools/common/src/commonTest/kotlin/com/maximbircu/devtools/common/utils/Mockk.kt" beforeDir="false" afterPath="$PROJECT_DIR$/devtools/common/src/commonTest/kotlin/com/maximbircu/devtools/common/utils/Mockk.kt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/devtools">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/devtools/android">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/devtools/common">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="devtools-library" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="devtools-library" type="f1a62948:ProjectNode" />
+                <item name="devtools" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="devtools-library" type="f1a62948:ProjectNode" />
+                <item name="devtools" type="2d1252cf:ModuleNode" />
+                <item name="common" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="devtools-library" type="f1a62948:ProjectNode" />
+                <item name="devtools" type="2d1252cf:ModuleNode" />
+                <item name="common" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="devtools-library" type="f1a62948:ProjectNode" />
+                <item name="devtools" type="2d1252cf:ModuleNode" />
+                <item name="common" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="verification" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="devtools-library" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="layoutResourceFile_vertical" />
+        <option value="Kotlin Class" />
+        <option value="valueResourceFile" />
+        <option value="Kotlin File" />
+        <option value="layoutResourceFile" />
+        <option value="resourceFile" />
+        <option value="JUnit4 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1ZA3SOiejqURWQ5EuHSvvc4xo1M" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Galaxy_Nexus" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-04-01T20:23:47.018Z" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="android-custom-view/Users/mbircu/.gradle/caches/modules-2/files-2.1/androidx.appcompat/appcompat/1.1.0/9865019bbd2d95e41dede3d8ebf964aa93f97766/appcompat-1.1.0-sources.jar!/androidx/appcompat/widget/AppCompatButton.java_SELECTED" value="AppCompatButton" />
+    <property name="android-custom-view/Users/mbircu/.gradle/caches/modules-2/files-2.1/androidx.cardview/cardview/1.0.0/c9f3ce7ca74ad2c978230f4094ba6804c5166f9c/cardview-1.0.0-sources.jar!/androidx/cardview/widget/CardView.java_SELECTED" value="CardView" />
+    <property name="android-custom-view/Users/mbircu/.gradle/caches/modules-2/files-2.1/androidx.viewpager2/viewpager2/1.0.0/3c3569044e6969f1ee5c3aa03b08e6717a2d782f/viewpager2-1.0.0-sources.jar!/androidx/viewpager2/widget/ViewPager2.java_SELECTED" value="ViewPager2" />
+    <property name="android-custom-view/Users/mbircu/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.1.0/7ba5bcd622e3d6d7ab6b9833717c4385e4ba0a51/material-1.1.0-sources.jar!/com/google/android/material/button/MaterialButton.java_SELECTED" value="MaterialButton" />
+    <property name="android-custom-view/Users/mbircu/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.1.0/7ba5bcd622e3d6d7ab6b9833717c4385e4ba0a51/material-1.1.0-sources.jar!/com/google/android/material/card/MaterialCardView.java_SELECTED" value="MaterialCardView" />
+    <property name="android-custom-view/Users/mbircu/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.1.0/7ba5bcd622e3d6d7ab6b9833717c4385e4ba0a51/material-1.1.0-sources.jar!/com/google/android/material/floatingactionbutton/ExtendedFloatingActionButton.java_SELECTED" value="ExtendedFloatingActionButton" />
+    <property name="android-custom-view/Users/mbircu/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.1.0/7ba5bcd622e3d6d7ab6b9833717c4385e4ba0a51/material-1.1.0-sources.jar!/com/google/android/material/textfield/TextInputLayout.java_SELECTED" value="TextInputLayout" />
+    <property name="android-custom-view/Users/mbircu/Documents/devtools-library/devtools/android/src/main/kotlin/com/maximbircu/devtools/android/presentation/configsreen/ConfigScreenLayout.kt_SELECTED" value="ConfigScreenLayout" />
+    <property name="android-custom-view/Users/mbircu/Documents/devtools-library/devtools/android/src/main/kotlin/com/maximbircu/devtools/android/presentation/list/DevToolsListLayout.kt_SELECTED" value="DevToolsListLayout" />
+    <property name="android-custom-view/Users/mbircu/Documents/devtools-library/devtools/android/src/main/kotlin/com/maximbircu/devtools/android/presentation/tool/DevToolLayout.kt_SELECTED" value="DevToolLayout" />
+    <property name="android-custom-view/Users/mbircu/Documents/devtools-library/devtools/android/src/main/kotlin/com/maximbircu/devtools/android/presentation/tools/toggle/ToggleToolLayout.kt_SELECTED" value="ToggleToolLayout" />
+    <property name="android-custom-view/Users/mbircu/Documents/devtools-library/devtools/common/src/androidMain/kotlin/com/maximbircu/devtools/common/presentation/ConfigScreenLayout.kt_SELECTED" value="ConfigScreenLayout" />
+    <property name="android-custom-view/Users/mbircu/Library/Android/sdk/sources/android-29/android/view/View.java_SELECTED" value="View" />
+    <property name="android-custom-view/Users/mbircu/Library/Android/sdk/sources/android-29/android/view/ViewGroup.java_SELECTED" value="ViewGroup" />
+    <property name="android-custom-view/Users/mbircu/Library/Android/sdk/sources/android-29/android/widget/Button.java_SELECTED" value="Button" />
+    <property name="android-custom-view/Users/mbircu/Library/Android/sdk/sources/android-29/android/widget/EditText.java_SELECTED" value="EditText" />
+    <property name="android-custom-view/Users/mbircu/Library/Android/sdk/sources/android-29/android/widget/TextView.java_SELECTED" value="TextView" />
+    <property name="android.recentlyUsedThemes" value="Theme.AppCompat.DayNight.DarkActionBar" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/devtools/common/src/commonTest/kotlin/com/maximbircu/devtools/common/presentation/tools" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/devtools/common/src/commonMain/kotlin/com/maximbircu/devtools/common/presentation/tools/text" />
+    <property name="multi-representation-preview/Users/mbircu/.gradle/caches/modules-2/files-2.1/androidx.appcompat/appcompat/1.1.0/9865019bbd2d95e41dede3d8ebf964aa93f97766/appcompat-1.1.0-sources.jar!/androidx/appcompat/widget/AppCompatButton.java_selected" value="Custom views" />
+    <property name="multi-representation-preview/Users/mbircu/.gradle/caches/modules-2/files-2.1/androidx.cardview/cardview/1.0.0/c9f3ce7ca74ad2c978230f4094ba6804c5166f9c/cardview-1.0.0-sources.jar!/androidx/cardview/widget/CardView.java_selected" value="Custom views" />
+    <property name="multi-representation-preview/Users/mbircu/.gradle/caches/modules-2/files-2.1/androidx.viewpager2/viewpager2/1.0.0/3c3569044e6969f1ee5c3aa03b08e6717a2d782f/viewpager2-1.0.0-sources.jar!/androidx/viewpager2/widget/ViewPager2.java_selected" value="Custom views" />
+    <property name="multi-representation-preview/Users/mbircu/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.1.0/7ba5bcd622e3d6d7ab6b9833717c4385e4ba0a51/material-1.1.0-sources.jar!/com/google/android/material/button/MaterialButton.java_selected" value="Custom views" />
+    <property name="multi-representation-preview/Users/mbircu/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.1.0/7ba5bcd622e3d6d7ab6b9833717c4385e4ba0a51/material-1.1.0-sources.jar!/com/google/android/material/card/MaterialCardView.java_selected" value="Custom views" />
+    <property name="multi-representation-preview/Users/mbircu/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.1.0/7ba5bcd622e3d6d7ab6b9833717c4385e4ba0a51/material-1.1.0-sources.jar!/com/google/android/material/floatingactionbutton/ExtendedFloatingActionButton.java_selected" value="Custom views" />
+    <property name="multi-representation-preview/Users/mbircu/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.1.0/7ba5bcd622e3d6d7ab6b9833717c4385e4ba0a51/material-1.1.0-sources.jar!/com/google/android/material/textfield/TextInputLayout.java_selected" value="Custom views" />
+    <property name="multi-representation-preview/Users/mbircu/Documents/devtools-library/devtools/android/src/main/kotlin/com/maximbircu/devtools/android/presentation/configsreen/ConfigScreenLayout.kt_selected" value="" />
+    <property name="multi-representation-preview/Users/mbircu/Documents/devtools-library/devtools/android/src/main/kotlin/com/maximbircu/devtools/android/presentation/list/DevToolsListLayout.kt_selected" value="Custom views" />
+    <property name="multi-representation-preview/Users/mbircu/Documents/devtools-library/devtools/android/src/main/kotlin/com/maximbircu/devtools/android/presentation/tool/DevToolLayout.kt_selected" value="" />
+    <property name="multi-representation-preview/Users/mbircu/Documents/devtools-library/devtools/android/src/main/kotlin/com/maximbircu/devtools/android/presentation/tools/toggle/ToggleToolLayout.kt_selected" value="" />
+    <property name="multi-representation-preview/Users/mbircu/Documents/devtools-library/devtools/common/src/androidMain/kotlin/com/maximbircu/devtools/common/presentation/ConfigScreenLayout.kt_selected" value="Custom views" />
+    <property name="multi-representation-preview/Users/mbircu/Library/Android/sdk/sources/android-29/android/view/View.java_selected" value="Custom views" />
+    <property name="multi-representation-preview/Users/mbircu/Library/Android/sdk/sources/android-29/android/view/ViewGroup.java_selected" value="Custom views" />
+    <property name="multi-representation-preview/Users/mbircu/Library/Android/sdk/sources/android-29/android/widget/Button.java_selected" value="Custom views" />
+    <property name="multi-representation-preview/Users/mbircu/Library/Android/sdk/sources/android-29/android/widget/EditText.java_selected" value="Custom views" />
+    <property name="multi-representation-preview/Users/mbircu/Library/Android/sdk/sources/android-29/android/widget/TextView.java_selected" value="Custom views" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.maximbircu.devtools.common.presentation.tools.text" />
+      <recent name="com.maximbircu.devtools.common.presentation.tools.toggle" />
+      <recent name="com.maximbircu.devtools.android.presentation.tools" />
+      <recent name="com.maximbircu.devtools" />
+      <recent name="com.maximbircu.devtools.android.readers.soruces" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.maximbircu.devtools.common.presentation.tools.text" />
+      <recent name="com.maximbircu.devtools.android.readers.soruces.yaml" />
+      <recent name="com.maximbircu.devtools.android.readers.soruces" />
+      <recent name="com.maximbircu.devtools.android.readers" />
+      <recent name="com.maximbircu.devtools.android" />
+    </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.maximbircu.devtools.android" />
+      <recent name="com.maximbircu.devtools.common.presentation.tools.text" />
+      <recent name="com.maximbircu.devtools.common.utils.stores" />
+      <recent name="com.maximbircu.devtools.common.configscreen" />
+      <recent name="com.maximbircu.devtools.common.presentation" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/devtools/common/src/commonMain/kotlin/com/maximbircu/devtools/common/presentation/tools/text" />
+      <recent name="$PROJECT_DIR$/devtools/common/src/iosTest/kotlin/com/maximbircu/devtools/common/stores" />
+      <recent name="$PROJECT_DIR$/devtools/android/src/test" />
+      <recent name="$PROJECT_DIR$/devtools/android/src/main/res/drawable" />
+      <recent name="$PROJECT_DIR$/devtools/android/src/main/assets" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/devtools/common/src/commonMain/kotlin/com/maximbircu/devtools/common/presentation/tools/text" />
+      <recent name="$PROJECT_DIR$/devtools/android/src/main/kotlin/com/maximbircu/devtools/android/presentation/configsreen" />
+      <recent name="$PROJECT_DIR$/samples/android/src" />
+      <recent name="$PROJECT_DIR$/devtools/common/domain/src/commonMain/kotlin/com/maximbircu/devtools/common" />
+      <recent name="$PROJECT_DIR$/devtools/common" />
+    </key>
+    <key name="android.template.-1763920097">
+      <recent name="com.maximbircu.devtools" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.DevToolsViewRegistryTest.test">
+    <configuration name="All in devtools-library.devtools.android" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="devtools-library.devtools.android" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.maximbircu.devtools.android in devtools-library.devtools.android" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="devtools-library.devtools.android" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.maximbircu.devtools.android.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.maximbircu.devtools.android" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="devtools-library.samples.android" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="devtools-library.samples.android" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DevToolsViewRegistryTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="devtools-library.devtools.android" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.maximbircu.devtools.android.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.maximbircu.devtools.android" />
+      <option name="MAIN_CLASS_NAME" value="com.maximbircu.devtools.android.DevToolsViewRegistryTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TextToolPresenterImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="devtools-library.devtools.android" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.maximbircu.devtools.android.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.maximbircu.devtools.android" />
+      <option name="MAIN_CLASS_NAME" value="com.maximbircu.devtools.android.TextToolPresenterImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ToggleToolPresenterImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="devtools-library.devtools.android" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.maximbircu.devtools.android.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.maximbircu.devtools.android" />
+      <option name="MAIN_CLASS_NAME" value="com.maximbircu.devtools.android.ToggleToolPresenterImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Android App.devtools-library.samples.android" />
+      <item itemvalue="Android JUnit.All in devtools-library.devtools.android" />
+      <item itemvalue="Android JUnit.com.maximbircu.devtools.android in devtools-library.devtools.android" />
+      <item itemvalue="JUnit.DevToolsViewRegistryTest.test" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.DevToolsViewRegistryTest.test" />
+        <item itemvalue="Android JUnit.com.maximbircu.devtools.android in devtools-library.devtools.android" />
+        <item itemvalue="Android JUnit.All in devtools-library.devtools.android" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7004266b-2727-4c42-a107-9797ac3283ff" name="Default Changelist" comment="" />
+      <created>1584268070224</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1584268070224</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="122" y="225" key="#Live_Templates" timestamp="1584274997807">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="122" y="225" key="#Live_Templates/0.0.1920.1200@0.0.1920.1200" timestamp="1584274997807" />
+    <state x="485" y="339" key="#PSD" timestamp="1585449990757">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="485" y="339" key="#PSD/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585449990757" />
+    <state x="2284" y="-265" key="#PSD/0.0.1920.1200/1920.-988.1440.2560@1920.-988.1440.2560" timestamp="1585167727570" />
+    <state x="485" y="339" key="#PSD/0.0.1920.1200@0.0.1920.1200" timestamp="1584223544386" />
+    <state x="424" y="262" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584984795038">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="424" y="262" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1584984795038" />
+    <state x="675" y="410" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585261947479">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="2426" y="-113" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1200/1920.-988.1440.2560@1920.-988.1440.2560" timestamp="1584961224381" />
+    <state x="675" y="410" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1200@0.0.1920.1200" timestamp="1585261947479" />
+    <state x="2474" y="-299" key="#com.intellij.ide.util.MemberChooser" timestamp="1585844493577">
+      <screen x="1920" y="-988" width="1440" height="2560" />
+    </state>
+    <state x="739" y="323" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585768005457" />
+    <state x="2474" y="-299" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1200/1920.-988.1440.2560@1920.-988.1440.2560" timestamp="1585844493577" />
+    <state x="739" y="323" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1200@0.0.1920.1200" timestamp="1585401881375" />
+    <state x="367" y="532" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1585395418991">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="367" y="532" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1585395418991" />
+    <state x="515" y="466" width="889" height="276" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1584987408566">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="515" y="466" width="889" height="276" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1200@0.0.1920.1200" timestamp="1584987408566" />
+    <state x="705" y="0" width="622" height="1200" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1585399016074">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="705" y="0" width="622" height="1200" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1584387449841" />
+    <state x="705" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1585399016074" />
+    <state x="698" y="354" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585448781653">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="698" y="354" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585448781653" />
+    <state x="698" y="354" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1585401274383" />
+    <state x="2404" y="-435" width="682" height="681" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1585850358209">
+      <screen x="1920" y="-988" width="1440" height="2560" />
+    </state>
+    <state x="645" y="259" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585767898462" />
+    <state x="2404" y="-435" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/0.0.1920.1200/1920.-988.1440.2560@1920.-988.1440.2560" timestamp="1585850358209" />
+    <state x="645" y="259" width="682" height="681" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1585395857275" />
+    <state x="548" y="362" key="AndroidCreateResourceDirectoryDialog" timestamp="1585775885973">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="548" y="362" key="AndroidCreateResourceDirectoryDialog/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585435582572" />
+    <state x="548" y="362" key="AndroidCreateResourceDirectoryDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1585775885973" />
+    <state x="548" y="362" key="AndroidCreateResourceFileDialog" timestamp="1585426290012">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="548" y="362" key="AndroidCreateResourceFileDialog/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585426290012" />
+    <state x="548" y="362" key="AndroidCreateResourceFileDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1584257983601" />
+    <state x="783" y="454" key="AndroidCreateXmlResourceDialog" timestamp="1585683026670">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="783" y="454" key="AndroidCreateXmlResourceDialog/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585683026670" />
+    <state x="783" y="454" key="AndroidCreateXmlResourceDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1584257742397" />
+    <state x="548" y="312" key="AndroidThemeDialog" timestamp="1585435844980">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="548" y="312" key="AndroidThemeDialog/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585435844980" />
+    <state x="423" y="202" width="1440" height="2560" key="CommitChangelistDialog2" timestamp="1585989083861">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="1920" y="-988" width="1440" height="2560" key="CommitChangelistDialog2/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585852259610" />
+    <state x="2123" y="-557" key="CommitChangelistDialog2/0.0.1920.1200/1920.-988.1440.2560@1920.-988.1440.2560" timestamp="1585841030695" />
+    <state x="423" y="202" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1585989083861" />
+    <state width="437" height="466" key="DebuggerActiveHint" timestamp="1585452513447">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state width="437" height="466" key="DebuggerActiveHint/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585452513447" />
+    <state x="77" y="109" width="1536" height="960" key="DiffContextDialog" timestamp="1585989083061">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="117" y="101" width="1536" height="960" key="DiffContextDialog/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585852013608" />
+    <state x="1920" y="-755" key="DiffContextDialog/0.0.1920.1200/1920.-988.1440.2560@1920.-988.1440.2560" timestamp="1585176211146" />
+    <state x="77" y="109" key="DiffContextDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1585989083061" />
+    <state width="1440" height="980" key="GridCell.Tab.0.bottom" timestamp="1585913186873">
+      <screen x="1920" y="-988" width="1440" height="2560" />
+    </state>
+    <state width="1920" height="439" key="GridCell.Tab.0.bottom/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585903534543" />
+    <state width="1440" height="980" key="GridCell.Tab.0.bottom/0.0.1920.1200/1920.-988.1440.2560@1920.-988.1440.2560" timestamp="1585913186873" />
+    <state width="1920" height="349" key="GridCell.Tab.0.bottom/0.0.1920.1200@0.0.1920.1200" timestamp="1585784205619" />
+    <state width="1440" height="980" key="GridCell.Tab.0.center" timestamp="1585913186871">
+      <screen x="1920" y="-988" width="1440" height="2560" />
+    </state>
+    <state width="1920" height="439" key="GridCell.Tab.0.center/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585903534541" />
+    <state width="1440" height="980" key="GridCell.Tab.0.center/0.0.1920.1200/1920.-988.1440.2560@1920.-988.1440.2560" timestamp="1585913186871" />
+    <state width="1920" height="349" key="GridCell.Tab.0.center/0.0.1920.1200@0.0.1920.1200" timestamp="1585784205618" />
+    <state width="1440" height="980" key="GridCell.Tab.0.left" timestamp="1585913186870">
+      <screen x="1920" y="-988" width="1440" height="2560" />
+    </state>
+    <state width="1920" height="439" key="GridCell.Tab.0.left/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585903534540" />
+    <state width="1440" height="980" key="GridCell.Tab.0.left/0.0.1920.1200/1920.-988.1440.2560@1920.-988.1440.2560" timestamp="1585913186870" />
+    <state width="1920" height="349" key="GridCell.Tab.0.left/0.0.1920.1200@0.0.1920.1200" timestamp="1585784205617" />
+    <state width="1440" height="980" key="GridCell.Tab.0.right" timestamp="1585913186872">
+      <screen x="1920" y="-988" width="1440" height="2560" />
+    </state>
+    <state width="1920" height="439" key="GridCell.Tab.0.right/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585903534542" />
+    <state width="1440" height="980" key="GridCell.Tab.0.right/0.0.1920.1200/1920.-988.1440.2560@1920.-988.1440.2560" timestamp="1585913186872" />
+    <state width="1920" height="349" key="GridCell.Tab.0.right/0.0.1920.1200@0.0.1920.1200" timestamp="1585784205618" />
+    <state width="1440" height="980" key="GridCell.Tab.1.bottom" timestamp="1585913186879">
+      <screen x="1920" y="-988" width="1440" height="2560" />
+    </state>
+    <state width="1920" height="439" key="GridCell.Tab.1.bottom/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585903534547" />
+    <state width="1440" height="980" key="GridCell.Tab.1.bottom/0.0.1920.1200/1920.-988.1440.2560@1920.-988.1440.2560" timestamp="1585913186879" />
+    <state width="1920" height="439" key="GridCell.Tab.1.bottom/0.0.1920.1200@0.0.1920.1200" timestamp="1585781452885" />
+    <state width="1440" height="980" key="GridCell.Tab.1.center" timestamp="1585913186875">
+      <screen x="1920" y="-988" width="1440" height="2560" />
+    </state>
+    <state width="1920" height="439" key="GridCell.Tab.1.center/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585903534545" />
+    <state width="1440" height="980" key="GridCell.Tab.1.center/0.0.1920.1200/1920.-988.1440.2560@1920.-988.1440.2560" timestamp="1585913186875" />
+    <state width="1920" height="439" key="GridCell.Tab.1.center/0.0.1920.1200@0.0.1920.1200" timestamp="1585781452884" />
+    <state width="1440" height="980" key="GridCell.Tab.1.left" timestamp="1585913186874">
+      <screen x="1920" y="-988" width="1440" height="2560" />
+    </state>
+    <state width="1920" height="439" key="GridCell.Tab.1.left/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585903534544" />
+    <state width="1440" height="980" key="GridCell.Tab.1.left/0.0.1920.1200/1920.-988.1440.2560@1920.-988.1440.2560" timestamp="1585913186874" />
+    <state width="1920" height="439" key="GridCell.Tab.1.left/0.0.1920.1200@0.0.1920.1200" timestamp="1585781452883" />
+    <state width="1440" height="980" key="GridCell.Tab.1.right" timestamp="1585913186878">
+      <screen x="1920" y="-988" width="1440" height="2560" />
+    </state>
+    <state width="1920" height="439" key="GridCell.Tab.1.right/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585903534546" />
+    <state width="1440" height="980" key="GridCell.Tab.1.right/0.0.1920.1200/1920.-988.1440.2560@1920.-988.1440.2560" timestamp="1585913186878" />
+    <state width="1920" height="439" key="GridCell.Tab.1.right/0.0.1920.1200@0.0.1920.1200" timestamp="1585781452885" />
+    <state x="663" y="318" key="RollbackChangesDialog" timestamp="1585852236019">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="663" y="318" key="RollbackChangesDialog/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585852236019" />
+    <state x="2411" y="-310" key="RollbackChangesDialog/0.0.1920.1200/1920.-988.1440.2560@1920.-988.1440.2560" timestamp="1585149775448" />
+    <state x="663" y="318" key="RollbackChangesDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1585782481115" />
+    <state x="405" y="0" key="ScreenshotViewer.Dimensions" timestamp="1585765668388">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="405" y="0" key="ScreenshotViewer.Dimensions/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585765668388" />
+    <state x="461" y="239" key="SettingsEditor" timestamp="1585498564497">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="461" y="239" key="SettingsEditor/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585498564497" />
+    <state x="461" y="239" key="SettingsEditor/0.0.1920.1200@0.0.1920.1200" timestamp="1584275337001" />
+    <state width="254" height="200" key="ShowFilterAction_Filter_Popup" timestamp="1585771816961">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state width="254" height="200" key="ShowFilterAction_Filter_Popup/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585771816961" />
+    <state x="2438" y="-241" width="576" height="1118" key="StructurePopup" timestamp="1585850067575">
+      <screen x="1920" y="-988" width="1440" height="2560" />
+    </state>
+    <state x="690" y="350" width="576" height="524" key="StructurePopup/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585675133582" />
+    <state x="2438" y="-241" width="576" height="1118" key="StructurePopup/0.0.1920.1200/1920.-988.1440.2560@1920.-988.1440.2560" timestamp="1585850067575" />
+    <state x="690" y="350" width="576" height="524" key="StructurePopup/0.0.1920.1200@0.0.1920.1200" timestamp="1585255953488" />
+    <state x="632" y="311" key="VCS.ChangeListViewerDialog" timestamp="1585481184679">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="632" y="311" key="VCS.ChangeListViewerDialog/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585481184679" />
+    <state x="2490" y="215" key="VCS.ChangelistChooser" timestamp="1584399505860">
+      <screen x="1920" y="-988" width="1440" height="2560" />
+    </state>
+    <state x="2490" y="215" key="VCS.ChangelistChooser/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1584399505860" />
+    <state x="2340" y="-263" key="Vcs.Push.Dialog.v2" timestamp="1585842944325">
+      <screen x="1920" y="-988" width="1440" height="2560" />
+    </state>
+    <state x="560" y="340" key="Vcs.Push.Dialog.v2/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585673404651" />
+    <state x="2340" y="-263" key="Vcs.Push.Dialog.v2/0.0.1920.1200/1920.-988.1440.2560@1920.-988.1440.2560" timestamp="1585842944325" />
+    <state x="560" y="340" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1584291425847" />
+    <state x="2473" y="-167" key="chooseDestDirectoryDialog" timestamp="1585850345779">
+      <screen x="1920" y="-988" width="1440" height="2560" />
+    </state>
+    <state x="737" y="385" key="chooseDestDirectoryDialog/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585767890777" />
+    <state x="2473" y="-167" key="chooseDestDirectoryDialog/0.0.1920.1200/1920.-988.1440.2560@1920.-988.1440.2560" timestamp="1585850345779" />
+    <state x="737" y="385" key="chooseDestDirectoryDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1585782589954" />
+    <state x="100" y="100" width="1720" height="1000" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1585772738478">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="100" y="100" width="1720" height="1000" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585770528492" />
+    <state x="100" y="100" width="1720" height="1000" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1585772738478" />
+    <state x="100" y="100" width="1720" height="1000" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1585852464221">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="100" y="100" width="1720" height="1000" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585852464221" />
+    <state x="100" y="100" width="1720" height="1000" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1584276728858" />
+    <state x="1920" y="-966" width="1440" height="2479" maximized="true" key="dock-window-1" timestamp="1585670818313">
+      <screen x="1920" y="-988" width="1440" height="2560" />
+    </state>
+    <state x="1920" y="-966" width="1440" height="2479" maximized="true" key="dock-window-1/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585670818313" />
+    <state x="1920" y="-975" width="1440" height="2536" maximized="true" key="dock-window-2" timestamp="1585759589809">
+      <screen x="1920" y="-988" width="1440" height="2560" />
+    </state>
+    <state x="1920" y="-975" width="1440" height="2536" maximized="true" key="dock-window-2/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585759589809" />
+    <state x="1920" y="-968" width="1440" height="2531" maximized="true" key="dock-window-3" timestamp="1585854097172">
+      <screen x="1920" y="-988" width="1440" height="2560" />
+    </state>
+    <state x="1920" y="-968" width="1440" height="2531" maximized="true" key="dock-window-3/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585854097172" />
+    <state x="1920" y="-980" width="1440" height="2539" maximized="true" key="dock-window-4" timestamp="1584391594082">
+      <screen x="1920" y="-988" width="1440" height="2560" />
+    </state>
+    <state x="1920" y="-980" width="1440" height="2539" maximized="true" key="dock-window-4/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1584391594082" />
+    <state x="1920" y="-982" width="1440" height="2542" maximized="true" key="dock-window-5" timestamp="1584392238444">
+      <screen x="1920" y="-988" width="1440" height="2560" />
+    </state>
+    <state x="1920" y="-982" width="1440" height="2542" maximized="true" key="dock-window-5/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1584392238444" />
+    <state x="1920" y="-982" width="1440" height="2540" maximized="true" key="dock-window-6" timestamp="1584395240819">
+      <screen x="1920" y="-988" width="1440" height="2560" />
+    </state>
+    <state x="1920" y="-982" width="1440" height="2540" maximized="true" key="dock-window-6/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1584395240819" />
+    <state x="1930" y="-988" width="1430" height="1224" key="dock-window-7" timestamp="1584396321153">
+      <screen x="1920" y="-988" width="1440" height="2560" />
+    </state>
+    <state x="1930" y="-988" width="1430" height="1224" key="dock-window-7/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1584396321153" />
+    <state x="1920" y="-979" width="1440" height="2547" maximized="true" key="dock-window-8" timestamp="1584396574115">
+      <screen x="1920" y="-988" width="1440" height="2560" />
+    </state>
+    <state x="1920" y="-979" width="1440" height="2547" maximized="true" key="dock-window-8/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1584396574115" />
+    <state x="612" y="357" width="959" height="729" key="find.popup" timestamp="1585852677227">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="612" y="357" width="959" height="729" key="find.popup/0.0.1920.1200/1920.-965.1440.2537@0.0.1920.1200" timestamp="1585771534698" />
+    <state x="612" y="357" width="959" height="729" key="find.popup/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585852677227" />
+    <state x="2379" y="-226" width="883" height="1556" key="find.popup/0.0.1920.1200/1920.-988.1440.2560@1920.-988.1440.2560" timestamp="1585225440615" />
+    <state x="612" y="357" width="959" height="550" key="find.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1585783245134" />
+    <state x="606" y="334" key="org.jetbrains.kotlin.idea.testIntegration.KotlinCreateTestDialog" timestamp="1585782590039">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="606" y="334" key="org.jetbrains.kotlin.idea.testIntegration.KotlinCreateTestDialog/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585440581463" />
+    <state x="2375" y="-275" key="org.jetbrains.kotlin.idea.testIntegration.KotlinCreateTestDialog/0.0.1920.1200/1920.-988.1440.2560@1920.-988.1440.2560" timestamp="1585176405426" />
+    <state x="606" y="334" key="org.jetbrains.kotlin.idea.testIntegration.KotlinCreateTestDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1585782590039" />
+    <state x="722" y="237" key="refactoring.ChangeSignatureDialog" timestamp="1584390788334">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="722" y="237" key="refactoring.ChangeSignatureDialog/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1584390788334" />
+    <state x="722" y="237" key="refactoring.ChangeSignatureDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1584272692442" />
+    <state x="2389" y="-429" width="670" height="1443" key="search.everywhere.popup" timestamp="1585913279056">
+      <screen x="1920" y="-988" width="1440" height="2560" />
+    </state>
+    <state x="625" y="262" width="670" height="676" key="search.everywhere.popup/0.0.1920.1200/1920.-965.1440.2537@0.0.1920.1200" timestamp="1585673472166" />
+    <state x="625" y="262" width="670" height="676" key="search.everywhere.popup/0.0.1920.1200/1920.-988.1440.2560@0.0.1920.1200" timestamp="1585856466677" />
+    <state x="2389" y="-429" width="670" height="1443" key="search.everywhere.popup/0.0.1920.1200/1920.-988.1440.2560@1920.-988.1440.2560" timestamp="1585913279056" />
+    <state x="625" y="262" width="670" height="676" key="search.everywhere.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1585783231531" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/samples/android/src/main/kotlin/com/maximbircu/devtools/MemoryToolsActivity.kt</url>
+          <line>33</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/devtools/common/src/commonMain/kotlin/com/maximbircu/devtools/common/presentation/tool/DevToolPresenter.kt</url>
+          <line>47</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/devtools/android/src/test/kotlin/com/maximbircu/devtools/android/DevToolsViewRegistryTest.kt</url>
+          <line>36</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/devtools/android/src/test/kotlin/com/maximbircu/devtools/android/DevToolsViewRegistryTest.kt</url>
+          <line>32</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/devtools/android/src/test/kotlin/com/maximbircu/devtools/android/DevToolsViewRegistryTest.kt</url>
+          <line>34</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

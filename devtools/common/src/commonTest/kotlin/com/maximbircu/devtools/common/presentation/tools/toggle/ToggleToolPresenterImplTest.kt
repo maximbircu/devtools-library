@@ -3,6 +3,7 @@ package com.maximbircu.devtools.common.presentation.tools.toggle
 import com.maximbircu.devtools.common.core.createTool
 import com.maximbircu.devtools.common.mvp.BasePresenterTest
 import com.maximbircu.devtools.common.utils.mockk
+import com.maximbircu.devtools.common.utils.returns
 import io.mockk.verify
 import kotlin.test.Test
 
@@ -12,7 +13,7 @@ class ToggleToolPresenterImplTest :
 
     @Test
     fun `sets tool stored configuration value on bind`() {
-        val tool: ToggleTool = createTool { storedData = false }
+        val tool: ToggleTool = createTool { store::restore returns false }
 
         presenter.onToolBind(tool)
 
@@ -21,7 +22,7 @@ class ToggleToolPresenterImplTest :
 
     @Test
     fun `stores new configuration value on update`() {
-        val tool: ToggleTool = createTool { storedData = false }
+        val tool: ToggleTool = createTool { store::restore returns false }
         presenter.onToolBind(tool)
 
         presenter.onStoreConfigValue(true)
