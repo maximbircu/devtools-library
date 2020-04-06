@@ -2,9 +2,9 @@
 ## Boolean
 ##############################
 
-toggle-dev-tool: !toggle {
-  title: "Toggle dev tool",
-  description: "A boolean configuration value dev tool",
+yml-toggle-tool: !toggle {
+  title: "Toggle tool",
+  description: "A boolean configuration value tool",
   canBeDisabled: true,
   defaultEnabledValue: false
 }
@@ -13,9 +13,9 @@ toggle-dev-tool: !toggle {
 ## String
 ##############################
 
-text-dev-tool: !text {
-  title: "Text dev tool [STRING]",
-  description: "A text configuration value dev tool",
+yml-text-tool: !text {
+  title: "Text tool (String)",
+  description: "A text configuration value tool",
   canBeDisabled: true,
   defaultEnabledValue: false,
   defaultValue: "Here can go any text value",
@@ -23,27 +23,27 @@ text-dev-tool: !text {
 }
 
 ##############################
-## Int
+## Integer
 ##############################
 
-text-dev-tool-integer: !text {
-  title: "Text dev tool [INT]",
-  description: "A text configuration value dev tool",
+yml-text-tool-integer: !text {
+  title: "Text tool (Integer)",
+  description: "An integer number configuration value tool",
   canBeDisabled: true,
   defaultEnabledValue: false,
-  defaultValue: 4,
-  hint: "Int config value"
+  defaultValue: 3,
+  hint: "Integer number config value"
 }
 
 ##############################
-## Float/Double
+## Floating point
 ##############################
 
-text-dev-tool-float: !text {
-  title: "Text dev tool",
-  description: "A text configuration value dev tool",
+yml-text-tool-float: !text {
+  title: "Text tool (Floating point)",
+  description: "A floating-point number configuration value tool",
   canBeDisabled: true,
   defaultEnabledValue: false,
   defaultValue: 3.4,
-  hint: "Float/Double config value"
+  hint: "Floating point number config value"
 }

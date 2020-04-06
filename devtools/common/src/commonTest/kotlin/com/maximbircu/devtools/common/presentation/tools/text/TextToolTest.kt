@@ -15,7 +15,7 @@ class TextToolTest : BaseTest() {
 
     @Test
     fun `returns proper hint value`() {
-        val tool = TextTool(defaultValue = 3, hint =  "hint value")
+        val tool = TextTool(defaultValue = 3, hint = "hint value")
 
         assertEquals("hint value", tool.hint)
     }
