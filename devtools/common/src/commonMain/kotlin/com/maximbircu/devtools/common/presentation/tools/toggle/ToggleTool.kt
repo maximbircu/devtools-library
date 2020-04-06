@@ -3,10 +3,9 @@ package com.maximbircu.devtools.common.presentation.tools.toggle
 import com.maximbircu.devtools.common.core.PreferencesDevTool
 
 /**
- * Represents a boolean configuration value dev tool.
- * Holds and shares the dev tool metadata, and the configuration it manipulates.
+ * Represents a dev tool able to manipulate boolean configuration values.
  *
- * @property defaultValue default value which will be set from on of the supported tools sources
+ * @property defaultValue the default boolean configuration value
  */
 class ToggleTool(
     private val defaultValue: Boolean = false

@@ -1,6 +1,49 @@
-toggle-dev-tool: !toggle {
-  title: "Toggle dev tool",
-  description: "Some description goes here",
+##############################
+## Boolean
+##############################
+
+yml-toggle-tool: !toggle {
+  title: "Toggle tool",
+  description: "A boolean configuration value tool",
   canBeDisabled: true,
   defaultEnabledValue: false
+}
+
+##############################
+## String
+##############################
+
+yml-text-tool: !text {
+  title: "Text tool (String)",
+  description: "A text configuration value tool",
+  canBeDisabled: true,
+  defaultEnabledValue: false,
+  defaultValue: "Here can go any text value",
+  hint: "String config value"
+}
+
+##############################
+## Integer
+##############################
+
+yml-text-tool-integer: !text {
+  title: "Text tool (Integer)",
+  description: "An integer number configuration value tool",
+  canBeDisabled: true,
+  defaultEnabledValue: false,
+  defaultValue: 3,
+  hint: "Integer number config value"
+}
+
+##############################
+## Floating point
+##############################
+
+yml-text-tool-float: !text {
+  title: "Text tool (Floating point)",
+  description: "A floating-point number configuration value tool",
+  canBeDisabled: true,
+  defaultEnabledValue: false,
+  defaultValue: 3.4,
+  hint: "Floating point number config value"
 }

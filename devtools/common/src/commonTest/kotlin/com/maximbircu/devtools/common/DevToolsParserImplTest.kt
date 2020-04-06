@@ -12,13 +12,13 @@ class DevToolsParserImplTest : BaseTest() {
     @Test
     fun `returns a proper map of tools from the provided sources`() {
         val source1Tools = mapOf<String, DevTool<Any>>(
-            "first-source-first-tool" to createTool { },
-            "first-source-second-tool" to createTool { }
+            "first-source-first-tool" to createTool(),
+            "first-source-second-tool" to createTool()
         )
 
         val source2Tools = mapOf<String, DevTool<Any>>(
-            "second-source-first-tool" to createTool { },
-            "second-source-second-tool" to createTool { }
+            "second-source-first-tool" to createTool(),
+            "second-source-second-tool" to createTool()
         )
 
         val sourcesList = listOf(createSource(source1Tools), createSource(source2Tools))
