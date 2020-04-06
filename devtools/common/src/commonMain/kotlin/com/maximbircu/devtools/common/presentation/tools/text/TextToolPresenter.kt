@@ -31,6 +31,7 @@ private class TextToolPresenterImpl(
             Long::class -> tool.store.store(value.toLong())
             Float::class -> tool.store.store(value.toFloat())
             Double::class -> tool.store.store(value.toDouble())
+            else -> throw IllegalArgumentException("${tool.dataType} type not supported")
         }
     }
 }

@@ -6,6 +6,7 @@ import com.maximbircu.devtools.common.utils.mockk
 import com.maximbircu.devtools.common.utils.returns
 import io.mockk.verify
 import kotlin.test.Test
+import kotlin.test.assertFails
 
 class TextToolPresenterImplTest : BasePresenterTest<TextToolView, TextToolPresenter>(mockk()) {
     override fun createPresenter(): TextToolPresenter = TextToolPresenter.create(view)
@@ -87,6 +88,15 @@ class TextToolPresenterImplTest : BasePresenterTest<TextToolView, TextToolPresen
         presenter.onStoreConfigValue("3.0")
 
         verify { tool.store.store(3.0) }
+    }
+
+    @Test
+    fun `throws exception if tool type is not supported`() {
+        val value = object {}
+        val tool: TextTool = createTool { ::dataType returns value::class }
+        presenter.onToolBind(tool)
+
+        assertFails { presenter.onStoreConfigValue(value.toString()) }
     }
 
     // endregion
