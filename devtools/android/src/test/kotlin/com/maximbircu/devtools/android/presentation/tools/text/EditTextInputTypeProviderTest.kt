@@ -6,8 +6,9 @@ import android.text.InputType.TYPE_CLASS_TEXT
 import com.maximbircu.devtools.android.BaseTest
 import org.junit.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFails
 
-class EditTextInputTypeProviderTest: BaseTest() {
+class EditTextInputTypeProviderTest : BaseTest() {
     @Test
     fun `returns text input type for string`() {
         val inputType = EditTextInputTypeProvider.getInputTypeFor(String::class)
@@ -41,5 +42,10 @@ class EditTextInputTypeProviderTest: BaseTest() {
         val inputType = EditTextInputTypeProvider.getInputTypeFor(Double::class)
 
         assertEquals(TYPE_NUMBER_FLAG_DECIMAL, inputType)
+    }
+
+    @Test
+    fun `throws exception if the type is not supported`() {
+        assertFails { EditTextInputTypeProvider.getInputTypeFor(object {}::class) }
     }
 }
