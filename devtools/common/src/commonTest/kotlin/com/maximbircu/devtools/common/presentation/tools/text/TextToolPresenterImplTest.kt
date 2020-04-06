@@ -22,7 +22,7 @@ class TextToolPresenterImplTest : BasePresenterTest<TextToolView, TextToolPresen
 
     @Test
     fun `sets input data type on tool bind`() {
-        val tool: TextTool = createTool { ::dataType returns String::class }
+        val tool: TextTool = createTool { ::configurationValueType returns String::class }
 
         presenter.onToolBind(tool)
 
@@ -42,7 +42,7 @@ class TextToolPresenterImplTest : BasePresenterTest<TextToolView, TextToolPresen
 
     @Test
     fun `stores string value on store config value`() {
-        val tool: TextTool = createTool { ::dataType returns String::class }
+        val tool: TextTool = createTool { ::configurationValueType returns String::class }
         presenter.onToolBind(tool)
 
         presenter.onStoreConfigValue("text value")
@@ -52,7 +52,7 @@ class TextToolPresenterImplTest : BasePresenterTest<TextToolView, TextToolPresen
 
     @Test
     fun `stores int value on store config value`() {
-        val tool: TextTool = createTool { ::dataType returns Int::class }
+        val tool: TextTool = createTool { ::configurationValueType returns Int::class }
         presenter.onToolBind(tool)
 
         presenter.onStoreConfigValue("3")
@@ -62,7 +62,7 @@ class TextToolPresenterImplTest : BasePresenterTest<TextToolView, TextToolPresen
 
     @Test
     fun `stores long value on store config value`() {
-        val tool: TextTool = createTool { ::dataType returns Long::class }
+        val tool: TextTool = createTool { ::configurationValueType returns Long::class }
         presenter.onToolBind(tool)
 
         presenter.onStoreConfigValue("3")
@@ -72,7 +72,7 @@ class TextToolPresenterImplTest : BasePresenterTest<TextToolView, TextToolPresen
 
     @Test
     fun `stores float value on store config value`() {
-        val tool: TextTool = createTool { ::dataType returns Float::class }
+        val tool: TextTool = createTool { ::configurationValueType returns Float::class }
         presenter.onToolBind(tool)
 
         presenter.onStoreConfigValue("3")
@@ -82,7 +82,7 @@ class TextToolPresenterImplTest : BasePresenterTest<TextToolView, TextToolPresen
 
     @Test
     fun `stores double value on store config value`() {
-        val tool: TextTool = createTool { ::dataType returns Double::class }
+        val tool: TextTool = createTool { ::configurationValueType returns Double::class }
         presenter.onToolBind(tool)
 
         presenter.onStoreConfigValue("3.0")
@@ -93,7 +93,7 @@ class TextToolPresenterImplTest : BasePresenterTest<TextToolView, TextToolPresen
     @Test
     fun `throws exception if tool type is not supported`() {
         val value = object {}
-        val tool: TextTool = createTool { ::dataType returns value::class }
+        val tool: TextTool = createTool { ::configurationValueType returns value::class }
         presenter.onToolBind(tool)
 
         assertFails { presenter.onStoreConfigValue(value.toString()) }

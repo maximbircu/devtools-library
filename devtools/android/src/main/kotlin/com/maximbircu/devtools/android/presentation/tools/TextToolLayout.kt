@@ -25,16 +25,16 @@ internal class TextToolLayout(context: Context) : DevToolLayout<TextTool>(contex
         inputLayout.hint = hint
     }
 
-    override fun setTextValue(value: String?) {
+    override fun setTextValue(value: String) {
         editTextValue.setText(value)
     }
 
-    override fun setInputDataType(dataType: KClass<*>) {
-        editTextValue.inputType = when (dataType) {
+    override fun setInputDataType(configurationValueType: KClass<*>) {
+        editTextValue.inputType = when (configurationValueType) {
             Float::class, Double::class -> TYPE_NUMBER_FLAG_DECIMAL
             Int::class, Long::class -> TYPE_CLASS_NUMBER
             String::class -> TYPE_CLASS_TEXT
-            else -> throw IllegalArgumentException("$dataType not supported")
+            else -> throw IllegalArgumentException("$configurationValueType not supported")
         }
     }
 }

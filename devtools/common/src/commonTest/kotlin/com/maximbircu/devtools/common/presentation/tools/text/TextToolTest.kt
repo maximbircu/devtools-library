@@ -38,6 +38,6 @@ class TextToolTest : BaseTest() {
     fun `returns proper data type`() {
         val tool = TextTool(defaultValue = "text value")
 
-        assertEquals(String::class, tool.dataType)
+        assertEquals(String::class, tool.configurationValueType)
     }
 }
