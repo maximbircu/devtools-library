@@ -2,7 +2,7 @@ package com.maximbircu.devtools.android
 
 import android.content.Context
 import com.maximbircu.devtools.android.presentation.tool.DevToolLayout
-import com.maximbircu.devtools.android.presentation.tools.TextToolLayout
+import com.maximbircu.devtools.android.presentation.tools.text.TextToolLayout
 import com.maximbircu.devtools.android.presentation.tools.toggle.ToggleToolLayout
 import com.maximbircu.devtools.common.core.DevTool
 import com.maximbircu.devtools.common.presentation.tools.text.TextTool

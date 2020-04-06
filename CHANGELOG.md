@@ -3,6 +3,11 @@ Changelog
 
 ## Version 1.0.0 *(In development)*
 
+Issue: [#17](https://github.com/maximbircu/devtools-library/issues/17)
+- Implement the TextTool component which will be able to manipulate text configuration values
+- Add Android view implementation for the TextTool component
+- Downgrade Gradle version to 3.6.0 (Otherwise is not possible to open the project in a non-canary AS)
+
 Issue: [#11](https://github.com/maximbircu/devtools-library/issues/11)
 - Update Kotlin to `1.3.71`
 - Update to Gradle `4.1.0-alpha04`

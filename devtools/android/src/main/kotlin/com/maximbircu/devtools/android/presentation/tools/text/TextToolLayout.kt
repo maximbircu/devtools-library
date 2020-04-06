@@ -1,9 +1,6 @@
-package com.maximbircu.devtools.android.presentation.tools
+package com.maximbircu.devtools.android.presentation.tools.text
 
 import android.content.Context
-import android.text.InputType.TYPE_CLASS_NUMBER
-import android.text.InputType.TYPE_CLASS_TEXT
-import android.text.InputType.TYPE_NUMBER_FLAG_DECIMAL
 import com.maximbircu.devtools.android.R
 import com.maximbircu.devtools.android.presentation.tool.DevToolLayout
 import com.maximbircu.devtools.common.presentation.tools.text.TextTool
@@ -30,11 +27,6 @@ internal class TextToolLayout(context: Context) : DevToolLayout<TextTool>(contex
     }
 
     override fun setInputDataType(configurationValueType: KClass<*>) {
-        editTextValue.inputType = when (configurationValueType) {
-            Float::class, Double::class -> TYPE_NUMBER_FLAG_DECIMAL
-            Int::class, Long::class -> TYPE_CLASS_NUMBER
-            String::class -> TYPE_CLASS_TEXT
-            else -> throw IllegalArgumentException("$configurationValueType not supported")
-        }
+        editTextValue.inputType = EditTextInputTypeProvider.getInputTypeFor(configurationValueType)
     }
 }
