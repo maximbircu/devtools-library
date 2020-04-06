@@ -1,7 +1,6 @@
 package com.maximbircu.devtools.android.readers
 
 import com.maximbircu.devtools.android.BaseTest
-import com.maximbircu.devtools.android.readers.soruces.MemoryDevToolsSource
 import com.maximbircu.devtools.android.readers.soruces.yaml.YamlDevToolsSource
 import com.maximbircu.devtools.android.utils.mockk
 import com.maximbircu.devtools.common.readers.DevToolsSources
@@ -10,13 +9,6 @@ import java.io.InputStream
 import kotlin.test.assertTrue
 
 class DevToolsSourcesKtTest : BaseTest() {
-    @Test
-    fun `returns a memory dev tool source`() {
-        val source = DevToolsSources.memory(emptyMap())
-
-        assertTrue(source is MemoryDevToolsSource)
-    }
-
     @Test
     fun `returns an yaml dev tool source given input stream`() {
         val source = DevToolsSources.yaml(mockk(), mockk<InputStream>())

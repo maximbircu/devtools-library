@@ -1,4 +1,4 @@
-package com.maximbircu.devtools.android.readers.soruces
+package com.maximbircu.devtools.common.readers.sources
 
 import com.maximbircu.devtools.common.core.DevTool
 import com.maximbircu.devtools.common.core.reader.DevToolsReader

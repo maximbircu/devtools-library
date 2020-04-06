@@ -5,12 +5,12 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.maximbircu.devtools.android.DevToolsConfigurationScreen
-import com.maximbircu.devtools.android.readers.memory
 import com.maximbircu.devtools.common.DevTools
 import com.maximbircu.devtools.common.core.DevTool
 import com.maximbircu.devtools.common.presentation.tools.text.TextTool
 import com.maximbircu.devtools.common.presentation.tools.toggle.ToggleTool
 import com.maximbircu.devtools.common.readers.DevToolsSources
+import com.maximbircu.devtools.common.readers.memory
 import kotlinx.android.synthetic.main.activity_tools_container.devToolsContainer
 
 class MemoryToolsActivity : AppCompatActivity() {
