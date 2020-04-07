@@ -1,2 +1,3 @@
 com.maximbircu.devtools.common.presentation.tools.toggle.ToggleTool : "!toggle"
 com.maximbircu.devtools.common.presentation.tools.text.TextTool : "!text"
+com.maximbircu.devtools.common.presentation.tools.time.TimeTool : "!time"

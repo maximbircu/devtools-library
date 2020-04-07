@@ -8,6 +8,7 @@ import com.maximbircu.devtools.android.DevToolsConfigurationScreen
 import com.maximbircu.devtools.common.DevTools
 import com.maximbircu.devtools.common.core.DevTool
 import com.maximbircu.devtools.common.presentation.tools.text.TextTool
+import com.maximbircu.devtools.common.presentation.tools.time.TimeTool
 import com.maximbircu.devtools.common.presentation.tools.toggle.ToggleTool
 import com.maximbircu.devtools.common.readers.DevToolsSources
 import com.maximbircu.devtools.common.readers.memory
@@ -70,6 +71,19 @@ class MemoryToolsActivity : AppCompatActivity() {
             ).apply {
                 title = "Text tool (Floating point)"
                 description = "A floating-point number configuration value tool"
+                canBeDisabled = true
+                defaultEnabledValue = false
+            },
+
+            "memory-time-tool" to TimeTool(
+                days = 1,
+                hours = 2,
+                minutes = 3,
+                seconds = 4,
+                milliseconds = 5
+            ).apply {
+                title = "Time tool"
+                description = "A time configuration value tool"
                 canBeDisabled = true
                 defaultEnabledValue = false
             }

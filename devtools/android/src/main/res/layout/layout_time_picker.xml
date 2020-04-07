@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:theme="@style/DevTools"
+    tools:ignore="RtlSymmetry"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout"
+    >
+    <TextView
+        android:id="@+id/daysLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/timer_picker_days"
+        android:textAppearance="?attr/textAppearanceBody2"
+        app:layout_constraintEnd_toEndOf="@+id/days"
+        app:layout_constraintStart_toStartOf="@+id/days"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <NumberPicker
+        android:id="@+id/days"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/hours"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/daysLabel"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/time_picker_hours"
+        android:textAppearance="?attr/textAppearanceBody2"
+        app:layout_constraintBottom_toTopOf="@+id/hours"
+        app:layout_constraintEnd_toEndOf="@+id/hours"
+        app:layout_constraintStart_toStartOf="@+id/hours"
+        />
+
+    <NumberPicker
+        android:id="@+id/hours"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/days"
+        app:layout_constraintEnd_toStartOf="@+id/minutes"
+        app:layout_constraintStart_toEndOf="@+id/days"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/time_picker_minutes"
+        android:textAppearance="?attr/textAppearanceBody2"
+        app:layout_constraintBottom_toTopOf="@+id/minutes"
+        app:layout_constraintEnd_toEndOf="@+id/minutes"
+        app:layout_constraintStart_toStartOf="@+id/minutes"
+        />
+
+    <NumberPicker
+        android:id="@+id/minutes"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/days"
+        app:layout_constraintEnd_toStartOf="@+id/seconds"
+        app:layout_constraintStart_toEndOf="@+id/hours"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/time_picker_seconds"
+        android:textAppearance="?attr/textAppearanceBody2"
+        app:layout_constraintBottom_toTopOf="@+id/seconds"
+        app:layout_constraintEnd_toEndOf="@+id/seconds"
+        app:layout_constraintStart_toStartOf="@+id/seconds"
+        />
+
+    <NumberPicker
+        android:id="@+id/seconds"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/days"
+        app:layout_constraintEnd_toStartOf="@+id/milliseconds"
+        app:layout_constraintStart_toEndOf="@+id/minutes"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/time_picker_milliseconds"
+        android:textAppearance="?attr/textAppearanceBody2"
+        app:layout_constraintBottom_toTopOf="@+id/milliseconds"
+        app:layout_constraintEnd_toEndOf="@+id/milliseconds"
+        app:layout_constraintStart_toStartOf="@+id/milliseconds"
+        />
+
+    <NumberPicker
+        android:id="@+id/milliseconds"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/days"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/seconds"
+        />
+</merge>

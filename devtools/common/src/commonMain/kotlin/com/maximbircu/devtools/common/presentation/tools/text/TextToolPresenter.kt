@@ -7,9 +7,8 @@ import com.maximbircu.devtools.common.core.mvp.Presenter
  * Encapsulates the [TextTool] business logic and displays text tool data through [TextToolView].
  */
 interface TextToolPresenter : Presenter {
-
     /**
-     * Should be called as soon as a [TextTool] instance was provided to [TextToolView].
+     * Should be called as soon as a [TextTool] instance has been provided to the [TextToolView].
      *
      * @param tool the tool instance provided to the view
      */

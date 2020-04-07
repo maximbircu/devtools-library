@@ -1,4 +1,4 @@
-![License](https://img.shields.io/badge/platform-Android%20%7C%20iOS-lightgrey?style=flat)
+![Platform](https://img.shields.io/badge/platform-Android%20%7C%20iOS-lightgrey?style=flat)
 
 ![CI](https://github.com/maximbircu/devtools-library/workflows/CI/badge.svg?branch=master)
 [![codecov](https://codecov.io/gh/maximbircu/devtools-library/branch/master/graph/badge.svg?token=TP8XUCW2HB)](https://codecov.io/gh/maximbircu/devtools-library)
