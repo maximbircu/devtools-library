@@ -43,7 +43,7 @@ class Time(
         milliseconds = timeParts[4]
     )
 
-    /** @return time duration in milliseconds */
+    /** @return time duration in milliseconds. */
     fun inMilliseconds(): Long {
         val daysInMs = days * DAY
         val hoursInMs = hours * HOUR
@@ -54,7 +54,7 @@ class Time(
 
     /**
      * Converts time to text with the following format [%dd %dh %dm %ds %dms]
-     * for example: "2d 3h 20min 10s 100ms"
+     * for example: "2d 3h 20min 10s 100ms".
      */
     override fun toString() = "${days}d ${hours}h ${minutes}m ${seconds}s ${milliseconds}ms"
 }

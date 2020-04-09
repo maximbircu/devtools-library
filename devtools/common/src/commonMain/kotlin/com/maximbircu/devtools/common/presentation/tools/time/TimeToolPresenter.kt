@@ -2,9 +2,6 @@ package com.maximbircu.devtools.common.presentation.tools.time
 
 import com.maximbircu.devtools.common.core.mvp.BasePresenter
 import com.maximbircu.devtools.common.core.mvp.Presenter
-import com.maximbircu.devtools.common.presentation.tools.text.TextTool
-import com.maximbircu.devtools.common.presentation.tools.text.TextToolPresenter
-import com.maximbircu.devtools.common.presentation.tools.text.TextToolView
 
 /**
  * Encapsulates the [TimeTool] business logic and displays time tool data through [TimeToolView].
