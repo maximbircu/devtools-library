@@ -6,7 +6,6 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:theme="@style/DevTools"
-    tools:ignore="RtlSymmetry"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout"
     >
     <TextView
