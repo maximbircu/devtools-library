@@ -1,25 +1,11 @@
 package com.maximbircu.devtools.android.readers
 
 import android.content.res.AssetManager
-import com.maximbircu.devtools.android.readers.soruces.MemoryDevToolsSource
 import com.maximbircu.devtools.android.readers.soruces.yaml.YamlDevToolsSource
 import com.maximbircu.devtools.common.core.DevTool
 import com.maximbircu.devtools.common.core.reader.DevToolsSource
 import com.maximbircu.devtools.common.readers.DevToolsSources
 import java.io.InputStream
-
-/**
- * Provides a [MemoryDevToolsSource] which is a [DevToolsSource] which allows you to pass a
- * dev tools dictionary directly to the [com.maximbircu.devtools.common.DevTools].
- *
- * Use this when you build the dev tools map inside your app and want to provide it to a
- * [com.maximbircu.devtools.common.DevTools].
- *
- * @param devTools dev tools dictionary to be passed to [com.maximbircu.devtools.common.DevTools]
- */
-fun DevToolsSources.memory(devTools: Map<String, DevTool<*>>): DevToolsSource {
-    return MemoryDevToolsSource(devTools)
-}
 
 /**
  * Provides a [YamlDevToolsSource] which is a [DevToolsSource] implementation able to parse and

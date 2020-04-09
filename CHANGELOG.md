@@ -3,6 +3,9 @@ Changelog
 
 ## Version 1.0.0 *(In development)*
 
+Issue: [#20](https://github.com/maximbircu/devtools-library/issues/20)
+- Implement the TimeTool component which will be able to manipulate time configuration values
+
 Issue: [#17](https://github.com/maximbircu/devtools-library/issues/17)
 - Implement the TextTool component which will be able to manipulate text configuration values
 - Add Android view implementation for the TextTool component

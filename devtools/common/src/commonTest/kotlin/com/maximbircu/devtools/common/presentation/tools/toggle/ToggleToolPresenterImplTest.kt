@@ -12,7 +12,7 @@ class ToggleToolPresenterImplTest :
     override fun createPresenter() = ToggleToolPresenter.create(view)
 
     @Test
-    fun `sets tool stored configuration value on bind`() {
+    fun `sets tool stored configuration value on tool bind`() {
         val tool: ToggleTool = createTool { store::restore returns false }
 
         presenter.onToolBind(tool)

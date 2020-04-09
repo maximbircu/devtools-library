@@ -8,7 +8,8 @@ import com.maximbircu.devtools.common.core.mvp.Presenter
  */
 interface ToggleToolPresenter : Presenter {
     /**
-     * Should be called as soon as a [ToggleTool] instance was provided to [ToggleToolView].
+     * Should be called as soon as a [ToggleTool] instance has been provided
+     * to the [ToggleToolView].
      *
      * @param tool the tool instance provided to the view
      */
