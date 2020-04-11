@@ -1,0 +1,21 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'DevToolsApp' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for DevToolsApp
+  pod 'DevtoolsFramework', :podspec => 'https://raw.githubusercontent.com/maximbircu/devtools-library/14-set-up-ios-modules/devtools/ios/DevtoolsFramework.podspec?token=AFSUMYTKC7HLV2M5IFRC25K6TOAE6'
+
+  target 'DevToolsAppTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'DevToolsAppUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
