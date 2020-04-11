@@ -57,9 +57,38 @@ yml-time-tool: !time {
   description: "A time configuration value tool",
   canBeDisabled: true,
   defaultEnabledValue: false,
-  days: 1
-  hours: 2
-  minutes: 3
-  seconds: 4
-  milliseconds: 5
+  days: 1,
+  hours: 2,
+  minutes: 3,
+  seconds: 4,
+  milliseconds: 5,
+}
+
+##############################
+## Enum
+##############################
+yml-enum-tool: !enum {
+  title: "Enum tool",
+  description: "An enum configuration value tool",
+  canBeDisabled: true,
+  defaultEnabledValue: false,
+  allowCustom: true,
+  defaultValueKey: first-option,
+  options: {
+    first-option: "First Option Value",
+    second-option: "Second Option Value",
+    third-option: "Third Option Value",
+  }
+}
+
+yml-enum-custom-options-provider-tool: !enum {
+  title: "Enum tool [Custom Provider]",
+  description: "An enum configuration value tool with a custom options provider",
+  canBeDisabled: true,
+  defaultEnabledValue: false,
+  allowCustom: true,
+  defaultValueKey: first-option,
+  optionsProvider: !!com.maximbircu.devtools.CustomEnumOptionsProvider {
+    fileName: "enum-options.json"
+  }
 }

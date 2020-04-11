@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:theme="@style/DevTools"
+    >
+    <HorizontalScrollView
+        android:id="@+id/container"
+        android:clipToPadding="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:requiresFadingEdge="horizontal"
+        android:scrollbars="none"
+        >
+        <com.maximbircu.devtools.android.presentation.tools.enum.ChipGroupLayout
+            android:id="@+id/chipGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:singleSelection="true"
+            app:singleLine="true"
+            />
+    </HorizontalScrollView>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/customValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:imeOptions="actionDone"
+        android:visibility="gone"
+        tools:visibility="visible"
+        />
+</LinearLayout>
