@@ -87,7 +87,7 @@ kotlin {
 
     task debugFatFramework(type: org.jetbrains.kotlin.gradle.tasks.FatFrameworkTask) {
         baseName = "devtools"
-        destinationDir = file("$buildDir/fat-framework/debug")
+        destinationDir = file("$rootDir/devtools/ios/Frameworks/debug")
         from(
                 targets.ios.binaries.getFramework("DEBUG"),
                 targets.iosArm32.binaries.getFramework("DEBUG"),
@@ -97,7 +97,7 @@ kotlin {
 
     task releaseFatFramework(type: org.jetbrains.kotlin.gradle.tasks.FatFrameworkTask) {
         baseName = "devtools"
-        destinationDir = file("$buildDir/fat-framework/release")
+        destinationDir = file("$rootDir/devtools/ios/Frameworks/release")
         from(
                 targets.ios.binaries.getFramework("RELEASE"),
                 targets.iosArm32.binaries.getFramework("RELEASE"),
