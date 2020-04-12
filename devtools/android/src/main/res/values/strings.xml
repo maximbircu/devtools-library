@@ -12,7 +12,4 @@
     <string name="time_picker_minutes">M</string>
     <string name="time_picker_seconds">S</string>
     <string name="time_picker_milliseconds">MS</string>
-
-    <!-- Enum Tool -->
-    <string name="layout_enum_tool_custom_value_hint">Input your custom value</string>
 </resources>
