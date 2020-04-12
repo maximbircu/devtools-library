@@ -67,6 +67,7 @@ yml-time-tool: !time {
 ##############################
 ## Enum
 ##############################
+
 yml-enum-tool: !enum {
   title: "Enum tool",
   description: "An enum configuration value tool",
