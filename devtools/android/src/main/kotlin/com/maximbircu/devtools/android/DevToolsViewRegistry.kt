@@ -2,12 +2,14 @@ package com.maximbircu.devtools.android
 
 import android.content.Context
 import com.maximbircu.devtools.android.presentation.tool.DevToolLayout
+import com.maximbircu.devtools.android.presentation.tools.GroupToolLayout
 import com.maximbircu.devtools.android.presentation.tools.enum.EnumToolLayout
 import com.maximbircu.devtools.android.presentation.tools.text.TextToolLayout
 import com.maximbircu.devtools.android.presentation.tools.time.TimeToolLayout
 import com.maximbircu.devtools.android.presentation.tools.toggle.ToggleToolLayout
 import com.maximbircu.devtools.common.core.DevTool
 import com.maximbircu.devtools.common.presentation.tools.enum.EnumTool
+import com.maximbircu.devtools.common.presentation.tools.group.GroupTool
 import com.maximbircu.devtools.common.presentation.tools.text.TextTool
 import com.maximbircu.devtools.common.presentation.tools.time.TimeTool
 import com.maximbircu.devtools.common.presentation.tools.toggle.ToggleTool
@@ -18,7 +20,8 @@ object DevToolsViewRegistry {
         ToggleTool::class to { context -> ToggleToolLayout(context) },
         TextTool::class to { context -> TextToolLayout(context) },
         TimeTool::class to { context -> TimeToolLayout(context) },
-        EnumTool::class to { context -> EnumToolLayout(context) }
+        EnumTool::class to { context -> EnumToolLayout(context) },
+        GroupTool::class to { context -> GroupToolLayout(context) }
     )
 
     fun register(model: KClass<out DevTool<*>>, viewFactory: (Context) -> DevToolLayout<*>) {

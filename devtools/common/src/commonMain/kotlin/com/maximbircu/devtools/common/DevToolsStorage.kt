@@ -1,6 +1,7 @@
 package com.maximbircu.devtools.common
 
 import com.maximbircu.devtools.common.core.DevTool
+import com.maximbircu.devtools.common.presentation.tools.group.GroupTool
 
 /**
  * Enables library consumers to be able to read configuration values.
@@ -19,6 +20,8 @@ interface DevToolsStorage {
      */
     fun <T> getValue(key: String): T
 
+    fun getGroup(key: String): DevToolsStorage
+
     /**
      * Provides information about weather the dev tool with the given [key] is enabled or not by
      * checking [DevTool.key].
@@ -36,6 +39,10 @@ class DevToolsStorageImpl(
     override fun <T> getValue(key: String): T = getDevTool(key).store.restore() as T
 
     override fun isEnabled(key: String): Boolean = getDevTool(key).store.isEnabled
+
+    override fun getGroup(key: String): DevToolsStorage {
+        return DevToolsStorageImpl((getDevTool(key) as GroupTool).tools)
+    }
 
     private fun getDevTool(key: String): DevTool<*> {
         if (key in tools.keys) {
