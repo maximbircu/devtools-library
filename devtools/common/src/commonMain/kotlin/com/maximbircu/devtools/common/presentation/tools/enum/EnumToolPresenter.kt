@@ -28,7 +28,7 @@ private class EnumToolPresenterImpl(
         this.tool = tool
         view.showOptions(getOptions())
         view.setCustomValue(selectedValue)
-        view.checkOption(selectedValueKey)
+        view.selectOption(selectedValueKey)
         onOptionSelected(selectedValueKey)
     }
 

@@ -21,14 +21,14 @@ class EnumToolLayout(context: Context) : DevToolLayout<EnumTool>(context), EnumT
     override fun onBind(tool: EnumTool) {
         presenter.onToolBind(tool)
         chipGroup.setOnCheckedChangeListener(presenter::onOptionSelected)
-        scrollToSelectedChipAterPreDraw()
+        scrollToSelectedChipAfterPreDraw()
     }
 
     override fun storeConfigValue() = presenter.onStoreConfigValue(chipGroup.getCheckedChipData())
 
     override fun showOptions(options: List<String>) = chipGroup.setChips(options)
 
-    override fun checkOption(option: String) = chipGroup.selectChip(option)
+    override fun selectOption(option: String) = chipGroup.selectChip(option)
 
     override fun setCustomValue(optionValue: String) = customValue.setText(optionValue)
 
@@ -36,7 +36,7 @@ class EnumToolLayout(context: Context) : DevToolLayout<EnumTool>(context), EnumT
 
     override fun hideCustomValueInputView() = customValue.hide()
 
-    private fun scrollToSelectedChipAterPreDraw() {
+    private fun scrollToSelectedChipAfterPreDraw() {
         chipGroup.viewTreeObserver.addOnPreDrawListener(object : OnPreDrawListener {
             override fun onPreDraw(): Boolean {
                 val checkedChip = chipGroup.getCheckedChip()

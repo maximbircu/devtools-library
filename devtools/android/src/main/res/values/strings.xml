@@ -6,10 +6,13 @@
     <!-- Toggle Tool -->
     <string name="toggle_tool_is_enabled">Is enabled</string>
 
-    <!-- Time Picker   -->
+    <!-- Time Picker -->
     <string name="timer_picker_days">D</string>
     <string name="time_picker_hours">H</string>
     <string name="time_picker_minutes">M</string>
     <string name="time_picker_seconds">S</string>
     <string name="time_picker_milliseconds">MS</string>
+
+    <!-- Enum Tool -->
+    <string name="layout_enum_tool_custom_value_hint">Input your custom value</string>
 </resources>

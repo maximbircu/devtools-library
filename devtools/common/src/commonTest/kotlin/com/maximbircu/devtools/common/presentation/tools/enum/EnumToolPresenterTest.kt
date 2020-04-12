@@ -59,7 +59,7 @@ class EnumToolPresenterTest : BasePresenterTest<EnumToolView, EnumToolPresenter>
 
         presenter.onToolBind(tool)
 
-        verify { view.checkOption("second-option") }
+        verify { view.selectOption("second-option") }
     }
 
     @Test
@@ -73,7 +73,7 @@ class EnumToolPresenterTest : BasePresenterTest<EnumToolView, EnumToolPresenter>
 
         presenter.onToolBind(tool)
 
-        verify { view.checkOption("custom") }
+        verify { view.selectOption("custom") }
     }
 
     @Test
