@@ -30,7 +30,7 @@ class EnumToolLayout(context: Context) : DevToolLayout<EnumTool>(context), EnumT
 
     override fun selectOption(option: String) = chipGroup.selectChip(option)
 
-    override fun setCustomValue(optionValue: String) = customValue.setText(optionValue)
+    override fun setCustomValue(value: String) = customValue.setText(value)
 
     override fun showCustomValueInputView() = customValue.show()
 
