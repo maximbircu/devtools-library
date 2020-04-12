@@ -4,6 +4,7 @@
     package="com.maximbircu.devtools">
 
     <application
+        android:name=".SampleApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -19,7 +20,11 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".YamlToolsActivity" android:label="@string/yaml_dev_tools"/>
-        <activity android:name=".MemoryToolsActivity" android:label="@string/memory_dev_tools" />
+        <activity
+            android:name=".YamlToolsActivity"
+            android:label="@string/yaml_dev_tools" />
+        <activity
+            android:name=".MemoryToolsActivity"
+            android:label="@string/memory_dev_tools" />
     </application>
 </manifest>

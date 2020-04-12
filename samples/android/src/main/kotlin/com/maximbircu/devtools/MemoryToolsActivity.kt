@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.maximbircu.devtools.android.DevToolsConfigurationScreen
 import com.maximbircu.devtools.common.DevTools
 import com.maximbircu.devtools.common.core.DevTool
+import com.maximbircu.devtools.common.presentation.tools.enum.EnumOptionsProvider
+import com.maximbircu.devtools.common.presentation.tools.enum.EnumTool
 import com.maximbircu.devtools.common.presentation.tools.text.TextTool
 import com.maximbircu.devtools.common.presentation.tools.time.TimeTool
 import com.maximbircu.devtools.common.presentation.tools.toggle.ToggleTool
@@ -14,6 +16,7 @@ import com.maximbircu.devtools.common.readers.DevToolsSources
 import com.maximbircu.devtools.common.readers.memory
 import kotlinx.android.synthetic.main.activity_tools_container.devToolsContainer
 
+@Suppress("LargeClass")
 class MemoryToolsActivity : AppCompatActivity() {
     private lateinit var devtools: DevTools
 
@@ -54,7 +57,6 @@ class MemoryToolsActivity : AppCompatActivity() {
                 canBeDisabled = true
                 defaultEnabledValue = false
             },
-
             "memory-text-tool-integer" to TextTool(
                 defaultValue = 3,
                 hint = "Integer number config value"
@@ -64,7 +66,6 @@ class MemoryToolsActivity : AppCompatActivity() {
                 canBeDisabled = true
                 defaultEnabledValue = false
             },
-
             "memory-text-tool-float" to TextTool(
                 defaultValue = 3.4f,
                 hint = "Floating point number config value"
@@ -84,6 +85,33 @@ class MemoryToolsActivity : AppCompatActivity() {
             ).apply {
                 title = "Time tool"
                 description = "A time configuration value tool"
+                canBeDisabled = true
+                defaultEnabledValue = false
+            },
+
+            "memory-enum-tool" to EnumTool(
+                defaultValueKey = "first-option",
+                allowCustom = true,
+                optionsProvider = object : EnumOptionsProvider {
+                    override fun getOptions() = mapOf(
+                        "first-option" to "First Option",
+                        "second-option" to "Second Option",
+                        "third-option" to "Third Option"
+                    )
+                }
+            ).apply {
+                title = "Enum tool"
+                description = "An enum configuration value tool"
+                canBeDisabled = true
+                defaultEnabledValue = false
+            },
+            "memory-enum-custom-options-provider-tool" to EnumTool(
+                defaultValueKey = "first-option",
+                allowCustom = true,
+                optionsProvider = CustomEnumOptionsProvider(fileName = "enum-options.json")
+            ).apply {
+                title = "Enum tool [Custom Provider]"
+                description = "An enum configuration value tool with a custom options provider"
                 canBeDisabled = true
                 defaultEnabledValue = false
             }

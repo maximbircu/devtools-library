@@ -3,6 +3,10 @@ Changelog
 
 ## Version 1.0.0 *(In development)*
 
+Issue: [#21](https://github.com/maximbircu/devtools-library/issues/21)
+- Implement EnumTool which will be able to manipulate enum configuration values
+- Add Android view implementation for the EnumTool component
+
 Issue: [#20](https://github.com/maximbircu/devtools-library/issues/20)
 - Implement the TimeTool component which will be able to manipulate time configuration values
 

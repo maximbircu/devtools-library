@@ -6,7 +6,7 @@
     <!-- Toggle Tool -->
     <string name="toggle_tool_is_enabled">Is enabled</string>
 
-    <!-- Time Picker   -->
+    <!-- Time Picker -->
     <string name="timer_picker_days">D</string>
     <string name="time_picker_hours">H</string>
     <string name="time_picker_minutes">M</string>
