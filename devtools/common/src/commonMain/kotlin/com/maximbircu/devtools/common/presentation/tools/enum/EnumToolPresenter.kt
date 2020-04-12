@@ -52,7 +52,7 @@ private class EnumToolPresenterImpl(
 ) : BasePresenter<EnumToolView>(view), EnumToolPresenter {
     private lateinit var tool: EnumTool
     private val selectedValue get() = tool.store.restore()
-    private val selectedValueKey get() = tool.getOptionNameForValue(selectedValue) ?: CUSTOM_OPTION
+    private val selectedValueKey get() = getOptionNameForValue(selectedValue) ?: CUSTOM_OPTION
 
     override fun onToolBind(tool: EnumTool) {
         this.tool = tool
@@ -88,5 +88,9 @@ private class EnumToolPresenterImpl(
             options.add(CUSTOM_OPTION)
         }
         return options
+    }
+
+    private fun getOptionNameForValue(value: Any): String? {
+        return tool.options.keys.firstOrNull { tool.options[it] == value }
     }
 }

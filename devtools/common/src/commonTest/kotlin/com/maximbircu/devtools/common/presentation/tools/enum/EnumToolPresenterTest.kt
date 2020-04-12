@@ -54,7 +54,6 @@ class EnumToolPresenterTest : BasePresenterTest<EnumToolView, EnumToolPresenter>
         val tool: EnumTool = createTool {
             ::options returns fakeOptions
             store::restore returns "second-value"
-            every { getOptionNameForValue(any()) } returns "second-option"
         }
 
         presenter.onToolBind(tool)
@@ -68,7 +67,6 @@ class EnumToolPresenterTest : BasePresenterTest<EnumToolView, EnumToolPresenter>
         val tool: EnumTool = createTool {
             ::options returns fakeOptions
             store::restore returns "some custom value"
-            every { getOptionNameForValue(any()) } returns null
         }
 
         presenter.onToolBind(tool)

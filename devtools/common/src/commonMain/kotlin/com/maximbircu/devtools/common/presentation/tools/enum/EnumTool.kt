@@ -25,8 +25,6 @@ class EnumTool(
             ?: throw IllegalArgumentException("No option found for \"$defaultValueKey\" key")
     }
 
-    fun getOptionNameForValue(value: Any) = options.keys.firstOrNull { options[it] == value }
-
     private fun assertDefaultValueKeyProvided() {
         if (defaultValueKey == null) {
             throw NullPointerException("Default val required")

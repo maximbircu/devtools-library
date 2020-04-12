@@ -27,22 +27,6 @@ class EnumToolTest : BaseTest() {
         assertFailsWith(IllegalArgumentException::class) { tool.getDefaultValue() }
     }
 
-    @Test
-    fun `returns proper option name for value`() {
-        val tool = createTool(defaultValueKey = "second-option")
-
-        assertEquals("first-option", tool.getOptionNameForValue("first-option-value"))
-        assertEquals("second-option", tool.getOptionNameForValue("second-option-value"))
-        assertEquals("third-option", tool.getOptionNameForValue("third-option-value"))
-    }
-
-    @Test
-    fun `returns null if option is not present`() {
-        val tool = createTool(defaultValueKey = "second-option")
-
-        assertEquals(null, tool.getOptionNameForValue("fourth-option-value"))
-    }
-
     private fun createTool(defaultValueKey: String?): EnumTool {
         return EnumTool(defaultValueKey, optionsProvider = StubOptionsProvider())
     }
