@@ -17,7 +17,7 @@ class GroupToolLayout(context: Context) : DevToolLayout<GroupTool>(context), Gro
 
     override fun onBind(tool: GroupTool) = presenter.onToolBind(tool)
 
-    override fun showTools(tools: List<DevTool<*>>) = devToolsViewsContainer.showDevTools(tools)
-
     override fun storeConfigValue() = presenter.onStoreConfigurationValue()
+
+    override fun showTools(tools: List<DevTool<*>>) = devToolsViewsContainer.showDevTools(tools)
 }
