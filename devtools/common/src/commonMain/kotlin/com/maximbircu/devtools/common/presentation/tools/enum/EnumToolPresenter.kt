@@ -6,7 +6,7 @@ import com.maximbircu.devtools.common.core.mvp.Presenter
 private const val CUSTOM_OPTION = "custom"
 
 /**
- * Encapsulates the [EnumTool] business logic and displays text tool data through [EnumToolView].
+ * Encapsulates the [EnumTool] business logic and displays enum tool data through [EnumToolView].
  */
 interface EnumToolPresenter : Presenter {
     /**
