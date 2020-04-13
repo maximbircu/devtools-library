@@ -20,6 +20,12 @@ interface DevToolsStorage {
      */
     fun <T> getValue(key: String): T
 
+    /**
+     * Provides a [DevToolsStorage] which contains all tools group members.
+     *
+     * @param key the group unique id [GroupTool.key]
+     * @return a [DevToolsStorage] which contains the [GroupTool.tools] data
+     */
     fun getGroup(key: String): DevToolsStorage
 
     /**
