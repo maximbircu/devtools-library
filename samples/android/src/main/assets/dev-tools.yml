@@ -93,3 +93,51 @@ yml-enum-custom-options-provider-tool: !enum {
     fileName: "enum-options.json"
   }
 }
+
+##############################
+## Group
+##############################
+
+yml-tools-group: !group {
+  title: "Tools group",
+  tools: {
+    yml-toggle-tool: !toggle {
+      title: "Toggle tool",
+      description: "A boolean configuration value tool",
+      canBeDisabled: true,
+      defaultEnabledValue: false
+    },
+    yml-text-tool: !text {
+      title: "Text tool (String)",
+      description: "A text configuration value tool",
+      canBeDisabled: true,
+      defaultEnabledValue: false,
+      defaultValue: "Here can go any text value",
+      hint: "String config value"
+    },
+    yml-time-tool: !time {
+      title: "Time tool",
+      description: "A time configuration value tool",
+      canBeDisabled: true,
+      defaultEnabledValue: false,
+      days: 1,
+      hours: 2,
+      minutes: 3,
+      seconds: 4,
+      milliseconds: 5,
+    },
+    yml-enum-tool: !enum {
+      title: "Enum tool",
+      description: "An enum configuration value tool",
+      canBeDisabled: true,
+      defaultEnabledValue: false,
+      allowCustom: true,
+      defaultValueKey: first-option,
+      options: {
+        first-option: "First Option Value",
+        second-option: "Second Option Value",
+        third-option: "Third Option Value",
+      }
+    }
+  }
+}

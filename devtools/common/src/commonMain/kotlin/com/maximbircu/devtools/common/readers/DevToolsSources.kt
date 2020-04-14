@@ -19,7 +19,5 @@ object DevToolsSources
  * @param devTools dev tools dictionary to be passed to [com.maximbircu.devtools.common.DevTools]
  */
 fun DevToolsSources.memory(devTools: Map<String, DevTool<*>>): DevToolsSource {
-    return MemoryDevToolsSource(
-        devTools
-    )
+    return MemoryDevToolsSource(devTools)
 }

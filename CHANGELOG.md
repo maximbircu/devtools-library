@@ -3,6 +3,10 @@ Changelog
 
 ## Version 1.0.0 *(In development)*
 
+Issue: [#22](https://github.com/maximbircu/devtools-library/issues/22)
+- Implement GroupTool, which will to group devtools that belong to the same context
+- Add Android view implementation for the GroupTool component
+
 Issue: [#21](https://github.com/maximbircu/devtools-library/issues/21)
 - Implement EnumTool which will be able to manipulate enum configuration values
 - Add Android view implementation for the EnumTool component

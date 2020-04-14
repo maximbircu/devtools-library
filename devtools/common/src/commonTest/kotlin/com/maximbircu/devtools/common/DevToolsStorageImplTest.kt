@@ -3,6 +3,7 @@ package com.maximbircu.devtools.common
 import com.maximbircu.devtools.common.core.DevTool
 import com.maximbircu.devtools.common.core.createTool
 import com.maximbircu.devtools.common.mvp.BaseTest
+import com.maximbircu.devtools.common.presentation.tools.group.GroupTool
 import com.maximbircu.devtools.common.presentation.tools.text.TextTool
 import com.maximbircu.devtools.common.presentation.tools.toggle.ToggleTool
 import com.maximbircu.devtools.common.utils.returns
@@ -37,6 +38,23 @@ class DevToolsStorageImplTest : BaseTest() {
 
         assertFalse(storage.isEnabled(key = "first-toggle-tool"))
         assertTrue(storage.isEnabled(key = "text-tool"))
+    }
+
+    @Test
+    fun `returns proper group tool storage for provided key`() {
+        val groupToolChildren = mapOf(
+            "first-child" to createTool<TextTool>(),
+            "second-child" to createTool<ToggleTool>()
+        )
+        val groupTool: GroupTool = createTool { ::tools returns groupToolChildren }
+        val tools = mapOf<String, DevTool<*>>(
+            "text-tool" to createTool<TextTool>(),
+            "group-tool" to groupTool
+        )
+
+        val storage: DevToolsStorage = DevToolsStorageImpl(tools)
+
+        assertEquals(groupToolChildren, storage.getGroup(key = "group-tool").tools)
     }
 
     @Test
