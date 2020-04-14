@@ -38,7 +38,7 @@ class MemoryToolsActivity : AppCompatActivity() {
         DevToolsConfigurationScreen.attachToView(devToolsContainer, devtools)
     }
 
-    @Suppress("LongMethod")
+    @Suppress("LongMethod", "ComplexMethod")
     private fun getTools(): Map<String, DevTool<*>> {
         return mapOf(
             "memory-toggle-tool" to ToggleTool(defaultValue = false).apply {
