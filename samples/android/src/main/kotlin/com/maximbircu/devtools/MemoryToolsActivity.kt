@@ -9,6 +9,7 @@ import com.maximbircu.devtools.common.DevTools
 import com.maximbircu.devtools.common.core.DevTool
 import com.maximbircu.devtools.common.presentation.tools.enum.EnumOptionsProvider
 import com.maximbircu.devtools.common.presentation.tools.enum.EnumTool
+import com.maximbircu.devtools.common.presentation.tools.group.GroupTool
 import com.maximbircu.devtools.common.presentation.tools.text.TextTool
 import com.maximbircu.devtools.common.presentation.tools.time.TimeTool
 import com.maximbircu.devtools.common.presentation.tools.toggle.ToggleTool
@@ -41,8 +42,7 @@ class MemoryToolsActivity : AppCompatActivity() {
     private fun getTools(): Map<String, DevTool<*>> {
         return mapOf(
             "memory-toggle-tool" to ToggleTool(defaultValue = false).apply {
-                key = "toggle-tool"
-                title = "Toggle dev tool"
+                title = "Toggle tool"
                 description = "A boolean configuration value dev tool"
                 canBeDisabled = true
                 defaultEnabledValue = false
@@ -114,6 +114,56 @@ class MemoryToolsActivity : AppCompatActivity() {
                 description = "An enum configuration value tool with a custom options provider"
                 canBeDisabled = true
                 defaultEnabledValue = false
+            },
+
+            "memory-tools-group" to GroupTool(
+                tools = mapOf(
+                    "memory-toggle-tool" to ToggleTool(defaultValue = false).apply {
+                        title = "Toggle tool"
+                        description = "A boolean configuration value dev tool"
+                        canBeDisabled = true
+                        defaultEnabledValue = false
+                    },
+                    "memory-text-tool" to TextTool(
+                        defaultValue = "Here can go any text value",
+                        hint = "String config value"
+                    ).apply {
+                        title = "Text tool (String)"
+                        description = "A text configuration value tool"
+                        canBeDisabled = true
+                        defaultEnabledValue = false
+                    },
+                    "memory-time-tool" to TimeTool(
+                        days = 1,
+                        hours = 2,
+                        minutes = 3,
+                        seconds = 4,
+                        milliseconds = 5
+                    ).apply {
+                        title = "Time tool"
+                        description = "A time configuration value tool"
+                        canBeDisabled = true
+                        defaultEnabledValue = false
+                    },
+                    "memory-enum-tool" to EnumTool(
+                        defaultValueKey = "first-option",
+                        allowCustom = true,
+                        optionsProvider = object : EnumOptionsProvider {
+                            override fun getOptions() = mapOf(
+                                "first-option" to "First Option",
+                                "second-option" to "Second Option",
+                                "third-option" to "Third Option"
+                            )
+                        }
+                    ).apply {
+                        title = "Enum tool"
+                        description = "An enum configuration value tool"
+                        canBeDisabled = true
+                        defaultEnabledValue = false
+                    }
+                )
+            ).apply {
+                title = "Tools group"
             }
         ).apply {
             forEach { (key, value) -> value.key = key }

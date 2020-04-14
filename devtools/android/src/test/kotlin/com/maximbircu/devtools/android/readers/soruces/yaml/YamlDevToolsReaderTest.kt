@@ -2,8 +2,8 @@ package com.maximbircu.devtools.android.readers.soruces.yaml
 
 import com.maximbircu.devtools.android.BaseTest
 import com.maximbircu.devtools.common.core.DevTool
-import com.maximbircu.devtools.common.presentation.tools.group.GroupTool
 import com.maximbircu.devtools.common.presentation.tools.text.TextTool
+import com.maximbircu.devtools.common.presentation.tools.time.TimeTool
 import com.maximbircu.devtools.common.presentation.tools.toggle.ToggleTool
 import io.mockk.every
 import io.mockk.mockk
@@ -27,30 +27,17 @@ class YamlDevToolsReaderTest : BaseTest() {
 
     @Test
     fun `returns proper dev tool`() {
-        enqueueTools(mapOf("toggle-tool" to ToggleTool()))
-        val reader = YamlDevToolsReader(mockk(relaxed = true), "".byteInputStream())
-
-        val tools = reader.getDevTools()
-
-        assertEquals(tools.getValue("toggle-tool").key, "toggle-tool")
-    }
-
-    @Test
-    fun `returns child tools with proper keys`() {
-        enqueueTools(
-            mapOf(
-                "toggle-tool" to ToggleTool(),
-                "group-tool" to GroupTool(tools = mapOf("child-tool" to TextTool()))
-            )
+        val expectedTools: Map<String, DevTool<*>> = mapOf(
+            "toggle-tool" to ToggleTool(),
+            "text-tool" to TextTool(),
+            "time-tool" to TimeTool()
         )
+        enqueueTools(expectedTools)
         val reader = YamlDevToolsReader(mockk(relaxed = true), "".byteInputStream())
 
-        val tools = reader.getDevTools()
+        val actualTools = reader.getDevTools()
 
-        val groupTool: GroupTool = tools.getValue("group-tool") as GroupTool
-        assertEquals("toggle-tool", tools.getValue("toggle-tool").key)
-        assertEquals("group-tool", groupTool.key)
-        assertEquals("group-tool.child-tool", groupTool.tools.getValue("child-tool").key)
+        assertEquals(expectedTools, actualTools)
     }
 
     @Suppress("UNCHECKED_CAST")
