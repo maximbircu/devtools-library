@@ -12,5 +12,5 @@ Pod::Spec.new do |spec|
   }
   spec.ios.deployment_target  = "10.0"
   spec.source_files  = "devtools/ios/DevtoolsFramework/**/*.swift"
-  spec.vendored_frameworks = 'devtools/ios/Frameworks/debug/devtools.framework'
+  spec.vendored_frameworks = 'devtools/ios/Frameworks/devtools.framework'
 end

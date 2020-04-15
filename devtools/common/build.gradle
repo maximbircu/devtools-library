@@ -85,19 +85,9 @@ kotlin {
         }
     }
 
-    task debugFatFramework(type: org.jetbrains.kotlin.gradle.tasks.FatFrameworkTask) {
-        baseName = "devtools"
-        destinationDir = file("$rootDir/devtools/ios/Frameworks/debug")
-        from(
-                targets.ios.binaries.getFramework("DEBUG"),
-                targets.iosArm32.binaries.getFramework("DEBUG"),
-                targets.iosArm64.binaries.getFramework("DEBUG")
-        )
-    }
-
     task releaseFatFramework(type: org.jetbrains.kotlin.gradle.tasks.FatFrameworkTask) {
         baseName = "devtools"
-        destinationDir = file("$rootDir/devtools/ios/Frameworks/release")
+        destinationDir = file("$rootDir/devtools/ios/Frameworks")
         from(
                 targets.ios.binaries.getFramework("RELEASE"),
                 targets.iosArm32.binaries.getFramework("RELEASE"),
@@ -110,9 +100,6 @@ kotlin {
             def taskName = task.name
             if(taskName.toLowerCase().contains("ios") && taskName.toLowerCase().contains("test")) {
                 task.setEnabled(false)
-            }
-            if (taskName.contains("assembleDebug")) {
-                task.dependsOn "debugFatFramework"
             }
             if (taskName.contains("assembleRelease")) {
                 task.dependsOn "releaseFatFramework"
