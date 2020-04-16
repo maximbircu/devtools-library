@@ -2,6 +2,10 @@ Changelog
 =========
 
 ## Version 1.0.0 *(In development)*
+Issue: [#28](https://github.com/maximbircu/devtools-library/issues/28)
+- Implement JsonSchema reader
+- Add a JsonSchema source dev tools configuration screen to the Android sample app
+- Add a combined source dev tools configuration screen to the Android sample app
 
 Issue: [#22](https://github.com/maximbircu/devtools-library/issues/22)
 - Implement GroupTool, which will to group devtools that belong to the same context

@@ -1,9 +1,11 @@
-package com.maximbircu.devtools
+package com.maximbircu.devtools.configscreens
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.maximbircu.devtools.CustomEnumOptionsProvider
+import com.maximbircu.devtools.R.layout
 import com.maximbircu.devtools.android.DevToolsConfigurationScreen
 import com.maximbircu.devtools.common.DevTools
 import com.maximbircu.devtools.common.core.DevTool
@@ -18,19 +20,19 @@ import com.maximbircu.devtools.common.readers.memory
 import kotlinx.android.synthetic.main.activity_tools_container.devToolsContainer
 
 @Suppress("LargeClass")
-class MemoryToolsActivity : AppCompatActivity() {
+class MemorySourceConfigActivity : AppCompatActivity() {
     private lateinit var devtools: DevTools
 
     companion object {
         fun start(context: Context) {
-            val intent = Intent(context, MemoryToolsActivity::class.java)
+            val intent = Intent(context, MemorySourceConfigActivity::class.java)
             context.startActivity(intent)
         }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_tools_container)
+        setContentView(layout.activity_tools_container)
 
         val source = DevToolsSources.memory(getTools())
         devtools = DevTools.create(source)
@@ -108,7 +110,9 @@ class MemoryToolsActivity : AppCompatActivity() {
             "memory-enum-custom-options-provider-tool" to EnumTool(
                 defaultValueKey = "first-option",
                 allowCustom = true,
-                optionsProvider = CustomEnumOptionsProvider(fileName = "enum-options.json")
+                optionsProvider = CustomEnumOptionsProvider(
+                    fileName = "enum-options.json"
+                )
             ).apply {
                 title = "Enum tool [Custom Provider]"
                 description = "An enum configuration value tool with a custom options provider"

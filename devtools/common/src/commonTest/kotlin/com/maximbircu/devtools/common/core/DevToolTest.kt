@@ -18,7 +18,7 @@ class DevToolTest : BaseTest() {
     }
 
     @Test
-    fun `some test`() {
+    fun `preferences dev tool is using a preferences tool store`() {
         mockkObject(PreferencesToolStore)
         every { PreferencesToolStore.create<Any>(any()) } returns mockk(relaxed = true)
 

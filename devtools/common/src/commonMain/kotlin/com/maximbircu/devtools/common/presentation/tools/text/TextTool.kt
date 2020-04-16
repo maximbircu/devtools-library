@@ -9,7 +9,7 @@ import kotlin.reflect.KClass
  * @property defaultValue the default text or number configuration value
  * @property hint the text which aims to add more context about the purpose of the config value
  */
-class TextTool(
+data class TextTool(
     private val defaultValue: Any? = null,
     val hint: String? = null
 ) : PreferencesDevTool<Any>() {

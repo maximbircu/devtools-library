@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-multiplatform'
+apply plugin: 'kotlinx-serialization'
 
 configureJacoco {
     srcDirs = kotlin.sourceSets.commonMain.kotlin.srcDirs
@@ -48,6 +49,7 @@ kotlin {
         commonMain {
             dependencies {
                 implementation "org.jetbrains.kotlin:kotlin-stdlib-common"
+                implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:0.20.0"
             }
         }
 
@@ -55,11 +57,15 @@ kotlin {
             dependsOn commonMain
             dependencies {
                 implementation "org.jetbrains.kotlin:kotlin-stdlib"
+                implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.20.0"
             }
         }
 
         iosMain {
             dependsOn commonMain
+            dependencies {
+                implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:0.20.0"
+            }
         }
 
         commonTest {
