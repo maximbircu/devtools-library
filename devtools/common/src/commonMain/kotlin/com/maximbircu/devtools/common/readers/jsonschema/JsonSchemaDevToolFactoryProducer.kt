@@ -11,9 +11,7 @@ import kotlinx.serialization.json.JsonObject
 internal class JsonSchemaDevToolFactoryProducer(private val jsonObject: JsonObject) {
     private val type = jsonObject.getValue("type").primitive.content
     private val properties: Map<String, JsonSchemaToolFactory<*>>
-        get() = jsonObject.getValue("properties").jsonObject.map { (key, value) ->
-            key to JsonSchemaDevToolFactoryProducer(value.jsonObject).getDevToolFactory()
-        }.toMap()
+        get() = jsonObject.getValue("properties").jsonObject.toFactoriesMap()
 
     fun getDevToolFactory(): JsonSchemaToolFactory<*> {
         return if (jsonObject["enum"] != null) {
@@ -29,4 +27,8 @@ internal class JsonSchemaDevToolFactoryProducer(private val jsonObject: JsonObje
             }
         }
     }
+
+    private fun JsonObject.toFactoriesMap() = map { (key, value) ->
+        key to JsonSchemaDevToolFactoryProducer(value.jsonObject).getDevToolFactory()
+    }.toMap()
 }

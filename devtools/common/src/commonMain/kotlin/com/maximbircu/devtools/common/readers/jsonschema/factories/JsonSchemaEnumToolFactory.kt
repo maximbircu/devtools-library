@@ -13,8 +13,7 @@ internal class JsonSchemaEnumToolFactory(
     override fun createDevTool(): EnumTool = EnumTool(
         defaultValueKey = default?.content,
         allowCustom = jsonObject["allowCustom"]?.boolean ?: false,
-        optionsProvider = object :
-            EnumOptionsProvider {
+        optionsProvider = object : EnumOptionsProvider {
             override fun getOptions(): Map<String, String> {
                 val enumOptions = jsonObject.getValue("enum").jsonArray
                 return enumOptions.map { it.content to it.content }.toMap()

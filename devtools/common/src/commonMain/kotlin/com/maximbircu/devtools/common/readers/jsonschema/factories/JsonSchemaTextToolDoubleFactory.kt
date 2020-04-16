@@ -7,7 +7,7 @@ import kotlinx.serialization.json.JsonObject
 internal class JsonSchemaTextToolDoubleFactory(
     jsonObject: JsonObject
 ) : JsonSchemaToolFactory<TextTool>(jsonObject) {
-    private val hint = jsonObject["hint"]?.primitive?.content
+    private val hint = jsonObject["hint"]?.primitive
 
-    override fun createDevTool() = TextTool(default?.double ?: 0.0, hint)
+    override fun createDevTool() = TextTool(default?.double ?: 0.0, hint?.content)
 }
