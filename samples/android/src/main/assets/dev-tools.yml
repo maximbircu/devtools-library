@@ -39,7 +39,7 @@ yml-text-tool-integer: !text {
 ## Floating point
 ##############################
 
-yml-text-tool-float: !text {
+yml-text-tool-floating-point: !text {
   title: "Text tool (Floating point)",
   description: "A floating-point number configuration value tool",
   canBeDisabled: true,

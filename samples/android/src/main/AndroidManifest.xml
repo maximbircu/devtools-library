@@ -21,10 +21,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".YamlToolsActivity"
+            android:name=".configscreens.YamlSourceConfigActivity"
             android:label="@string/yaml_dev_tools" />
         <activity
-            android:name=".MemoryToolsActivity"
+            android:name=".configscreens.MemorySourceConfigActivity"
             android:label="@string/memory_dev_tools" />
+        <activity
+            android:name=".configscreens.JsonSchemaSourceConfigActivity"
+            android:label="@string/json_schema_dev_tools" />
+        <activity
+            android:name=".configscreens.CombinedSourcesConfigActivity"
+            android:label="@string/combined_dev_tools" />
     </application>
 </manifest>

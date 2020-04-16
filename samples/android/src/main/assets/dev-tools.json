@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "json-schema-toggle-tool": {
+      "type": "boolean",
+      "title": "Toggle tool",
+      "description": "A boolean configuration value tool",
+      "default": true
+    },
+
+    "json-schema-text-tool": {
+      "type": "string",
+      "title": "Text tool (String)",
+      "description": "A text configuration value tool",
+      "default": "String config value",
+      "hint": "String config value"
+    },
+    "json-schema-text-tool-integer": {
+      "type": "integer",
+      "title": "Text tool (Integer)",
+      "description": "An integer number configuration value tool",
+      "default": 3,
+      "hint": "Integer number config value"
+    },
+    "json-schema-text-tool-floating-point": {
+      "type": "number",
+      "title": "Text tool (Floating point)",
+      "description": "A floating-point number configuration value tool",
+      "default": 3.4,
+      "hint": "Floating point number config value"
+    },
+
+    "json-schema-enum-tool-floating-point": {
+      "type": "string",
+      "title": "Enum tool",
+      "default": "Second Option Value",
+      "enum": [
+        "First Option Value",
+        "Second Option Value",
+        "Third Option Value"
+      ],
+      "allowCustom": true
+    },
+
+    "json-schema-tools-group": {
+      "type": "object",
+      "title": "Tools group",
+      "properties": {
+        "json-schema-toggle-tool": {
+          "type": "boolean",
+          "title": "Toggle tool",
+          "description": "A boolean configuration value tool"
+        },
+        "json-schema-text-tool": {
+          "type": "string",
+          "title": "Text tool (String)",
+          "description": "A text configuration value tool",
+          "default": " String config value",
+          "hint": "String config value"
+        },
+        "json-schema-enum-tool-floating-point": {
+          "type": "string",
+          "title": "Enum tool",
+          "default": "Second Option Value",
+          "enum": [
+            "First Option Value",
+            "Second Option Value",
+            "Third Option Value"
+          ],
+          "allowCustom": true
+        }
+      }
+    }
+  }
+}

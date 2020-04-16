@@ -7,7 +7,7 @@ import com.maximbircu.devtools.common.core.PreferencesDevTool
  *
  * @property defaultValue the default boolean configuration value
  */
-class ToggleTool(
+data class ToggleTool(
     private val defaultValue: Boolean = false
 ) : PreferencesDevTool<Boolean>() {
     override fun getDefaultValue(): Boolean = defaultValue
