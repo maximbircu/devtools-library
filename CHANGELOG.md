@@ -2,6 +2,9 @@ Changelog
 =========
 
 ## Version 1.0.0 *(In development)*
+Issue: [#16](https://github.com/maximbircu/devtools-library/issues/16)
+- Use macOS machine for the "assemble" Github Action step
+
 Issue: [#28](https://github.com/maximbircu/devtools-library/issues/28)
 - Implement JsonSchema reader
 - Add a JsonSchema source dev tools configuration screen to the Android sample app
