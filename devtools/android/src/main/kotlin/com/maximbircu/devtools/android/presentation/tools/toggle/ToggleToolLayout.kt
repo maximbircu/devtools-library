@@ -14,9 +14,12 @@ internal class ToggleToolLayout(
     private val presenter = ToggleToolPresenter.create(this)
     override val layoutRes: Int get() = R.layout.layout_toggle_tool
 
-    override fun onBind(tool: ToggleTool) = presenter.onToolBind(tool)
-
-    override fun storeConfigValue() = presenter.onStoreConfigValue(toggleValue.isChecked)
+    override fun onBind(tool: ToggleTool) {
+        presenter.onToolBind(tool)
+        toggleValue.setOnCheckedChangeListener { _, isChecked ->
+            presenter.onCheckedChangeListener(isChecked)
+        }
+    }
 
     override fun setValue(value: Boolean) {
         toggleValue.isChecked = value

@@ -20,5 +20,5 @@ interface TimeToolView : BaseView {
      * @param title time dev tool title
      * @param time current time configuration value
      */
-    fun displayTimeSelectionDialog(title: String?, time: String)
+    fun showTimePicker(title: String?, time: String)
 }

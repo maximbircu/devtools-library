@@ -15,15 +15,5 @@ class GroupToolStore : PreferencesToolStore<Unit> {
      */
     override var isEnabled: Boolean = true
 
-    /**
-     * This action is not supported for [GroupTool] because the tool doesn't have any configuration
-     * value, thus we don't have what to store.
-     */
-    override fun store(value: Unit): Unit = throw UnsupportedOperationException()
-
-    /**
-     * This action is not supported for [GroupTool] because the tool doesn't have any configuration
-     * value, thus we don't have what to restore.
-     */
-    override fun restore(): Unit = throw UnsupportedOperationException()
+    override var value: Unit = Unit
 }

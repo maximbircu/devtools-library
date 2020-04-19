@@ -27,10 +27,8 @@ internal class ChipGroupLayout @JvmOverloads constructor(
     }
 
     fun setOnCheckedChangeListener(onChange: (String) -> Unit) {
-        setOnCheckedChangeListener { _, _ -> onChange(getCheckedChipData()) }
+        setOnCheckedChangeListener { _, _ -> onChange(chips.getValue(checkedChipId)) }
     }
-
-    fun getCheckedChipData(): String = chips.getValue(checkedChipId)
 
     fun getCheckedChip(): Chip = findViewById(checkedChipId)
 

@@ -1,42 +1,53 @@
 package com.maximbircu.devtools.common.core
 
 import com.maximbircu.devtools.common.mvp.BaseTest
-import com.maximbircu.devtools.common.stores.PreferencesToolStore
 import com.maximbircu.devtools.common.utils.mockk
 import io.mockk.every
-import io.mockk.mockkObject
+import io.mockk.verify
 import kotlin.test.Test
-import kotlin.test.assertTrue
+import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
+import kotlin.test.assertFalse
 
 class DevToolTest : BaseTest() {
-    @Test
-    fun `restores proper enabled value`() {
-        val devTool = createDevTool()
-        every { devTool.store.isEnabled } returns true
-
-        assertTrue(devTool.isEnabled)
-    }
+    private val store: ToolStore<String> = mockk(relaxed = true)
 
     @Test
-    fun `preferences dev tool is using a preferences tool store`() {
-        mockkObject(PreferencesToolStore)
-        every { PreferencesToolStore.create<Any>(any()) } returns mockk(relaxed = true)
+    fun `restores proper persisted state when tool key updated`() {
+        val devTool = createDevTool(store)
+        every { store.isEnabled } returns false
+        every { store.value } returns "Configuration value"
 
-        val devTool = createPreferencesDevTool()
+        devTool.key = "some-key"
 
-        assertTrue(devTool.store is PreferencesToolStore)
+        assertFalse(devTool.isEnabled)
+        assertEquals("Configuration value", devTool.value)
     }
 
-    private fun createPreferencesDevTool(): DevTool<Unit> {
-        return object : PreferencesDevTool<Unit>() {
-            override fun getDefaultValue() = Unit
-        }
+    @Test
+    fun `persists dev tool state`() {
+        val devTool = createDevTool(store)
+        devTool.isEnabled = false
+        devTool.value = "Configuration value"
+
+        devTool.persistState()
+
+        verify { store.isEnabled = false }
+        verify { store.value = "Configuration value" }
     }
 
-    private fun createDevTool(): DevTool<Unit> {
-        return object : DevTool<Unit>() {
-            override fun getDefaultValue() = Unit
-            override val store: ToolStore<Unit> = mockk(relaxed = true)
+    @Test
+    fun `throws exception when trying to access tool key if it was not set`() {
+        val devTool = createDevTool(store)
+
+        assertFailsWith(NullPointerException::class) { devTool.key }
+    }
+
+    private fun createDevTool(store: ToolStore<String>): DevTool<String> {
+        return object : DevTool<String>() {
+            override val store: ToolStore<String> = store
+
+            override fun getDefaultValue() = ""
         }
     }
 }

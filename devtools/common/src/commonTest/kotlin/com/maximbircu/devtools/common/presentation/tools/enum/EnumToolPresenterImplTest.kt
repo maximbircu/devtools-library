@@ -4,11 +4,10 @@ import com.maximbircu.devtools.common.core.createTool
 import com.maximbircu.devtools.common.mvp.BasePresenterTest
 import com.maximbircu.devtools.common.utils.mockk
 import com.maximbircu.devtools.common.utils.returns
-import io.mockk.every
 import io.mockk.verify
 import kotlin.test.Test
 
-class EnumToolPresenterTest : BasePresenterTest<EnumToolView, EnumToolPresenter>(mockk()) {
+class EnumToolPresenterImplTest : BasePresenterTest<EnumToolView, EnumToolPresenter>(mockk()) {
     override fun createPresenter() = EnumToolPresenter.create(view)
 
     @Test
@@ -17,7 +16,7 @@ class EnumToolPresenterTest : BasePresenterTest<EnumToolView, EnumToolPresenter>
         val tool: EnumTool = createTool {
             ::allowCustom returns false
             ::options returns fakeOptions
-            store::restore returns "first-value"
+            ::value returns "first-value"
         }
 
         presenter.onToolBind(tool)
@@ -31,7 +30,7 @@ class EnumToolPresenterTest : BasePresenterTest<EnumToolView, EnumToolPresenter>
         val tool: EnumTool = createTool {
             ::allowCustom returns true
             ::options returns fakeOptions
-            store::restore returns "first-value"
+            ::value returns "first-value"
         }
 
         presenter.onToolBind(tool)
@@ -41,7 +40,7 @@ class EnumToolPresenterTest : BasePresenterTest<EnumToolView, EnumToolPresenter>
 
     @Test
     fun `sets custom value on tool bind`() {
-        val tool: EnumTool = createTool { store::restore returns "second-value" }
+        val tool: EnumTool = createTool { ::value returns "second-value" }
 
         presenter.onToolBind(tool)
 
@@ -53,7 +52,7 @@ class EnumToolPresenterTest : BasePresenterTest<EnumToolView, EnumToolPresenter>
         val fakeOptions = mapOf("first-option" to "first-value", "second-option" to "second-value")
         val tool: EnumTool = createTool {
             ::options returns fakeOptions
-            store::restore returns "second-value"
+            ::value returns "second-value"
         }
 
         presenter.onToolBind(tool)
@@ -66,7 +65,7 @@ class EnumToolPresenterTest : BasePresenterTest<EnumToolView, EnumToolPresenter>
         val fakeOptions = mapOf("first-option" to "first-value", "second-option" to "second-value")
         val tool: EnumTool = createTool {
             ::options returns fakeOptions
-            store::restore returns "some custom value"
+            ::value returns "some custom value"
         }
 
         presenter.onToolBind(tool)
@@ -75,7 +74,7 @@ class EnumToolPresenterTest : BasePresenterTest<EnumToolView, EnumToolPresenter>
     }
 
     @Test
-    fun `shows custom value input view if selected option is custom`() {
+    fun `shows custom value input if selected option is custom`() {
         presenter.onOptionSelected("custom")
 
         verify { view.showCustomValueInputView() }
@@ -83,39 +82,40 @@ class EnumToolPresenterTest : BasePresenterTest<EnumToolView, EnumToolPresenter>
 
     @Test
     fun `hides custom value input view if selected option is not custom`() {
+        presenter.onToolBind(createTool { ::value returns "some custom value" })
+
         presenter.onOptionSelected("second-option")
 
         verify { view.hideCustomValueInputView() }
     }
 
     @Test
-    fun `stores proper option value when the selected option is not custom`() {
+    fun `sets proper option value when the selected option is not custom`() {
         val fakeOptions = mapOf("first-option" to "first-value", "second-option" to "second-value")
         val tool: EnumTool = createTool {
             ::allowCustom returns true
             ::options returns fakeOptions
-            store::restore returns "second-value"
+            ::value returns "second-value"
         }
         presenter.onToolBind(tool)
 
-        presenter.onStoreConfigValue(selectedOption = "second-option")
+        presenter.onOptionSelected(option = "second-option")
 
-        verify { tool.store.store("second-value") }
+        verify { tool.value = "second-value" }
     }
 
     @Test
-    fun `stores proper option value when the selected option is custom`() {
+    fun `sets proper option value on custom value changes`() {
         val fakeOptions = mapOf("first-option" to "first-value", "second-option" to "second-value")
         val tool: EnumTool = createTool {
             ::allowCustom returns true
             ::options returns fakeOptions
-            store::restore returns "second-value"
+            ::value returns "second-value"
         }
         presenter.onToolBind(tool)
-        every { view.customOptionValue } returns "some custom value"
 
-        presenter.onStoreConfigValue(selectedOption = "custom")
+        presenter.onCustomValueChanged("some custom value")
 
-        verify { tool.store.store("some custom value") }
+        verify { tool.value = "some custom value" }
     }
 }

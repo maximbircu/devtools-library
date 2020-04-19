@@ -10,29 +10,36 @@ import com.maximbircu.devtools.common.stores.PreferencesToolStoreImpl
  * @property title tool title displayed in the configuration screen
  * @property description short description of the dev tool configuration value
  * @property canBeDisabled the user can enable/disable the tool if true
- * @property defaultEnabledValue the default tool enable value if it can be enabled/disabled
+ * @property isEnabled true if the tool is enabled and false vice-versa
  */
-abstract class DevTool<T>(
+abstract class DevTool<T : Any>(
     var title: String? = null,
     var description: String = "",
     var canBeDisabled: Boolean = false,
-    var defaultEnabledValue: Boolean = true
+    var isEnabled: Boolean = true
 ) {
-    /**
-     * @return true if the tool is enabled and false vice-versa
-     */
-    val isEnabled: Boolean get() = store.isEnabled
+    private var _key: String? = null
+
+    var key: String
+        get() = _key ?: throw NullPointerException("Dev tool key was not set!")
+        set(value) {
+            _key = value
+            restorePersistedState()
+        }
 
     /**
-     * Unique dev tool id.
+     * The dev tool configuration value at the moment, note that this is kept just in memory and
+     * will not survive after [com.maximbircu.devtools.common.DevTools] recreation.
+     *
+     * You need to call [persistState] in case you need to persist it.
      */
-    lateinit var key: String
+    lateinit var value: T
 
     /**
      * Implements persistence logic of the tool and allows the persistence of the configuration
      * value the tool is manipulating, and its state.
      */
-    abstract val store: ToolStore<T>
+    protected abstract val store: ToolStore<T>
 
     /**
      * Provides a value which is used as a default config value till it will
@@ -43,6 +50,19 @@ abstract class DevTool<T>(
      * @return default configuration value
      */
     abstract fun getDefaultValue(): T
+
+    /**
+     * Persists the current in-memory stored configuration values.
+     */
+    fun persistState() {
+        store.value = value
+        store.isEnabled = isEnabled
+    }
+
+    private fun restorePersistedState() {
+        value = store.value
+        isEnabled = store.isEnabled
+    }
 }
 
 /**

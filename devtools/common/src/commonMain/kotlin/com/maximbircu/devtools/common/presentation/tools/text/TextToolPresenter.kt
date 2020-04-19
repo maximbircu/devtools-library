@@ -15,14 +15,11 @@ interface TextToolPresenter : Presenter {
     fun onToolBind(tool: TextTool)
 
     /**
-     * Should be called as soon as a configuration update was triggered which happens whenever
-     * [com.maximbircu.devtools.common.presentation.tool.DevToolView.persistToolState] gets invoked.
+     * Should be called whenever the configuration value is changed.
      *
-     * Will persist the [value] when called.
-     *
-     * @param value the configuration value presented at the invocation moment
+     * @param value the new configuration value
      */
-    fun onStoreConfigValue(value: String)
+    fun onConfigValueChanged(value: String)
 
     companion object {
         /**
@@ -43,16 +40,16 @@ private class TextToolPresenterImpl(
         this.tool = tool
         view.setHint(tool.hint)
         view.setInputDataType(tool.configurationValueType)
-        view.setTextValue(tool.store.restore().toString())
+        view.setTextValue(tool.value.toString())
     }
 
-    override fun onStoreConfigValue(value: String) {
+    override fun onConfigValueChanged(value: String) {
         when (tool.configurationValueType) {
-            String::class -> tool.store.store(value)
-            Int::class -> tool.store.store(value.toInt())
-            Long::class -> tool.store.store(value.toLong())
-            Float::class -> tool.store.store(value.toFloat())
-            Double::class -> tool.store.store(value.toDouble())
+            String::class -> tool.value = value
+            Int::class -> tool.value = value.toInt()
+            Long::class -> tool.value = value.toLong()
+            Float::class -> tool.value = value.toFloat()
+            Double::class -> tool.value = value.toDouble()
             else -> throw IllegalArgumentException(
                 "${tool.configurationValueType} type not supported"
             )

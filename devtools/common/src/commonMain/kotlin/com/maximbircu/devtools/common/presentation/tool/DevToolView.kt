@@ -8,13 +8,6 @@ import com.maximbircu.devtools.common.core.mvp.BaseView
  */
 interface DevToolView : BaseView {
     /**
-     * The user should not be able to interact with the tool control if its not enabled.
-     *
-     * Should provide the tool enable/disable state.
-     */
-    val isToolEnabled: Boolean
-
-    /**
      * Should display the tool title to the user.
      */
     fun setTitle(title: String?)
@@ -35,12 +28,5 @@ interface DevToolView : BaseView {
      *
      * @param isEnabled true if the tool should be enabled and false vice-versa
      */
-    fun setDevToolEnabled(isEnabled: Boolean)
-
-    /**
-     * Should be called when the user triggers a configuration update.
-     *
-     * The implementation should persist the tool state when the method is invoked.
-     */
-    fun persistToolState()
+    fun setToolEnableState(isEnabled: Boolean)
 }

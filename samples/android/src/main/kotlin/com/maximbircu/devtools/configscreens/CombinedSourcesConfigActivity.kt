@@ -45,7 +45,7 @@ class CombinedSourcesConfigActivity : AppCompatActivity() {
                 title = "Toggle tool"
                 description = "A boolean configuration value dev tool"
                 canBeDisabled = true
-                defaultEnabledValue = false
+                isEnabled = false
             },
 
             "memory-text-tool" to TextTool(
@@ -55,7 +55,7 @@ class CombinedSourcesConfigActivity : AppCompatActivity() {
                 title = "Text tool (String)"
                 description = "A text configuration value tool"
                 canBeDisabled = true
-                defaultEnabledValue = false
+                isEnabled = false
             },
             "memory-text-tool-integer" to TextTool(
                 defaultValue = 3,
@@ -64,7 +64,7 @@ class CombinedSourcesConfigActivity : AppCompatActivity() {
                 title = "Text tool (Integer)"
                 description = "An integer number configuration value tool"
                 canBeDisabled = true
-                defaultEnabledValue = false
+                isEnabled = false
             },
             "memory-text-tool-float" to TextTool(
                 defaultValue = 3.4f,
@@ -73,7 +73,7 @@ class CombinedSourcesConfigActivity : AppCompatActivity() {
                 title = "Text tool (Floating point)"
                 description = "A floating-point number configuration value tool"
                 canBeDisabled = true
-                defaultEnabledValue = false
+                isEnabled = false
             }
         )
     }

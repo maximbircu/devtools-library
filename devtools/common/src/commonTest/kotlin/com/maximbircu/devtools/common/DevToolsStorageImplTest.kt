@@ -15,10 +15,10 @@ import kotlin.test.assertTrue
 
 class DevToolsStorageImplTest : BaseTest() {
     @Test
-    fun `returns proper value for provided key`() {
+    fun `returns proper configuration value for provided key`() {
         val tools = mapOf<String, DevTool<*>>(
-            "first-toggle-tool" to createTool<ToggleTool> { store::restore returns false },
-            "text-tool" to createTool<TextTool> { store::restore returns "Text Value" }
+            "first-toggle-tool" to createTool<ToggleTool> { ::value returns false },
+            "text-tool" to createTool<TextTool> { ::value returns "Text Value" }
         )
 
         val storage: DevToolsStorage = DevToolsStorageImpl(tools)
@@ -30,8 +30,8 @@ class DevToolsStorageImplTest : BaseTest() {
     @Test
     fun `returns proper enabled value for provided key`() {
         val tools = mapOf<String, DevTool<*>>(
-            "first-toggle-tool" to createTool<ToggleTool> { store::isEnabled returns false },
-            "text-tool" to createTool<TextTool> { store::isEnabled returns true }
+            "first-toggle-tool" to createTool<ToggleTool> { ::isEnabled returns false },
+            "text-tool" to createTool<TextTool> { ::isEnabled returns true }
         )
 
         val storage: DevToolsStorage = DevToolsStorageImpl(tools)

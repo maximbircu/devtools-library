@@ -9,10 +9,7 @@ inline fun <reified T : DevTool<*>> createTool(mock: T.() -> Unit = {}): T {
     every { tool.title } returns null
     every { tool.description } returns ""
     every { tool.canBeDisabled } returns false
-    every { tool.defaultEnabledValue } returns true
-
-    every { tool.store } returns mockk(relaxed = true)
-    every { tool.store.isEnabled } returns false
+    every { tool.isEnabled } returns true
 
     mock(tool)
     return tool

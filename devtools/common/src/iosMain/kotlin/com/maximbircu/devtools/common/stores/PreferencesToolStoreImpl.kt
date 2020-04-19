@@ -13,17 +13,13 @@ actual open class PreferencesToolStoreImpl<T : Any> actual constructor(
         set(value) { nsUserDefaults.setBool(value, "${tool.key}_enabled") }
         get() = nsUserDefaults.getOrDefault(
             "${tool.key}_enabled",
-            tool.defaultEnabledValue,
+            tool.isEnabled,
             nsUserDefaults::boolForKey
         )
 
-    override fun store(value: T) {
-        nsUserDefaults.set(value, tool.key)
-    }
-
-    override fun restore(): T {
-        return nsUserDefaults.get(tool.key, tool.getDefaultValue())
-    }
+    override var value: T
+        get() = nsUserDefaults.get(tool.key, tool.getDefaultValue())
+        set(value) { nsUserDefaults.set(value, tool.key) }
 }
 
 private fun <T : Any> NSUserDefaults.get(key: String, defaultValue: T): T {

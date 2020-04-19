@@ -5,7 +5,6 @@ import com.maximbircu.devtools.common.core.DevTool
 import com.maximbircu.devtools.common.core.createTool
 import com.maximbircu.devtools.common.mvp.BasePresenterTest
 import com.maximbircu.devtools.common.presentation.list.DevToolsListView
-import com.maximbircu.devtools.common.presentation.tool.DevToolView
 import com.maximbircu.devtools.common.utils.mockk
 import io.mockk.every
 import io.mockk.verify
@@ -32,24 +31,9 @@ class ConfigScreenPresenterImplTest :
     }
 
     @Test
-    fun `triggers config update when the user applies config`() {
-        val devToolsViews = listOf<DevToolView>(mockk(), mockk(), mockk())
-        every { devTools.onConfigUpdate } returns mockk(relaxed = true)
-        every { devToolsList.devToolViews } returns devToolsViews
-
+    fun `persists tool state on apply config`() {
         presenter.onApplyConfig()
 
-        devToolsList.devToolViews.forEach { view -> verify { view.persistToolState() } }
-    }
-
-    @Test
-    fun `notifies listener about configuration update on apply`() {
-        val listener: () -> Unit = mockk(relaxed = true)
-        every { devTools.onConfigUpdate } returns listener
-        every { devToolsList.devToolViews } returns emptyList()
-
-        presenter.onApplyConfig()
-
-        verify { listener.invoke() }
+        devTools.persistToolsState()
     }
 }

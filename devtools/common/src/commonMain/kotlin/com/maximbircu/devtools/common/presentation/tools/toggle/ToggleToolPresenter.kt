@@ -16,14 +16,11 @@ interface ToggleToolPresenter : Presenter {
     fun onToolBind(tool: ToggleTool)
 
     /**
-     * Should be called as soon as a configuration update was triggered which happens whenever
-     * [com.maximbircu.devtools.common.presentation.tool.DevToolView.persistToolState] gets invoked.
+     * Should be called whenever the toggle value is changed.
      *
-     * Will persist the [value] when called.
-     *
-     * @param value the configuration value presented at the invocation moment
+     * @param isChecked the new value of the toggle
      */
-    fun onStoreConfigValue(value: Boolean)
+    fun onCheckedChangeListener(isChecked: Boolean)
 
     companion object {
         /**
@@ -42,10 +39,10 @@ private class ToggleToolPresenterImpl(
 
     override fun onToolBind(tool: ToggleTool) {
         this.tool = tool
-        view.setValue(tool.store.restore())
+        view.setValue(tool.value)
     }
 
-    override fun onStoreConfigValue(value: Boolean) {
-        tool.store.store(value)
+    override fun onCheckedChangeListener(isChecked: Boolean) {
+        tool.value = isChecked
     }
 }

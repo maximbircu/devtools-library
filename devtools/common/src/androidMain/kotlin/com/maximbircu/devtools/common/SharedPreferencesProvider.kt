@@ -6,7 +6,8 @@ import android.content.SharedPreferences
 
 object SharedPreferencesProvider {
     private var appContext: Context? = null
-    private val application: Context get() = appContext ?: initAndGetAppCtxWithReflection()
+    private val application: Context
+        get() = appContext ?: initAndGetAppCtxWithReflection().also { appContext = it }
 
     fun getSharedPreferences(name: String): SharedPreferences {
         return application.getSharedPreferences(name, Context.MODE_PRIVATE)
@@ -15,8 +16,6 @@ object SharedPreferencesProvider {
     @SuppressLint("PrivateApi", "DiscouragedPrivateApi")
     private fun initAndGetAppCtxWithReflection(): Context {
         val activityThread = Class.forName("android.app.ActivityThread")
-        val ctx = activityThread.getDeclaredMethod("currentApplication").invoke(null) as Context
-        appContext = ctx
-        return ctx
+        return activityThread.getDeclaredMethod("currentApplication").invoke(null) as Context
     }
 }

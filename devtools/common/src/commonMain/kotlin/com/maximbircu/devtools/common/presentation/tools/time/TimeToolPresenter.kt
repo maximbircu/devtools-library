@@ -15,16 +15,6 @@ interface TimeToolPresenter : Presenter {
     fun onToolBind(tool: TimeTool)
 
     /**
-     * Should be called as soon as a configuration update was triggered which happens whenever
-     * [com.maximbircu.devtools.common.presentation.tool.DevToolView.persistToolState] gets invoked.
-     *
-     * Will persist the [selectedTime] when called.
-     *
-     * @param selectedTime the time onfiguration value presented at the invocation moment
-     */
-    fun onStoreConfigValue(selectedTime: String)
-
-    /**
      * Should be called when the user selects the time tool UI element to update the time
      * configuration value.
      *
@@ -33,7 +23,7 @@ interface TimeToolPresenter : Presenter {
     fun onClick(selectedTime: String)
 
     /**
-     * Should be called as soon as a new time was selected.
+     * Should be called whenever a new time is selected.
      *
      * @param time the time configuration value presented at the invocation moment
      */
@@ -56,19 +46,15 @@ private class TimeToolPresenterImpl(
 
     override fun onToolBind(tool: TimeTool) {
         this.tool = tool
-        view.setTime(Time(tool.store.restore()).toString())
+        view.setTime(Time(tool.value).toString())
     }
 
     override fun onTimeSelected(time: Time) {
         view.setTime(time.toString())
+        tool.value = time.inMilliseconds()
     }
 
     override fun onClick(selectedTime: String) {
-        view.displayTimeSelectionDialog(tool.title, selectedTime)
-    }
-
-    override fun onStoreConfigValue(selectedTime: String) {
-        val newTime = Time(selectedTime).inMilliseconds()
-        tool.store.store(newTime)
+        view.showTimePicker(tool.title, selectedTime)
     }
 }

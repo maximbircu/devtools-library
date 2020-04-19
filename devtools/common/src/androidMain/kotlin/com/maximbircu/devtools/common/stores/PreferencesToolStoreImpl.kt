@@ -14,13 +14,9 @@ actual open class PreferencesToolStoreImpl<T : Any> actual constructor(
 
     override var isEnabled: Boolean
         set(value) { preferences.edit().putBoolean("${tool.key}_enabled", value).commit() }
-        get() = preferences.getBoolean("${tool.key}_enabled", tool.defaultEnabledValue)
+        get() = preferences.getBoolean("${tool.key}_enabled", tool.isEnabled)
 
-    override fun store(value: T) {
-        preferences.edit().put(tool.key, value).commit()
-    }
-
-    override fun restore(): T {
-        return preferences.get(tool.key, tool.getDefaultValue())
-    }
+    override var value: T
+        get() = preferences.get(tool.key, tool.getDefaultValue())
+        set(value) { preferences.edit().put(tool.key, value).commit() }
 }

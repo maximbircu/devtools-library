@@ -6,7 +6,7 @@ import kotlin.test.assertFailsWith
 
 class GroupToolTest : BaseTest() {
     @Test
-    fun `throws exception if there was not tools provided`() {
+    fun `throws exception if there was no tools provided`() {
         val tool = GroupTool(mapOf())
 
         assertFailsWith(IllegalArgumentException::class) { tool.getDefaultValue() }

@@ -6,24 +6,18 @@ import com.maximbircu.devtools.common.core.mvp.Presenter
 
 interface DevToolPresenter : Presenter {
     /**
-     * Should be called as soon as view receives its tool model.
+     * Should be called as soon as a [DevTool] instance has been provided
+     * to the [DevToolView].
      */
     fun onToolBind(tool: DevTool<*>)
 
     /**
      * Should be called whenever the user toggles the tool enable toggle.
      */
-    fun onToolEnableToggleUpdated(enabled: Boolean)
-
-    /**
-     * Should be called when the view receives the tool persist event.
-     */
-    fun onPersistToolState()
+    fun onToolEnableToggleUpdated(isEnabled: Boolean)
 
     companion object {
-        fun create(view: DevToolView): DevToolPresenter {
-            return DevToolPresenterImpl(view)
-        }
+        fun create(view: DevToolView): DevToolPresenter = DevToolPresenterImpl(view)
     }
 }
 
@@ -34,20 +28,17 @@ private class DevToolPresenterImpl(
 
     override fun onToolBind(tool: DevTool<*>) {
         this.tool = tool
-        setUpToolEnableToggle()
         view.setTitle(tool.title)
-        view.setDevToolEnabled(tool.isEnabled)
+        view.setToolEnableState(tool.isEnabled)
+        updateToolEnableToggleVisibility()
     }
 
-    override fun onToolEnableToggleUpdated(enabled: Boolean) {
-        view.setDevToolEnabled(enabled)
+    override fun onToolEnableToggleUpdated(isEnabled: Boolean) {
+        tool.isEnabled = isEnabled
+        view.setToolEnableState(isEnabled)
     }
 
-    override fun onPersistToolState() {
-        tool.store.isEnabled = view.isToolEnabled
-    }
-
-    private fun setUpToolEnableToggle() {
+    private fun updateToolEnableToggleVisibility() {
         if (tool.canBeDisabled) {
             view.showEnableToggle()
         } else {
