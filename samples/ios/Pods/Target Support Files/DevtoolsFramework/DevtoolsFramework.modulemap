@@ -1,6 +1,0 @@
-framework module DevtoolsFramework {
-  umbrella header "DevtoolsFramework-umbrella.h"
-
-  export *
-  module * { export * }
-}

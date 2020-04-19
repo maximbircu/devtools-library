@@ -6,7 +6,8 @@ target 'DevToolsApp' do
   use_frameworks!
 
   # Pods for DevToolsApp
-  pod 'DevtoolsFramework', :podspec => 'https://raw.githubusercontent.com/maximbircu/devtools-library/14-set-up-ios-modules/devtools/ios/DevtoolsFramework.podspec?token=AFSUMYTKC7HLV2M5IFRC25K6TOAE6'
+  # TODO RRemove local paths before publishing
+  pod 'DevtoolsFramework', :path => '../../devtools/ios' # Local path for development purposes.
 
   target 'DevToolsAppTests' do
     inherit! :search_paths
