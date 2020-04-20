@@ -1,11 +1,3 @@
-//
-//  DevtoolsFrameworkTests.swift
-//  DevtoolsFrameworkTests
-//
-//  Created by Alexandr Vdovicenco on 4/11/20.
-//  Copyright © 2020 com.devtools.multiplatform. All rights reserved.
-//
-
 import XCTest
 @testable import DevtoolsFramework
 
