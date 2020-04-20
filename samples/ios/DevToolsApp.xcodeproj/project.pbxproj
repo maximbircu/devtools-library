@@ -12,10 +12,10 @@
 		3D050E3924427C7A00C4B92C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D050E3824427C7A00C4B92C /* SceneDelegate.swift */; };
 		3D050E3B24427C7A00C4B92C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D050E3A24427C7A00C4B92C /* ViewController.swift */; };
 		3D050E3E24427C7A00C4B92C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D050E3C24427C7A00C4B92C /* Main.storyboard */; };
-		3D050E4024427C7D00C4B92C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D050E3F24427C7D00C4B92C /* Assets.xcassets */; };
 		3D050E4324427C7D00C4B92C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D050E4124427C7D00C4B92C /* LaunchScreen.storyboard */; };
 		3D050E4E24427C7E00C4B92C /* DevToolsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D050E4D24427C7E00C4B92C /* DevToolsAppTests.swift */; };
 		3D050E5924427C7E00C4B92C /* DevToolsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D050E5824427C7E00C4B92C /* DevToolsAppUITests.swift */; };
+		3DC6F81F244D2EB200E04289 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DC6F81E244D2EB200E04289 /* Assets.xcassets */; };
 		8A6FFA82251A301A6ADDFBE8 /* Pods_DevToolsAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE6ECEC05C83ED4F20B9657B /* Pods_DevToolsAppUITests.framework */; };
 		F0EDD578533219EC573BBF05 /* Pods_DevToolsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F33D2D59D6AC30687E72FBD7 /* Pods_DevToolsApp.framework */; };
 /* End PBXBuildFile section */
@@ -45,7 +45,6 @@
 		3D050E3824427C7A00C4B92C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3D050E3A24427C7A00C4B92C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3D050E3D24427C7A00C4B92C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3D050E3F24427C7D00C4B92C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D050E4224427C7D00C4B92C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D050E4424427C7D00C4B92C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D050E4924427C7E00C4B92C /* DevToolsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DevToolsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +53,7 @@
 		3D050E5424427C7E00C4B92C /* DevToolsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DevToolsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D050E5824427C7E00C4B92C /* DevToolsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevToolsAppUITests.swift; sourceTree = "<group>"; };
 		3D050E5A24427C7E00C4B92C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DC6F81E244D2EB200E04289 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4558690BC9578830A2FBE3CC /* Pods-DevToolsAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevToolsAppUITests.release.xcconfig"; path = "Target Support Files/Pods-DevToolsAppUITests/Pods-DevToolsAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4764485ED9C6B4CD9F012CEA /* Pods-DevToolsAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevToolsAppTests.release.xcconfig"; path = "Target Support Files/Pods-DevToolsAppTests/Pods-DevToolsAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		A54A716B0E0CFBD6F92C2DE7 /* Pods-DevToolsAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevToolsAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-DevToolsAppUITests/Pods-DevToolsAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 				3D050E3824427C7A00C4B92C /* SceneDelegate.swift */,
 				3D050E3A24427C7A00C4B92C /* ViewController.swift */,
 				3D050E3C24427C7A00C4B92C /* Main.storyboard */,
-				3D050E3F24427C7D00C4B92C /* Assets.xcassets */,
+				3DC6F81E244D2EB200E04289 /* Assets.xcassets */,
 				3DC6F81D244D221400E04289 /* SupportingFiles */,
 			);
 			path = DevToolsApp;
@@ -286,7 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D050E4324427C7D00C4B92C /* LaunchScreen.storyboard in Resources */,
-				3D050E4024427C7D00C4B92C /* Assets.xcassets in Resources */,
+				3DC6F81F244D2EB200E04289 /* Assets.xcassets in Resources */,
 				3D050E3E24427C7A00C4B92C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

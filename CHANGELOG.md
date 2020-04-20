@@ -2,6 +2,10 @@ Changelog
 =========
 
 ## Version 1.0.0 *(In development)*
+Issue: [#14](https://github.com/maximbircu/devtools-library/issues/14)
+- Set up iOS library module
+- Set up iOS sample app module
+
 Issue: [#36](https://github.com/maximbircu/devtools-library/issues/36)
 - Add a context menu to all dev tools
 - Aad a custom context menu for GroupTool
@@ -73,5 +77,10 @@ Issue: [#3](https://github.com/maximbircu/devtools-library/issues/3)
 
 Issue: [#1](https://github.com/maximbircu/devtools-library/issues/1)
 - Set up a new multi-platform project for the dev tools library
-- Add .github templates for the PR description and issues 
+<<<<<<< HEAD
+- Add .github templates for the PR description and issues
 - Setup a simple CI with GitHub actions
+=======
+- Add .github templates for the PR description and issues
+- Setup a simple CI with GitHub actions.
+>>>>>>> Add sample iOS app icons, add changelog
