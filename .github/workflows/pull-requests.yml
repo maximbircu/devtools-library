@@ -18,7 +18,7 @@ jobs:
           commit-message-title-regex: '^[A-Z].*'
 
   checkstyle:
-    name: Check project styling (Android lint, Detekt and Ktlint)
+    name: Check project styling (Android lint, Detekt, Ktlint and SwiftLint)
     runs-on: ubuntu-latest
     steps:
       - name: SCM
@@ -38,6 +38,11 @@ jobs:
         uses: eskatos/gradle-command-action@v1
         with:
           arguments: ktlint
+
+      - name: SwiftLint (Only files changed in the PR)
+        uses: norio-nomura/action-swiftlint@3.1.0
+        env:
+          DIFF_BASE: ${{ github.base_ref }}
 
   test:
     name: Unit tests
@@ -73,4 +78,3 @@ jobs:
         uses: eskatos/gradle-command-action@v1
         with:
           arguments: assembleDebug
-
