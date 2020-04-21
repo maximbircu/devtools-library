@@ -1,9 +1,10 @@
 package com.maximbircu.devtools.common
 
 import com.maximbircu.devtools.common.core.reader.DevToolsSource
+import com.maximbircu.devtools.common.extensions.forEachRecursively
 
 /**
- * This interface serves as a facade for the library. It allows library consumers to manipulate the
+ * This interface serves as a facade for the library. It allows library consumers to manipulate
  * with the devtools states, and the configuration values they hold.
  */
 interface DevTools : DevToolsStorage {
@@ -12,6 +13,11 @@ interface DevTools : DevToolsStorage {
      * This function is invoked each time any of the configuration values are updated.
      */
     var onConfigUpdate: () -> Unit
+
+    /**
+     * Persists all dev tools configuration changes stored in memory.
+     */
+    fun persistToolsState()
 
     companion object {
         /**
@@ -34,4 +40,9 @@ interface DevTools : DevToolsStorage {
 private class DevToolsImpl(
     private val toolsStorage: DevToolsStorage,
     override var onConfigUpdate: () -> Unit
-) : DevTools, DevToolsStorage by toolsStorage
+) : DevTools, DevToolsStorage by toolsStorage {
+    override fun persistToolsState() {
+        tools.forEachRecursively { _, tool -> tool.persistState() }
+        onConfigUpdate()
+    }
+}

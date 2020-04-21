@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.ViewTreeObserver.OnPreDrawListener
 import com.maximbircu.devtools.android.R
 import com.maximbircu.devtools.android.extensions.hide
+import com.maximbircu.devtools.android.extensions.onTextChanged
 import com.maximbircu.devtools.android.extensions.show
 import com.maximbircu.devtools.android.presentation.tool.DevToolLayout
 import com.maximbircu.devtools.common.presentation.tools.enum.EnumTool
@@ -16,15 +17,13 @@ import kotlinx.android.synthetic.main.layout_enum_tool.view.customValue
 class EnumToolLayout(context: Context) : DevToolLayout<EnumTool>(context), EnumToolView {
     private val presenter: EnumToolPresenter = EnumToolPresenter.create(this)
     override val layoutRes: Int get() = R.layout.layout_enum_tool
-    override val customOptionValue: String get() = customValue.text.toString()
 
     override fun onBind(tool: EnumTool) {
         presenter.onToolBind(tool)
-        chipGroup.setOnCheckedChangeListener(presenter::onOptionSelected)
         scrollToSelectedChipAfterPreDraw()
+        chipGroup.setOnCheckedChangeListener(presenter::onOptionSelected)
+        customValue.onTextChanged(presenter::onCustomValueChanged)
     }
-
-    override fun storeConfigValue() = presenter.onStoreConfigValue(chipGroup.getCheckedChipData())
 
     override fun showOptions(options: List<String>) = chipGroup.setChips(options)
 

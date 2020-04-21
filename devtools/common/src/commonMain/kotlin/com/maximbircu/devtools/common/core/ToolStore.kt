@@ -6,21 +6,14 @@ package com.maximbircu.devtools.common.core
  */
 interface ToolStore<T> {
     /**
+     * The dev tool enable state to be stored.
+     *
      * True if the tool is enabled and to false vice-versa.
      */
     var isEnabled: Boolean
 
     /**
-     * This method is called when a config value of a dev tool should be persisted.
-     *
-     * @param value configuration value which should be persisted
+     * The dev tool configuration value which will be stored.
      */
-    fun store(value: T)
-
-    /**
-     * This method provides the persisted value to the library.
-     *
-     * @return configuration value persisted by the [store] method
-     */
-    fun restore(): T
+    var value: T
 }

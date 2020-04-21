@@ -12,15 +12,20 @@ class TimeToolPresenterImplTest : BasePresenterTest<TimeToolView, TimeToolPresen
 
     @Test
     fun `sets time on tool bind`() {
-        val timeTool: TimeTool = createTool { store::restore returns 10000 }
+        val tool: TimeTool = createTool { ::value returns 10000 }
 
-        presenter.onToolBind(timeTool)
+        presenter.onToolBind(tool)
 
         verify { view.setTime("0d 0h 0m 10s 0ms") }
     }
 
     @Test
     fun `sets time when new time selected`() {
+        presenter.onToolBind(createTool {
+            ::title returns "Time Tool"
+            ::value returns 10000
+        })
+
         presenter.onTimeSelected(Time("1d 2h 3m 4s 5ms"))
 
         verify { view.setTime("1d 2h 3m 4s 5ms") }
@@ -28,24 +33,23 @@ class TimeToolPresenterImplTest : BasePresenterTest<TimeToolView, TimeToolPresen
 
     @Test
     fun `displays time selection dialog on click`() {
-        val timeTool: TimeTool = createTool {
+        presenter.onToolBind(createTool {
             ::title returns "Time Tool"
-            store::restore returns 10000
-        }
-        presenter.onToolBind(timeTool)
+            ::value returns 10000
+        })
 
         presenter.onClick("1d 2h 3m 4s 5ms")
 
-        verify { view.displayTimeSelectionDialog(title = "Time Tool", time = "1d 2h 3m 4s 5ms") }
+        verify { view.showTimePicker(title = "Time Tool", time = "1d 2h 3m 4s 5ms") }
     }
 
     @Test
-    fun `stores selected time on store config value`() {
-        val timeTool: TimeTool = createTool { store::restore returns 10000 }
+    fun `sets selected time on new time selected`() {
+        val timeTool: TimeTool = createTool { ::value returns 10000 }
         presenter.onToolBind(timeTool)
 
-        presenter.onStoreConfigValue("0d 0h 0m 10s 0ms")
+        presenter.onTimeSelected(Time("0d 0h 0m 10s 0ms"))
 
-        verify { timeTool.store.store(10000) }
+        verify { timeTool.value = 10000 }
     }
 }

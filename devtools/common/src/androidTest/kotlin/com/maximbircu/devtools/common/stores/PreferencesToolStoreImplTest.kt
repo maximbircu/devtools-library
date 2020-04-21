@@ -43,7 +43,7 @@ class PreferencesToolStoreImplTest : BaseTest() {
     fun `stores tool config value`() {
         val preferencesStore = createPreferencesStore(toolKey = "toggle-tool")
 
-        preferencesStore.store(true)
+        preferencesStore.value = true
 
         verify { sharedPrefsEditor.putBoolean("toggle-tool", true) }
     }
@@ -53,7 +53,7 @@ class PreferencesToolStoreImplTest : BaseTest() {
         val preferencesStore = createPreferencesStore(toolKey = "toggle-tool")
         every { sharedPrefs.getBoolean("toggle-tool", false) } returns true
 
-        assertTrue(preferencesStore.restore())
+        assertTrue(preferencesStore.value)
     }
 
     private fun createPreferencesStore(

@@ -47,7 +47,7 @@ class MemorySourceConfigActivity : AppCompatActivity() {
                 title = "Toggle tool"
                 description = "A boolean configuration value dev tool"
                 canBeDisabled = true
-                defaultEnabledValue = false
+                isEnabled = false
             },
 
             "memory-text-tool" to TextTool(
@@ -57,7 +57,7 @@ class MemorySourceConfigActivity : AppCompatActivity() {
                 title = "Text tool (String)"
                 description = "A text configuration value tool"
                 canBeDisabled = true
-                defaultEnabledValue = false
+                isEnabled = false
             },
             "memory-text-tool-integer" to TextTool(
                 defaultValue = 3,
@@ -66,7 +66,7 @@ class MemorySourceConfigActivity : AppCompatActivity() {
                 title = "Text tool (Integer)"
                 description = "An integer number configuration value tool"
                 canBeDisabled = true
-                defaultEnabledValue = false
+                isEnabled = false
             },
             "memory-text-tool-float" to TextTool(
                 defaultValue = 3.4f,
@@ -75,7 +75,7 @@ class MemorySourceConfigActivity : AppCompatActivity() {
                 title = "Text tool (Floating point)"
                 description = "A floating-point number configuration value tool"
                 canBeDisabled = true
-                defaultEnabledValue = false
+                isEnabled = false
             },
 
             "memory-time-tool" to TimeTool(
@@ -88,7 +88,7 @@ class MemorySourceConfigActivity : AppCompatActivity() {
                 title = "Time tool"
                 description = "A time configuration value tool"
                 canBeDisabled = true
-                defaultEnabledValue = false
+                isEnabled = false
             },
 
             "memory-enum-tool" to EnumTool(
@@ -105,7 +105,7 @@ class MemorySourceConfigActivity : AppCompatActivity() {
                 title = "Enum tool"
                 description = "An enum configuration value tool"
                 canBeDisabled = true
-                defaultEnabledValue = false
+                isEnabled = false
             },
             "memory-enum-custom-options-provider-tool" to EnumTool(
                 defaultValueKey = "first-option",
@@ -117,7 +117,7 @@ class MemorySourceConfigActivity : AppCompatActivity() {
                 title = "Enum tool [Custom Provider]"
                 description = "An enum configuration value tool with a custom options provider"
                 canBeDisabled = true
-                defaultEnabledValue = false
+                isEnabled = false
             },
 
             "memory-tools-group" to GroupTool(
@@ -126,7 +126,7 @@ class MemorySourceConfigActivity : AppCompatActivity() {
                         title = "Toggle tool"
                         description = "A boolean configuration value dev tool"
                         canBeDisabled = true
-                        defaultEnabledValue = false
+                        isEnabled = false
                     },
                     "memory-text-tool" to TextTool(
                         defaultValue = "Here can go any text value",
@@ -135,7 +135,7 @@ class MemorySourceConfigActivity : AppCompatActivity() {
                         title = "Text tool (String)"
                         description = "A text configuration value tool"
                         canBeDisabled = true
-                        defaultEnabledValue = false
+                        isEnabled = false
                     },
                     "memory-time-tool" to TimeTool(
                         days = 1,
@@ -147,7 +147,7 @@ class MemorySourceConfigActivity : AppCompatActivity() {
                         title = "Time tool"
                         description = "A time configuration value tool"
                         canBeDisabled = true
-                        defaultEnabledValue = false
+                        isEnabled = false
                     },
                     "memory-enum-tool" to EnumTool(
                         defaultValueKey = "first-option",
@@ -163,7 +163,7 @@ class MemorySourceConfigActivity : AppCompatActivity() {
                         title = "Enum tool"
                         description = "An enum configuration value tool"
                         canBeDisabled = true
-                        defaultEnabledValue = false
+                        isEnabled = false
                     }
                 )
             ).apply {

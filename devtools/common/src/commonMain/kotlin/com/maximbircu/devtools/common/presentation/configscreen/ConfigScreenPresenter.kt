@@ -14,9 +14,9 @@ interface ConfigScreenPresenter : Presenter {
     fun onCreate()
 
     /**
-     * Should be invoked when the user wants to apply the dev tools changes he made.
+     * Should be invoked when the user wants to apply the dev tools config changes he made.
      *
-     * Iterates through each tool view and makes it persist its state.
+     * Will notify the [DevTools] to persist the dev tools state.
      */
     fun onApplyConfig()
 
@@ -36,12 +36,7 @@ private class ConfigScreenPresenterImpl(
     private val devTools: DevTools,
     private val devToolsList: DevToolsListView
 ) : BasePresenter<ConfigScreenView>(view), ConfigScreenPresenter {
-    override fun onCreate() {
-        devToolsList.showDevTools(devTools.tools.values.toList())
-    }
+    override fun onCreate() = devToolsList.showDevTools(devTools.tools.values.toList())
 
-    override fun onApplyConfig() {
-        devToolsList.devToolViews.forEach { it.persistToolState() }
-        devTools.onConfigUpdate.invoke()
-    }
+    override fun onApplyConfig() = devTools.persistToolsState()
 }

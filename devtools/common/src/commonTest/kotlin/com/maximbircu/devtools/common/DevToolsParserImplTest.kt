@@ -1,27 +1,29 @@
 package com.maximbircu.devtools.common
 
 import com.maximbircu.devtools.common.core.DevTool
+import com.maximbircu.devtools.common.core.createTool
 import com.maximbircu.devtools.common.core.reader.DevToolsReader
 import com.maximbircu.devtools.common.core.reader.DevToolsSource
 import com.maximbircu.devtools.common.mvp.BaseTest
 import com.maximbircu.devtools.common.presentation.tools.group.GroupTool
-import com.maximbircu.devtools.common.presentation.tools.text.TextTool
-import com.maximbircu.devtools.common.presentation.tools.time.TimeTool
-import com.maximbircu.devtools.common.presentation.tools.toggle.ToggleTool
+import io.mockk.mockkConstructor
+import io.mockk.spyk
+import io.mockk.verify
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class DevToolsParserImplTest : BaseTest() {
     @Test
     fun `returns a proper map of tools from the provided sources`() {
+        mockkConstructor(DevTool::class)
         val source1Tools = mapOf<String, DevTool<*>>(
-            "first-source-first-tool" to TimeTool(),
-            "first-source-second-tool" to TextTool()
+            "first-source-first-tool" to createTool(),
+            "first-source-second-tool" to createTool()
         )
         val source2Tools = mapOf<String, DevTool<*>>(
-            "second-source-first-tool" to TextTool(),
-            "second-source-second-tool" to ToggleTool(),
-            "group-tool" to GroupTool(tools = mapOf("child-tool" to TextTool()))
+            "second-source-first-tool" to createTool(),
+            "second-source-second-tool" to createTool(),
+            "group-tool" to spyk(GroupTool(mapOf("child-tool" to createTool())))
         )
         val sources = listOf(createSource(source1Tools), createSource(source2Tools))
         val parser = DevToolsParser.create(sources)
@@ -30,15 +32,15 @@ class DevToolsParserImplTest : BaseTest() {
 
         assertEquals(source1Tools + source2Tools, tools)
 
-        assertEquals("first-source-first-tool", tools.getValue("first-source-first-tool").key)
-        assertEquals("first-source-second-tool", tools.getValue("first-source-second-tool").key)
-        assertEquals("second-source-first-tool", tools.getValue("second-source-first-tool").key)
-        assertEquals("second-source-second-tool", tools.getValue("second-source-second-tool").key)
-        assertEquals("second-source-second-tool", tools.getValue("second-source-second-tool").key)
+        verify { tools.getValue("first-source-first-tool").key = "first-source-first-tool" }
+        verify { tools.getValue("first-source-second-tool").key = "first-source-second-tool" }
+        verify { tools.getValue("second-source-first-tool").key = "second-source-first-tool" }
+        verify { tools.getValue("second-source-second-tool").key = "second-source-second-tool" }
 
-        val groupTool: GroupTool = tools.getValue("group-tool") as GroupTool
-        assertEquals("group-tool", tools.getValue("group-tool").key)
-        assertEquals("group-tool.child-tool", groupTool.tools.getValue("child-tool").key)
+        val childTools = (tools.getValue("group-tool") as GroupTool).tools
+        println(childTools.getValue("child-tool").key)
+        verify { tools.getValue("group-tool").key = "group-tool" }
+        verify { childTools.getValue("child-tool").key = "group-tool.child-tool" }
     }
 
     private fun createSource(tools: Map<String, DevTool<*>>) = object : DevToolsSource {

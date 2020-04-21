@@ -6,7 +6,6 @@ import com.maximbircu.devtools.common.presentation.tools.text.TextTool
 import com.maximbircu.devtools.common.presentation.tools.toggle.ToggleTool
 import com.maximbircu.devtools.common.utils.mockk
 import com.maximbircu.devtools.common.utils.returns
-import io.mockk.every
 import io.mockk.verify
 import kotlin.test.Test
 
@@ -14,7 +13,7 @@ class DevToolPresenterImplTest : BasePresenterTest<DevToolView, DevToolPresenter
     override fun createPresenter(): DevToolPresenter = DevToolPresenter.create(view)
 
     @Test
-    fun `sets title on bind`() {
+    fun `sets title on tool bind`() {
         val tool: ToggleTool = createTool { ::title returns "Toggle tool title" }
 
         presenter.onToolBind(tool)
@@ -23,7 +22,16 @@ class DevToolPresenterImplTest : BasePresenterTest<DevToolView, DevToolPresenter
     }
 
     @Test
-    fun `shows enable toggle if tool can be disabled on bind`() {
+    fun `sets tool enabled value on tool bind`() {
+        val tool: ToggleTool = createTool { ::isEnabled returns false }
+
+        presenter.onToolBind(tool)
+
+        verify { view.setToolEnableState(isEnabled = false) }
+    }
+
+    @Test
+    fun `shows enable toggle if tool can be disabled`() {
         val tool: ToggleTool = createTool { ::canBeDisabled returns true }
 
         presenter.onToolBind(tool)
@@ -32,7 +40,7 @@ class DevToolPresenterImplTest : BasePresenterTest<DevToolView, DevToolPresenter
     }
 
     @Test
-    fun `hides enable toggle if tool can not be disabled on bind`() {
+    fun `hides enable toggle if tool can not be disabled`() {
         val tool: ToggleTool = createTool { ::canBeDisabled returns false }
 
         presenter.onToolBind(tool)
@@ -41,29 +49,21 @@ class DevToolPresenterImplTest : BasePresenterTest<DevToolView, DevToolPresenter
     }
 
     @Test
-    fun `sets tool enabled value on bind`() {
-        val tool: ToggleTool = createTool { store::isEnabled returns false }
+    fun `sets tool enabled value on enable toggle update`() {
+        presenter.onToolBind(createTool())
 
-        presenter.onToolBind(tool)
-
-        verify { view.setDevToolEnabled(isEnabled = false) }
-    }
-
-    @Test
-    fun `sets tool enabled value on tool enable toggle updated`() {
         presenter.onToolEnableToggleUpdated(false)
 
-        verify { view.setDevToolEnabled(isEnabled = false) }
+        verify { view.setToolEnableState(isEnabled = false) }
     }
 
     @Test
-    fun `stores new tool enabled value on config updated`() {
-        val tool: TextTool = createTool { store::isEnabled returns false }
+    fun `updates tool enabled value on enable toggle update`() {
+        val tool: TextTool = createTool()
         presenter.onToolBind(tool)
-        every { view.isToolEnabled } returns true
 
-        presenter.onPersistToolState()
+        presenter.onToolEnableToggleUpdated(true)
 
-        verify { tool.store.isEnabled = true }
+        verify { tool.isEnabled = true }
     }
 }

@@ -7,11 +7,6 @@ import com.maximbircu.devtools.common.core.mvp.BaseView
  */
 interface EnumToolView : BaseView {
     /**
-     * Should provide the value of the custom option input field at the invocation moment.
-     */
-    val customOptionValue: String
-
-    /**
      * Should present the list of the tool supported configuration options as
      * a single choice UI component.
      *

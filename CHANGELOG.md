@@ -2,6 +2,9 @@ Changelog
 =========
 
 ## Version 1.0.0 *(In development)*
+Issue: [#33](https://github.com/maximbircu/devtools-library/issues/33)
+- Add an in-memory persistence mechanism
+
 Issue: [#16](https://github.com/maximbircu/devtools-library/issues/16)
 - Use macOS machine for the "assemble" Github Action step
 

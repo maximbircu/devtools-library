@@ -6,7 +6,7 @@ import com.maximbircu.devtools.common.utils.mockk
 import com.maximbircu.devtools.common.utils.returns
 import io.mockk.verify
 import kotlin.test.Test
-import kotlin.test.assertFails
+import kotlin.test.assertFailsWith
 
 class TextToolPresenterImplTest : BasePresenterTest<TextToolView, TextToolPresenter>(mockk()) {
     override fun createPresenter(): TextToolPresenter = TextToolPresenter.create(view)
@@ -31,7 +31,7 @@ class TextToolPresenterImplTest : BasePresenterTest<TextToolView, TextToolPresen
 
     @Test
     fun `sets text value on tool bind`() {
-        val tool: TextTool = createTool { store::restore returns "text value" }
+        val tool: TextTool = createTool { ::value returns "text value" }
 
         presenter.onToolBind(tool)
 
@@ -41,53 +41,53 @@ class TextToolPresenterImplTest : BasePresenterTest<TextToolView, TextToolPresen
     // region Stores the proper config value
 
     @Test
-    fun `stores string value on store config value`() {
+    fun `sets string value on config value change`() {
         val tool: TextTool = createTool { ::configurationValueType returns String::class }
         presenter.onToolBind(tool)
 
-        presenter.onStoreConfigValue("text value")
+        presenter.onConfigValueChanged("text value")
 
-        verify { tool.store.store("text value") }
+        verify { tool.value = "text value" }
     }
 
     @Test
-    fun `stores int value on store config value`() {
+    fun `sets int value on config value change`() {
         val tool: TextTool = createTool { ::configurationValueType returns Int::class }
         presenter.onToolBind(tool)
 
-        presenter.onStoreConfigValue("3")
+        presenter.onConfigValueChanged("3")
 
-        verify { tool.store.store(3) }
+        verify { tool.value = 3 }
     }
 
     @Test
-    fun `stores long value on store config value`() {
+    fun `sets long value on config value change`() {
         val tool: TextTool = createTool { ::configurationValueType returns Long::class }
         presenter.onToolBind(tool)
 
-        presenter.onStoreConfigValue("3")
+        presenter.onConfigValueChanged("3")
 
-        verify { tool.store.store(3L) }
+        verify { tool.value = 3L }
     }
 
     @Test
-    fun `stores float value on store config value`() {
+    fun `sets float value on config value change`() {
         val tool: TextTool = createTool { ::configurationValueType returns Float::class }
         presenter.onToolBind(tool)
 
-        presenter.onStoreConfigValue("3")
+        presenter.onConfigValueChanged("3")
 
-        verify { tool.store.store(3f) }
+        verify { tool.value = 3f }
     }
 
     @Test
-    fun `stores double value on store config value`() {
+    fun `sets double value on config value change`() {
         val tool: TextTool = createTool { ::configurationValueType returns Double::class }
         presenter.onToolBind(tool)
 
-        presenter.onStoreConfigValue("3.0")
+        presenter.onConfigValueChanged("3.0")
 
-        verify { tool.store.store(3.0) }
+        verify { tool.value = 3.0 }
     }
 
     @Test
@@ -96,7 +96,9 @@ class TextToolPresenterImplTest : BasePresenterTest<TextToolView, TextToolPresen
         val tool: TextTool = createTool { ::configurationValueType returns value::class }
         presenter.onToolBind(tool)
 
-        assertFails { presenter.onStoreConfigValue(value.toString()) }
+        assertFailsWith(IllegalArgumentException::class) {
+            presenter.onConfigValueChanged(value.toString())
+        }
     }
 
     // endregion

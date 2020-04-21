@@ -42,9 +42,9 @@ class DevToolsStorageImpl(
     override val tools: Map<String, DevTool<*>>
 ) : DevToolsStorage {
     @Suppress("UNCHECKED_CAST")
-    override fun <T> getValue(key: String): T = getDevTool(key).store.restore() as T
+    override fun <T> getValue(key: String): T = getDevTool(key).value as T
 
-    override fun isEnabled(key: String): Boolean = getDevTool(key).store.isEnabled
+    override fun isEnabled(key: String): Boolean = getDevTool(key).isEnabled
 
     override fun getGroup(key: String): DevToolsStorage {
         return DevToolsStorageImpl((getDevTool(key) as GroupTool).tools)
