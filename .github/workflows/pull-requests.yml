@@ -17,8 +17,8 @@ jobs:
           branch-name-regex: '\d+(-([a-z])+)+'
           commit-message-title-regex: '^[A-Z].*'
 
-  checkstyle:
-    name: Check project styling (Android lint, Detekt, Ktlint and SwiftLint)
+  android-checkstyle:
+    name: Check project styling (Android lint, Detekt and Ktlint)
     runs-on: ubuntu-latest
     steps:
       - name: SCM
@@ -38,6 +38,13 @@ jobs:
         uses: eskatos/gradle-command-action@v1
         with:
           arguments: ktlint
+
+  ios-checkstyle:
+    name: Check ios project styling (SwiftLint)
+    runs-on: ubuntu-latest
+    steps:
+      - name: SCM
+        uses: actions/checkout@v2
 
       - name: SwiftLint (Only files changed in the PR)
         uses: norio-nomura/action-swiftlint@3.1.0
@@ -66,6 +73,25 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true
+
+  ios-test:
+    name: iOS unit tests
+    runs-on: macos-latest
+    steps:
+      - name: SCM
+        uses: actions/checkout@v2
+
+      - name: Install Framework pod dependencies
+        run: |
+          cd devtools/ios
+          pod install
+
+      - name: Framework Build and Test
+        run: |
+          xcodebuild clean test \
+            -workspace DevtoolsFramework.xcworkspace \
+            -scheme DevtoolsFramework \
+            -destination 'platform=iOS Simulator,OS=12.4,name=iPad Pro (9.7-inch)'
 
   build:
     name: Assemble artifacts
