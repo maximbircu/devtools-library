@@ -77,13 +77,15 @@ jobs:
   ios-test:
     name: iOS unit tests
     runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: devtools/ios
     steps:
       - name: SCM
         uses: actions/checkout@v2
 
       - name: Install Framework pod dependencies
         run: |
-          cd devtools/ios
           pod install
 
       - name: Framework Build and Test
@@ -91,7 +93,7 @@ jobs:
           xcodebuild clean test \
             -workspace DevtoolsFramework.xcworkspace \
             -scheme DevtoolsFramework \
-            -destination 'platform=iOS Simulator,OS=12.4,name=iPad Pro (9.7-inch)'
+            -destination 'platform=iOS Simulator,OS=13.3,name=iPhone 11 Pro'
 
   build:
     name: Assemble artifacts
