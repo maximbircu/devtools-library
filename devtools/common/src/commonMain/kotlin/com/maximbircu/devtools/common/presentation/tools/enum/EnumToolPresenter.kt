@@ -51,10 +51,7 @@ private class EnumToolPresenterImpl(
 
     override fun onToolClick() {
         if (!isCompactMode) {
-            view.showOptionSelectorDialog(tool) {
-                println("test")
-                dialogSelectedValue = it
-            }
+            view.showOptionSelectorDialog(tool) { dialogSelectedValue = it }
         }
     }
 
