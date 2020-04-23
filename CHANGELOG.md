@@ -2,6 +2,10 @@ Changelog
 =========
 
 ## Version 1.0.0 *(In development)*
+Issue: [#43](https://github.com/maximbircu/devtools-library/issues/43) [#35](https://github.com/maximbircu/devtools-library/issues/35)
+- Add a different EnumTool UX for large options size.
+- Fix crash when selecting twice the same option
+
 Issue: [#33](https://github.com/maximbircu/devtools-library/issues/33)
 - Add an in-memory persistence mechanism
 
