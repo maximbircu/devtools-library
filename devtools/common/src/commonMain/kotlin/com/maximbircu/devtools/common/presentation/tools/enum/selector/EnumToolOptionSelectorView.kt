@@ -2,6 +2,11 @@ package com.maximbircu.devtools.common.presentation.tools.enum.selector
 
 import com.maximbircu.devtools.common.core.mvp.BaseView
 
+/**
+ * Presents an enum dev tool option selector.
+ *
+ * Should present a group of single-choice selectable and react on user selection interactions.
+ */
 interface EnumToolOptionSelectorView : BaseView {
     /**
      * Should present the list of the tool supported configuration options as

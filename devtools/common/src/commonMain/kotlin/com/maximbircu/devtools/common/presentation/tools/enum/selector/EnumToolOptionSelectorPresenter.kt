@@ -30,6 +30,12 @@ interface EnumToolOptionSelectorPresenter : Presenter {
     fun onCustomValueChanged(text: String)
 
     companion object {
+        /**
+         * Provides a new [EnumToolOptionSelectorPresenter] instance.
+         *
+         * @param view a [EnumToolOptionSelectorView] instance
+         * @param onNewOptionSelected should be invoked whenever a new option gets selected
+         */
         fun create(
             view: EnumToolOptionSelectorView,
             onNewOptionSelected: (String) -> Unit

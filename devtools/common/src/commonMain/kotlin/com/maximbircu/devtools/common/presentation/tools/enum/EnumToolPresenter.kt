@@ -14,10 +14,19 @@ interface EnumToolPresenter : Presenter {
      */
     fun onToolBind(tool: EnumTool)
 
+    /**
+     * Should be called whenever the enum tool gets selected.
+     */
     fun onToolClick()
 
+    /**
+     * Should be invoked whenever the option selector dialog closes by a configuration button click.
+     */
     fun onPositiveButtonClick()
 
+    /**
+     * Should be invoked whenever the option selector dialog closes by a cancel button click.
+     */
     fun onNegativeButtonClick()
 
     companion object {
@@ -30,6 +39,10 @@ interface EnumToolPresenter : Presenter {
     }
 }
 
+/**
+ * A compact enum tool option selector should be presented as soon as the options list size is
+ * smaller than [MAX_ALLOWED_OPTIONS_FOR_COMPACT_MODE] and a dialog selector vice-versa.
+ */
 private const val MAX_ALLOWED_OPTIONS_FOR_COMPACT_MODE = 7
 
 private class EnumToolPresenterImpl(
