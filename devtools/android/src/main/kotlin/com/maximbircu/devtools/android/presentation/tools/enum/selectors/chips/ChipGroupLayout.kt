@@ -27,7 +27,7 @@ internal class ChipGroupLayout @JvmOverloads constructor(
     }
 
     fun setOnCheckedChangeListener(onChange: (String) -> Unit) {
-        setOnCheckedChangeListener { _, _ -> onChange(chips.getValue(checkedChipId)) }
+        setOnCheckedChangeListener { _, _ -> chips[checkedChipId]?.let(onChange) }
     }
 
     fun getCheckedChip(): Chip = findViewById(checkedChipId)
@@ -36,6 +36,7 @@ internal class ChipGroupLayout @JvmOverloads constructor(
         val chip = inflate(context, R.layout.layout_enum_tool_chip, null) as Chip
         chip.id = id
         chip.text = text
+        chip.setOnClickListener { check(id) }
         return chip
     }
 }
