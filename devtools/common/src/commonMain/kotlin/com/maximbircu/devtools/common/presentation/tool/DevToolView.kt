@@ -1,5 +1,6 @@
 package com.maximbircu.devtools.common.presentation.tool
 
+import com.maximbircu.devtools.common.core.DevTool
 import com.maximbircu.devtools.common.core.mvp.BaseView
 
 /**
@@ -29,4 +30,10 @@ interface DevToolView : BaseView {
      * @param isEnabled true if the tool should be enabled and false vice-versa
      */
     fun setToolEnableState(isEnabled: Boolean)
+
+    fun showToolContextMenu()
+
+    fun refreshToolData(tool: DevTool<*>)
+
+    fun showHelpDialog(tool: DevTool<*>)
 }

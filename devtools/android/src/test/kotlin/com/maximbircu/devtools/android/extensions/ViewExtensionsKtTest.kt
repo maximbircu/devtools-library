@@ -9,7 +9,6 @@ import io.mockk.every
 import io.mockk.slot
 import io.mockk.verify
 import org.junit.Test
-import kotlin.test.assertEquals
 
 class ViewExtensionsKtTest : BaseTest() {
     @Test
@@ -37,14 +36,6 @@ class ViewExtensionsKtTest : BaseTest() {
         view.makeInvisible()
 
         verify { view.visibility = View.INVISIBLE }
-    }
-
-    @Test
-    fun `returns proper views`() {
-        val children = listOf<View>(mockk(), mockk())
-        val rootView = createViewGroup(children)
-
-        assertEquals(children, rootView.children().toList())
     }
 
     @Test

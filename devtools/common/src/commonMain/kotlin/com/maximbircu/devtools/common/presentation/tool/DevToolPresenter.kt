@@ -4,7 +4,13 @@ import com.maximbircu.devtools.common.core.DevTool
 import com.maximbircu.devtools.common.core.mvp.BasePresenter
 import com.maximbircu.devtools.common.core.mvp.Presenter
 
-interface DevToolPresenter : Presenter {
+interface DevToolContextMenuPresenter : Presenter {
+    fun onHelp()
+    fun onSelectDefaultValue()
+    fun onResetSelection()
+}
+
+interface DevToolPresenter : DevToolContextMenuPresenter {
     /**
      * Should be called as soon as a [DevTool] instance has been provided
      * to the [DevToolView].
@@ -15,6 +21,8 @@ interface DevToolPresenter : Presenter {
      * Should be called whenever the user toggles the tool enable toggle.
      */
     fun onToolEnableToggleUpdated(isEnabled: Boolean)
+
+    fun onContextMenuButtonClick()
 
     companion object {
         fun create(view: DevToolView): DevToolPresenter = DevToolPresenterImpl(view)
@@ -36,6 +44,24 @@ private class DevToolPresenterImpl(
     override fun onToolEnableToggleUpdated(isEnabled: Boolean) {
         tool.isEnabled = isEnabled
         view.setToolEnableState(isEnabled)
+    }
+
+    override fun onContextMenuButtonClick() {
+        view.showToolContextMenu()
+    }
+
+    override fun onHelp() {
+        view.showHelpDialog(tool)
+    }
+
+    override fun onSelectDefaultValue() {
+        // TODO 36 Select default value
+        view.refreshToolData(tool)
+    }
+
+    override fun onResetSelection() {
+        // TODO 36 Reset selection
+        view.refreshToolData(tool)
     }
 
     private fun updateToolEnableToggleVisibility() {

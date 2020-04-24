@@ -1,16 +1,19 @@
 package com.maximbircu.devtools.android.presentation.tool
 
 import android.content.Context
+import android.widget.PopupMenu
 import android.widget.RelativeLayout
 import com.maximbircu.devtools.android.R
 import com.maximbircu.devtools.android.extensions.makeInvisible
 import com.maximbircu.devtools.android.extensions.setEnabledRecursively
+import com.maximbircu.devtools.android.extensions.setOnClickListener
 import com.maximbircu.devtools.android.extensions.show
 import com.maximbircu.devtools.common.core.DevTool
 import com.maximbircu.devtools.common.presentation.tool.DevToolPresenter
 import com.maximbircu.devtools.common.presentation.tool.DevToolView
 import kotlinx.android.synthetic.main.layout_dev_tool.view.devToolCard
 import kotlinx.android.synthetic.main.layout_dev_tool.view.devToolContentContainer
+import kotlinx.android.synthetic.main.layout_dev_tool_header.view.menuButton
 import kotlinx.android.synthetic.main.layout_dev_tool_header.view.toolEnableToggle
 import kotlinx.android.synthetic.main.layout_dev_tool_header.view.toolTitle
 
@@ -24,6 +27,7 @@ abstract class DevToolLayout<T : DevTool<*>>(
     init {
         inflate(context, R.layout.layout_dev_tool, this)
         inflate(context, layoutRes, devToolContentContainer)
+        menuButton.setOnClickListener(presenter::onContextMenuButtonClick)
         toolEnableToggle.setOnCheckedChangeListener { _, isEnabled ->
             presenter.onToolEnableToggleUpdated(isEnabled)
         }
@@ -37,6 +41,10 @@ abstract class DevToolLayout<T : DevTool<*>>(
 
     abstract fun onBind(tool: T)
 
+    override fun setTitle(title: String?) {
+        toolTitle.text = title
+    }
+
     override fun showEnableToggle() = toolEnableToggle.show()
 
     override fun hideEnableToggle() = toolEnableToggle.makeInvisible()
@@ -47,7 +55,18 @@ abstract class DevToolLayout<T : DevTool<*>>(
         devToolContentContainer.setEnabledRecursively(isEnabled)
     }
 
-    override fun setTitle(title: String?) {
-        toolTitle.text = title
+    override fun showToolContextMenu() {
+        val popup = PopupMenu(context, menuButton)
+        popup.menuInflater.inflate(R.menu.dev_tool_context_menu, popup.menu)
+        popup.setOnMenuItemClickListener(DevToolContextMenuClickListener(presenter))
+        popup.show()
+    }
+
+    override fun refreshToolData(tool: DevTool<*>) {
+        bind(tool)
+    }
+
+    override fun showHelpDialog(tool: DevTool<*>) {
+        DevToolHelpDialog(context, tool).show()
     }
 }

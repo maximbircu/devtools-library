@@ -3,9 +3,9 @@ package com.maximbircu.devtools.android.presentation.list
 import android.content.Context
 import android.util.AttributeSet
 import android.view.ViewGroup
+import androidx.core.view.children
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.maximbircu.devtools.android.extensions.children
 import com.maximbircu.devtools.android.presentation.tool.DevToolLayout
 import com.maximbircu.devtools.common.core.DevTool
 import com.maximbircu.devtools.common.presentation.list.DevToolsListView
@@ -17,7 +17,7 @@ internal class DevToolsListLayout @JvmOverloads constructor(
     defStyleAtr: Int = 0
 ) : RecyclerView(context, attrs, defStyleAtr), DevToolsListView {
     override val devToolViews: List<DevToolView>
-        get() = children().filterIsInstance<DevToolLayout<*>>()
+        get() = children.filterIsInstance<DevToolLayout<*>>().toList()
 
     init {
         layoutManager = LinearLayoutManager(context)
