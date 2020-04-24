@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/enable_all"
+        android:title="@string/group_tool_context_menu_enable_all" />
+    <item
+        android:id="@+id/disable_all"
+        android:title="@string/group_tool_context_menu_disable_all" />
+    <item
+        android:id="@+id/set_all_to_default"
+        android:title="@string/group_tool_context_menu_set_all_to_default" />
+    <item
+        android:id="@+id/reset_all_changes"
+        android:title="@string/group_tool_context_menu_reset_all_changes" />
+</menu>

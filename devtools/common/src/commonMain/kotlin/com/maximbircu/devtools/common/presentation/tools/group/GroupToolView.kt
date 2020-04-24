@@ -19,4 +19,6 @@ interface GroupToolView : BaseView {
      * @property tools the group member tools
      */
     fun showTools(tools: List<DevTool<*>>)
+
+    fun refreshToolData()
 }

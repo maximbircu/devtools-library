@@ -16,7 +16,7 @@ abstract class DevTool<T : Any>(
     var title: String? = null,
     var description: String = "",
     var canBeDisabled: Boolean = false,
-    private var defaultEnabledValue: Boolean = true
+    var defaultEnabledValue: Boolean = true
 ) {
     private var _key: String? = null
 
