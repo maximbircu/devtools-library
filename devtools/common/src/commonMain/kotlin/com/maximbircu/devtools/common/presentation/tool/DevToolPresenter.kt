@@ -55,12 +55,12 @@ private class DevToolPresenterImpl(
     }
 
     override fun onSelectDefaultValue() {
-        // TODO 36 Select default value
+        tool.resetToDefault()
         view.refreshToolData(tool)
     }
 
     override fun onResetSelection() {
-        // TODO 36 Reset selection
+        tool.restorePersistedState()
         view.refreshToolData(tool)
     }
 

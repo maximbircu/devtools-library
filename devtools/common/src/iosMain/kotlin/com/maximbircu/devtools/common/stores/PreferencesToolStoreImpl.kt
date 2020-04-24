@@ -13,7 +13,7 @@ actual open class PreferencesToolStoreImpl<T : Any> actual constructor(
         set(value) { nsUserDefaults.setBool(value, "${tool.key}_enabled") }
         get() = nsUserDefaults.getOrDefault(
             "${tool.key}_enabled",
-            tool.isEnabled,
+            tool.defaultEnabledValue,
             nsUserDefaults::boolForKey
         )
 

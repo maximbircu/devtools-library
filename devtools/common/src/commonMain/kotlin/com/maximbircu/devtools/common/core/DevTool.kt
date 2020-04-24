@@ -16,7 +16,7 @@ abstract class DevTool<T : Any>(
     var title: String? = null,
     var description: String = "",
     var canBeDisabled: Boolean = false,
-    var isEnabled: Boolean = true
+    private var defaultEnabledValue: Boolean = true
 ) {
     private var _key: String? = null
 
@@ -34,6 +34,8 @@ abstract class DevTool<T : Any>(
      * You need to call [persistState] in case you need to persist it.
      */
     lateinit var value: T
+
+    var isEnabled: Boolean = defaultEnabledValue
 
     /**
      * Implements persistence logic of the tool and allows the persistence of the configuration
@@ -59,7 +61,12 @@ abstract class DevTool<T : Any>(
         store.isEnabled = isEnabled
     }
 
-    private fun restorePersistedState() {
+    fun resetToDefault() {
+        value = getDefaultValue()
+        isEnabled = defaultEnabledValue
+    }
+
+    fun restorePersistedState() {
         value = store.value
         isEnabled = store.isEnabled
     }
