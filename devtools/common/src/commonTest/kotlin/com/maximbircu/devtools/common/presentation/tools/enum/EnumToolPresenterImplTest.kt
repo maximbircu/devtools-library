@@ -4,6 +4,10 @@ import com.maximbircu.devtools.common.core.createTool
 import com.maximbircu.devtools.common.mvp.BasePresenterTest
 import com.maximbircu.devtools.common.utils.mockk
 import com.maximbircu.devtools.common.utils.returns
+import io.mockk.Runs
+import io.mockk.every
+import io.mockk.just
+import io.mockk.slot
 import io.mockk.verify
 import kotlin.test.Test
 
@@ -11,111 +15,113 @@ class EnumToolPresenterImplTest : BasePresenterTest<EnumToolView, EnumToolPresen
     override fun createPresenter() = EnumToolPresenter.create(view)
 
     @Test
-    fun `shows options without custom on tool bind`() {
-        val fakeOptions = mapOf("first-option" to "first-value", "second-option" to "second-value")
-        val tool: EnumTool = createTool {
-            ::allowCustom returns false
-            ::options returns fakeOptions
-            ::value returns "first-value"
-        }
+    fun `shows compact options selector if options size is smaller than 7`() {
+        val tool: EnumTool = createCompactEnumTool()
 
         presenter.onToolBind(tool)
 
-        verify { view.showOptions(fakeOptions.keys.toList()) }
+        verify { view.showCompactOptionsSelector(tool, any()) }
     }
 
     @Test
-    fun `shows options with custom on tool bind`() {
-        val fakeOptions = mapOf("first-option" to "first-value", "second-option" to "second-value")
-        val tool: EnumTool = createTool {
-            ::allowCustom returns true
-            ::options returns fakeOptions
-            ::value returns "first-value"
-        }
+    fun `shows configuration value if options size is bigger than 6`() {
+        val tool: EnumTool = createExtendedEnumTool()
 
         presenter.onToolBind(tool)
 
-        verify { view.showOptions(fakeOptions.keys.toList() + "custom") }
+        verify { view.showConfigurationValue("Second Option Value") }
     }
 
     @Test
-    fun `sets custom value on tool bind`() {
-        val tool: EnumTool = createTool { ::value returns "second-value" }
-
+    fun `shows option selector dialog on tool click if options size is bigger than 6`() {
+        val tool: EnumTool = createExtendedEnumTool()
         presenter.onToolBind(tool)
 
-        verify { view.setCustomValue("second-value") }
+        presenter.onToolClick()
+
+        verify { view.showOptionSelectorDialog(tool, any()) }
     }
 
     @Test
-    fun `checks selected value option on tool bind`() {
-        val fakeOptions = mapOf("first-option" to "first-value", "second-option" to "second-value")
-        val tool: EnumTool = createTool {
-            ::options returns fakeOptions
-            ::value returns "second-value"
-        }
-
+    fun `doesn't show option selector dialog on tool click if options size is smaller than 7`() {
+        val tool: EnumTool = createCompactEnumTool()
         presenter.onToolBind(tool)
 
-        verify { view.selectOption("second-option") }
+        presenter.onToolClick()
+
+        verify(exactly = 0) { view.showOptionSelectorDialog(any(), any()) }
     }
 
     @Test
-    fun `checks custom option if there is no any option for selected value`() {
-        val fakeOptions = mapOf("first-option" to "first-value", "second-option" to "second-value")
-        val tool: EnumTool = createTool {
-            ::options returns fakeOptions
-            ::value returns "some custom value"
-        }
-
+    fun `sets tool value whenever a new option gets selected from compact selector`() {
+        val tool: EnumTool = createCompactEnumTool()
+        val onNewOptionSelectedSlot = slot<(String) -> Unit>()
+        every { view.showCompactOptionsSelector(tool, capture(onNewOptionSelectedSlot)) } just Runs
         presenter.onToolBind(tool)
 
-        verify { view.selectOption("custom") }
+        onNewOptionSelectedSlot.captured.invoke("Third Option Value")
+
+        verify { tool.value = "Third Option Value" }
     }
 
     @Test
-    fun `shows custom value input if selected option is custom`() {
-        presenter.onOptionSelected("custom")
-
-        verify { view.showCustomValueInputView() }
-    }
-
-    @Test
-    fun `hides custom value input view if selected option is not custom`() {
-        presenter.onToolBind(createTool { ::value returns "some custom value" })
-
-        presenter.onOptionSelected("second-option")
-
-        verify { view.hideCustomValueInputView() }
-    }
-
-    @Test
-    fun `sets proper option value when the selected option is not custom`() {
-        val fakeOptions = mapOf("first-option" to "first-value", "second-option" to "second-value")
-        val tool: EnumTool = createTool {
-            ::allowCustom returns true
-            ::options returns fakeOptions
-            ::value returns "second-value"
-        }
+    fun `sets tool value on option selector dialog positive button click`() {
+        val tool: EnumTool = createExtendedEnumTool()
+        val onNewOptionSelectedSlot = slot<(String) -> Unit>()
+        every { view.showOptionSelectorDialog(tool, capture(onNewOptionSelectedSlot)) } just Runs
         presenter.onToolBind(tool)
+        presenter.onToolClick()
+        onNewOptionSelectedSlot.captured.invoke("Third Option Value")
 
-        presenter.onOptionSelected(option = "second-option")
+        presenter.onPositiveButtonClick()
 
-        verify { tool.value = "second-value" }
+        verify { tool.value = "Third Option Value" }
     }
 
     @Test
-    fun `sets proper option value on custom value changes`() {
-        val fakeOptions = mapOf("first-option" to "first-value", "second-option" to "second-value")
-        val tool: EnumTool = createTool {
-            ::allowCustom returns true
-            ::options returns fakeOptions
-            ::value returns "second-value"
-        }
+    fun `resets tool selected value to default on option selector dialog negative button click`() {
+        val tool: EnumTool = createExtendedEnumTool()
+        val onNewOptionSelectedSlot = slot<(String) -> Unit>()
+        every { view.showOptionSelectorDialog(tool, capture(onNewOptionSelectedSlot)) } just Runs
         presenter.onToolBind(tool)
+        presenter.onToolClick()
+        onNewOptionSelectedSlot.captured.invoke("Third Option Value")
+        presenter.onNegativeButtonClick()
 
-        presenter.onCustomValueChanged("some custom value")
+        presenter.onPositiveButtonClick()
 
-        verify { tool.value = "some custom value" }
+        verify { tool.value = "Second Option Value" }
+    }
+
+    @Test
+    fun `shows configuration value on positive button click`() {
+        presenter.onToolBind(createCompactEnumTool())
+
+        presenter.onPositiveButtonClick()
+
+        verify { view.showConfigurationValue("Second Option Value") }
+    }
+
+    private fun createCompactEnumTool(): EnumTool = createTool {
+        ::options returns mapOf(
+            "first-option" to "First Option Value",
+            "second-option" to "Second Option Value",
+            "third-option" to "Third Option Value"
+        )
+        ::value returns "Second Option Value"
+    }
+
+    private fun createExtendedEnumTool(): EnumTool = createTool {
+        ::options returns mapOf(
+            "first-option" to "First Option Value",
+            "second-option" to "Second Option Value",
+            "third-option" to "Third Option Value",
+            "fifth-option" to "Fifth Option Value",
+            "sixth-option" to "Sixth Option Value",
+            "seventh-option" to "Seventh Option Value",
+            "eighth-option" to "Eighth Option Value",
+            "ninth-option" to "Ninth Option Value"
+        )
+        ::value returns "Second Option Value"
     }
 }

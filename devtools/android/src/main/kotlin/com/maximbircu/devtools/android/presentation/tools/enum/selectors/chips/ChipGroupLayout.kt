@@ -1,4 +1,4 @@
-package com.maximbircu.devtools.android.presentation.tools.enum
+package com.maximbircu.devtools.android.presentation.tools.enum.selectors.chips
 
 import android.content.Context
 import android.content.res.Resources.NotFoundException
@@ -27,15 +27,16 @@ internal class ChipGroupLayout @JvmOverloads constructor(
     }
 
     fun setOnCheckedChangeListener(onChange: (String) -> Unit) {
-        setOnCheckedChangeListener { _, _ -> onChange(chips.getValue(checkedChipId)) }
+        setOnCheckedChangeListener { _, _ -> chips[checkedChipId]?.let(onChange) }
     }
 
     fun getCheckedChip(): Chip = findViewById(checkedChipId)
 
     private fun createChipView(id: Int, text: String): Chip {
-        val chip = inflate(context, R.layout.layout_chip, null) as Chip
+        val chip = inflate(context, R.layout.layout_enum_tool_chip, null) as Chip
         chip.id = id
         chip.text = text
+        chip.setOnClickListener { check(id) }
         return chip
     }
 }

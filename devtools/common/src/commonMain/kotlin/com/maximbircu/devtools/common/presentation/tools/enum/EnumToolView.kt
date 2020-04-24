@@ -7,35 +7,28 @@ import com.maximbircu.devtools.common.core.mvp.BaseView
  */
 interface EnumToolView : BaseView {
     /**
-     * Should present the list of the tool supported configuration options as
-     * a single choice UI component.
+     * Should present the configuration [value] in a text form to the user.
      *
-     * @param options a collection of options to be presented to the user
+     * @param value the currently selected configuration value, note that this value is just an
+     * in-memory one and might not be persisted.
      */
-    fun showOptions(options: List<String>)
+    fun showConfigurationValue(value: String)
 
     /**
-     * Should mark the option as selected.
+     * Should present a compact option selector aka a single choice short list of selectable chips
+     * or radio buttons.
      *
-     * @param option the configuration option to be marked as selected.
+     * @param tool should be used to extract the [EnumTool.options] that might be selected
+     * @param onNewOptionSelected should be invoked whenever a new option is selected by the user
      */
-    fun selectOption(option: String)
+    fun showCompactOptionsSelector(tool: EnumTool, onNewOptionSelected: (String) -> Unit)
 
     /**
-     * Should set the provided configuration value as text inside the custom configuration value
-     * input field.
+     * Should present an option selector in for of a scrollable single choice selectable items
+     * inside a dialog or a separate screen.
      *
-     * @param value the configuration value in text form
+     * @param tool should be used to extract the [EnumTool.options] that might be selected
+     * @param onNewOptionSelected should be invoked whenever a new option is selected by the user
      */
-    fun setCustomValue(value: String)
-
-    /**
-     * Should show the custom configuration value input field to the user.
-     */
-    fun showCustomValueInputView()
-
-    /**
-     * Should hide the custom configuration value input field.
-     */
-    fun hideCustomValueInputView()
+    fun showOptionSelectorDialog(tool: EnumTool, onNewOptionSelected: (String) -> Unit)
 }

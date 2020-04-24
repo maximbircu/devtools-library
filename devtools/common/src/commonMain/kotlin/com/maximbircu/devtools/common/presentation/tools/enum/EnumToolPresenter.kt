@@ -3,8 +3,6 @@ package com.maximbircu.devtools.common.presentation.tools.enum
 import com.maximbircu.devtools.common.core.mvp.BasePresenter
 import com.maximbircu.devtools.common.core.mvp.Presenter
 
-private const val CUSTOM_OPTION = "custom"
-
 /**
  * Encapsulates the [EnumTool] business logic and displays enum tool data through [EnumToolView].
  */
@@ -17,18 +15,19 @@ interface EnumToolPresenter : Presenter {
     fun onToolBind(tool: EnumTool)
 
     /**
-     * Should be called as soon as a new configuration option is selected.
-     *
-     * @param option the selected configuration option at the invocation moment
+     * Should be called whenever the enum tool gets selected.
      */
-    fun onOptionSelected(option: String)
+    fun onToolClick()
 
     /**
-     * Should be called whenever the custom value input field text is changed.
-     *
-     * @param text the custom value input field new text
+     * Should be invoked whenever the option selector dialog closes by a configuration button click.
      */
-    fun onCustomValueChanged(text: String)
+    fun onPositiveButtonClick()
+
+    /**
+     * Should be invoked whenever the option selector dialog closes by a cancel button click.
+     */
+    fun onNegativeButtonClick()
 
     companion object {
         /**
@@ -40,42 +39,41 @@ interface EnumToolPresenter : Presenter {
     }
 }
 
+/**
+ * A compact enum tool option selector should be presented as soon as the options list size is
+ * smaller than [MAX_ALLOWED_OPTIONS_FOR_COMPACT_MODE] and a dialog selector vice-versa.
+ */
+private const val MAX_ALLOWED_OPTIONS_FOR_COMPACT_MODE = 7
+
 private class EnumToolPresenterImpl(
     view: EnumToolView
 ) : BasePresenter<EnumToolView>(view), EnumToolPresenter {
     private lateinit var tool: EnumTool
+    private val isCompactMode get() = tool.options.size < MAX_ALLOWED_OPTIONS_FOR_COMPACT_MODE
+    private lateinit var dialogSelectedValue: String
 
     override fun onToolBind(tool: EnumTool) {
         this.tool = tool
-        view.showOptions(getOptions())
-        view.setCustomValue(tool.value)
-        val selectedValueKey = getOptionNameForValue(tool.value) ?: CUSTOM_OPTION
-        view.selectOption(selectedValueKey)
-        onOptionSelected(selectedValueKey)
-    }
-
-    override fun onOptionSelected(option: String) {
-        if (option == CUSTOM_OPTION) {
-            view.showCustomValueInputView()
+        this.dialogSelectedValue = tool.value
+        if (isCompactMode) {
+            view.showCompactOptionsSelector(tool) { tool.value = it }
         } else {
-            tool.value = tool.options.getValue(option)
-            view.hideCustomValueInputView()
+            view.showConfigurationValue(tool.value)
         }
     }
 
-    override fun onCustomValueChanged(text: String) {
-        tool.value = text
-    }
-
-    private fun getOptions(): List<String> {
-        val options = tool.options.keys.toMutableList()
-        if (tool.allowCustom) {
-            options.add(CUSTOM_OPTION)
+    override fun onToolClick() {
+        if (!isCompactMode) {
+            view.showOptionSelectorDialog(tool) { dialogSelectedValue = it }
         }
-        return options
     }
 
-    private fun getOptionNameForValue(value: Any): String? {
-        return tool.options.keys.firstOrNull { tool.options[it] == value }
+    override fun onPositiveButtonClick() {
+        tool.value = dialogSelectedValue
+        view.showConfigurationValue(dialogSelectedValue)
+    }
+
+    override fun onNegativeButtonClick() {
+        dialogSelectedValue = tool.value
     }
 }
