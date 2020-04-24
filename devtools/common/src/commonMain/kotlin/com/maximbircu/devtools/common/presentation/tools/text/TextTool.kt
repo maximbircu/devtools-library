@@ -25,7 +25,7 @@ data class TextTool(
      * The configuration value data type. This might be used to check whether the config value
      * is text or number.
      */
-    val configurationValueType: KClass<*> get() = getDefaultValue()::class
+    val configValueType: KClass<*> get() = getDefaultValue()::class
 
     override fun getDefaultValue(): Any {
         val value = defaultValue ?: throw NullPointerException("Default val required")

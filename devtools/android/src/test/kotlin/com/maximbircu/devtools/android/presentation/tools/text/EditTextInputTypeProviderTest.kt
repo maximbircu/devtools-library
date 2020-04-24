@@ -1,8 +1,8 @@
 package com.maximbircu.devtools.android.presentation.tools.text
 
 import android.text.InputType.TYPE_CLASS_NUMBER
-import android.text.InputType.TYPE_NUMBER_FLAG_DECIMAL
 import android.text.InputType.TYPE_CLASS_TEXT
+import android.text.InputType.TYPE_NUMBER_FLAG_DECIMAL
 import com.maximbircu.devtools.android.BaseTest
 import org.junit.Test
 import kotlin.test.assertEquals
@@ -34,14 +34,14 @@ class EditTextInputTypeProviderTest : BaseTest() {
     fun `returns decimal input type for float`() {
         val inputType = EditTextInputTypeProvider.getInputTypeFor(Float::class)
 
-        assertEquals(TYPE_NUMBER_FLAG_DECIMAL, inputType)
+        assertEquals(TYPE_CLASS_NUMBER or TYPE_NUMBER_FLAG_DECIMAL, inputType)
     }
 
     @Test
     fun `returns decimal input type for double`() {
         val inputType = EditTextInputTypeProvider.getInputTypeFor(Double::class)
 
-        assertEquals(TYPE_NUMBER_FLAG_DECIMAL, inputType)
+        assertEquals(TYPE_CLASS_NUMBER or TYPE_NUMBER_FLAG_DECIMAL, inputType)
     }
 
     @Test
