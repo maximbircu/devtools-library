@@ -10,9 +10,11 @@ import com.maximbircu.devtools.common.extensions.forEachRecursively
 interface DevTools : DevToolsStorage {
 
     /**
-     * This function is invoked each time any of the configuration values are updated.
+     * This function is invoked whenever a dev tool state is updated.
+     * isCriticalUpdate will be true in case at least one updated tool will be critical.
+     * @see [com.maximbircu.devtools.common.core.DevTool.isCritical]
      */
-    var onConfigUpdate: () -> Unit
+    var onConfigUpdated: (isCriticalUpdate: Boolean) -> Unit
 
     /**
      * Persists all dev tools configuration changes stored in memory.
@@ -28,7 +30,7 @@ interface DevTools : DevToolsStorage {
          */
         fun create(
             vararg devToolsSource: DevToolsSource,
-            onConfigUpdate: () -> Unit = {}
+            onConfigUpdate: (isCriticalUpdate: Boolean) -> Unit = {}
         ): DevTools {
             val parser = DevToolsParser.create(devToolsSource.toList())
             val toolsStorage = DevToolsStorageImpl(parser.getDevTools())
@@ -39,10 +41,27 @@ interface DevTools : DevToolsStorage {
 
 private class DevToolsImpl(
     private val toolsStorage: DevToolsStorage,
-    override var onConfigUpdate: () -> Unit
+    override var onConfigUpdated: (isCriticalUpdate: Boolean) -> Unit
 ) : DevTools, DevToolsStorage by toolsStorage {
     override fun persistToolsState() {
-        tools.forEachRecursively { _, tool -> tool.persistState() }
-        onConfigUpdate()
+        val (atLeastOneToolWasUpdated, isCriticalUpdate) = persistToolsStateRecursively()
+        if (atLeastOneToolWasUpdated) {
+            onConfigUpdated(isCriticalUpdate)
+        }
+    }
+
+    private fun persistToolsStateRecursively(): Pair<Boolean, Boolean> {
+        var atLeastOneToolWasUpdated = false
+        var isCriticalUpdate = false
+        tools.forEachRecursively { _, tool ->
+            if (tool.hasUnsavedChanges) {
+                tool.persistState()
+                atLeastOneToolWasUpdated = true
+                if (tool.isCritical) {
+                    isCriticalUpdate = true
+                }
+            }
+        }
+        return Pair(atLeastOneToolWasUpdated, isCriticalUpdate)
     }
 }
