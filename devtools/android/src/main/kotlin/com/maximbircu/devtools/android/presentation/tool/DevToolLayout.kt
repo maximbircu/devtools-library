@@ -1,6 +1,7 @@
 package com.maximbircu.devtools.android.presentation.tool
 
 import android.content.Context
+import android.view.animation.AnimationUtils.loadAnimation
 import android.widget.PopupMenu
 import android.widget.RelativeLayout
 import com.maximbircu.devtools.android.R
@@ -13,6 +14,7 @@ import com.maximbircu.devtools.common.presentation.tool.DevToolPresenter
 import com.maximbircu.devtools.common.presentation.tool.DevToolView
 import kotlinx.android.synthetic.main.layout_dev_tool.view.devToolCard
 import kotlinx.android.synthetic.main.layout_dev_tool.view.devToolContentContainer
+import kotlinx.android.synthetic.main.layout_dev_tool.view.devToolContentContainerOverlay
 import kotlinx.android.synthetic.main.layout_dev_tool_header.view.menuButton
 import kotlinx.android.synthetic.main.layout_dev_tool_header.view.toolEnableToggle
 import kotlinx.android.synthetic.main.layout_dev_tool_header.view.toolTitle
@@ -30,6 +32,9 @@ abstract class DevToolLayout<T : DevTool<*>>(
         menuButton.setOnClickListener(presenter::onContextMenuButtonClick)
         toolEnableToggle.setOnCheckedChangeListener { _, isEnabled ->
             presenter.onToolEnableToggleUpdated(isEnabled)
+        }
+        devToolContentContainerOverlay.setOnClickListener {
+            toolEnableToggle.startAnimation(loadAnimation(context, R.anim.bounce))
         }
     }
 
@@ -50,6 +55,7 @@ abstract class DevToolLayout<T : DevTool<*>>(
     override fun hideEnableToggle() = toolEnableToggle.makeInvisible()
 
     override fun setToolEnableState(isEnabled: Boolean) {
+        devToolContentContainerOverlay.visibility = if (isEnabled) GONE else VISIBLE
         devToolCard.isEnabled = isEnabled
         toolEnableToggle.isChecked = isEnabled
         devToolContentContainer.setEnabledRecursively(isEnabled)
