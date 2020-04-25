@@ -5,7 +5,7 @@ import android.widget.PopupMenu.OnMenuItemClickListener
 import com.maximbircu.devtools.android.R.id
 import com.maximbircu.devtools.common.presentation.tools.group.GroupToolContextMenuPresenter
 
-class GroupToolContextMenuClickListener(
+internal class GroupToolContextMenuClickListener(
     private val presenter: GroupToolContextMenuPresenter
 ) : OnMenuItemClickListener {
     override fun onMenuItemClick(item: MenuItem): Boolean {
