@@ -84,9 +84,13 @@ jobs:
       - name: SCM
         uses: actions/checkout@v2
 
+      - name: Generate fat frramework
+        uses: eskatos/gradle-command-action@v1
+        with:
+          arguments: releaseFatFramework
+
       - name: Install Framework pod dependencies
-        run: |
-          pod install
+        run: pod install
 
       - name: Framework Build and Test
         run: |

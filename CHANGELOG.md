@@ -77,10 +77,5 @@ Issue: [#3](https://github.com/maximbircu/devtools-library/issues/3)
 
 Issue: [#1](https://github.com/maximbircu/devtools-library/issues/1)
 - Set up a new multi-platform project for the dev tools library
-<<<<<<< HEAD
 - Add .github templates for the PR description and issues
 - Setup a simple CI with GitHub actions
-=======
-- Add .github templates for the PR description and issues
-- Setup a simple CI with GitHub actions.
->>>>>>> Add sample iOS app icons, add changelog
