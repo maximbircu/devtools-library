@@ -2,8 +2,13 @@ Changelog
 =========
 
 ## Version 1.0.0 *(In development)*
+Issue: [#36](https://github.com/maximbircu/devtools-library/issues/36)
+- Add a context menu to all dev tools
+- Aad a custom context menu for GroupTool
+- Fix number exception crash which happens when passing empty values for number text tools
+
 Issue: [#43](https://github.com/maximbircu/devtools-library/issues/43) [#35](https://github.com/maximbircu/devtools-library/issues/35)
-- Add a different EnumTool UX for large options size.
+- Add a different EnumTool UX for large options size
 - Fix crash when selecting twice the same option
 
 Issue: [#33](https://github.com/maximbircu/devtools-library/issues/33)
@@ -63,10 +68,10 @@ Issue: [#3](https://github.com/maximbircu/devtools-library/issues/3)
 - Implement ToggleTool, a dev tool to manipulate boolean configuration values.
 - Configure android lint, ktlint, and detekt
 - Cover everything with unit tests
-- Adjust CI to run check-style and tests.
+- Adjust CI to run check-style and tests
 - Configure iOS targets
 
 Issue: [#1](https://github.com/maximbircu/devtools-library/issues/1)
 - Set up a new multi-platform project for the dev tools library
 - Add .github templates for the PR description and issues 
-- Setup a simple CI with GitHub actions. 
+- Setup a simple CI with GitHub actions
