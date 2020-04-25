@@ -107,7 +107,7 @@ class DevToolPresenterImplTest : BasePresenterTest<DevToolView, DevToolPresenter
     }
 
     @Test
-    fun `restores persisted tool values on reset selection`() {
+    fun `restores persisted tool values on reset changes`() {
         val tool: TextTool = createTool()
         presenter.onToolBind(tool)
 
@@ -117,7 +117,7 @@ class DevToolPresenterImplTest : BasePresenterTest<DevToolView, DevToolPresenter
     }
 
     @Test
-    fun `refreshes presented tool data on reset selection`() {
+    fun `refreshes presented tool data on reset changes`() {
         val tool: TextTool = createTool()
         presenter.onToolBind(tool)
 
