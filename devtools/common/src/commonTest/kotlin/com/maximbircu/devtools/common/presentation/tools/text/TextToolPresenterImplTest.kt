@@ -22,7 +22,7 @@ class TextToolPresenterImplTest : BasePresenterTest<TextToolView, TextToolPresen
 
     @Test
     fun `sets input data type on tool bind`() {
-        val tool: TextTool = createTool { ::configurationValueType returns String::class }
+        val tool: TextTool = createTool { ::configValueType returns String::class }
 
         presenter.onToolBind(tool)
 
@@ -42,7 +42,7 @@ class TextToolPresenterImplTest : BasePresenterTest<TextToolView, TextToolPresen
 
     @Test
     fun `sets string value on config value change`() {
-        val tool: TextTool = createTool { ::configurationValueType returns String::class }
+        val tool: TextTool = createTool { ::configValueType returns String::class }
         presenter.onToolBind(tool)
 
         presenter.onConfigValueChanged("text value")
@@ -52,7 +52,7 @@ class TextToolPresenterImplTest : BasePresenterTest<TextToolView, TextToolPresen
 
     @Test
     fun `sets int value on config value change`() {
-        val tool: TextTool = createTool { ::configurationValueType returns Int::class }
+        val tool: TextTool = createTool { ::configValueType returns Int::class }
         presenter.onToolBind(tool)
 
         presenter.onConfigValueChanged("3")
@@ -62,7 +62,7 @@ class TextToolPresenterImplTest : BasePresenterTest<TextToolView, TextToolPresen
 
     @Test
     fun `sets long value on config value change`() {
-        val tool: TextTool = createTool { ::configurationValueType returns Long::class }
+        val tool: TextTool = createTool { ::configValueType returns Long::class }
         presenter.onToolBind(tool)
 
         presenter.onConfigValueChanged("3")
@@ -72,7 +72,7 @@ class TextToolPresenterImplTest : BasePresenterTest<TextToolView, TextToolPresen
 
     @Test
     fun `sets float value on config value change`() {
-        val tool: TextTool = createTool { ::configurationValueType returns Float::class }
+        val tool: TextTool = createTool { ::configValueType returns Float::class }
         presenter.onToolBind(tool)
 
         presenter.onConfigValueChanged("3")
@@ -82,7 +82,7 @@ class TextToolPresenterImplTest : BasePresenterTest<TextToolView, TextToolPresen
 
     @Test
     fun `sets double value on config value change`() {
-        val tool: TextTool = createTool { ::configurationValueType returns Double::class }
+        val tool: TextTool = createTool { ::configValueType returns Double::class }
         presenter.onToolBind(tool)
 
         presenter.onConfigValueChanged("3.0")
@@ -91,9 +91,19 @@ class TextToolPresenterImplTest : BasePresenterTest<TextToolView, TextToolPresen
     }
 
     @Test
+    fun `stores 0 value in case the numeric string is blank`() {
+        val tool: TextTool = createTool { ::configValueType returns Double::class }
+        presenter.onToolBind(tool)
+
+        presenter.onConfigValueChanged("")
+
+        verify { tool.value = 0.0 }
+    }
+
+    @Test
     fun `throws exception if tool type is not supported`() {
         val value = object {}
-        val tool: TextTool = createTool { ::configurationValueType returns value::class }
+        val tool: TextTool = createTool { ::configValueType returns value::class }
         presenter.onToolBind(tool)
 
         assertFailsWith(IllegalArgumentException::class) {

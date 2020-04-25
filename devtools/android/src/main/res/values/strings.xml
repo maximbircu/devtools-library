@@ -12,4 +12,21 @@
     <string name="time_picker_minutes">M</string>
     <string name="time_picker_seconds">S</string>
     <string name="time_picker_milliseconds">MS</string>
+
+    <!-- Dev Tool Context Menu -->
+    <string name="dev_tool_context_menu">tool context menu</string>
+    <string name="dev_tool_context_menu_help">Help</string>
+    <string name="dev_tool_context_menu_select_default">Select default</string>
+    <string name="dev_tool_context_menu_reset_changes">Reset changes</string>
+
+    <!-- Tool Help Dialog -->
+    <string name="dev_tool_help_dialog_key">Key</string>
+    <string name="dev_tool_help_dialog_current_value">Current value</string>
+    <string name="dev_tool_help_dialog_default_value">Default value</string>
+
+    <!-- Group Tool Context Menu -->
+    <string name="group_tool_context_menu_enable_all">Enable all</string>
+    <string name="group_tool_context_menu_disable_all">Disable all</string>
+    <string name="group_tool_context_menu_set_all_to_default">Set all to default</string>
+    <string name="group_tool_context_menu_reset_all_changes">Reset all changes</string>
 </resources>

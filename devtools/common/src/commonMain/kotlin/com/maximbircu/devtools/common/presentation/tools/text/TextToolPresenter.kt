@@ -39,20 +39,20 @@ private class TextToolPresenterImpl(
     override fun onToolBind(tool: TextTool) {
         this.tool = tool
         view.setHint(tool.hint)
-        view.setInputDataType(tool.configurationValueType)
+        view.setInputDataType(tool.configValueType)
         view.setTextValue(tool.value.toString())
     }
 
     override fun onConfigValueChanged(value: String) {
-        when (tool.configurationValueType) {
+        when (tool.configValueType) {
             String::class -> tool.value = value
-            Int::class -> tool.value = value.toInt()
-            Long::class -> tool.value = value.toLong()
-            Float::class -> tool.value = value.toFloat()
-            Double::class -> tool.value = value.toDouble()
-            else -> throw IllegalArgumentException(
-                "${tool.configurationValueType} type not supported"
-            )
+            Int::class -> tool.value = value.toValidNumericString().toInt()
+            Long::class -> tool.value = value.toValidNumericString().toLong()
+            Float::class -> tool.value = value.toValidNumericString().toFloat()
+            Double::class -> tool.value = value.toValidNumericString().toDouble()
+            else -> throw IllegalArgumentException("${tool.configValueType} type not supported")
         }
     }
+
+    private fun String.toValidNumericString() = if (isBlank()) "0" else this
 }

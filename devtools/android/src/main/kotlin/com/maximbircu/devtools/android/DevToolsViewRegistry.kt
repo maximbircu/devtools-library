@@ -2,8 +2,8 @@ package com.maximbircu.devtools.android
 
 import android.content.Context
 import com.maximbircu.devtools.android.presentation.tool.DevToolLayout
-import com.maximbircu.devtools.android.presentation.tools.GroupToolLayout
 import com.maximbircu.devtools.android.presentation.tools.enum.EnumToolLayout
+import com.maximbircu.devtools.android.presentation.tools.group.GroupToolLayout
 import com.maximbircu.devtools.android.presentation.tools.text.TextToolLayout
 import com.maximbircu.devtools.android.presentation.tools.time.TimeToolLayout
 import com.maximbircu.devtools.android.presentation.tools.toggle.ToggleToolLayout

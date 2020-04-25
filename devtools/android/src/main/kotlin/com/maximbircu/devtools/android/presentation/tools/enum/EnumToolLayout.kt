@@ -20,6 +20,7 @@ class EnumToolLayout(context: Context) : DevToolLayout<EnumTool>(context), EnumT
     override fun onBind(tool: EnumTool) = presenter.onToolBind(tool)
 
     override fun showCompactOptionsSelector(tool: EnumTool, onNewOptionSelected: (String) -> Unit) {
+        selectorContainer.removeAllViews()
         val chipsSelector = EnumToolChipsOptionSelectorLayout(context, tool, onNewOptionSelected)
         selectorContainer.addView(chipsSelector)
     }
