@@ -8,13 +8,14 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
 import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 
 class DevToolTest : BaseTest() {
     private val store: ToolStore<String> = mockk(relaxed = true)
 
     @Test
     fun `restores proper persisted state when tool key updated`() {
-        val devTool = createDevTool(store)
+        val devTool = createDevTool()
         every { store.isEnabled } returns false
         every { store.value } returns "Configuration value"
 
@@ -26,7 +27,7 @@ class DevToolTest : BaseTest() {
 
     @Test
     fun `persists dev tool state`() {
-        val devTool = createDevTool(store)
+        val devTool = createDevTool()
         devTool.isEnabled = false
         devTool.value = "Configuration value"
 
@@ -37,17 +38,36 @@ class DevToolTest : BaseTest() {
     }
 
     @Test
+    fun `resets the tool state to proper default values`() {
+        val devTool = createDevTool(
+            defaultValue = "Default configuration value",
+            defaultEnabledValue = true
+        )
+        devTool.value = "Some custom value"
+        devTool.isEnabled = false
+
+        devTool.resetToDefault()
+
+        assertTrue(devTool.isEnabled)
+        assertEquals("Default configuration value", devTool.value)
+    }
+
+    @Test
     fun `throws exception when trying to access tool key if it was not set`() {
-        val devTool = createDevTool(store)
+        val devTool = createDevTool()
 
         assertFailsWith(NullPointerException::class) { devTool.key }
     }
 
-    private fun createDevTool(store: ToolStore<String>): DevTool<String> {
-        return object : DevTool<String>() {
+    private fun createDevTool(
+        store: ToolStore<String> = this.store,
+        defaultValue: String = "",
+        defaultEnabledValue: Boolean = true
+    ): DevTool<String> {
+        return object : DevTool<String>(defaultEnabledValue = defaultEnabledValue) {
             override val store: ToolStore<String> = store
 
-            override fun getDefaultValue() = ""
+            override fun getDefaultValue() = defaultValue
         }
     }
 }

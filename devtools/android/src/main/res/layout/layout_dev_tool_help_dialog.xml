@@ -21,21 +21,21 @@
             tools:text="Some tool detailed description"
             />
 
-        <com.maximbircu.devtools.android.presentation.tool.help.DebToolHelpDialogInfoRowLayout
+        <com.maximbircu.devtools.android.presentation.tool.help.DevToolHelpDialogInfoRowLayout
             android:id="@+id/toolKey"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:title="@string/dev_tool_help_dialog_key"
             />
 
-        <com.maximbircu.devtools.android.presentation.tool.help.DebToolHelpDialogInfoRowLayout
+        <com.maximbircu.devtools.android.presentation.tool.help.DevToolHelpDialogInfoRowLayout
             android:id="@+id/currentValue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:title="@string/dev_tool_help_dialog_current_value"
             />
 
-        <com.maximbircu.devtools.android.presentation.tool.help.DebToolHelpDialogInfoRowLayout
+        <com.maximbircu.devtools.android.presentation.tool.help.DevToolHelpDialogInfoRowLayout
             android:id="@+id/defaultValue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -66,4 +66,65 @@ class DevToolPresenterImplTest : BasePresenterTest<DevToolView, DevToolPresenter
 
         verify { tool.isEnabled = true }
     }
+
+    // region Tool Context Menu
+
+    @Test
+    fun `shows context menu on context menu button click`() {
+        presenter.onContextMenuButtonClick()
+
+        verify { view.showToolContextMenu() }
+    }
+
+    @Test
+    fun `shows help dialog on help click`() {
+        val tool: TextTool = createTool()
+        presenter.onToolBind(tool)
+
+        presenter.onHelp()
+
+        verify { view.showHelpDialog(tool) }
+    }
+
+    @Test
+    fun `resets tool to default value on select default value`() {
+        val tool: TextTool = createTool()
+        presenter.onToolBind(tool)
+
+        presenter.onSelectDefaultValue()
+
+        verify { tool.resetToDefault() }
+    }
+
+    @Test
+    fun `refreshes presented tool data on select default value`() {
+        val tool: TextTool = createTool()
+        presenter.onToolBind(tool)
+
+        presenter.onSelectDefaultValue()
+
+        verify { view.refreshToolData(tool) }
+    }
+
+    @Test
+    fun `restores persisted tool values on reset selection`() {
+        val tool: TextTool = createTool()
+        presenter.onToolBind(tool)
+
+        presenter.onResetSelection()
+
+        verify { tool.restorePersistedState() }
+    }
+
+    @Test
+    fun `refreshes presented tool data on reset selection`() {
+        val tool: TextTool = createTool()
+        presenter.onToolBind(tool)
+
+        presenter.onResetSelection()
+
+        verify { view.refreshToolData(tool) }
+    }
+
+    // endregion
 }

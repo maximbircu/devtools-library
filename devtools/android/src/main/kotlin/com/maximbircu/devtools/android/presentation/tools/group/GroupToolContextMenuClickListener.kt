@@ -14,7 +14,7 @@ class GroupToolContextMenuClickListener(
             id.disable_all -> presenter.onDisableAll()
             id.set_all_to_default -> presenter.onSetAllToDefault()
             id.reset_all_changes -> presenter.onResetAllChanges()
-            else -> return false
+            else -> throw IllegalArgumentException("$item not supported!")
         }
         return true
     }

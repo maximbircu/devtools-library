@@ -4,11 +4,10 @@ import android.content.Context
 import android.util.AttributeSet
 import android.widget.LinearLayout
 import com.maximbircu.devtools.android.R
-import com.maximbircu.devtools.android.extensions.withStyledAttributes
 import kotlinx.android.synthetic.main.layout_dev_tool_help_dialog_info_row.view.helpRowTitle
 import kotlinx.android.synthetic.main.layout_dev_tool_help_dialog_info_row.view.helpRowValue
 
-class DebToolHelpDialogInfoRowLayout @JvmOverloads constructor(
+class DevToolHelpDialogInfoRowLayout @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
@@ -21,8 +20,18 @@ class DebToolHelpDialogInfoRowLayout @JvmOverloads constructor(
 
     init {
         inflate(context, R.layout.layout_dev_tool_help_dialog_info_row, this)
-        context.withStyledAttributes(attrs, R.styleable.DevToolHelpDialogInfoRowLayout) {
-            helpRowTitle.text = getString(R.styleable.DevToolHelpDialogInfoRowLayout_title) ?: ""
+        val array = context.obtainStyledAttributes(
+            attrs,
+            R.styleable.DevToolHelpDialogInfoRowLayout,
+            defStyleAttr,
+            0
+        )
+        try {
+            helpRowTitle.text = array.getString(
+                R.styleable.DevToolHelpDialogInfoRowLayout_title
+            ) ?: ""
+        } finally {
+            array.recycle()
         }
     }
 }
