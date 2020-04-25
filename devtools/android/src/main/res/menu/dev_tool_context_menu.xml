@@ -7,6 +7,6 @@
         android:id="@+id/select_default_value"
         android:title="@string/dev_tool_context_menu_select_default" />
     <item
-        android:id="@+id/reset_selection"
-        android:title="@string/dev_tool_context_menu_reset_selection" />
+        android:id="@+id/reset_changes"
+        android:title="@string/dev_tool_context_menu_reset_changes" />
 </menu>

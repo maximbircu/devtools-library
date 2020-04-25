@@ -12,7 +12,7 @@ internal class DevToolContextMenuClickListener(
         when (item.itemId) {
             R.id.help -> presenter.onHelp()
             R.id.select_default_value -> presenter.onSelectDefaultValue()
-            R.id.reset_selection -> presenter.onResetSelection()
+            R.id.reset_changes -> presenter.onResetChanges()
             else -> throw IllegalArgumentException("$item not supported!")
         }
         return true

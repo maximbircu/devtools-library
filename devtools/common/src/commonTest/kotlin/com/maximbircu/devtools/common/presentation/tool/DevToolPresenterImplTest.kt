@@ -111,7 +111,7 @@ class DevToolPresenterImplTest : BasePresenterTest<DevToolView, DevToolPresenter
         val tool: TextTool = createTool()
         presenter.onToolBind(tool)
 
-        presenter.onResetSelection()
+        presenter.onResetChanges()
 
         verify { tool.restorePersistedState() }
     }
@@ -121,7 +121,7 @@ class DevToolPresenterImplTest : BasePresenterTest<DevToolView, DevToolPresenter
         val tool: TextTool = createTool()
         presenter.onToolBind(tool)
 
-        presenter.onResetSelection()
+        presenter.onResetChanges()
 
         verify { view.refreshToolData(tool) }
     }

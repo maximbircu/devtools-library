@@ -17,7 +17,7 @@
     <string name="dev_tool_context_menu">tool context menu</string>
     <string name="dev_tool_context_menu_help">Help</string>
     <string name="dev_tool_context_menu_select_default">Select default</string>
-    <string name="dev_tool_context_menu_reset_selection">Reset selection</string>
+    <string name="dev_tool_context_menu_reset_changes">Reset changes</string>
 
     <!-- Tool Help Dialog -->
     <string name="dev_tool_help_dialog_key">Key</string>

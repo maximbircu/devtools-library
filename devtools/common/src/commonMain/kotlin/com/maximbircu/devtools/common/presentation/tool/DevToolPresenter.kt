@@ -7,7 +7,7 @@ import com.maximbircu.devtools.common.core.mvp.Presenter
 interface DevToolContextMenuPresenter : Presenter {
     fun onHelp()
     fun onSelectDefaultValue()
-    fun onResetSelection()
+    fun onResetChanges()
 }
 
 interface DevToolPresenter : DevToolContextMenuPresenter {
@@ -59,7 +59,7 @@ private class DevToolPresenterImpl(
         view.refreshToolData(tool)
     }
 
-    override fun onResetSelection() {
+    override fun onResetChanges() {
         tool.restorePersistedState()
         view.refreshToolData(tool)
     }

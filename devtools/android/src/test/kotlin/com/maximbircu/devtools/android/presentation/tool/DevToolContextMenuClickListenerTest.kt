@@ -33,10 +33,10 @@ class DevToolContextMenuClickListenerTest : BaseTest() {
     }
 
     @Test
-    fun `notifies about "reset selection" click and consumes the action`() {
-        val isActionConsumed = listener.onMenuItemClick(createMenuItem(R.id.reset_selection))
+    fun `notifies about "reset changes" click and consumes the action`() {
+        val isActionConsumed = listener.onMenuItemClick(createMenuItem(R.id.reset_changes))
 
-        verify { presenter.onResetSelection() }
+        verify { presenter.onResetChanges() }
         assertTrue(isActionConsumed)
     }
 
