@@ -40,8 +40,8 @@ abstract class DevToolLayout<T : DevTool<*>>(
 
     @Suppress("UNCHECKED_CAST")
     fun bind(tool: DevTool<*>) {
-        presenter.onToolBind(tool)
         onBind(tool as T)
+        presenter.onToolBind(tool)
     }
 
     abstract fun onBind(tool: T)
