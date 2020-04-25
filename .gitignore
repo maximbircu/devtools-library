@@ -43,3 +43,6 @@ xcuserdata/
 
 # Mac OS
 .DS_Store
+
+# Kotlin native iOS generated framework
+/devtools/ios/Frameworks/devtools.framework
