@@ -10,7 +10,7 @@ import com.maximbircu.devtools.common.stores.PreferencesToolStoreImpl
  * @property title tool title displayed in the configuration screen
  * @property description short description of the dev tool configuration value
  * @property canBeDisabled the user can enable/disable the tool if true
- * @property isEnabled true if the tool is enabled and false vice-versa
+ * @property defaultEnabledValue true if the tool is enabled and false vice-versa
  */
 abstract class DevTool<T : Any>(
     var title: String? = null,
@@ -20,6 +20,9 @@ abstract class DevTool<T : Any>(
 ) {
     private var _key: String? = null
 
+    /**
+     * A unique dev tool identifier.
+     */
     var key: String
         get() = _key ?: throw NullPointerException("Dev tool key was not set!")
         set(value) {
@@ -35,6 +38,12 @@ abstract class DevTool<T : Any>(
      */
     lateinit var value: T
 
+    /**
+     * The dev tool enable state at the moment, note that this is kept just in memory and
+     * will not survive after [com.maximbircu.devtools.common.DevTools] recreation.
+     *
+     * You need to call [persistState] in case you need to persist it.
+     */
     var isEnabled: Boolean = defaultEnabledValue
 
     /**
@@ -61,11 +70,17 @@ abstract class DevTool<T : Any>(
         store.isEnabled = isEnabled
     }
 
+    /**
+     * Sets the dev tool to its default state.
+     */
     fun resetToDefault() {
         value = getDefaultValue()
         isEnabled = defaultEnabledValue
     }
 
+    /**
+     * Restores the dev tool persisted state.
+     */
     fun restorePersistedState() {
         value = store.value
         isEnabled = store.isEnabled

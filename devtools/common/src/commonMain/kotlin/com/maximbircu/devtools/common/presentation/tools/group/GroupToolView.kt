@@ -20,5 +20,9 @@ interface GroupToolView : BaseView {
      */
     fun showTools(tools: List<DevTool<*>>)
 
+    /**
+     * This method will be invoked whenever the [DevTool] state will be changed.
+     * To make the view refresh and show the new data.
+     */
     fun refreshToolData()
 }

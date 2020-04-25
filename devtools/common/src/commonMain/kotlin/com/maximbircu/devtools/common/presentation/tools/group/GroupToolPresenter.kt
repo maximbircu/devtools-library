@@ -3,10 +3,28 @@ package com.maximbircu.devtools.common.presentation.tools.group
 import com.maximbircu.devtools.common.core.mvp.BasePresenter
 import com.maximbircu.devtools.common.core.mvp.Presenter
 
+/**
+ * Encapsulates common group too context menu presentation and user interaction logic.
+ */
 interface GroupToolContextMenuPresenter : Presenter {
+    /**
+     * Should be called whenever the user intends to enable all child dev tools.
+     */
     fun onEnableAll()
+
+    /**
+     * Should be called whenever the user intends to disable all child dev tools.
+     */
     fun onDisableAll()
+
+    /**
+     * Should be called whenever the user intends to set all child tools to their default state.
+     */
     fun onSetAllToDefault()
+
+    /**
+     * Should be called whenever the user intends to reset all changes he made to the child tools.
+     */
     fun onResetAllChanges()
 }
 

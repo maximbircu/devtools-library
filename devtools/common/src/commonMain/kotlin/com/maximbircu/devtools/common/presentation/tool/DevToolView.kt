@@ -31,9 +31,22 @@ interface DevToolView : BaseView {
      */
     fun setToolEnableState(isEnabled: Boolean)
 
+    /**
+     * Should present a [DevTool] context menu to the user.
+     */
     fun showToolContextMenu()
 
+    /**
+     * This method will be invoked whenever the [DevTool] state will be changed.
+     * In order to make the view refresh and show the new data.
+     *
+     * @param tool the [DevTool] object which contains the new state
+     */
     fun refreshToolData(tool: DevTool<*>)
 
+    /**
+     * Should present a
+     * [com.maximbircu.devtools.common.presentation.tool.help.DevToolHelpDialogView].
+     */
     fun showHelpDialog(tool: DevTool<*>)
 }
