@@ -11,7 +11,7 @@ interface DevTools : DevToolsStorage {
 
     /**
      * This function is invoked whenever a dev tool state is updated.
-     * isCriticalUpdate will be true in case at least one updated tool will be critical.
+     * isCriticalUpdate will be true in the case at least one updated tool will be critical.
      * @see [com.maximbircu.devtools.common.core.DevTool.isCritical]
      */
     var onConfigUpdated: (isCriticalUpdate: Boolean) -> Unit

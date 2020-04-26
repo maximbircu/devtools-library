@@ -23,7 +23,7 @@ abstract class DevTool<T : Any>(
     private var _key: String? = null
 
     /**
-     * This property will be true in case the in memory tool state will be different from the
+     * This property will be true in case the in-memory tool state will be different from the
      * persisted one.
      */
     val hasUnsavedChanges: Boolean get() = value != store.value || isEnabled != store.isEnabled
