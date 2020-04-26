@@ -73,7 +73,6 @@ class DevToolHelpDialogPresenterImplTest :
 
         presenter.onToolBind(tool)
 
-
         verify { view.showCriticalUpdateLabel() }
     }
 
@@ -82,7 +81,6 @@ class DevToolHelpDialogPresenterImplTest :
         val tool: DevTool<*> = createTool { ::isCritical returns false }
 
         presenter.onToolBind(tool)
-
 
         verify { view.hideCriticalUpdateLabel() }
     }
