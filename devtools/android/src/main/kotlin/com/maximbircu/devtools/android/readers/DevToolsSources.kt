@@ -38,14 +38,16 @@ fun DevToolsSources.yaml(assetManager: AssetManager, fileName: String): DevTools
 }
 
 /**
- * Provides a [JsonSchemaSource] which is a [DevToolsSource] implementation able to parse and
- * generate a dictionary of [DevTool] from JSON schema.
+ * Provides a [com.maximbircu.devtools.common.readers.sources.JsonSchemaSource] which is a
+ * [DevToolsSource] implementation able to parse and generate a dictionary of [DevTool] from a
+ * JSON schema.
  *
  * Use the provided source object as a parameter to [com.maximbircu.devtools.common.DevTools.create]
  * to enable [com.maximbircu.devtools.common.DevTools] read and provide dev tools from a
  * JSON schema config.
  *
- * @param jsonString a string which contains the dev tools configuration content in JSON format
+ * @param assetManager used to load the JSON file from your app assets
+ * @param fileName dev tools JSON configuration filename ex: "my-app-config.json"
  */
 fun DevToolsSources.json(assetManager: AssetManager, fileName: String): DevToolsSource {
     return json(assetManager.open(fileName).reader().readText())
