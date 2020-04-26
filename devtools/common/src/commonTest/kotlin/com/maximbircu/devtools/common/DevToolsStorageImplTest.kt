@@ -59,6 +59,31 @@ class DevToolsStorageImplTest : BaseTest() {
     }
 
     @Test
+    fun `returns proper JSON config`() {
+        val tools = mapOf<String, DevTool<*>>(
+            "first-tool" to createTool<ToggleTool> { ::value returns true },
+            "second-tool" to GroupTool(
+                mapOf(
+                    "first-child-tool" to createTool<TextTool> { ::value returns "First value" },
+                    "second-child-tool" to createTool<TextTool> { ::value returns "Second value" }
+                )
+            )
+        )
+        val expectedConfigJsonString = json {
+            "first-tool" to true
+            "second-tool" to json {
+                "first-child-tool" to "First value"
+                "second-child-tool" to "Second value"
+            }
+        }.toString()
+        val storage: DevToolsStorage = DevToolsStorageImpl(tools)
+
+        val configJsonString = storage.getAllConfigAsJson()
+
+        assertEquals(expectedConfigJsonString, configJsonString)
+    }
+
+    @Test
     fun `returns proper filtered JSON config`() {
         val tools = mapOf<String, DevTool<*>>(
             "first-tool" to createTool<ToggleTool> {
@@ -86,6 +111,10 @@ class DevToolsStorageImplTest : BaseTest() {
                     "second-child-tool" to createTool<TextTool> {
                         ::value returns "Second value"
                         ::isEnabled returns true
+                    },
+                    "third-child-tool" to createTool<TextTool> {
+                        ::value returns 3.4
+                        ::isEnabled returns true
                     }
                 )
             )
@@ -94,9 +123,9 @@ class DevToolsStorageImplTest : BaseTest() {
             "first-tool" to true
             "third-tool" to json {
                 "second-child-tool" to "Second value"
+                "third-child-tool" to 3.4
             }
         }.toString()
-
         val storage: DevToolsStorage = DevToolsStorageImpl(tools)
 
         val configJsonString = storage.getAllConfigAsJson { it.isEnabled }
