@@ -21,6 +21,8 @@ interface DevTools : DevToolsStorage {
      */
     fun persistToolsState()
 
+    fun updateFromParams(params: Map<String, Any>)
+
     companion object {
         /**
          * Crates a new instance of [DevTools].
@@ -48,6 +50,17 @@ private class DevToolsImpl(
 ) : DevTools, DevToolsStorage by toolsStorage {
     init {
         tools.forEachRecursively { _, tool -> tool.restorePersistedState() }
+    }
+
+    override fun updateFromParams(params: Map<String, Any>) {
+        if (params.isEmpty()) return
+        tools.forEachRecursively { _, tool ->
+            params[tool.key]?.let { paramValue ->
+                tool.isEnabled = true
+                tool.set(paramValue)
+            }
+        }
+        persistToolsState()
     }
 
     override fun persistToolsState() {

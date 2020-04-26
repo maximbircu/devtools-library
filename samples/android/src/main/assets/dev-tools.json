@@ -2,28 +2,28 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
-    "schema-toggle-tool": {
+    "toggle-tool": {
       "type": "boolean",
       "title": "Toggle tool",
       "description": "A boolean configuration value tool",
       "default": true
     },
 
-    "schema-text-tool": {
+    "text-tool": {
       "type": "string",
       "title": "Text tool (String)",
       "description": "A text configuration value tool",
       "default": "String config value",
       "hint": "String config value"
     },
-    "schema-text-tool-integer": {
+    "text-tool-integer": {
       "type": "integer",
       "title": "Text tool (Integer)",
       "description": "An integer number configuration value tool",
       "default": 3,
       "hint": "Integer number config value"
     },
-    "schema-text-tool-floating-point": {
+    "text-tool-floating-point": {
       "type": "number",
       "title": "Text tool (Floating point)",
       "description": "A floating-point number configuration value tool",
@@ -31,7 +31,7 @@
       "hint": "Floating point number config value"
     },
 
-    "schema-enum-tool-floating-point": {
+    "enum-tool-floating-point": {
       "type": "string",
       "title": "Enum tool",
       "default": "Second Option Value",
@@ -43,23 +43,23 @@
       "allowCustom": true
     },
 
-    "schema-tools-group": {
+    "tools-group": {
       "type": "object",
       "title": "Tools group",
       "properties": {
-        "schema-toggle-tool": {
+        "toggle-tool": {
           "type": "boolean",
           "title": "Toggle tool",
           "description": "A boolean configuration value tool"
         },
-        "schema-text-tool": {
+        "text-tool": {
           "type": "string",
           "title": "Text tool (String)",
           "description": "A text configuration value tool",
           "default": " String config value",
           "hint": "String config value"
         },
-        "schema-enum-tool-floating-point": {
+        "enum-tool-floating-point": {
           "type": "string",
           "title": "Enum tool",
           "default": "Second Option Value",

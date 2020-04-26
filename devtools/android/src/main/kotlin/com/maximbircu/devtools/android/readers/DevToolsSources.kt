@@ -5,6 +5,7 @@ import com.maximbircu.devtools.android.readers.soruces.yaml.YamlDevToolsSource
 import com.maximbircu.devtools.common.core.DevTool
 import com.maximbircu.devtools.common.core.reader.DevToolsSource
 import com.maximbircu.devtools.common.readers.DevToolsSources
+import com.maximbircu.devtools.common.readers.json
 import java.io.InputStream
 
 /**
@@ -34,4 +35,18 @@ fun DevToolsSources.yaml(assetManager: AssetManager, inputStream: InputStream): 
  */
 fun DevToolsSources.yaml(assetManager: AssetManager, fileName: String): DevToolsSource {
     return yaml(assetManager, assetManager.open(fileName))
+}
+
+/**
+ * Provides a [JsonSchemaSource] which is a [DevToolsSource] implementation able to parse and
+ * generate a dictionary of [DevTool] from JSON schema.
+ *
+ * Use the provided source object as a parameter to [com.maximbircu.devtools.common.DevTools.create]
+ * to enable [com.maximbircu.devtools.common.DevTools] read and provide dev tools from a
+ * JSON schema config.
+ *
+ * @param jsonString a string which contains the dev tools configuration content in JSON format
+ */
+fun DevToolsSources.json(assetManager: AssetManager, fileName: String): DevToolsSource {
+    return json(assetManager.open(fileName).reader().readText())
 }

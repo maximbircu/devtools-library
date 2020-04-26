@@ -104,6 +104,13 @@ abstract class DevTool<T : Any>(
         value = store.value
         isEnabled = store.isEnabled
     }
+
+    @Suppress("UNCHECKED_CAST")
+    fun set(value: Any) {
+        if(this.value::class == value::class) {
+            this.value = value as T
+        }
+    }
 }
 
 /**
