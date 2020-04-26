@@ -101,7 +101,7 @@ kotlin {
             if(taskName.toLowerCase().contains("ios") && taskName.toLowerCase().contains("test")) {
                 task.setEnabled(false)
             }
-            if (taskName.contains("assembleRelease")) {
+            if (taskName.contains("assemble")) {
                 task.dependsOn "releaseFatFramework"
             }
         }

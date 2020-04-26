@@ -34,10 +34,11 @@ private class DevToolHelpDialogPresenterImpl(
     view: DevToolHelpDialogView
 ) : BasePresenter<DevToolHelpDialogView>(view), DevToolHelpDialogPresenter {
     override fun onToolBind(tool: DevTool<*>) {
-        view.bindDescription(tool.description)
         view.setKey(tool.key)
         view.setCurrentConfigValue(tool.value.toString())
         view.setDefaultConfigValue(tool.getDefaultValue().toString())
+        view.bindDescription(tool.description)
+        view.bindCriticalUpdateInfo(tool.isCritical)
     }
 
     private fun DevToolHelpDialogView.bindDescription(description: String) {
@@ -45,6 +46,14 @@ private class DevToolHelpDialogPresenterImpl(
             setDescription(description)
         } else {
             hideDescription()
+        }
+    }
+
+    private fun DevToolHelpDialogView.bindCriticalUpdateInfo(isCriticalUpdate: Boolean) {
+        if (isCriticalUpdate) {
+            showCriticalUpdateLabel()
+        } else {
+            hideCriticalUpdateLabel()
         }
     }
 }

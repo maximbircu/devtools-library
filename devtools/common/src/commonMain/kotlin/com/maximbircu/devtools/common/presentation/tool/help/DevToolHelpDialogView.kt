@@ -44,4 +44,16 @@ interface DevToolHelpDialogView : BaseView {
      * @see [com.maximbircu.devtools.common.core.DevTool.getDefaultValue]
      */
     fun setDefaultConfigValue(defaultConfigValue: String)
+
+    /**
+     * Should show a warning label that will notify the user that the dev tool will trigger a
+     * critical update.
+     */
+    fun showCriticalUpdateLabel()
+
+    /**
+     * Should hide the warning label that notifies the user that the dev tool will trigger a
+     * critical update because the tool is not critical.
+     */
+    fun hideCriticalUpdateLabel()
 }

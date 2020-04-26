@@ -10,7 +10,7 @@ import com.maximbircu.devtools.common.utils.returns
 import io.mockk.verify
 import kotlin.test.Test
 
-class DevToolHelpDialogPresenterImpl :
+class DevToolHelpDialogPresenterImplTest :
     BasePresenterTest<DevToolHelpDialogView, DevToolHelpDialogPresenter>(mockk()) {
     override fun createPresenter() = DevToolHelpDialogPresenter.create(view)
 
@@ -65,5 +65,25 @@ class DevToolHelpDialogPresenterImpl :
         presenter.onToolBind(tool)
 
         verify { view.setDefaultConfigValue("Default configuration value") }
+    }
+
+    @Test
+    fun `shows critical update label on tool bind if tool is critical`() {
+        val tool: DevTool<*> = createTool { ::isCritical returns true }
+
+        presenter.onToolBind(tool)
+
+
+        verify { view.showCriticalUpdateLabel() }
+    }
+
+    @Test
+    fun `hides critical update label on tool bind if tool is not critical`() {
+        val tool: DevTool<*> = createTool { ::isCritical returns false }
+
+        presenter.onToolBind(tool)
+
+
+        verify { view.hideCriticalUpdateLabel() }
     }
 }
