@@ -1,0 +1,23 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'DevToolsApp' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for DevToolsApp
+  pod 'SwiftLint'
+  # TODO RRemove local paths before publishing
+  pod 'DevtoolsFramework', :path => '../../devtools/ios' # Local path for development purposes.
+
+  target 'DevToolsAppTests' do
+    inherit! :search_paths
+    # Pods for testingq
+  end
+
+  target 'DevToolsAppUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

@@ -17,7 +17,7 @@ jobs:
           branch-name-regex: '\d+(-([a-z])+)+'
           commit-message-title-regex: '^[A-Z].*'
 
-  checkstyle:
+  android-checkstyle:
     name: Check project styling (Android lint, Detekt and Ktlint)
     runs-on: ubuntu-latest
     steps:
@@ -38,6 +38,18 @@ jobs:
         uses: eskatos/gradle-command-action@v1
         with:
           arguments: ktlint
+
+  ios-checkstyle:
+    name: Check ios project styling (SwiftLint)
+    runs-on: ubuntu-latest
+    steps:
+      - name: SCM
+        uses: actions/checkout@v2
+
+      - name: SwiftLint (Only files changed in the PR)
+        uses: norio-nomura/action-swiftlint@3.1.0
+        env:
+          DIFF_BASE: ${{ github.base_ref }}
 
   test:
     name: Unit tests
@@ -62,6 +74,31 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true
 
+  ios-test:
+    name: iOS unit tests
+    runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: devtools/ios
+    steps:
+      - name: SCM
+        uses: actions/checkout@v2
+
+      - name: Generate fat frramework
+        uses: eskatos/gradle-command-action@v1
+        with:
+          arguments: releaseFatFramework
+
+      - name: Install Framework pod dependencies
+        run: pod install
+
+      - name: Framework Build and Test
+        run: |
+          xcodebuild clean test \
+            -workspace DevtoolsFramework.xcworkspace \
+            -scheme DevtoolsFramework \
+            -destination 'platform=iOS Simulator,OS=13.3,name=iPhone 11 Pro'
+
   build:
     name: Assemble artifacts
     runs-on: macos-latest
@@ -73,4 +110,3 @@ jobs:
         uses: eskatos/gradle-command-action@v1
         with:
           arguments: assembleDebug
-
