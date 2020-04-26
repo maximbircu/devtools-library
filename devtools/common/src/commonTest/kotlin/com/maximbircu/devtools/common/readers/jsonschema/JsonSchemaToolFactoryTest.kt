@@ -17,6 +17,8 @@ class JsonSchemaToolFactoryTest : BaseTest() {
             "description" to "Tool description"
             "canBeDisabled" to false
             "isEnabled" to true
+            "defaultEnabledValue" to true
+            "isCritical" to false
         }
         val factory = JsonSchemaToolFactoryStub(jsonObject)
 
@@ -25,7 +27,8 @@ class JsonSchemaToolFactoryTest : BaseTest() {
         assertEquals("Tool title", tool.title)
         assertEquals("Tool description", tool.description)
         assertFalse(tool.canBeDisabled)
-        assertTrue(tool.isEnabled)
+        assertTrue(tool.defaultEnabledValue)
+        assertFalse(tool.isCritical)
     }
 }
 

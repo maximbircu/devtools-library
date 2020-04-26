@@ -55,7 +55,7 @@ class DevToolTest : BaseTest() {
     // region Has unsaved changes
 
     @Test
-    fun `returns false in case there are no some unsaved changes`() {
+    fun `returns false in case there are no unsaved changes`() {
         val devTool = createDevTool()
         every { store.isEnabled } returns false
         every { store.value } returns "Configuration value"
@@ -65,7 +65,32 @@ class DevToolTest : BaseTest() {
     }
 
     @Test
-    fun `returns true in case there are some unsaved changes`() {
+    fun `returns true in case there the config value was changed`() {
+        val devTool = createDevTool()
+        every { store.isEnabled } returns false
+        every { store.value } returns "Configuration value"
+        devTool.key = "some-key"
+
+        devTool.isEnabled = false
+        devTool.value = "New configuration value"
+
+        assertTrue(devTool.hasUnsavedChanges)
+    }
+
+    @Test
+    fun `returns true in case there the tool enable state was changed`() {
+        val devTool = createDevTool()
+        every { store.isEnabled } returns false
+        every { store.value } returns "Configuration value"
+
+        devTool.isEnabled = true
+        devTool.value = "Configuration value"
+
+        assertTrue(devTool.hasUnsavedChanges)
+    }
+
+    @Test
+    fun `returns true in case both config value and tool enable state was changed`() {
         val devTool = createDevTool()
         every { store.isEnabled } returns false
         every { store.value } returns "Configuration value"
