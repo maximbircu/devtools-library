@@ -47,7 +47,7 @@
             android:id="@+id/startupArgument"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:title="Startup argument"
+            app:title="@string/dev_tool_help_dialog_startup_argument_title"
             />
 
         <TextView

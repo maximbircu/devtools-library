@@ -24,7 +24,7 @@
     <string name="dev_tool_help_dialog_current_value">Current value</string>
     <string name="dev_tool_help_dialog_default_value">Default value</string>
     <string name="dev_tool_help_dialog_critical_update">Triggers a critical update!</string>
-    <string name="dev_tool_help_dialog_startup_argument_title">Triggers a critical update!</string>
+    <string name="dev_tool_help_dialog_startup_argument_title">Startup argument</string>
     <string name="dev_tool_help_dialog_startup_argument_value">%1$s %2$s &lt;your value></string>
 
     <!-- Group Tool Context Menu -->

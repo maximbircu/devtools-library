@@ -107,7 +107,7 @@ abstract class DevTool<T : Any>(
 
     @Suppress("UNCHECKED_CAST")
     fun set(value: Any) {
-        if(this.value::class == value::class) {
+        if (this.value::class == value::class) {
             this.value = value as T
         }
     }

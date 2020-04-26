@@ -8,6 +8,7 @@ import com.maximbircu.devtools.common.presentation.tools.text.TextTool
 import com.maximbircu.devtools.common.presentation.tools.time.TimeTool
 import com.maximbircu.devtools.common.presentation.tools.toggle.ToggleTool
 
+@Suppress("LargeClass")
 object MemoryDevToolsProvider {
     val tools: Map<String, DevTool<*>>
         get() = mapOf(
@@ -152,4 +153,3 @@ object MemoryDevToolsProvider {
             forEach { (key, value) -> value.key = key }
         }
 }
-
