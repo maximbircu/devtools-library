@@ -2,6 +2,10 @@ Changelog
 =========
 
 ## Version 1.0.0 *(In development)*
+Issue: [#38](https://github.com/maximbircu/devtools-library/issues/38)
+- Add a critical update flag to each dev tool
+- Do not invoke update config update in case none of the tools was updated
+
 Issue: [#14](https://github.com/maximbircu/devtools-library/issues/14)
 - Set up iOS library module
 - Set up iOS sample app module

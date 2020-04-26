@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:theme="@style/Theme.DevTools"
     >
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,6 +41,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:title="@string/dev_tool_help_dialog_default_value"
+            />
+
+        <TextView
+            android:id="@+id/criticalUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:drawableStart="@android:drawable/stat_sys_warning"
+            android:drawableLeft="@android:drawable/stat_sys_warning"
+            android:drawablePadding="4dp"
+            android:drawableTint="?android:textColorPrimary"
+            android:gravity="bottom"
+            android:text="@string/dev_tool_help_dialog_critical_update"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textStyle="bold"
+            tools:targetApi="m"
             />
     </LinearLayout>
 </ScrollView>

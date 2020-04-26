@@ -11,14 +11,22 @@ import com.maximbircu.devtools.common.stores.PreferencesToolStoreImpl
  * @property description short description of the dev tool configuration value
  * @property canBeDisabled the user can enable/disable the tool if true
  * @property defaultEnabledValue true if the tool is enabled and false vice-versa
+ * @property isCritical true if the tool should trigger a critical update and false vice-versa
  */
 abstract class DevTool<T : Any>(
     var title: String? = null,
     var description: String = "",
     var canBeDisabled: Boolean = false,
-    var defaultEnabledValue: Boolean = true
+    var defaultEnabledValue: Boolean = true,
+    var isCritical: Boolean = false
 ) {
     private var _key: String? = null
+
+    /**
+     * This property will be true in case the in-memory tool state will be different from the
+     * persisted one.
+     */
+    val hasUnsavedChanges: Boolean get() = value != store.value || isEnabled != store.isEnabled
 
     /**
      * A unique dev tool identifier.

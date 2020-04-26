@@ -16,6 +16,7 @@ internal abstract class JsonSchemaToolFactory<T : DevTool<*>>(
         description = jsonObject["description"]?.content ?: ""
         canBeDisabled = jsonObject["canBeDisabled"]?.boolean ?: true
         defaultEnabledValue = jsonObject["defaultEnabledValue"]?.boolean ?: false
+        isCritical = jsonObject["isCritical"]?.boolean ?: true
     }
 
     protected abstract fun createDevTool(): T

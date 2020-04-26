@@ -4,9 +4,11 @@ import android.content.Context
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.maximbircu.devtools.android.R
 import com.maximbircu.devtools.android.extensions.hide
+import com.maximbircu.devtools.android.extensions.show
 import com.maximbircu.devtools.common.core.DevTool
 import com.maximbircu.devtools.common.presentation.tool.help.DevToolHelpDialogPresenter
 import com.maximbircu.devtools.common.presentation.tool.help.DevToolHelpDialogView
+import kotlinx.android.synthetic.main.layout_dev_tool_help_dialog.criticalUpdate
 import kotlinx.android.synthetic.main.layout_dev_tool_help_dialog.currentValue
 import kotlinx.android.synthetic.main.layout_dev_tool_help_dialog.defaultValue
 import kotlinx.android.synthetic.main.layout_dev_tool_help_dialog.description
@@ -46,5 +48,13 @@ class DevToolHelpDialog(
 
     override fun setDefaultConfigValue(defaultConfigValue: String) {
         dialog.defaultValue.value = defaultConfigValue
+    }
+
+    override fun showCriticalUpdateLabel() {
+        dialog.criticalUpdate.show()
+    }
+
+    override fun hideCriticalUpdateLabel() {
+        dialog.criticalUpdate.hide()
     }
 }

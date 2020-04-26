@@ -23,6 +23,7 @@
     <string name="dev_tool_help_dialog_key">Key</string>
     <string name="dev_tool_help_dialog_current_value">Current value</string>
     <string name="dev_tool_help_dialog_default_value">Default value</string>
+    <string name="dev_tool_help_dialog_critical_update">Triggers a critical update!</string>
 
     <!-- Group Tool Context Menu -->
     <string name="group_tool_context_menu_enable_all">Enable all</string>

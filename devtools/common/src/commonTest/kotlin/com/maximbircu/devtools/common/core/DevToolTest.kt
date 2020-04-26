@@ -52,6 +52,58 @@ class DevToolTest : BaseTest() {
         assertEquals("Default configuration value", devTool.value)
     }
 
+    // region Has unsaved changes
+
+    @Test
+    fun `returns false in case there are no unsaved changes`() {
+        val devTool = createDevTool()
+        every { store.isEnabled } returns false
+        every { store.value } returns "Configuration value"
+        devTool.key = "some-key"
+
+        assertFalse(devTool.hasUnsavedChanges)
+    }
+
+    @Test
+    fun `returns true in case there the config value was changed`() {
+        val devTool = createDevTool()
+        every { store.isEnabled } returns false
+        every { store.value } returns "Configuration value"
+        devTool.key = "some-key"
+
+        devTool.isEnabled = false
+        devTool.value = "New configuration value"
+
+        assertTrue(devTool.hasUnsavedChanges)
+    }
+
+    @Test
+    fun `returns true in case there the tool enable state was changed`() {
+        val devTool = createDevTool()
+        every { store.isEnabled } returns false
+        every { store.value } returns "Configuration value"
+
+        devTool.isEnabled = true
+        devTool.value = "Configuration value"
+
+        assertTrue(devTool.hasUnsavedChanges)
+    }
+
+    @Test
+    fun `returns true in case both config value and tool enable state was changed`() {
+        val devTool = createDevTool()
+        every { store.isEnabled } returns false
+        every { store.value } returns "Configuration value"
+        devTool.key = "some-key"
+
+        devTool.isEnabled = true
+        devTool.value = "New configuration value"
+
+        assertTrue(devTool.hasUnsavedChanges)
+    }
+
+    // endregion
+
     @Test
     fun `throws exception when trying to access tool key if it was not set`() {
         val devTool = createDevTool()

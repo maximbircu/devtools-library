@@ -3,6 +3,8 @@ package com.maximbircu.devtools.configscreens
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.Gravity
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.maximbircu.devtools.R.layout
 import com.maximbircu.devtools.android.DevToolsConfigurationScreen
@@ -16,6 +18,7 @@ import com.maximbircu.devtools.common.readers.json
 import com.maximbircu.devtools.common.readers.memory
 import kotlinx.android.synthetic.main.activity_tools_container.devToolsContainer
 
+@Suppress("LongMethod")
 class CombinedSourcesConfigActivity : AppCompatActivity() {
     private lateinit var devtools: DevTools
 
@@ -33,12 +36,22 @@ class CombinedSourcesConfigActivity : AppCompatActivity() {
         val memorySource = DevToolsSources.memory(getTools())
         val ymlSource = DevToolsSources.yaml(assets, "dev-tools.yml")
         val jsonSource = DevToolsSources.json(assets.open("dev-tools.json").reader().readText())
+
         devtools = DevTools.create(memorySource, ymlSource, jsonSource)
+
+        devtools.onConfigUpdated = { isCriticalUpdate ->
+            val toast = Toast.makeText(
+                this,
+                "A ${if (isCriticalUpdate) "critical" else "non-critical"} updated performed!",
+                Toast.LENGTH_SHORT
+            )
+            toast.setGravity(Gravity.CENTER, 0, 0)
+            toast.show()
+        }
 
         DevToolsConfigurationScreen.attachToView(devToolsContainer, devtools)
     }
 
-    @Suppress("LongMethod", "ComplexMethod")
     private fun getTools(): Map<String, DevTool<*>> {
         return mapOf(
             "memory-toggle-tool" to ToggleTool(defaultValue = false).apply {
