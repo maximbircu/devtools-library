@@ -50,6 +50,19 @@ class DevToolsImplTest : BaseTest() {
     }
 
     @Test
+    fun `doesn't notify the listener about tools critical config update if there are no changes`() {
+        val onConfigUpdate: (Boolean) -> Unit = mockk(relaxed = true)
+        val devTools = DevTools.create(
+            DevToolsSources.memory(mapOf("first-tool" to createTool())),
+            onConfigUpdate = onConfigUpdate
+        )
+
+        devTools.persistToolsState()
+
+        verify(exactly = 0) { onConfigUpdate(any()) }
+    }
+
+    @Test
     fun `notifies the listener about tools critical config update if at least one happened`() {
         val onConfigUpdate: (Boolean) -> Unit = mockk(relaxed = true)
         val devTools = DevTools.create(
