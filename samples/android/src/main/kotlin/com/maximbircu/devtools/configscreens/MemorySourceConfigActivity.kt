@@ -38,6 +38,7 @@ class MemorySourceConfigActivity : AppCompatActivity() {
 
         val source = DevToolsSources.memory(getTools())
         devtools = DevTools.create(source)
+
         devtools.onConfigUpdated = { isCriticalUpdate ->
             val toast = Toast.makeText(
                 this,

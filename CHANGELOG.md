@@ -2,6 +2,9 @@ Changelog
 =========
 
 ## Version 1.0.0 *(In development)*
+Issue: [#37](https://github.com/maximbircu/devtools-library/issues/37)
+- Add DevToolsStorage#getAllConfigAsJson method, which takes a filter parameter and returns a filtered JSON string of configuration values
+
 Issue: [#38](https://github.com/maximbircu/devtools-library/issues/38)
 - Add a critical update flag to each dev tool
 - Do not invoke update config update in case none of the tools was updated

@@ -1,6 +1,7 @@
 package com.maximbircu.devtools.common
 
 import com.maximbircu.devtools.common.core.DevTool
+import com.maximbircu.devtools.common.extensions.toJsonObjectOfValues
 import com.maximbircu.devtools.common.presentation.tools.group.GroupTool
 
 /**
@@ -19,6 +20,14 @@ interface DevToolsStorage {
      * @return [T] configuration value of the dev tool with [key]
      */
     fun <T> getValue(key: String): T
+
+    /**
+     * Provides all configuration values as JSON string.
+     *
+     * @param filter (predicate) will be invoked for each [DevTool] to decide whether to add
+     * the config to the final JSON object result or not.
+     */
+    fun getAllConfigAsJson(filter: (tool: DevTool<*>) -> Boolean = { true }): String
 
     /**
      * Provides a [DevToolsStorage] which contains all group member tools.
@@ -48,6 +57,10 @@ class DevToolsStorageImpl(
 
     override fun getGroup(key: String): DevToolsStorage {
         return DevToolsStorageImpl((getDevTool(key) as GroupTool).tools)
+    }
+
+    override fun getAllConfigAsJson(filter: (tool: DevTool<*>) -> Boolean): String {
+        return tools.toJsonObjectOfValues(filter).toString()
     }
 
     private fun getDevTool(key: String): DevTool<*> {
