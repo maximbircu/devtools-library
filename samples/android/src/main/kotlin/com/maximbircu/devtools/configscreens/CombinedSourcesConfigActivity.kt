@@ -37,7 +37,7 @@ class CombinedSourcesConfigActivity : AppCompatActivity() {
         val ymlSource = DevToolsSources.yaml(assets, "dev-tools.yml")
         val jsonSource = DevToolsSources.json(assets.open("dev-tools.json").reader().readText())
 
-        devtools = DevTools.create(memorySource, ymlSource, jsonSource)
+        devtools = DevTools.create("COMBINED", memorySource, ymlSource, jsonSource)
 
         devtools.onConfigUpdated = { isCriticalUpdate ->
             val toast = Toast.makeText(
@@ -54,14 +54,14 @@ class CombinedSourcesConfigActivity : AppCompatActivity() {
 
     private fun getTools(): Map<String, DevTool<*>> {
         return mapOf(
-            "memory-toggle-tool" to ToggleTool(defaultValue = false).apply {
+            "toggle-tool" to ToggleTool(defaultValue = false).apply {
                 title = "Toggle tool"
                 description = "A boolean configuration value dev tool"
                 canBeDisabled = true
                 defaultEnabledValue = false
             },
 
-            "memory-text-tool" to TextTool(
+            "text-tool" to TextTool(
                 defaultValue = "Here can go any text value",
                 hint = "String config value"
             ).apply {
@@ -70,7 +70,7 @@ class CombinedSourcesConfigActivity : AppCompatActivity() {
                 canBeDisabled = true
                 defaultEnabledValue = false
             },
-            "memory-text-tool-integer" to TextTool(
+            "text-tool-integer" to TextTool(
                 defaultValue = 3,
                 hint = "Integer number config value"
             ).apply {
@@ -79,7 +79,7 @@ class CombinedSourcesConfigActivity : AppCompatActivity() {
                 canBeDisabled = true
                 defaultEnabledValue = false
             },
-            "memory-text-tool-float" to TextTool(
+            "text-tool-float" to TextTool(
                 defaultValue = 3.4f,
                 hint = "Floating point number config value"
             ).apply {

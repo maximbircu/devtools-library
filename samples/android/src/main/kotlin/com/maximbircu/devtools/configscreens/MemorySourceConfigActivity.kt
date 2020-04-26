@@ -37,7 +37,7 @@ class MemorySourceConfigActivity : AppCompatActivity() {
         setContentView(layout.activity_tools_container)
 
         val source = DevToolsSources.memory(getTools())
-        devtools = DevTools.create(source)
+        devtools = DevTools.create("MEMORY", source)
 
         devtools.onConfigUpdated = { isCriticalUpdate ->
             val toast = Toast.makeText(
@@ -54,7 +54,7 @@ class MemorySourceConfigActivity : AppCompatActivity() {
 
     private fun getTools(): Map<String, DevTool<*>> {
         return mapOf(
-            "memory-toggle-tool" to ToggleTool(defaultValue = false).apply {
+            "toggle-tool" to ToggleTool(defaultValue = false).apply {
                 title = "Toggle tool"
                 description = "A boolean configuration value dev tool"
                 canBeDisabled = true
@@ -62,7 +62,7 @@ class MemorySourceConfigActivity : AppCompatActivity() {
                 isCritical = true
             },
 
-            "memory-text-tool" to TextTool(
+            "text-tool" to TextTool(
                 defaultValue = "Here can go any text value",
                 hint = "String config value"
             ).apply {
@@ -72,7 +72,7 @@ class MemorySourceConfigActivity : AppCompatActivity() {
                 defaultEnabledValue = false
                 isCritical = false
             },
-            "memory-text-tool-integer" to TextTool(
+            "text-tool-integer" to TextTool(
                 defaultValue = 3,
                 hint = "Integer number config value"
             ).apply {
@@ -82,7 +82,7 @@ class MemorySourceConfigActivity : AppCompatActivity() {
                 defaultEnabledValue = false
                 isCritical = true
             },
-            "memory-text-tool-float" to TextTool(
+            "text-tool-float" to TextTool(
                 defaultValue = 3.4f,
                 hint = "Floating point number config value"
             ).apply {
@@ -93,7 +93,7 @@ class MemorySourceConfigActivity : AppCompatActivity() {
                 isCritical = false
             },
 
-            "memory-time-tool" to TimeTool(
+            "time-tool" to TimeTool(
                 days = 1,
                 hours = 2,
                 minutes = 3,
@@ -107,7 +107,7 @@ class MemorySourceConfigActivity : AppCompatActivity() {
                 isCritical = true
             },
 
-            "memory-enum-tool" to EnumTool(
+            "enum-tool" to EnumTool(
                 defaultValueKey = "first-option",
                 allowCustom = true,
                 optionsProvider = object : EnumOptionsProvider {
@@ -124,7 +124,7 @@ class MemorySourceConfigActivity : AppCompatActivity() {
                 defaultEnabledValue = false
                 isCritical = false
             },
-            "memory-enum-custom-options-provider-tool" to EnumTool(
+            "enum-custom-options-provider-tool" to EnumTool(
                 defaultValueKey = "first-option",
                 allowCustom = true,
                 optionsProvider = CustomEnumOptionsProvider(
@@ -138,16 +138,16 @@ class MemorySourceConfigActivity : AppCompatActivity() {
                 isCritical = true
             },
 
-            "memory-tools-group" to GroupTool(
+            "tools-group" to GroupTool(
                 tools = mapOf(
-                    "memory-toggle-tool" to ToggleTool(defaultValue = false).apply {
+                    "toggle-tool" to ToggleTool(defaultValue = false).apply {
                         title = "Toggle tool"
                         description = "A boolean configuration value dev tool"
                         canBeDisabled = true
                         defaultEnabledValue = false
                         isCritical = false
                     },
-                    "memory-text-tool" to TextTool(
+                    "text-tool" to TextTool(
                         defaultValue = "Here can go any text value",
                         hint = "String config value"
                     ).apply {
@@ -157,7 +157,7 @@ class MemorySourceConfigActivity : AppCompatActivity() {
                         defaultEnabledValue = false
                         isCritical = true
                     },
-                    "memory-time-tool" to TimeTool(
+                    "time-tool" to TimeTool(
                         days = 1,
                         hours = 2,
                         minutes = 3,
@@ -170,7 +170,7 @@ class MemorySourceConfigActivity : AppCompatActivity() {
                         defaultEnabledValue = false
                         isCritical = false
                     },
-                    "memory-enum-tool" to EnumTool(
+                    "enum-tool" to EnumTool(
                         defaultValueKey = "first-option",
                         allowCustom = true,
                         optionsProvider = object : EnumOptionsProvider {

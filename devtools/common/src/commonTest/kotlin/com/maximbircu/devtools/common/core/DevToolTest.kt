@@ -14,18 +14,6 @@ class DevToolTest : BaseTest() {
     private val store: ToolStore<String> = mockk(relaxed = true)
 
     @Test
-    fun `restores proper persisted state when tool key updated`() {
-        val devTool = createDevTool()
-        every { store.isEnabled } returns false
-        every { store.value } returns "Configuration value"
-
-        devTool.key = "some-key"
-
-        assertFalse(devTool.isEnabled)
-        assertEquals("Configuration value", devTool.value)
-    }
-
-    @Test
     fun `persists dev tool state`() {
         val devTool = createDevTool()
         devTool.isEnabled = false
@@ -59,7 +47,7 @@ class DevToolTest : BaseTest() {
         val devTool = createDevTool()
         every { store.isEnabled } returns false
         every { store.value } returns "Configuration value"
-        devTool.key = "some-key"
+        devTool.restorePersistedState()
 
         assertFalse(devTool.hasUnsavedChanges)
     }
@@ -69,7 +57,7 @@ class DevToolTest : BaseTest() {
         val devTool = createDevTool()
         every { store.isEnabled } returns false
         every { store.value } returns "Configuration value"
-        devTool.key = "some-key"
+        devTool.restorePersistedState()
 
         devTool.isEnabled = false
         devTool.value = "New configuration value"
@@ -94,7 +82,7 @@ class DevToolTest : BaseTest() {
         val devTool = createDevTool()
         every { store.isEnabled } returns false
         every { store.value } returns "Configuration value"
-        devTool.key = "some-key"
+        devTool.restorePersistedState()
 
         devTool.isEnabled = true
         devTool.value = "New configuration value"
@@ -109,6 +97,13 @@ class DevToolTest : BaseTest() {
         val devTool = createDevTool()
 
         assertFailsWith(NullPointerException::class) { devTool.key }
+    }
+
+    @Test
+    fun `throws exception when trying to access tool containerName if it was not set`() {
+        val devTool = createDevTool()
+
+        assertFailsWith(NullPointerException::class) { devTool.containerName }
     }
 
     private fun createDevTool(

@@ -25,14 +25,17 @@ interface DevTools : DevToolsStorage {
         /**
          * Crates a new instance of [DevTools].
          *
+         * @param name a unique name that will help to differentiate between similar tools in
+         * different dev tools instances
          * @param devToolsSource a collection of sources used by the library to gather dev tools
          * @param onConfigUpdate function to be invoked whenever any config value is updated
          */
         fun create(
+            name: String,
             vararg devToolsSource: DevToolsSource,
             onConfigUpdate: (isCriticalUpdate: Boolean) -> Unit = {}
         ): DevTools {
-            val parser = DevToolsParser.create(devToolsSource.toList())
+            val parser = DevToolsParser.create(name, devToolsSource.toList())
             val toolsStorage = DevToolsStorageImpl(parser.getDevTools())
             return DevToolsImpl(toolsStorage, onConfigUpdate)
         }
@@ -43,6 +46,10 @@ private class DevToolsImpl(
     private val toolsStorage: DevToolsStorage,
     override var onConfigUpdated: (isCriticalUpdate: Boolean) -> Unit
 ) : DevTools, DevToolsStorage by toolsStorage {
+    init {
+        tools.forEachRecursively { _, tool -> tool.restorePersistedState() }
+    }
+
     override fun persistToolsState() {
         val (atLeastOneToolWasUpdated, isCriticalUpdate) = persistToolsStateRecursively()
         if (atLeastOneToolWasUpdated) {

@@ -29,7 +29,7 @@ class JsonSchemaSourceConfigActivity : AppCompatActivity() {
         setContentView(layout.activity_tools_container)
 
         val source = DevToolsSources.json(assets.open("dev-tools.json").reader().readText())
-        devtools = DevTools.create(source)
+        devtools = DevTools.create("JSON", source)
 
         devtools.onConfigUpdated = { isCriticalUpdate ->
             val toast = Toast.makeText(

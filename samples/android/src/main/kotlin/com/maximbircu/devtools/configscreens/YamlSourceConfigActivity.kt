@@ -29,7 +29,7 @@ class YamlSourceConfigActivity : AppCompatActivity() {
         setContentView(layout.activity_tools_container)
 
         val source = DevToolsSources.yaml(assets, "dev-tools.yml")
-        devtools = DevTools.create(source)
+        devtools = DevTools.create("YAML", source)
 
         devtools.onConfigUpdated = { isCriticalUpdate ->
             val toast = Toast.makeText(
