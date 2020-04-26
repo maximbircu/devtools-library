@@ -11,6 +11,7 @@ import com.maximbircu.devtools.common.stores.PreferencesToolStoreImpl
  * @property description short description of the dev tool configuration value
  * @property canBeDisabled the user can enable/disable the tool if true
  * @property defaultEnabledValue true if the tool is enabled and false vice-versa
+ * @property isCritical true if the tool should trigger a critical update and false vice-versa
  */
 abstract class DevTool<T : Any>(
     var title: String? = null,
