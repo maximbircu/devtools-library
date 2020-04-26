@@ -7,6 +7,7 @@ import com.maximbircu.devtools.common.presentation.tools.group.GroupTool
 import com.maximbircu.devtools.common.presentation.tools.text.TextTool
 import com.maximbircu.devtools.common.presentation.tools.toggle.ToggleTool
 import com.maximbircu.devtools.common.utils.returns
+import kotlinx.serialization.json.json
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
@@ -55,6 +56,52 @@ class DevToolsStorageImplTest : BaseTest() {
         val storage: DevToolsStorage = DevToolsStorageImpl(tools)
 
         assertEquals(groupToolChildren, storage.getGroup(key = "group-tool").tools)
+    }
+
+    @Test
+    fun `returns proper filtered JSON config`() {
+        val tools = mapOf<String, DevTool<*>>(
+            "first-tool" to createTool<ToggleTool> {
+                ::value returns true
+                ::isEnabled returns true
+            },
+            "second-tool" to GroupTool(
+                mapOf(
+                    "first-child-tool" to createTool<TextTool> {
+                        ::value returns "First value"
+                        ::isEnabled returns false
+                    },
+                    "second-child-tool" to createTool<TextTool> {
+                        ::value returns "Second value"
+                        ::isEnabled returns false
+                    }
+                )
+            ),
+            "third-tool" to GroupTool(
+                mapOf(
+                    "first-child-tool" to createTool<TextTool> {
+                        ::value returns "First value"
+                        ::isEnabled returns false
+                    },
+                    "second-child-tool" to createTool<TextTool> {
+                        ::value returns "Second value"
+                        ::isEnabled returns true
+                    }
+                )
+            )
+        )
+        val expectedConfigJsonString = json {
+            "first-tool" to true
+            "third-tool" to json {
+                "second-child-tool" to "Second value"
+            }
+        }.toString()
+
+        val storage: DevToolsStorage = DevToolsStorageImpl(tools)
+
+        val configJsonString = storage.getAllConfigAsJson { it.isEnabled }
+
+        assertEquals(expectedConfigJsonString, configJsonString)
     }
 
     @Test
