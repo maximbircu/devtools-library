@@ -56,4 +56,14 @@ interface DevToolHelpDialogView : BaseView {
      * critical update because the tool is not critical.
      */
     fun hideCriticalUpdateLabel()
+
+    /**
+     * Should show an example of startup argument the user could use to update the configuration
+     * value from the startup arguments.
+     *
+     * @param key the tool key which will be used to identify the tool that should be updated
+     * @param value the tool current configuration value, might be used to extract the config
+     * value type in case startup arguments will be different for different types
+     */
+    fun showStartupArgument(key: String, value: Any)
 }

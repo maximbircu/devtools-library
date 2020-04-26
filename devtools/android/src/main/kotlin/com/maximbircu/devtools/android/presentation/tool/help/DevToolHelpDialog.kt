@@ -1,4 +1,4 @@
-package com.maximbircu.devtools.android.presentation.tool
+package com.maximbircu.devtools.android.presentation.tool.help
 
 import android.content.Context
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -12,10 +12,11 @@ import kotlinx.android.synthetic.main.layout_dev_tool_help_dialog.criticalUpdate
 import kotlinx.android.synthetic.main.layout_dev_tool_help_dialog.currentValue
 import kotlinx.android.synthetic.main.layout_dev_tool_help_dialog.defaultValue
 import kotlinx.android.synthetic.main.layout_dev_tool_help_dialog.description
+import kotlinx.android.synthetic.main.layout_dev_tool_help_dialog.startupArgument
 import kotlinx.android.synthetic.main.layout_dev_tool_help_dialog.toolKey
 
 class DevToolHelpDialog(
-    context: Context,
+    private val context: Context,
     private val tool: DevTool<*>
 ) : DevToolHelpDialogView {
     private val presenter = DevToolHelpDialogPresenter.create(this)
@@ -56,5 +57,13 @@ class DevToolHelpDialog(
 
     override fun hideCriticalUpdateLabel() {
         dialog.criticalUpdate.hide()
+    }
+
+    override fun showStartupArgument(key: String, value: Any) {
+        dialog.startupArgument.value = context.resources.getString(
+            R.string.dev_tool_help_dialog_startup_argument_value,
+            StartupArgumentFlagProvider.getFor(value),
+            key
+        )
     }
 }

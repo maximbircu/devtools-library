@@ -8,5 +8,5 @@ fun DevTools.updateFromBundle(bundle: Bundle?) {
 }
 
 private fun Bundle.getArguments(): Map<String, Any> = keySet().map { key ->
-    key to requireNotNull(get(key)) { "A value was not provided for $key" }
+    key to requireNotNull(get(key)) { "No value provided for $key" }
 }.toMap()

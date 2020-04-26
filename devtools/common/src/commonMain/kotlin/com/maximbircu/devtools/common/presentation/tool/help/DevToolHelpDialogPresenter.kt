@@ -39,6 +39,7 @@ private class DevToolHelpDialogPresenterImpl(
         view.setDefaultConfigValue(tool.getDefaultValue().toString())
         view.bindDescription(tool.description)
         view.bindCriticalUpdateInfo(tool.isCritical)
+        view.showStartupArgument(tool.key, tool.value)
     }
 
     private fun DevToolHelpDialogView.bindDescription(description: String) {
