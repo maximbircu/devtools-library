@@ -1,6 +1,7 @@
 package com.maximbircu.devtools.android
 
 import android.os.Bundle
+import com.maximbircu.devtools.android.extensions.updateFromBundle
 import com.maximbircu.devtools.android.utils.mockk
 import com.maximbircu.devtools.common.DevTools
 import io.mockk.every

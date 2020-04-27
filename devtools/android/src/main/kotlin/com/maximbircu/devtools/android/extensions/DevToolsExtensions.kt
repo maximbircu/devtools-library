@@ -1,4 +1,4 @@
-package com.maximbircu.devtools.android
+package com.maximbircu.devtools.android.extensions
 
 import android.os.Bundle
 import com.maximbircu.devtools.common.DevTools

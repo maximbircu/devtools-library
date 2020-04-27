@@ -2,7 +2,7 @@ package com.maximbircu.devtools
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.maximbircu.devtools.android.updateFromBundle
+import com.maximbircu.devtools.android.extensions.updateFromBundle
 import com.maximbircu.devtools.configscreens.CombinedSourcesConfigActivity
 import com.maximbircu.devtools.configscreens.JsonSchemaSourceConfigActivity
 import com.maximbircu.devtools.configscreens.MemorySourceConfigActivity
