@@ -1,5 +1,6 @@
 package com.maximbircu.devtools.common
 
+import com.maximbircu.devtools.common.core.DevTool
 import com.maximbircu.devtools.common.core.reader.DevToolsSource
 import com.maximbircu.devtools.common.extensions.forEachRecursively
 
@@ -71,7 +72,8 @@ private class DevToolsImpl(
             params[tool.key]?.let { paramValue ->
                 println(paramValue)
                 tool.isEnabled = true
-                tool.set(paramValue)
+                @Suppress("UNCHECKED_CAST")
+                (tool as DevTool<Any>).value = paramValue
             }
         }
         persistToolsState()

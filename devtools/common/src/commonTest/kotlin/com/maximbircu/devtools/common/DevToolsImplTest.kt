@@ -110,7 +110,7 @@ class DevToolsImplTest : BaseTest() {
 
     @Test
     fun `updates dev tools from provided params`() {
-        val childTools = mapOf<String, DevTool<*>>(
+        val childTools = mapOf(
             "first-tool" to createTool { ::key returns "group-tool.first-tool" },
             "second-tool" to createTool<TextTool> {
                 ::key returns "group-tool.second-tool"
@@ -139,8 +139,8 @@ class DevToolsImplTest : BaseTest() {
         verify { tools.getValue("first-tool").isEnabled = true }
         verify { childTools.getValue("second-tool").isEnabled = true }
 
-        verify { tools.getValue("first-tool").set(false) }
-        verify { childTools.getValue("second-tool").set("New config value") }
+        verify { tools.getValue("first-tool") setProperty "value" value false }
+        verify { childTools.getValue("second-tool") setProperty "value" value "New config value" }
 
         verify { devTools.persistToolsState() }
     }
