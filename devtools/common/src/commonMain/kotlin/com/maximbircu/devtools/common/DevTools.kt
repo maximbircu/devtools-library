@@ -56,6 +56,7 @@ private class DevToolsImpl(
         if (params.isEmpty()) return
         tools.forEachRecursively { _, tool ->
             params[tool.key]?.let { paramValue ->
+                println(paramValue)
                 tool.isEnabled = true
                 tool.set(paramValue)
             }

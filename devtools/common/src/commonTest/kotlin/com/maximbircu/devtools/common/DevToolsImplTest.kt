@@ -1,5 +1,6 @@
 package com.maximbircu.devtools.common
 
+import com.maximbircu.devtools.common.core.DevTool
 import com.maximbircu.devtools.common.core.createTool
 import com.maximbircu.devtools.common.extensions.forEachRecursively
 import com.maximbircu.devtools.common.mvp.BaseTest
@@ -10,6 +11,9 @@ import com.maximbircu.devtools.common.readers.DevToolsSources
 import com.maximbircu.devtools.common.readers.memory
 import com.maximbircu.devtools.common.utils.mockk
 import com.maximbircu.devtools.common.utils.returns
+import io.mockk.Called
+import io.mockk.clearAllMocks
+import io.mockk.spyk
 import io.mockk.verify
 import kotlin.test.Test
 
@@ -102,5 +106,74 @@ class DevToolsImplTest : BaseTest() {
         devTools.persistToolsState()
 
         verify { onConfigUpdate(true) }
+    }
+
+    @Test
+    fun `updates dev tools from provided params`() {
+        val childTools = mapOf<String, DevTool<*>>(
+            "first-tool" to createTool { ::key returns "group-tool.first-tool" },
+            "second-tool" to createTool<TextTool> {
+                ::key returns "group-tool.second-tool"
+                ::value returns "Config value"
+            }
+        )
+        val tools = mapOf(
+            "first-tool" to createTool<ToggleTool> {
+                ::key returns "first-tool"
+                ::value returns true
+            },
+            "group-tool" to createTool<GroupTool> {
+                ::key returns "group-tool"
+                ::tools returns childTools
+            }
+        )
+        val devTools = spyk(DevTools.create("TEST", DevToolsSources.memory(tools)))
+
+        devTools.updateFromParams(
+            mapOf(
+                "first-tool" to false,
+                "group-tool.second-tool" to "New config value"
+            )
+        )
+
+        verify { tools.getValue("first-tool").isEnabled = true }
+        verify { childTools.getValue("second-tool").isEnabled = true }
+
+        verify { tools.getValue("first-tool").set(false) }
+        verify { childTools.getValue("second-tool").set("New config value") }
+
+        verify { devTools.persistToolsState() }
+    }
+
+    @Test
+    fun `doesn't touch the tools in case the provided params are empty`() {
+        val childTools = mapOf<String, DevTool<*>>(
+            "first-tool" to createTool { ::key returns "group-tool.first-tool" },
+            "second-tool" to createTool<TextTool> {
+                ::key returns "group-tool.second-tool"
+                ::value returns "Config value"
+            }
+        )
+        val tools = mapOf(
+            "first-tool" to createTool<ToggleTool> {
+                ::key returns "first-tool"
+                ::value returns true
+            },
+            "group-tool" to createTool<GroupTool> {
+                ::key returns "group-tool"
+                ::tools returns childTools
+            }
+        )
+        val devTools = spyk(DevTools.create("TEST", DevToolsSources.memory(tools)))
+
+        clearAllMocks()
+        devTools.updateFromParams(emptyMap())
+
+        tools.values.forEach { tool ->
+            verify { tool wasNot Called }
+        }
+        childTools.values.forEach { tool -> verify { tool wasNot Called } }
+
+        verify(exactly = 0) { devTools.persistToolsState() }
     }
 }
