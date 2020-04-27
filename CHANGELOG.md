@@ -2,6 +2,11 @@ Changelog
 =========
 
 ## Version 1.0.0 *(In development)*
+Issue: [#39](https://github.com/maximbircu/devtools-library/issues/39)
+- Add `DevTools#updateFromParams` which allows the library consumer to update the tools from a set of params(key-value pairs)
+- Add `DevTools#updateFromBundle` which allows the Android library consumer to update the tools from an Android bundle
+- Made each `DevTools` instance use a different storage key so that the similar tools don't collide
+
 Issue: [#37](https://github.com/maximbircu/devtools-library/issues/37)
 - Add DevToolsStorage#getAllConfigAsJson method, which takes a filter parameter and returns a filtered JSON string of configuration values
 
