@@ -100,10 +100,28 @@ class DevToolTest : BaseTest() {
     }
 
     @Test
+    fun `returns tool key if it was set`() {
+        val devTool = createDevTool()
+
+        devTool.key = "group-tool.toggle-tool"
+
+        assertEquals("group-tool.toggle-tool", devTool.key)
+    }
+
+    @Test
     fun `throws exception when trying to access tool containerName if it was not set`() {
         val devTool = createDevTool()
 
         assertFailsWith(NullPointerException::class) { devTool.containerName }
+    }
+
+    @Test
+    fun `returns tool container if it was set`() {
+        val devTool = createDevTool()
+
+        devTool.containerName = "TEST"
+
+        assertEquals("TEST", devTool.containerName)
     }
 
     private fun createDevTool(
