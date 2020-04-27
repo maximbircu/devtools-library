@@ -138,10 +138,8 @@ class DevToolsImplTest : BaseTest() {
 
         verify { tools.getValue("first-tool").isEnabled = true }
         verify { childTools.getValue("second-tool").isEnabled = true }
-
         verify { tools.getValue("first-tool") setProperty "value" value false }
         verify { childTools.getValue("second-tool") setProperty "value" value "New config value" }
-
         verify { devTools.persistToolsState() }
     }
 
@@ -165,15 +163,12 @@ class DevToolsImplTest : BaseTest() {
             }
         )
         val devTools = spyk(DevTools.create("TEST", DevToolsSources.memory(tools)))
-
         clearAllMocks()
+
         devTools.updateFromParams(emptyMap())
 
-        tools.values.forEach { tool ->
-            verify { tool wasNot Called }
-        }
+        tools.values.forEach { tool -> verify { tool wasNot Called } }
         childTools.values.forEach { tool -> verify { tool wasNot Called } }
-
         verify(exactly = 0) { devTools.persistToolsState() }
     }
 }

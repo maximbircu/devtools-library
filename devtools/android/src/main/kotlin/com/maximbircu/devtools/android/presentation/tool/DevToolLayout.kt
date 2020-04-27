@@ -74,9 +74,6 @@ abstract class DevToolLayout<T : DevTool<*>>(
     }
 
     override fun showHelpDialog(tool: DevTool<*>) {
-        DevToolHelpDialog(
-            context,
-            tool
-        ).show()
+        DevToolHelpDialog(context, tool).show()
     }
 }
