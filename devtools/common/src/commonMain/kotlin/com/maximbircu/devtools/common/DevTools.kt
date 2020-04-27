@@ -21,6 +21,19 @@ interface DevTools : DevToolsStorage {
      */
     fun persistToolsState()
 
+    /**
+     * Updates all dev tools with values taken from [params].
+     *
+     * @param params a collection of key-value pairs where the key is
+     * [com.maximbircu.devtools.common.core.DevTool.key] and the value is the new config value the
+     * tool should take
+     *
+     * Please, note that in case the tool you want to update using this method is a child of a
+     * [com.maximbircu.devtools.common.presentation.tools.group.GroupTool] then it's key should
+     * be prefixed with its parent key according to the logic the
+     * [com.maximbircu.devtools.common.core.DevTool.key] is set, i.e `group-tool-key.tool-to-update`
+     * @see DevToolsParser.getDevTools
+     */
     fun updateFromParams(params: Map<String, Any>)
 
     companion object {
