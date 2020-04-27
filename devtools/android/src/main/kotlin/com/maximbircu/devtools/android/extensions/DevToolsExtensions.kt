@@ -15,9 +15,9 @@ import com.maximbircu.devtools.common.DevToolsParser
  * @see DevToolsParser.getDevTools
  */
 fun DevTools.updateFromBundle(bundle: Bundle?) {
-    bundle?.getArguments()?.let(::updateFromParams)
+    bundle?.let { updateFromParams(it.arguments) }
 }
 
-private fun Bundle.getArguments(): Map<String, Any> = keySet().map { key ->
-    key to requireNotNull(get(key)) { "No value provided for $key" }
-}.toMap()
+private val Bundle.arguments
+    get() = keySet().map { key -> key to requireNotNull(get(key)) { "No value provided for $key" } }
+        .toMap()

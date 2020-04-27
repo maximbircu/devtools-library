@@ -43,5 +43,6 @@ class DevToolsExtensionsKtTest : BaseTest() {
         every { bundle.get("text-tool") } returns expectedParams["text-tool"]
 
         assertFailsWith<IllegalArgumentException> { devTools.updateFromBundle(bundle) }
+        verify(exactly = 0) { devTools.updateFromParams(any()) }
     }
 }
