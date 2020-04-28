@@ -13,8 +13,8 @@ class JsonSchemaReaderTest : BaseTest() {
         val config = getConfig()
         val reader = JsonSchemaReader(config)
         val expectedTools = mapOf<String, DevTool<*>>(
-            "json-schema-toggle-tool" to ToggleTool(defaultValue = true),
-            "json-schema-text-tool" to TextTool(defaultValue = "String config value")
+            "json-schema-toggle-tool" to ToggleTool(default = true),
+            "json-schema-text-tool" to TextTool(default = "String config value")
         )
 
         val actualTools = reader.getDevTools()

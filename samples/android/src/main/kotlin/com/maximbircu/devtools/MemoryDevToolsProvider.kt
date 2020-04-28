@@ -12,7 +12,7 @@ import com.maximbircu.devtools.common.presentation.tools.toggle.ToggleTool
 object MemoryDevToolsProvider {
     val tools: Map<String, DevTool<*>>
         get() = mapOf(
-            "toggle-tool" to ToggleTool(defaultValue = false).apply {
+            "toggle-tool" to ToggleTool(default = false).apply {
                 title = "Toggle tool"
                 description = "A boolean configuration value dev tool"
                 canBeDisabled = true
@@ -21,7 +21,7 @@ object MemoryDevToolsProvider {
             },
 
             "text-tool" to TextTool(
-                defaultValue = "Here can go any text value",
+                default = "Here can go any text value",
                 hint = "String config value"
             ).apply {
                 title = "Text tool (String)"
@@ -31,7 +31,7 @@ object MemoryDevToolsProvider {
                 isCritical = false
             },
             "text-tool-integer" to TextTool(
-                defaultValue = 3,
+                default = 3,
                 hint = "Integer number config value"
             ).apply {
                 title = "Text tool (Integer)"
@@ -41,7 +41,7 @@ object MemoryDevToolsProvider {
                 isCritical = true
             },
             "text-tool-float" to TextTool(
-                defaultValue = 3.4f,
+                default = 3.4f,
                 hint = "Floating point number config value"
             ).apply {
                 title = "Text tool (Floating point)"
@@ -98,7 +98,7 @@ object MemoryDevToolsProvider {
 
             "tools-group" to GroupTool(
                 tools = mapOf(
-                    "toggle-tool" to ToggleTool(defaultValue = false).apply {
+                    "toggle-tool" to ToggleTool(default = false).apply {
                         title = "Toggle tool"
                         description = "A boolean configuration value dev tool"
                         canBeDisabled = true
@@ -106,7 +106,7 @@ object MemoryDevToolsProvider {
                         isCritical = false
                     },
                     "text-tool" to TextTool(
-                        defaultValue = "Here can go any text value",
+                        default = "Here can go any text value",
                         hint = "String config value"
                     ).apply {
                         title = "Text tool (String)"

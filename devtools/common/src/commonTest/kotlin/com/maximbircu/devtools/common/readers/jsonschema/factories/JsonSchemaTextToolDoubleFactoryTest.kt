@@ -10,7 +10,7 @@ class JsonSchemaTextToolDoubleFactoryTest : BaseTest() {
     @Test
     fun `creates a proper text tool without default and hint values provided`() {
         val jsonObject = json {}
-        val expectedTool = TextTool(defaultValue = 0.0)
+        val expectedTool = TextTool(default = 0.0)
         val factory = JsonSchemaTextToolDoubleFactory(jsonObject)
 
         val actualTool = factory.create()
@@ -23,7 +23,7 @@ class JsonSchemaTextToolDoubleFactoryTest : BaseTest() {
         val jsonObject = json {
             "default" to 3.4
         }
-        val expectedTool = TextTool(defaultValue = 3.4)
+        val expectedTool = TextTool(default = 3.4)
         val factory = JsonSchemaTextToolDoubleFactory(jsonObject)
 
         val actualTool = factory.create()
@@ -37,7 +37,7 @@ class JsonSchemaTextToolDoubleFactoryTest : BaseTest() {
             "hint" to "Floating point number config value"
         }
         val expectedTool = TextTool(
-            defaultValue = 0.0,
+            default = 0.0,
             hint = "Floating point number config value"
         )
         val factory = JsonSchemaTextToolDoubleFactory(jsonObject)
@@ -54,7 +54,7 @@ class JsonSchemaTextToolDoubleFactoryTest : BaseTest() {
             "hint" to "Floating point number config value"
         }
         val expectedTool = TextTool(
-            defaultValue = 3.4,
+            default = 3.4,
             hint = "Floating point number config value"
         )
         val factory = JsonSchemaTextToolDoubleFactory(jsonObject)

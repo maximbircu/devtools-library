@@ -7,7 +7,7 @@ import kotlin.test.assertTrue
 class ToggleToolTest : BaseTest() {
     @Test
     fun `returns proper default value`() {
-        val tool = ToggleTool(defaultValue = true)
+        val tool = ToggleTool(default = true)
 
         assertTrue(tool.getDefaultValue())
     }

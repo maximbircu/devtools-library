@@ -8,14 +8,14 @@ import kotlin.test.assertFailsWith
 class TextToolTest : BaseTest() {
     @Test
     fun `returns proper default value`() {
-        val tool = TextTool(defaultValue = 3)
+        val tool = TextTool(default = 3)
 
         assertEquals(3, tool.getDefaultValue())
     }
 
     @Test
     fun `returns proper hint value`() {
-        val tool = TextTool(defaultValue = 3, hint = "hint value")
+        val tool = TextTool(default = 3, hint = "hint value")
 
         assertEquals("hint value", tool.hint)
     }
@@ -29,14 +29,14 @@ class TextToolTest : BaseTest() {
 
     @Test
     fun `throws exception if provided value type is not supported`() {
-        val tool = TextTool(defaultValue = object {})
+        val tool = TextTool(default = object {})
 
         assertFailsWith<IllegalArgumentException> { tool.getDefaultValue() }
     }
 
     @Test
     fun `returns proper data type`() {
-        val tool = TextTool(defaultValue = "text value")
+        val tool = TextTool(default = "text value")
 
         assertEquals(String::class, tool.configValueType)
     }

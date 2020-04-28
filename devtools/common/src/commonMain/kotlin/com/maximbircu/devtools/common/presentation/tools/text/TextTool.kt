@@ -6,11 +6,11 @@ import kotlin.reflect.KClass
 /**
  * Represents a dev tool able to manipulate text and numbers configuration values.
  *
- * @property defaultValue the default text or number configuration value
+ * @property default the default text or number configuration value
  * @property hint the text which aims to add more context about the purpose of the config value
  */
 data class TextTool(
-    private val defaultValue: Any? = null,
+    private val default: Any? = null,
     val hint: String? = null
 ) : PreferencesDevTool<Any>() {
     private val supportedTypes = setOf(
@@ -28,7 +28,7 @@ data class TextTool(
     val configValueType: KClass<*> get() = getDefaultValue()::class
 
     override fun getDefaultValue(): Any {
-        val value = defaultValue ?: throw NullPointerException("Default val required")
+        val value = default ?: throw NullPointerException("Default val required")
         assertTypeSupported(value::class)
         return value
     }
