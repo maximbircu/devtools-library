@@ -5,6 +5,7 @@ import com.maximbircu.devtools.common.core.createTool
 import com.maximbircu.devtools.common.mvp.BasePresenterTest
 import com.maximbircu.devtools.common.presentation.tool.help.DevToolHelpDialogPresenter
 import com.maximbircu.devtools.common.presentation.tool.help.DevToolHelpDialogView
+import com.maximbircu.devtools.common.presentation.tools.toggle.ToggleTool
 import com.maximbircu.devtools.common.utils.mockk
 import com.maximbircu.devtools.common.utils.returns
 import io.mockk.verify
@@ -65,6 +66,18 @@ class DevToolHelpDialogPresenterImplTest :
         presenter.onToolBind(tool)
 
         verify { view.setDefaultConfigValue("Default configuration value") }
+    }
+
+    @Test
+    fun `shows startup argument on tool bind`() {
+        val tool: DevTool<*> = createTool<ToggleTool> {
+            ::key returns "toggle-tool"
+            ::value returns true
+        }
+
+        presenter.onToolBind(tool)
+
+        verify { view.showStartupArgument("toggle-tool", true) }
     }
 
     @Test

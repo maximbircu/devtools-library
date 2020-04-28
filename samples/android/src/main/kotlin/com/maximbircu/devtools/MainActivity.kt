@@ -2,6 +2,7 @@ package com.maximbircu.devtools
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.maximbircu.devtools.android.extensions.updateFromBundle
 import com.maximbircu.devtools.configscreens.CombinedSourcesConfigActivity
 import com.maximbircu.devtools.configscreens.JsonSchemaSourceConfigActivity
 import com.maximbircu.devtools.configscreens.MemorySourceConfigActivity
@@ -20,5 +21,10 @@ class MainActivity : AppCompatActivity() {
         yamlSourceTools.setOnClickListener { YamlSourceConfigActivity.start(this) }
         jsonSchemaSourceTools.setOnClickListener { JsonSchemaSourceConfigActivity.start(this) }
         combinedSourceTools.setOnClickListener { CombinedSourcesConfigActivity.start(this) }
+
+        SampleApplication.application.memoryDevTools.updateFromBundle(intent.extras)
+        SampleApplication.application.yamlDevTools.updateFromBundle(intent.extras)
+        SampleApplication.application.jsonDevTools.updateFromBundle(intent.extras)
+        SampleApplication.application.combinedDevTools.updateFromBundle(intent.extras)
     }
 }

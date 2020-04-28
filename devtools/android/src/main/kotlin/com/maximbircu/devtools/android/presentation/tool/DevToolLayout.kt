@@ -9,6 +9,7 @@ import com.maximbircu.devtools.android.extensions.makeInvisible
 import com.maximbircu.devtools.android.extensions.setEnabledRecursively
 import com.maximbircu.devtools.android.extensions.setOnClickListener
 import com.maximbircu.devtools.android.extensions.show
+import com.maximbircu.devtools.android.presentation.tool.help.DevToolHelpDialog
 import com.maximbircu.devtools.common.core.DevTool
 import com.maximbircu.devtools.common.presentation.tool.DevToolPresenter
 import com.maximbircu.devtools.common.presentation.tool.DevToolView

@@ -20,13 +20,14 @@ class DevToolsParserImplTest : BaseTest() {
             "first-source-first-tool" to createTool(),
             "first-source-second-tool" to createTool()
         )
+        val childTools = mapOf<String, DevTool<*>>("child-tool" to createTool())
         val source2Tools = mapOf<String, DevTool<*>>(
             "second-source-first-tool" to createTool(),
             "second-source-second-tool" to createTool(),
-            "group-tool" to spyk(GroupTool(mapOf("child-tool" to createTool())))
+            "group-tool" to spyk(GroupTool(childTools))
         )
         val sources = listOf(createSource(source1Tools), createSource(source2Tools))
-        val parser = DevToolsParser.create(sources)
+        val parser = DevToolsParser.create("CONTAINER_NAME", sources)
 
         val tools = parser.getDevTools()
 
@@ -37,10 +38,16 @@ class DevToolsParserImplTest : BaseTest() {
         verify { tools.getValue("second-source-first-tool").key = "second-source-first-tool" }
         verify { tools.getValue("second-source-second-tool").key = "second-source-second-tool" }
 
-        val childTools = (tools.getValue("group-tool") as GroupTool).tools
-        println(childTools.getValue("child-tool").key)
         verify { tools.getValue("group-tool").key = "group-tool" }
         verify { childTools.getValue("child-tool").key = "group-tool.child-tool" }
+
+        verify { tools.getValue("first-source-first-tool").containerName = "CONTAINER_NAME" }
+        verify { tools.getValue("first-source-second-tool").containerName = "CONTAINER_NAME" }
+        verify { tools.getValue("second-source-first-tool").containerName = "CONTAINER_NAME" }
+        verify { tools.getValue("second-source-second-tool").containerName = "CONTAINER_NAME" }
+
+        verify { tools.getValue("group-tool").containerName = "CONTAINER_NAME" }
+        verify { childTools.getValue("child-tool").containerName = "CONTAINER_NAME" }
     }
 
     private fun createSource(tools: Map<String, DevTool<*>>) = object : DevToolsSource {

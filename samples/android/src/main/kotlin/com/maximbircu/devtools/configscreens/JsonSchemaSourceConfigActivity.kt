@@ -7,15 +7,13 @@ import android.view.Gravity
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.maximbircu.devtools.R.layout
+import com.maximbircu.devtools.SampleApplication
 import com.maximbircu.devtools.android.DevToolsConfigurationScreen
 import com.maximbircu.devtools.common.DevTools
-import com.maximbircu.devtools.common.readers.DevToolsSources
-import com.maximbircu.devtools.common.readers.json
 import kotlinx.android.synthetic.main.activity_tools_container.devToolsContainer
 
-@Suppress("LongMethod")
 class JsonSchemaSourceConfigActivity : AppCompatActivity() {
-    private lateinit var devtools: DevTools
+    private val devtools: DevTools = SampleApplication.application.jsonDevTools
 
     companion object {
         fun start(context: Context) {
@@ -27,9 +25,6 @@ class JsonSchemaSourceConfigActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(layout.activity_tools_container)
-
-        val source = DevToolsSources.json(assets.open("dev-tools.json").reader().readText())
-        devtools = DevTools.create(source)
 
         devtools.onConfigUpdated = { isCriticalUpdate ->
             val toast = Toast.makeText(

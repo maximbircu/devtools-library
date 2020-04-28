@@ -10,7 +10,9 @@ import com.maximbircu.devtools.common.put
 actual open class PreferencesToolStoreImpl<T : Any> actual constructor(
     private val tool: DevTool<T>
 ) : PreferencesToolStore<T> {
-    private var preferences = SharedPreferencesProvider.getSharedPreferences("DEV_TOOLS")
+    private var preferences = SharedPreferencesProvider.getSharedPreferences(
+        "DEV_TOOLS_${tool.containerName}"
+    )
 
     override var isEnabled: Boolean
         set(value) { preferences.edit().putBoolean("${tool.key}_enabled", value).commit() }

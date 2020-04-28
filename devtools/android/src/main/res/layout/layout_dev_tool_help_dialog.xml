@@ -43,6 +43,13 @@
             app:title="@string/dev_tool_help_dialog_default_value"
             />
 
+        <com.maximbircu.devtools.android.presentation.tool.help.DevToolHelpDialogInfoRowLayout
+            android:id="@+id/startupArgument"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="@string/dev_tool_help_dialog_startup_argument_title"
+            />
+
         <TextView
             android:id="@+id/criticalUpdate"
             android:layout_width="wrap_content"

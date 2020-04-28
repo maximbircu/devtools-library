@@ -21,12 +21,7 @@ abstract class DevTool<T : Any>(
     var isCritical: Boolean = false
 ) {
     private var _key: String? = null
-
-    /**
-     * This property will be true in case the in-memory tool state will be different from the
-     * persisted one.
-     */
-    val hasUnsavedChanges: Boolean get() = value != store.value || isEnabled != store.isEnabled
+    private var _toolsContainer: String? = null
 
     /**
      * A unique dev tool identifier.
@@ -35,8 +30,24 @@ abstract class DevTool<T : Any>(
         get() = _key ?: throw NullPointerException("Dev tool key was not set!")
         set(value) {
             _key = value
-            restorePersistedState()
         }
+
+    /**
+     * The name of the tool container.
+     * This should be used to differentiate between tools with the same key but in different
+     * [com.maximbircu.devtools.common.DevTools] instances.
+     */
+    var containerName: String
+        get() = _toolsContainer ?: throw NullPointerException("Dev tool container was not set!")
+        set(value) {
+            _toolsContainer = value
+        }
+
+    /**
+     * This property will be true in case the in-memory tool state will be different from the
+     * persisted one.
+     */
+    val hasUnsavedChanges: Boolean get() = value != store.value || isEnabled != store.isEnabled
 
     /**
      * The dev tool configuration value at the moment, note that this is kept just in memory and

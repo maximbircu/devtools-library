@@ -7,7 +7,7 @@ import platform.darwin.NSInteger
 actual open class PreferencesToolStoreImpl<T : Any> actual constructor(
     private val tool: DevTool<T>
 ) : PreferencesToolStore<T> {
-    private val nsUserDefaults: NSUserDefaults = NSUserDefaults("DEV_TOOLS")
+    private val nsUserDefaults: NSUserDefaults = NSUserDefaults("DEV_TOOLS_${tool.containerName}")
 
     override var isEnabled: Boolean
         set(value) { nsUserDefaults.setBool(value, "${tool.key}_enabled") }
