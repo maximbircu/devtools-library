@@ -10,5 +10,3 @@ class MyCustomTool : DevTool<Boolean>() {
         return false // Suppose that I want the default value to always be true.
     }
 }
-
-

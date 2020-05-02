@@ -11,7 +11,7 @@ private val sharedPrefs = SampleApplication.application.getSharedPreferences(
 )
 
 @SuppressLint("ApplySharedPref")
-class MyCustomToolStore(private val tool: MyCustomTool): ToolStore<Boolean> {
+class MyCustomToolStore(private val tool: MyCustomTool) : ToolStore<Boolean> {
     override var isEnabled: Boolean
         get() = sharedPrefs.getBoolean("is_enabled_${tool.key}", tool.defaultEnabledValue)
         set(value) { sharedPrefs.edit().putBoolean("is_enabled_${tool.key}", value).commit() }

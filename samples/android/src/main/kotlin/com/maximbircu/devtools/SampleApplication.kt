@@ -22,6 +22,7 @@ class SampleApplication : Application() {
             private set
     }
 
+    @Suppress("LongMethod")
     override fun onCreate() {
         super.onCreate()
         application = this
