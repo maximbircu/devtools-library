@@ -1,13 +1,12 @@
 package com.maximbircu.devtools.common.presentation.tools.group
 
 import com.maximbircu.devtools.common.core.DevTool
-import com.maximbircu.devtools.common.core.mvp.BaseView
 import com.maximbircu.devtools.common.presentation.tool.DevToolView
 
 /**
  * Presents a group of devtools to the user.
  */
-interface GroupToolView : BaseView {
+interface GroupToolView : DevToolView {
     /**
      * Should return the configuration screen devtools views that are displayed by the group.
      */
