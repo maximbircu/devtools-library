@@ -9,4 +9,7 @@
     <string name="yaml_source_tools_button_text">yaml</string>
     <string name="json_schema_source_tools_button_text">Json schema</string>
     <string name="combined_source_tools_button_text">Combined</string>
+
+    <!-- Custom dev tool -->
+    <string name="custom_tool_checkbox_label">Is enabled</string>
 </resources>

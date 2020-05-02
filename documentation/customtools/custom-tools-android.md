@@ -73,7 +73,7 @@ Let's see how to do it in a simple step by step example:
                 override fun getDevTools(): Map<String, DevTool<*>> {
                     return mapOf(
                         "my-custom-tool" to MyCustomTool().apply {
-                            title = "Custom dev tool"
+                            title = "Custom tool"
                             description = "A custom dev tool implemented inside the library consumer"
                             canBeDisabled = true
                             defaultEnabledValue = false
