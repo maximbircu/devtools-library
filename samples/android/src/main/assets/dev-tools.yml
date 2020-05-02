@@ -2,7 +2,7 @@
 ## Boolean
 ##############################
 
-yml-toggle-tool: !toggle {
+toggle-tool: !toggle {
   title: "Toggle tool",
   description: "A boolean configuration value tool",
   canBeDisabled: true,
@@ -15,7 +15,7 @@ yml-toggle-tool: !toggle {
 ## String
 ##############################
 
-yml-text-tool: !text {
+text-tool: !text {
   title: "Text tool (String)",
   description: "A text configuration value tool",
   canBeDisabled: true,
@@ -29,7 +29,7 @@ yml-text-tool: !text {
 ## Integer
 ##############################
 
-yml-text-tool-integer: !text {
+text-tool-integer: !text {
   title: "Text tool (Integer)",
   description: "An integer number configuration value tool",
   canBeDisabled: true,
@@ -43,7 +43,7 @@ yml-text-tool-integer: !text {
 ## Floating point
 ##############################
 
-yml-text-tool-floating-point: !text {
+text-tool-floating-point: !text {
   title: "Text tool (Floating point)",
   description: "A floating-point number configuration value tool",
   canBeDisabled: true,
@@ -57,7 +57,7 @@ yml-text-tool-floating-point: !text {
 ## Time
 ##############################
 
-yml-time-tool: !time {
+time-tool: !time {
   title: "Time tool",
   description: "A time configuration value tool",
   canBeDisabled: true,
@@ -74,7 +74,7 @@ yml-time-tool: !time {
 ## Enum
 ##############################
 
-yml-enum-tool: !enum {
+enum-tool: !enum {
   title: "Enum tool",
   description: "An enum configuration value tool",
   canBeDisabled: true,
@@ -89,7 +89,7 @@ yml-enum-tool: !enum {
   }
 }
 
-yml-enum-custom-options-provider-tool: !enum {
+enum-custom-options-provider-tool: !enum {
   title: "Enum tool [Custom Provider]",
   description: "An enum configuration value tool with a custom options provider",
   canBeDisabled: true,
@@ -106,17 +106,17 @@ yml-enum-custom-options-provider-tool: !enum {
 ## Group
 ##############################
 
-yml-tools-group: !group {
+tools-group: !group {
   title: "Tools group",
   tools: {
-    yml-toggle-tool: !toggle {
+    toggle-tool: !toggle {
       title: "Toggle tool",
       description: "A boolean configuration value tool",
       canBeDisabled: true,
       defaultEnabledValue: false,
       isCritical: false
     },
-    yml-text-tool: !text {
+    text-tool: !text {
       title: "Text tool (String)",
       description: "A text configuration value tool",
       canBeDisabled: true,
@@ -125,7 +125,7 @@ yml-tools-group: !group {
       default: "Here can go any text value",
       hint: "String config value"
     },
-    yml-time-tool: !time {
+    time-tool: !time {
       title: "Time tool",
       description: "A time configuration value tool",
       canBeDisabled: true,
@@ -137,7 +137,7 @@ yml-tools-group: !group {
       seconds: 4,
       milliseconds: 5,
     },
-    yml-enum-tool: !enum {
+    enum-tool: !enum {
       title: "Enum tool",
       description: "An enum configuration value tool",
       canBeDisabled: true,

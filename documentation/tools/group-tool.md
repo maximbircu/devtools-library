@@ -39,23 +39,23 @@ A dev tool allows you to group together a set of dev tools that are relevant and
 ### Yaml
 Below is presented an example of a group tool configuration in YML format. Note that you should use the `!group` type.
 ```Yaml
-yml-tools-group: !group {
+tools-group: !group {
   title: "Tools group",
   tools: {
-    yml-toggle-tool: !toggle {
+    toggle-tool: !toggle {
       title: "Toggle tool",
       default: true
     },
-    yml-text-tool: !text {
+    text-tool: !text {
       title: "Text tool (String)",
       default: "Here can go any text value"
     },
-    yml-time-tool: !time {
+    time-tool: !time {
       title: "Time tool",
       days: 1,
       hours: 2
     },
-    yml-enum-tool: !enum {
+    enum-tool: !enum {
       title: "Enum tool",
       defaultValueKey: first-option,
       options: {

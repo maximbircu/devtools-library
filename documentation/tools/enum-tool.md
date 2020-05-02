@@ -46,7 +46,7 @@ A text dev tool allows you to store, update, and consume `string`, `integer`, an
 ### Yaml
 
 ```Yaml
-yml-enum-tool: !enum {
+enum-tool: !enum {
   title: "Enum tool",
   description: "An enum configuration value tool",
   canBeDisabled: true,

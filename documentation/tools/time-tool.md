@@ -38,7 +38,7 @@ A time dev tool allows you to store, update, and consume long(time in ms) config
 Below is an example of a time tool configuration in YML format. Note that you should use the `!time` type.
 
 ```Yml
-yml-time-tool: !time {
+time-tool: !time {
   title: "Time tool",
   description: "A time configuration value tool",
   canBeDisabled: true,

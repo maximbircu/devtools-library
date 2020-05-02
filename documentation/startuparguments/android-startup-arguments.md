@@ -28,7 +28,7 @@ Where:
 
 For example: 
 ```shell script
-adb shell am start --ez yml-toggle-tool false com.maximbircu.devtools/com.maximbircu.devtools.MainActivity
+adb shell am start --ez toggle-tool false com.maximbircu.devtools/com.maximbircu.devtools.MainActivity
 ```
 
 ## ℹ️ Build the right command

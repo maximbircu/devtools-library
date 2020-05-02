@@ -18,7 +18,7 @@
     So, create a `dev-tools.yml` configuration file inside your app's `assets` directory.
     
     ```yaml
-    yml-toggle-tool: !toggle {
+    toggle-tool: !toggle {
       title: "Toggle tool",
       description: "A boolean configuration value tool",
       canBeDisabled: true,
@@ -27,7 +27,7 @@
       default: true
     }
     
-    yml-enum-tool: !enum {
+    enum-tool: !enum {
       title: "Enum tool",
       description: "An enum configuration value tool",
       canBeDisabled: true,
@@ -137,7 +137,7 @@ Just go and open the Configuration activity you've defined, and you should see y
 You can also try to update your app config from startup arguments.
 
 ```shell script
-adb shell am start --ez yml-toggle-tool false com.maximbircu.devtools/com.maximbircu.devtools.MainActivity
+adb shell am start --ez toggle-tool false com.maximbircu.devtools/com.maximbircu.devtools.MainActivity
 ```
 
 #### Accessing config values
