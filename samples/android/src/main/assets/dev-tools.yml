@@ -7,7 +7,8 @@ toggle-tool: !toggle {
   description: "A boolean configuration value tool",
   canBeDisabled: true,
   defaultEnabledValue: false,
-  isCritical: true
+  isCritical: true,
+  default: true
 }
 
 ##############################
@@ -20,7 +21,7 @@ text-tool: !text {
   canBeDisabled: true,
   defaultEnabledValue: false,
   isCritical: false,
-  defaultValue: "Here can go any text value",
+  default: "Here can go any text value",
   hint: "String config value"
 }
 
@@ -34,7 +35,7 @@ text-tool-integer: !text {
   canBeDisabled: true,
   defaultEnabledValue: false,
   isCritical: true,
-  defaultValue: 3,
+  default: 3,
   hint: "Integer number config value"
 }
 
@@ -48,7 +49,7 @@ text-tool-floating-point: !text {
   canBeDisabled: true,
   defaultEnabledValue: false,
   isCritical: false,
-  defaultValue: 3.4,
+  default: 3.4,
   hint: "Floating point number config value"
 }
 
@@ -121,7 +122,7 @@ tools-group: !group {
       canBeDisabled: true,
       defaultEnabledValue: false,
       isCritical: true,
-      defaultValue: "Here can go any text value",
+      default: "Here can go any text value",
       hint: "String config value"
     },
     time-tool: !time {
@@ -152,3 +153,4 @@ tools-group: !group {
     }
   }
 }
+

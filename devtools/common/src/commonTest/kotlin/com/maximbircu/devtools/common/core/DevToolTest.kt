@@ -28,7 +28,7 @@ class DevToolTest : BaseTest() {
     @Test
     fun `resets the tool state to proper default values`() {
         val devTool = createDevTool(
-            defaultValue = "Default configuration value",
+            default = "Default configuration value",
             defaultEnabledValue = true
         )
         devTool.value = "Some custom value"
@@ -126,13 +126,13 @@ class DevToolTest : BaseTest() {
 
     private fun createDevTool(
         store: ToolStore<String> = this.store,
-        defaultValue: String = "",
+        default: String = "",
         defaultEnabledValue: Boolean = true
     ): DevTool<String> {
         return object : DevTool<String>(defaultEnabledValue = defaultEnabledValue) {
             override val store: ToolStore<String> = store
 
-            override fun getDefaultValue() = defaultValue
+            override fun getDefaultValue() = default
         }
     }
 }

@@ -22,8 +22,8 @@ class JsonSchemaSourceTest : BaseTest() {
         val config = getConfig()
         val source = JsonSchemaSource(config)
         val expectedTools = mapOf<String, DevTool<*>>(
-            "json-schema-toggle-tool" to ToggleTool(defaultValue = true),
-            "json-schema-text-tool" to TextTool(defaultValue = "String config value")
+            "json-schema-toggle-tool" to ToggleTool(default = true),
+            "json-schema-text-tool" to TextTool(default = "String config value")
         )
 
         val actualTools = source.getReader().getDevTools()

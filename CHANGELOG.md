@@ -2,6 +2,12 @@ Changelog
 =========
 
 ## Version 1.0.0 *(In development)*
+Issue: [#40](https://github.com/maximbircu/devtools-library/issues/40)
+- Cover the whole library with documentation, check README;
+- Add library extension Android samples;
+- Remove redundant yml- prefix;
+- Replace defaultValue with default everywhere to make the API consistent.
+
 Issue: [#39](https://github.com/maximbircu/devtools-library/issues/39)
 - Add `DevTools#updateFromParams` which allows the library consumer to update the tools from a set of params(key-value pairs)
 - Add `DevTools#updateFromBundle` which allows the Android library consumer to update the tools from an Android bundle

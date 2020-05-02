@@ -97,7 +97,7 @@ jobs:
           xcodebuild clean test \
             -workspace DevtoolsFramework.xcworkspace \
             -scheme DevtoolsFramework \
-            -destination 'platform=iOS Simulator,OS=13.3,name=iPhone 11 Pro'
+            -destination 'platform=iOS Simulator,name=iPhone 11 Pro'
 
   build:
     name: Assemble artifacts

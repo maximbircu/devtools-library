@@ -10,7 +10,7 @@ class JsonSchemaTextToolIntegerFactoryTest : BaseTest() {
     @Test
     fun `creates a proper text tool without default and hint values provided`() {
         val jsonObject = json {}
-        val expectedTool = TextTool(defaultValue = 0)
+        val expectedTool = TextTool(default = 0)
         val factory = JsonSchemaTextToolIntegerFactory(jsonObject)
 
         val actualTool = factory.create()
@@ -23,7 +23,7 @@ class JsonSchemaTextToolIntegerFactoryTest : BaseTest() {
         val jsonObject = json {
             "default" to 3
         }
-        val expectedTool = TextTool(defaultValue = 3)
+        val expectedTool = TextTool(default = 3)
         val factory = JsonSchemaTextToolIntegerFactory(jsonObject)
 
         val actualTool = factory.create()
@@ -37,7 +37,7 @@ class JsonSchemaTextToolIntegerFactoryTest : BaseTest() {
             "hint" to "Floating point number config value"
         }
         val expectedTool = TextTool(
-            defaultValue = 0,
+            default = 0,
             hint = "Floating point number config value"
         )
         val factory = JsonSchemaTextToolIntegerFactory(jsonObject)
@@ -54,7 +54,7 @@ class JsonSchemaTextToolIntegerFactoryTest : BaseTest() {
             "hint" to "Floating point number config value"
         }
         val expectedTool = TextTool(
-            defaultValue = 3,
+            default = 3,
             hint = "Floating point number config value"
         )
         val factory = JsonSchemaTextToolIntegerFactory(jsonObject)
