@@ -1,7 +1,7 @@
 package com.maximbircu.devtools.android.presentation.tools.enum.selectors.chips
 
-import android.annotation.SuppressLint
 import android.content.Context
+import android.util.AttributeSet
 import android.view.ViewTreeObserver.OnPreDrawListener
 import android.widget.FrameLayout
 import com.maximbircu.devtools.android.R
@@ -15,16 +15,22 @@ import kotlinx.android.synthetic.main.layout_enum_tool_chips_option_selector.vie
 import kotlinx.android.synthetic.main.layout_enum_tool_chips_option_selector.view.container
 import kotlinx.android.synthetic.main.layout_enum_tool_chips_option_selector.view.customValue
 
-@SuppressLint("ViewConstructor")
-class EnumToolChipsOptionSelectorLayout(
+class EnumToolChipsOptionSelectorLayout @JvmOverloads constructor(
     context: Context,
-    tool: EnumTool,
-    onOptionSelected: (String) -> Unit
-) : FrameLayout(context), EnumToolOptionSelectorView {
-    private val presenter = EnumToolOptionSelectorPresenter.create(this, onOptionSelected)
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : FrameLayout(context, attrs, defStyleAttr), EnumToolOptionSelectorView {
+    private lateinit var presenter: EnumToolOptionSelectorPresenter
 
     init {
         inflate(context, R.layout.layout_enum_tool_chips_option_selector, this)
+    }
+
+    fun bind(
+        tool: EnumTool,
+        onOptionSelected: (String) -> Unit
+    ) {
+        presenter = EnumToolOptionSelectorPresenter.create(this, onOptionSelected)
         presenter.onToolBind(tool)
         scrollToSelectedChipAfterPreDraw()
         chipGroup.setOnCheckedChangeListener(presenter::onOptionSelected)

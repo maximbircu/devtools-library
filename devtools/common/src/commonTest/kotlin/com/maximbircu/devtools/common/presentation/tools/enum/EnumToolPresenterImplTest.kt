@@ -24,12 +24,30 @@ class EnumToolPresenterImplTest : BasePresenterTest<EnumToolView, EnumToolPresen
     }
 
     @Test
+    fun `hides configuration value if options size is smaller than 7`() {
+        val tool: EnumTool = createCompactEnumTool()
+
+        presenter.onToolBind(tool)
+
+        verify { view.hideConfigurationValue() }
+    }
+
+    @Test
     fun `shows configuration value if options size is bigger than 6`() {
         val tool: EnumTool = createExtendedEnumTool()
 
         presenter.onToolBind(tool)
 
         verify { view.showConfigurationValue("Second Option Value") }
+    }
+
+    @Test
+    fun `hides compact option selector if options size is bigger than 6`() {
+        val tool: EnumTool = createExtendedEnumTool()
+
+        presenter.onToolBind(tool)
+
+        verify { view.hideCompactOptionsSelector() }
     }
 
     @Test
