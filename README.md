@@ -8,9 +8,11 @@
 
 # Devtools
 
-#### 🚀 [Quick Start](documentation/quickstart/quick-start.md)
-#### 📜 [Full Documentation](documentation/documentation.md)
-#### 👷 [For Developers](documentation/documentation.md/#for-developers)
+#### 🚀 [Quick Start](documentation/quickstart/quick-start.md) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [🍏 iOS Sample](samples/ios)</div>
+#### 📜 [Documentation](documentation/documentation.md) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [🤖 Android Sample](samples/android) 
+#### 👷 [For Developers](documentation/documentation.md#-for-developers)
+
+<br />
 
 Devtools is a pluggable, extensible, and dynamic config library that supports [YAML](https://yaml.org/) and [JSON Schema Draft-07](https://json-schema.org/draft-07/json-schema-validation.html) as configuration sources.
 
