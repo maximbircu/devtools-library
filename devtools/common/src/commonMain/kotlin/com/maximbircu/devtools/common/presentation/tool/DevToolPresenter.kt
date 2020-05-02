@@ -3,6 +3,7 @@ package com.maximbircu.devtools.common.presentation.tool
 import com.maximbircu.devtools.common.core.DevTool
 import com.maximbircu.devtools.common.core.mvp.BasePresenter
 import com.maximbircu.devtools.common.core.mvp.Presenter
+import com.maximbircu.devtools.common.presentation.tools.group.GroupTool
 
 /**
  * Encapsulates common [DevTool] context menu business logic.
@@ -93,7 +94,7 @@ private class DevToolPresenterImpl(
     }
 
     private fun updateToolEnableToggleVisibility() {
-        if (tool.canBeDisabled) {
+        if (tool.canBeDisabled && tool !is GroupTool) {
             view.showEnableToggle()
         } else {
             view.hideEnableToggle()

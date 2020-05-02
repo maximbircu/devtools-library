@@ -2,6 +2,9 @@ Changelog
 =========
 
 ## Version 1.0.0 *(In development)*
+Issue: [#49](https://github.com/maximbircu/devtools-library/issues/49)
+- Hide enable/disable the checkbox for group tools
+
 Issue: [#40](https://github.com/maximbircu/devtools-library/issues/40)
 - Cover the whole library with documentation, check README;
 - Add library extension Android samples;

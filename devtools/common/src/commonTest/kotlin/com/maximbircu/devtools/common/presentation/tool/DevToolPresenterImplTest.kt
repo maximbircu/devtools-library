@@ -2,6 +2,7 @@ package com.maximbircu.devtools.common.presentation.tool
 
 import com.maximbircu.devtools.common.core.createTool
 import com.maximbircu.devtools.common.mvp.BasePresenterTest
+import com.maximbircu.devtools.common.presentation.tools.group.GroupTool
 import com.maximbircu.devtools.common.presentation.tools.text.TextTool
 import com.maximbircu.devtools.common.presentation.tools.toggle.ToggleTool
 import com.maximbircu.devtools.common.utils.mockk
@@ -42,6 +43,15 @@ class DevToolPresenterImplTest : BasePresenterTest<DevToolView, DevToolPresenter
     @Test
     fun `hides enable toggle if tool can not be disabled`() {
         val tool: ToggleTool = createTool { ::canBeDisabled returns false }
+
+        presenter.onToolBind(tool)
+
+        verify { view.hideEnableToggle() }
+    }
+
+    @Test
+    fun `hides enable toggle for a group tool even if it can be disabled `() {
+        val tool: GroupTool = createTool { ::canBeDisabled returns true }
 
         presenter.onToolBind(tool)
 
