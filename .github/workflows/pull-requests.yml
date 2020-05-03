@@ -14,7 +14,7 @@ jobs:
       - name: Check branch name and commit messages style
         uses: maximbircu/pull-request-checkstyle@v1.0.0
         with:
-          branch-name-regex: '\d+(-([a-z])+)+'
+          branch-name-regex: '^(revert-\d+-)?\d+(-([a-z])+)+'
           commit-message-title-regex: '^[A-Z].*'
 
   android-checkstyle:
