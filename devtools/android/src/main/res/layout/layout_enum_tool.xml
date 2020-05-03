@@ -4,8 +4,8 @@
     android:layout_height="wrap_content"
     android:theme="@style/Theme.DevTools"
     >
-    <com.maximbircu.devtools.android.presentation.tools.enum.selectors.chips.EnumToolChipsOptionSelectorLayout
-        android:id="@+id/chipsSelector"
+    <FrameLayout
+        android:id="@+id/selectorContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />

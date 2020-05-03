@@ -57,10 +57,8 @@ private class EnumToolPresenterImpl(
         this.dialogSelectedValue = tool.value
         if (isCompactMode) {
             view.showCompactOptionsSelector(tool) { tool.value = it }
-            view.hideConfigurationValue()
         } else {
             view.showConfigurationValue(tool.value)
-            view.hideCompactOptionsSelector()
         }
     }
 

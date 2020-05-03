@@ -15,12 +15,6 @@ interface EnumToolView : BaseView {
     fun showConfigurationValue(value: String)
 
     /**
-     * Should hide the configuration value because the number of options is small enough to present
-     * them inside a compact option selector.
-     */
-    fun hideConfigurationValue()
-
-    /**
      * Should present a compact option selector aka a single choice short list of selectable chips
      * or radio buttons.
      *
@@ -28,12 +22,6 @@ interface EnumToolView : BaseView {
      * @param onNewOptionSelected should be invoked whenever a new option is selected by the user
      */
     fun showCompactOptionsSelector(tool: EnumTool, onNewOptionSelected: (String) -> Unit)
-
-    /**
-     * Should hide the compact options selector because the number of options is too big and should
-     * be presented in a separate view, i.e. option selector dialog.
-     */
-    fun hideCompactOptionsSelector()
 
     /**
      * Should present an option selector in for of a scrollable single choice selectable items
