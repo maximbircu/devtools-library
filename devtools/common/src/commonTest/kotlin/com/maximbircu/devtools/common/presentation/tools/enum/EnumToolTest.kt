@@ -27,8 +27,11 @@ class EnumToolTest : BaseTest() {
         assertFailsWith(IllegalArgumentException::class) { tool.getDefaultValue() }
     }
 
-    private fun createTool(defaultValueKey: String?): EnumTool {
-        return EnumTool(defaultValueKey, optionsProvider = StubOptionsProvider())
+    private fun createTool(
+        defaultValueKey: String?,
+        optionsProvider: EnumOptionsProvider? = StubOptionsProvider()
+    ): EnumTool {
+        return EnumTool(defaultValueKey, false, optionsProvider)
     }
 
     private class StubOptionsProvider : EnumOptionsProvider {
