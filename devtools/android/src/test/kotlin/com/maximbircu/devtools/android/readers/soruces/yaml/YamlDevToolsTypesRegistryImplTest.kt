@@ -22,7 +22,7 @@ class YamlDevToolsTypesRegistryImplTest : BaseTest() {
         setUpConstructor(typeDescriptionSlot)
         setUpYaml(mapOf(ToggleTool::class.java.name to "!toggle"))
 
-        YamlDevToolsTypesRegistry.create("".trimIndent().byteInputStream())
+        YamlDevToolsTypesRegistry.create("".byteInputStream())
 
         assertEquals(ToggleTool::class.java, typeDescriptionSlot.captured.type)
         assertEquals("!toggle", typeDescriptionSlot.captured.tag.value)
