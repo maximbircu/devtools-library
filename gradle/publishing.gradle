@@ -26,7 +26,12 @@ ext.configurePublishing = { Closure getConfig ->
                 "$name"(MavenPublication) {
                     groupId = 'com.maximbircu'
                     artifactId = "devtools-$name"
-                    version = PROJECT_VERSION_NAME
+
+                    if(project.hasProperty('release')) {
+                        version = PROJECT_VERSION_NAME
+                    } else {
+                        version = "$PROJECT_VERSION_NAME-SNAPSHOT"
+                    }
 
                     from components.release
                     artifact(sourceJar)
@@ -56,6 +61,7 @@ ext.configurePublishing = { Closure getConfig ->
                             url = 'https://git hub.com/maximbircu/devtools-library'
                         }
                     }
+
                     repositories {
                         maven {
                             def snapshotsUrl = "https://oss.sonatype.org/content/repositories/snapshots"
