@@ -13,4 +13,4 @@ Consider opening a pull request to accelerate its release. 🙏
 
 Check out the remaining work till the first release [here](https://github.com/maximbircu/devtools-library/issues?q=is%3Aopen+is%3Aissue+label%3AiOS).
 
-You can read this repository’s [contributing guidelines](../CONTRIBUTING.md) to learn how to open a good pull request.
+You can read this repository’s [contributing guidelines](../../CONTRIBUTING.md) to learn how to open a good pull request.

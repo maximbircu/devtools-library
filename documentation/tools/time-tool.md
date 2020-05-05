@@ -57,7 +57,7 @@ Not supported yet 😞
 
 Consider opening a pull request to add this feature. 🙏
 
-You can read this repository’s [contributing guidelines](../CONTRIBUTING.md) to learn how to open a good pull request.
+You can read this repository’s [contributing guidelines](../../CONTRIBUTING.md) to learn how to open a good pull request.
 
 ### Memory
 #### 🍏 iOS
