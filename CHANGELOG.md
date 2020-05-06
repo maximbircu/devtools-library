@@ -2,6 +2,9 @@ Changelog
 =========
 
 ## Version 1.0.0 *(In development)*
+Issue: [#58](https://github.com/maximbircu/devtools-library/issues/58)	
+- Update the Android library common module dependency for release configuration to 1.0.0
+
 Issue: [#41](https://github.com/maximbircu/devtools-library/issues/41)	
 - Configure maven-publish, signing, and dokka plugins
 
