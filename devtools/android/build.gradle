@@ -49,7 +49,6 @@ android {
 
 dependencies {
     debugApi(project(':devtools:common')) { transitive = true }
-    releaseApi("com.maximbircu:devtools-common:$PROJECT_VERSION_NAME") { transitive = true }
 
     implementation "org.yaml:snakeyaml:1.25"
     implementation "com.google.android.material:material:1.1.0"
