@@ -15,7 +15,7 @@ jobs:
       - name: Check project styling
         uses: eskatos/gradle-command-action@v1
         with:
-          arguments: lint detekt ktlint
+          arguments: lintDebug detekt ktlint
 
   test:
     name: Unit tests
