@@ -8,4 +8,4 @@ Android and iOS are the only supported platforms for now.
 
 Consider opening pull requests to add support for other platforms too. 🙏 
 
-You can read this repository’s [contributing guidelines](../CONTRIBUTING.md) to learn how to open a good pull request.
+You can read this repository’s [contributing guidelines](../../CONTRIBUTING.md) to learn how to open a good pull request.

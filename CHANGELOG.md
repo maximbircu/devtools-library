@@ -2,6 +2,9 @@ Changelog
 =========
 
 ## Version 1.0.0 *(In development)*
+Issue: [#41](https://github.com/maximbircu/devtools-library/issues/41)	
+- Configure maven-publish and dokka plugins
+
 Issue: [#50](https://github.com/maximbircu/devtools-library/issues/50)	
 - Use same container for both compact and current value views
 

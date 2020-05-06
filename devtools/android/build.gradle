@@ -2,6 +2,12 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
+apply from: "$rootDir/gradle/publishing.gradle"
+
+configurePublishing {
+    srcDirs = android.sourceSets.main.kotlin.srcDirs
+}
+
 configureJacoco {
     srcDirs = android.sourceSets.main.kotlin.srcDirs
     excludes = [
@@ -29,11 +35,20 @@ android {
         test.java.srcDir 'src/test/kotlin'
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
     libraryVariants.all { it.generateBuildConfig.enabled = false }
 }
 
 dependencies {
-    api(project(':devtools:common')) { transitive = true }
+    debugApi(project(':devtools:common')) { transitive = true }
 
     implementation "org.yaml:snakeyaml:1.25"
     implementation "com.google.android.material:material:1.1.0"
@@ -42,11 +57,11 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     // androidx
+    implementation "androidx.core:core-ktx:1.2.0"
     implementation "androidx.appcompat:appcompat:1.1.0"
     implementation "androidx.cardview:cardview:1.0.0"
     implementation "androidx.recyclerview:recyclerview:1.1.0"
     implementation "androidx.constraintlayout:constraintlayout:2.0.0-beta4"
-    implementation "androidx.core:core-ktx:1.2.0"
 
     // test
     testImplementation "org.jetbrains.kotlin:kotlin-test"

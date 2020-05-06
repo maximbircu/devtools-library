@@ -1,0 +1,85 @@
+apply plugin: "maven-publish"
+apply plugin: 'org.jetbrains.dokka'
+
+ext.configurePublishing = { Closure getConfig ->
+    afterEvaluate {
+        def config = new PublishConfiguration()
+        getConfig.delegate = config
+        getConfig.run()
+
+        task sourceJar(type: Jar) {
+            classifier "sources"
+            from config.srcDirs
+        }
+
+        dokka {
+            outputFormat = 'javadoc'
+            outputDirectory = "$buildDir/dokka"
+        }
+
+        task javadocJar(type: Jar, dependsOn: dokka) {
+            classifier 'javadoc'
+        }
+
+        publishing {
+            publications {
+                "$name"(MavenPublication) {
+                    groupId = 'com.maximbircu'
+                    artifactId = "devtools-$name"
+
+                    if(project.hasProperty('release')) {
+                        version = PROJECT_VERSION_NAME
+                    } else {
+                        version = "$PROJECT_VERSION_NAME-SNAPSHOT"
+                    }
+
+                    from components.release
+                    artifact(sourceJar)
+                    artifact(javadocJar)
+
+                    pom {
+                        name = 'Dev Tools Library'
+                        description =
+                                'Multiplatform, pluggable, extensible, and dynamic config library which supports YAML and JSON as a source.'
+                        url = 'https://github.com/maximbircu/devtools-library'
+                        licenses {
+                            license {
+                                name = 'The Apache License, Version 2.0'
+                                url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                            }
+                        }
+                        developers {
+                            developer {
+                                id = 'maximbircu'
+                                name = 'Maxim Bîrcu'
+                                email = 'maximbircu@gmail.com'
+                            }
+                        }
+                        scm {
+                            connection = 'scm:git:git://example.com/my-library.git'
+                            developerConnection = 'scm:git:ssh://example.com/my-library.git'
+                            url = 'https://git hub.com/maximbircu/devtools-library'
+                        }
+                    }
+
+                    repositories {
+                        maven {
+                            def snapshotsUrl = "https://oss.sonatype.org/content/repositories/snapshots"
+                            def releasesUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+                            url = project.hasProperty('release') ? releasesUrl : snapshotsUrl
+
+                            credentials {
+                                username System.getenv('MAVEN_CENTRALL_USERNAME') ?: MAVEN_CENTRALL_USERNAME
+                                password System.getenv('MAVEN_CENTRALL_PASSWORD') ?: MAVEN_CENTRALL_PASSWORD
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+class PublishConfiguration {
+    Collection srcDirs = []
+}
