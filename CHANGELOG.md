@@ -1,7 +1,9 @@
 Changelog
 =========
 
-## Version 1.0.0 *(In development)*
+## Version 1.0.1 *(In development)*
+
+## Version 1.0.0 06/05/2020
 Issue: [#58](https://github.com/maximbircu/devtools-library/issues/58)	
 - Update the Android library common module dependency for release configuration to 1.0.0
 
