@@ -3,9 +3,21 @@
 # Quick start 
 
 1. **Add the library dependency**
-
-    TBA
-
+    * Configure the maven central repository
+        ```groovy
+        repositories {
+            mavenCentral()
+        }
+        ```
+    * Choose library version from [releases](https://github.com/maximbircu/devtools-library/releases) or [changelog](../../CHANGELOG.md)
+    * Latest version: [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.maximbircu/devtools-android/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.maximbircu/devtools-android)
+    * Add the library dependency
+      ```groovy
+      dependencies {
+          implementation "com.maximbircu:devtools-android:1.0.0"
+      }
+      ```
+      
 <br />
 
 2. **Add a configuration file**
