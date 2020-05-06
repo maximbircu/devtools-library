@@ -69,10 +69,8 @@ ext.configurePublishing = { Closure getConfig ->
                             url = project.hasProperty('release') ? releasesUrl : snapshotsUrl
 
                             credentials {
-                                username System.getenv('MAVEN_CENTRALL_USERNAME') ?:
-                                        MAVEN_CENTRALL_USERNAME
-                                password System.getenv('MAVEN_CENTRALL_PASSWORD') ?:
-                                        MAVEN_CENTRALL_PASSWORD
+                                username System.getenv('MAVEN_CENTRALL_USERNAME') ?: MAVEN_CENTRALL_USERNAME
+                                password System.getenv('MAVEN_CENTRALL_PASSWORD') ?: MAVEN_CENTRALL_PASSWORD
                             }
                         }
                     }
@@ -85,4 +83,3 @@ ext.configurePublishing = { Closure getConfig ->
 class PublishConfiguration {
     Collection srcDirs = []
 }
-
