@@ -3,9 +3,21 @@
 # Quick start 
 
 1. **Add the library dependency**
-
-    TBA
-
+    * Configure the maven central repository
+        ```groovy
+        repositories {
+            mavenCentral()
+        }
+        ```
+    * Choose library version from [releases](https://github.com/maximbircu/devtools-library/releases) or [changelog](../../CHANGELOG.md)
+    * Latest version: [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.maximbircu/devtools-android/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.maximbircu/devtools-common)
+    * Add the library dependency
+      ```groovy
+      dependencies {
+          implementation "com.maximbircu:devtools-android:1.0.0"
+      }
+      ```
+      
 <br />
 
 2. **Add a configuration file**
@@ -13,7 +25,7 @@
     Currently, you can set up your app with dev tools directly from the code or using a [YAML](https://yaml.org/) or [JSON Schema Draft-07](https://json-schema.org/draft-07/json-schema-validation.html) configuration file.
     The example will be based on YML; however, using other sources is not hard. 
     
-    You can check the [supported dev tools](../documentation.md#supported-dev-tools) and [configuration sources](../documentation.md#configuration-sources) for more information.
+    You can check the [supported dev tools](../documentation.md#prebuilt-dev-tool-types) and [configuration sources](../documentation.md#configuration-sources) for more information.
     
     So, create a `dev-tools.yml` configuration file inside your app's `assets` directory.
     

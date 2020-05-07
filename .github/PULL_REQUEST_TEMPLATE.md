@@ -5,7 +5,7 @@ Closes: <!-- Add a link to the issue this PR relates to -->
 - [ ] Documentation (Readme) <!-- Check this if you updated the  documentation  -->
 
 ### What has been done
- 1. <!-- Write a detailed description about what changes your PR bings -->
+ 1. <!-- Write a detailed description about what changes your PR brings -->
  2. 
 
 ### Screenshots
