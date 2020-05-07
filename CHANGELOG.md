@@ -3,6 +3,10 @@ Changelog
 
 ## Version 1.0.1 *(In development)*
 
+Issue: [#62](https://github.com/maximbircu/devtools-library/issues/62)	
+- Fix spelling mistakes in issues templates files
+- Add maven central badges and fill in the "Add the library dependency" section from the QuickStart docs;
+
 ## Version 1.0.0 06/05/2020
 Issue: [#58](https://github.com/maximbircu/devtools-library/issues/58)	
 - Update the Android library common module dependency for release configuration to 1.0.0
