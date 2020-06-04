@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1GY-tQ-oAA" userLabel="Toggle View" customClass="ToggleView" customModule="DevtoolsFramework" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="161" height="85"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is enabled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Z2-TX-Gp3" userLabel="Option Description">
+                    <rect key="frame" x="8" y="52" width="88" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="g3I-Ok-uTg"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="p9k-Ff-cxK">
+                    <rect key="frame" x="104" y="49" width="51" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="31" id="Ocl-aD-wwb"/>
+                        <constraint firstAttribute="width" constant="49" id="rKE-EY-ane"/>
+                    </constraints>
+                    <connections>
+                        <action selector="onSwitchValueChanged" destination="1GY-tQ-oAA" eventType="valueChanged" id="bAA-Aw-9PR"/>
+                    </connections>
+                </switch>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="8FD-yt-BNh" firstAttribute="trailing" secondItem="p9k-Ff-cxK" secondAttribute="trailing" constant="8" id="D37-HX-SkS"/>
+                <constraint firstItem="p9k-Ff-cxK" firstAttribute="centerY" secondItem="8FD-yt-BNh" secondAttribute="centerY" id="DFo-AU-6j7"/>
+                <constraint firstItem="p9k-Ff-cxK" firstAttribute="leading" secondItem="3Z2-TX-Gp3" secondAttribute="trailing" constant="8" id="KwC-wm-8Kk"/>
+                <constraint firstItem="3Z2-TX-Gp3" firstAttribute="leading" secondItem="8FD-yt-BNh" secondAttribute="leading" constant="8" id="UcY-sy-jk2"/>
+                <constraint firstItem="3Z2-TX-Gp3" firstAttribute="centerY" secondItem="8FD-yt-BNh" secondAttribute="centerY" id="jHl-rs-xV8"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="8FD-yt-BNh"/>
+            <connections>
+                <outlet property="switch" destination="p9k-Ff-cxK" id="ERj-Yz-SYU"/>
+            </connections>
+            <point key="canvasLocation" x="-174.63768115942031" y="7.03125"/>
+        </view>
+    </objects>
+</document>

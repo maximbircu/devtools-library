@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3D050E292442777600C4B92C /* DevToolsConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D050E282442777600C4B92C /* DevToolsConfiguration.swift */; };
+		3D29B33A2489ABBB001BB496 /* ToggleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D29B3392489ABBB001BB496 /* ToggleView.xib */; };
+		3D29B33C2489AD36001BB496 /* ToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D29B33B2489AD36001BB496 /* ToggleView.swift */; };
 		3DBB68D4244746E600C675AF /* devtools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBB68D3244746E600C675AF /* devtools.framework */; };
 		3DBB68D5244746E600C675AF /* devtools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBB68D3244746E600C675AF /* devtools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3DC3B2982441FF860038896E /* DevtoolsFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC3B28E2441FF860038896E /* DevtoolsFramework.framework */; };
@@ -44,6 +46,8 @@
 /* Begin PBXFileReference section */
 		1F26371CD67D712D08349A6E /* Pods-DevtoolsFrameworkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevtoolsFrameworkTests.release.xcconfig"; path = "Target Support Files/Pods-DevtoolsFrameworkTests/Pods-DevtoolsFrameworkTests.release.xcconfig"; sourceTree = "<group>"; };
 		3D050E282442777600C4B92C /* DevToolsConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevToolsConfiguration.swift; sourceTree = "<group>"; };
+		3D29B3392489ABBB001BB496 /* ToggleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToggleView.xib; sourceTree = "<group>"; };
+		3D29B33B2489AD36001BB496 /* ToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleView.swift; sourceTree = "<group>"; };
 		3DBB68D3244746E600C675AF /* devtools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = devtools.framework; sourceTree = "<group>"; };
 		3DC3B28E2441FF860038896E /* DevtoolsFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DevtoolsFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC3B2912441FF860038896E /* DevtoolsFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DevtoolsFramework.h; sourceTree = "<group>"; };
@@ -110,6 +114,31 @@
 			path = Frameworks;
 			sourceTree = "<group>";
 		};
+		3D29B3362489A9C2001BB496 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				3D29B3372489A9EA001BB496 /* Tools */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		3D29B3372489A9EA001BB496 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				3D29B3382489AB84001BB496 /* Toogle */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		3D29B3382489AB84001BB496 /* Toogle */ = {
+			isa = PBXGroup;
+			children = (
+				3D29B3392489ABBB001BB496 /* ToggleView.xib */,
+				3D29B33B2489AD36001BB496 /* ToggleView.swift */,
+			);
+			path = Toogle;
+			sourceTree = "<group>";
+		};
 		3DC3B2842441FF860038896E = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +162,7 @@
 		3DC3B2902441FF860038896E /* DevtoolsFramework */ = {
 			isa = PBXGroup;
 			children = (
+				3D29B3362489A9C2001BB496 /* Presentation */,
 				3D050E0F2442000600C4B92C /* SupportingFiles */,
 				3D050E282442777600C4B92C /* DevToolsConfiguration.swift */,
 			);
@@ -245,6 +275,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D29B33A2489ABBB001BB496 /* ToggleView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,6 +358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D29B33C2489AD36001BB496 /* ToggleView.swift in Sources */,
 				3D050E292442777600C4B92C /* DevToolsConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
