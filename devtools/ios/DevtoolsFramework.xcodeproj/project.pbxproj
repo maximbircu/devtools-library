@@ -15,6 +15,10 @@
 		3DC3B2982441FF860038896E /* DevtoolsFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC3B28E2441FF860038896E /* DevtoolsFramework.framework */; };
 		3DC3B29D2441FF860038896E /* DevtoolsFrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC3B29C2441FF860038896E /* DevtoolsFrameworkTests.swift */; };
 		3DC3B29F2441FF860038896E /* DevtoolsFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DC3B2912441FF860038896E /* DevtoolsFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3DF16343248DB24D00865C01 /* DevToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF16342248DB24D00865C01 /* DevToolView.swift */; };
+		3DF16345248DB2AF00865C01 /* DevToolView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF16344248DB2AF00865C01 /* DevToolView.xib */; };
+		3DF16347248DB58B00865C01 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF16346248DB58B00865C01 /* CheckBox.swift */; };
+		3DF1634A248DB70F00865C01 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF16349248DB70F00865C01 /* Images.xcassets */; };
 		5062B79AA3462990EFC0BEE8 /* Pods_DevtoolsFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6717D0D096C3C4E50C34809F /* Pods_DevtoolsFramework.framework */; };
 		F64DED2046DC1E4E9F7DD1F5 /* Pods_DevtoolsFrameworkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 607C77C12EEAFE5FA9841F1A /* Pods_DevtoolsFrameworkTests.framework */; };
 /* End PBXBuildFile section */
@@ -55,6 +59,10 @@
 		3DC3B2972441FF860038896E /* DevtoolsFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DevtoolsFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC3B29C2441FF860038896E /* DevtoolsFrameworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevtoolsFrameworkTests.swift; sourceTree = "<group>"; };
 		3DC3B29E2441FF860038896E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DF16342248DB24D00865C01 /* DevToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevToolView.swift; sourceTree = "<group>"; };
+		3DF16344248DB2AF00865C01 /* DevToolView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DevToolView.xib; sourceTree = "<group>"; };
+		3DF16346248DB58B00865C01 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
+		3DF16349248DB70F00865C01 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4E40BA69027EB797AB1965AE /* Pods-DevtoolsFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevtoolsFramework.debug.xcconfig"; path = "Target Support Files/Pods-DevtoolsFramework/Pods-DevtoolsFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		607C77C12EEAFE5FA9841F1A /* Pods_DevtoolsFrameworkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DevtoolsFrameworkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6717D0D096C3C4E50C34809F /* Pods_DevtoolsFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DevtoolsFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,7 +125,10 @@
 		3D29B3362489A9C2001BB496 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				3DF16348248DB59200865C01 /* Views */,
 				3D29B3372489A9EA001BB496 /* Tools */,
+				3DF16342248DB24D00865C01 /* DevToolView.swift */,
+				3DF16344248DB2AF00865C01 /* DevToolView.xib */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -165,6 +176,7 @@
 				3D29B3362489A9C2001BB496 /* Presentation */,
 				3D050E0F2442000600C4B92C /* SupportingFiles */,
 				3D050E282442777600C4B92C /* DevToolsConfiguration.swift */,
+				3DF16349248DB70F00865C01 /* Images.xcassets */,
 			);
 			path = DevtoolsFramework;
 			sourceTree = "<group>";
@@ -176,6 +188,14 @@
 				3DC3B29E2441FF860038896E /* Info.plist */,
 			);
 			path = DevtoolsFrameworkTests;
+			sourceTree = "<group>";
+		};
+		3DF16348248DB59200865C01 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3DF16346248DB58B00865C01 /* CheckBox.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,6 +295,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DF16345248DB2AF00865C01 /* DevToolView.xib in Resources */,
+				3DF1634A248DB70F00865C01 /* Images.xcassets in Resources */,
 				3D29B33A2489ABBB001BB496 /* ToggleView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,7 +380,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DF16347248DB58B00865C01 /* CheckBox.swift in Sources */,
 				3D29B33C2489AD36001BB496 /* ToggleView.swift in Sources */,
+				3DF16343248DB24D00865C01 /* DevToolView.swift in Sources */,
 				3D050E292442777600C4B92C /* DevToolsConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

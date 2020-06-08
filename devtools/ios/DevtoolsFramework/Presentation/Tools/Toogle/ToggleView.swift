@@ -1,7 +1,7 @@
 import UIKit
 import devtools
 
-final class ToggleView: UIView, ToggleToolView, DevToolLa {
+final class ToggleView: UIView, ToggleToolView {
     @IBOutlet var `switch`: UISwitch!
 
     private var presenter: ToggleToolPresenter!
