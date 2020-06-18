@@ -1,12 +1,14 @@
 import UIKit
 import devtools
 
-final class ToggleView: UIView, ToggleToolView {
+public class ToggleView: UIView, ToggleToolView, NibLoadable {
+    public static var nibName: String = "ToggleView"
+
     @IBOutlet var `switch`: UISwitch!
 
     private var presenter: ToggleToolPresenter!
 
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
 
         presenter = ToggleToolPresenterCompanion().create(view: self)
@@ -15,7 +17,7 @@ final class ToggleView: UIView, ToggleToolView {
     @IBAction func onSwitchValueChanged() {
     }
 
-    func setValue(value: Bool) {
+    public func setValue(value: Bool) {
         `switch`.setOn(value, animated: true)
     }
 }

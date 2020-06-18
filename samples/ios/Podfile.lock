@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
     :path: "../../devtools/ios"
 
 SPEC CHECKSUMS:
-  DevtoolsFramework: e832a828eff1a19fe37431e86df71549e4d54281
+  DevtoolsFramework: e3afc7aceaab22b2b7cd0b8e061e9e38557349a8
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
 
 PODFILE CHECKSUM: 30c9d5076b0e2dfcad09cc3f991c9d8e5251245c
