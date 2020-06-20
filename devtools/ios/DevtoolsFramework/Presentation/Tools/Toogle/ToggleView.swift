@@ -1,8 +1,8 @@
 import UIKit
 import devtools
 
-public class ToggleView: UIView, ToggleToolView, NibLoadable {
-    public static var nibName: String = "ToggleView"
+public class ToggleView: DevToolView, DevToolPresentable, ToggleToolView {
+    public var layoutRes: String = "ToggleView"
 
     @IBOutlet var `switch`: UISwitch!
 
@@ -19,5 +19,9 @@ public class ToggleView: UIView, ToggleToolView, NibLoadable {
 
     public func setValue(value: Bool) {
         `switch`.setOn(value, animated: true)
+    }
+
+    public func onBind(tool: DevTool) {
+
     }
 }

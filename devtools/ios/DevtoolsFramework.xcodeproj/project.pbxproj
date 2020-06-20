@@ -10,6 +10,7 @@
 		3D050E292442777600C4B92C /* DevToolsConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D050E282442777600C4B92C /* DevToolsConfiguration.swift */; };
 		3D29B33A2489ABBB001BB496 /* ToggleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D29B3392489ABBB001BB496 /* ToggleView.xib */; };
 		3D29B33C2489AD36001BB496 /* ToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D29B33B2489AD36001BB496 /* ToggleView.swift */; };
+		3D9669DB249C336400C0B3B2 /* DevToolPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9669DA249C336400C0B3B2 /* DevToolPresentable.swift */; };
 		3D9D56FD248EF8400099C039 /* ToggleToolLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D56FC248EF83F0099C039 /* ToggleToolLayout.swift */; };
 		3DBB68D4244746E600C675AF /* devtools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBB68D3244746E600C675AF /* devtools.framework */; };
 		3DBB68D5244746E600C675AF /* devtools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBB68D3244746E600C675AF /* devtools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -55,6 +56,7 @@
 		3D050E282442777600C4B92C /* DevToolsConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevToolsConfiguration.swift; sourceTree = "<group>"; };
 		3D29B3392489ABBB001BB496 /* ToggleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToggleView.xib; sourceTree = "<group>"; };
 		3D29B33B2489AD36001BB496 /* ToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleView.swift; sourceTree = "<group>"; };
+		3D9669DA249C336400C0B3B2 /* DevToolPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevToolPresentable.swift; sourceTree = "<group>"; };
 		3D9D56FC248EF83F0099C039 /* ToggleToolLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleToolLayout.swift; sourceTree = "<group>"; };
 		3DBB68D3244746E600C675AF /* devtools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = devtools.framework; sourceTree = "<group>"; };
 		3DC3B28E2441FF860038896E /* DevtoolsFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DevtoolsFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +138,7 @@
 				3D29B3372489A9EA001BB496 /* Tools */,
 				3DF16342248DB24D00865C01 /* DevToolView.swift */,
 				3DF16344248DB2AF00865C01 /* DevToolView.xib */,
+				3D9669DA249C336400C0B3B2 /* DevToolPresentable.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				3D29B33C2489AD36001BB496 /* ToggleView.swift in Sources */,
 				3DF16343248DB24D00865C01 /* DevToolView.swift in Sources */,
 				3DF1634D248E4DDC00865C01 /* NibLoadable.swift in Sources */,
+				3D9669DB249C336400C0B3B2 /* DevToolPresentable.swift in Sources */,
 				3D9D56FD248EF8400099C039 /* ToggleToolLayout.swift in Sources */,
 				3D050E292442777600C4B92C /* DevToolsConfiguration.swift in Sources */,
 			);
