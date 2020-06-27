@@ -38,12 +38,12 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="AEE-Ok-sDl" secondAttribute="bottom" id="7Wb-nB-z3m"/>
                         <constraint firstItem="eIa-bi-UIL" firstAttribute="top" secondItem="Rh4-3p-IUW" secondAttribute="top" constant="12" id="CAb-KK-Yam"/>
-                        <constraint firstItem="AEE-Ok-sDl" firstAttribute="leading" secondItem="Rh4-3p-IUW" secondAttribute="leading" id="JTJ-1l-k7g"/>
-                        <constraint firstAttribute="trailing" secondItem="AEE-Ok-sDl" secondAttribute="trailing" id="UOH-FB-QBC"/>
                         <constraint firstItem="ykK-uG-SCQ" firstAttribute="centerY" secondItem="eIa-bi-UIL" secondAttribute="centerY" id="Vm4-n8-ZGr"/>
+                        <constraint firstAttribute="trailing" secondItem="AEE-Ok-sDl" secondAttribute="trailing" id="bIU-rF-MnU"/>
+                        <constraint firstItem="AEE-Ok-sDl" firstAttribute="leading" secondItem="Rh4-3p-IUW" secondAttribute="leading" id="fdh-PV-17H"/>
                         <constraint firstAttribute="trailing" secondItem="ykK-uG-SCQ" secondAttribute="trailing" constant="40" id="gSR-Pj-UOb"/>
+                        <constraint firstAttribute="bottom" secondItem="AEE-Ok-sDl" secondAttribute="bottom" id="mgd-Xm-DYK"/>
                         <constraint firstItem="AEE-Ok-sDl" firstAttribute="top" secondItem="eIa-bi-UIL" secondAttribute="bottom" constant="20" id="oOc-tN-TS2"/>
                         <constraint firstItem="eIa-bi-UIL" firstAttribute="leading" secondItem="Rh4-3p-IUW" secondAttribute="leading" constant="16" id="sPB-oA-Ce6"/>
                     </constraints>
@@ -59,7 +59,9 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="checkBox" destination="ykK-uG-SCQ" id="2Lh-Vj-9RG"/>
                 <outlet property="containerView" destination="AEE-Ok-sDl" id="jBY-uK-oJt"/>
+                <outlet property="optionName" destination="eIa-bi-UIL" id="4EH-7H-NkQ"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="339.17410714285711"/>
         </view>
