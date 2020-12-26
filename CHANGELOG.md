@@ -16,14 +16,19 @@ Issue: [#62](https://github.com/maximbircu/devtools-library/issues/62)
 - Fix spelling mistakes in issues templates files
 - Add maven central badges and fill in the "Add the library dependency" section from the QuickStart docs;
 
+Issue: [#64](https://github.com/maximbircu/devtools-library/issues/64)
+- Rename `com.maximbircu.devtools.android.presentation.tools.enum` package to `*.enumtool`
+- Migrate from deprecated Kotlin Synthetics to Android ViewBinding
+- Update Gradle to 6.7.1 and AGP to 4.1.0
+
 ## Version 1.0.0 06/05/2020
-Issue: [#58](https://github.com/maximbircu/devtools-library/issues/58)	
+Issue: [#58](https://github.com/maximbircu/devtools-library/issues/58)
 - Update the Android library common module dependency for release configuration to 1.0.0
 
-Issue: [#41](https://github.com/maximbircu/devtools-library/issues/41)	
+Issue: [#41](https://github.com/maximbircu/devtools-library/issues/41)
 - Configure maven-publish, signing, and dokka plugins
 
-Issue: [#50](https://github.com/maximbircu/devtools-library/issues/50)	
+Issue: [#50](https://github.com/maximbircu/devtools-library/issues/50)
 - Use same container for both compact and current value views
 
 Issue: [#49](https://github.com/maximbircu/devtools-library/issues/49)
