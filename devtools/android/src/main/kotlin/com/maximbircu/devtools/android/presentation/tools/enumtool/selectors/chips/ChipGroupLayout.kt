@@ -1,4 +1,4 @@
-package com.maximbircu.devtools.android.presentation.tools.enum.selectors.chips
+package com.maximbircu.devtools.android.presentation.tools.enumtool.selectors.chips
 
 import android.content.Context
 import android.content.res.Resources.NotFoundException

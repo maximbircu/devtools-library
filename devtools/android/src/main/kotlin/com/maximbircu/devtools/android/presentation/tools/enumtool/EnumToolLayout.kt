@@ -1,4 +1,4 @@
-package com.maximbircu.devtools.android.presentation.tools.enum
+package com.maximbircu.devtools.android.presentation.tools.enumtool
 
 import android.content.Context
 import android.view.View
@@ -7,8 +7,8 @@ import com.maximbircu.devtools.android.R
 import com.maximbircu.devtools.android.databinding.LayoutEnumToolBinding
 import com.maximbircu.devtools.android.extensions.setOnClickListener
 import com.maximbircu.devtools.android.presentation.tool.DevToolLayout
-import com.maximbircu.devtools.android.presentation.tools.enum.selectors.chips.EnumToolChipsOptionSelectorLayout
-import com.maximbircu.devtools.android.presentation.tools.enum.selectors.dialog.EnumToolOptionSelectorDialog
+import com.maximbircu.devtools.android.presentation.tools.enumtool.selectors.chips.EnumToolChipsOptionSelectorLayout
+import com.maximbircu.devtools.android.presentation.tools.enumtool.selectors.dialog.EnumToolOptionSelectorDialog
 import com.maximbircu.devtools.common.presentation.tools.enum.EnumTool
 import com.maximbircu.devtools.common.presentation.tools.enum.EnumToolPresenter
 import com.maximbircu.devtools.common.presentation.tools.enum.EnumToolView
