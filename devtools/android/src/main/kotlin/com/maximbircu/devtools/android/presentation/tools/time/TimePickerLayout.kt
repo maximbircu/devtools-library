@@ -3,7 +3,6 @@ package com.maximbircu.devtools.android.presentation.tools.time
 import android.content.Context
 import android.util.AttributeSet
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.maximbircu.devtools.android.R
 import com.maximbircu.devtools.android.databinding.LayoutTimePickerBinding
 import com.maximbircu.devtools.android.extensions.inflater
 import com.maximbircu.devtools.common.presentation.tools.time.Time
@@ -40,7 +39,6 @@ internal class TimePickerLayout @JvmOverloads constructor(
     private val binding = LayoutTimePickerBinding.inflate(context.inflater, this)
 
     init {
-        inflate(context, R.layout.layout_time_picker, this)
         binding.days.maxValue = DEFAULT_MAX_DAYS_VALUE
         binding.hours.maxValue = DEFAULT_MAX_HOURS_VALUE
         binding.minutes.maxValue = DEFAULT_MAX_MINUTES_VALUE
