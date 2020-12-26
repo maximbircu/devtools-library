@@ -26,5 +26,3 @@ internal fun View.setEnabledRecursively(isEnabled: Boolean) {
         this.children.forEach { it.setEnabledRecursively(isEnabled) }
     }
 }
-
-internal val Context.inflater: LayoutInflater get() = LayoutInflater.from(this)
