@@ -6,10 +6,9 @@ import android.os.Bundle
 import android.view.Gravity
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.maximbircu.devtools.R.layout
 import com.maximbircu.devtools.SampleApplication
 import com.maximbircu.devtools.android.DevToolsConfigurationScreen
-import kotlinx.android.synthetic.main.activity_tools_container.devToolsContainer
+import com.maximbircu.devtools.databinding.ActivityToolsContainerBinding
 
 class YamlSourceConfigActivity : AppCompatActivity() {
     private val devtools = SampleApplication.application.yamlDevTools
@@ -23,7 +22,8 @@ class YamlSourceConfigActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(layout.activity_tools_container)
+        val binding = ActivityToolsContainerBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         devtools.onConfigUpdated = { isCriticalUpdate ->
             val toast = Toast.makeText(
@@ -35,6 +35,6 @@ class YamlSourceConfigActivity : AppCompatActivity() {
             toast.show()
         }
 
-        DevToolsConfigurationScreen.attachToView(devToolsContainer, devtools)
+        DevToolsConfigurationScreen.attachToView(binding.devToolsContainer, devtools)
     }
 }

@@ -6,7 +6,8 @@ import android.util.AttributeSet
 import androidx.core.view.ViewCompat
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
-import com.maximbircu.devtools.android.R
+import com.maximbircu.devtools.android.databinding.LayoutEnumToolChipBinding
+import com.maximbircu.devtools.android.extensions.inflater
 
 internal class ChipGroupLayout @JvmOverloads constructor(
     context: Context,
@@ -33,10 +34,10 @@ internal class ChipGroupLayout @JvmOverloads constructor(
     fun getCheckedChip(): Chip = findViewById(checkedChipId)
 
     private fun createChipView(id: Int, text: String): Chip {
-        val chip = inflate(context, R.layout.layout_enum_tool_chip, null) as Chip
-        chip.id = id
-        chip.text = text
-        chip.setOnClickListener { check(id) }
-        return chip
+        val chip = LayoutEnumToolChipBinding.inflate(context.inflater)
+        chip.root.id = id
+        chip.root.text = text
+        chip.root.setOnClickListener { check(id) }
+        return chip.root
     }
 }

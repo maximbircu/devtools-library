@@ -1,5 +1,7 @@
 package com.maximbircu.devtools.android.extensions
 
+import android.content.Context
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.children
@@ -24,3 +26,5 @@ internal fun View.setEnabledRecursively(isEnabled: Boolean) {
         this.children.forEach { it.setEnabledRecursively(isEnabled) }
     }
 }
+
+internal val Context.inflater: LayoutInflater get() = LayoutInflater.from(this)

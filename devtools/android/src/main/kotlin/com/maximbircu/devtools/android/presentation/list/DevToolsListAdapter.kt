@@ -6,9 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.maximbircu.devtools.android.DevToolsViewRegistry
 import com.maximbircu.devtools.android.presentation.tool.DevToolLayout
+import com.maximbircu.devtools.android.presentation.tools.group.GroupToolLayout
 import com.maximbircu.devtools.common.core.DevTool
-import com.maximbircu.devtools.common.presentation.tools.group.GroupToolView
-import kotlinx.android.synthetic.main.layout_group_tool.view.devToolsViewsContainer
 
 internal class DevToolsListAdapter(
     private val devtools: List<DevTool<*>>
@@ -38,7 +37,7 @@ internal class DevToolsListAdapter(
     }
 
     private fun shareRecycledViewPoolWith(view: View) {
-        if (view is GroupToolView) {
+        if (view is GroupToolLayout) {
             view.devToolsViewsContainer.setRecycledViewPool(recyclerView.recycledViewPool)
         }
     }
