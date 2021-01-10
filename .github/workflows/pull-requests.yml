@@ -9,7 +9,7 @@ jobs:
     name: Check pull request styling
     runs-on: ubuntu-latest
     env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Check branch name and commit messages style
         uses: maximbircu/pull-request-checkstyle@v1.0.0
