@@ -3,6 +3,9 @@ Changelog
 
 ## Version 1.0.1 *(In development)*
 
+Issue: [#66](https://github.com/maximbircu/devtools-library/issues/66)
+- Replace the usage of GITHUB_ACCESS_TOKEN with the standard GITHUB_TOKEN secret
+
 Issue: [#62](https://github.com/maximbircu/devtools-library/issues/62)	
 - Fix spelling mistakes in issues templates files
 - Add maven central badges and fill in the "Add the library dependency" section from the QuickStart docs;
