@@ -5,6 +5,12 @@ Changelog
 
 Issue: [#66](https://github.com/maximbircu/devtools-library/issues/66)
 - Replace the usage of GITHUB_ACCESS_TOKEN with the standard GITHUB_TOKEN secret
+- Update targetSdk to 30
+- Update material to 1.2.1
+- Update appcompat to 1.2.0
+- Update constraints layout to 2.1.0-alpha2
+- Update core-ktx to 1.3.2
+- Update snakeyaml to 1.27 
 
 Issue: [#62](https://github.com/maximbircu/devtools-library/issues/62)	
 - Fix spelling mistakes in issues templates files
