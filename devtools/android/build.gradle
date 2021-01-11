@@ -20,11 +20,11 @@ configureJacoco {
 }
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
 
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 29
+        targetSdkVersion 30
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
@@ -51,18 +51,18 @@ dependencies {
     debugApi(project(':devtools:common')) { transitive = true }
     releaseApi("com.maximbircu:devtools-common:1.0.0") { transitive = true }
 
-    implementation "org.yaml:snakeyaml:1.25"
-    implementation "com.google.android.material:material:1.1.0"
+    implementation "org.yaml:snakeyaml:1.27"
+    implementation "com.google.android.material:material:1.2.1"
 
     // kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     // androidx
-    implementation "androidx.core:core-ktx:1.2.0"
-    implementation "androidx.appcompat:appcompat:1.1.0"
+    implementation "androidx.core:core-ktx:1.3.2"
+    implementation "androidx.appcompat:appcompat:1.2.0"
     implementation "androidx.cardview:cardview:1.0.0"
     implementation "androidx.recyclerview:recyclerview:1.1.0"
-    implementation "androidx.constraintlayout:constraintlayout:2.0.0-beta4"
+    implementation "androidx.constraintlayout:constraintlayout:2.1.0-alpha2"
 
     // test
     testImplementation "org.jetbrains.kotlin:kotlin-test"
