@@ -17,6 +17,7 @@ Issue: [#62](https://github.com/maximbircu/devtools-library/issues/62)
 - Add maven central badges and fill in the "Add the library dependency" section from the QuickStart docs;
 
 Issue: [#64](https://github.com/maximbircu/devtools-library/issues/64)
+- Update Kotlin to `1.3.71`
 - Rename `com.maximbircu.devtools.android.presentation.tools.enum` package to `*.enumtool`
 - Migrate from deprecated Kotlin Synthetics to Android ViewBinding
 - Update Gradle to 6.7.1 and AGP to 4.1.0
