@@ -52,7 +52,7 @@ abstract class DevToolLayout<T : DevTool<*>>(
 
     override fun hideEnableToggle() = binding.headerContainer.toolEnableToggle.makeInvisible()
 
-    override fun setToolEnableState(isEnabled: Boolean) = with (binding) {
+    override fun setToolEnableState(isEnabled: Boolean) = with(binding) {
         devToolContentContainerOverlay.visibility = if (isEnabled) GONE else VISIBLE
         devToolCard.isEnabled = isEnabled
         headerContainer.toolEnableToggle.isChecked = isEnabled
