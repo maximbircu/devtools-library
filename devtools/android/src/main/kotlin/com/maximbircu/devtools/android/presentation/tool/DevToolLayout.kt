@@ -5,6 +5,8 @@ import android.view.animation.AnimationUtils.loadAnimation
 import android.widget.PopupMenu
 import android.widget.RelativeLayout
 import com.maximbircu.devtools.android.R
+import com.maximbircu.devtools.android.databinding.LayoutDevToolBinding
+import com.maximbircu.devtools.android.extensions.inflater
 import com.maximbircu.devtools.android.extensions.makeInvisible
 import com.maximbircu.devtools.android.extensions.setEnabledRecursively
 import com.maximbircu.devtools.android.extensions.setOnClickListener
@@ -13,12 +15,6 @@ import com.maximbircu.devtools.android.presentation.tool.help.DevToolHelpDialog
 import com.maximbircu.devtools.common.core.DevTool
 import com.maximbircu.devtools.common.presentation.tool.DevToolPresenter
 import com.maximbircu.devtools.common.presentation.tool.DevToolView
-import kotlinx.android.synthetic.main.layout_dev_tool.view.devToolCard
-import kotlinx.android.synthetic.main.layout_dev_tool.view.devToolContentContainer
-import kotlinx.android.synthetic.main.layout_dev_tool.view.devToolContentContainerOverlay
-import kotlinx.android.synthetic.main.layout_dev_tool_header.view.menuButton
-import kotlinx.android.synthetic.main.layout_dev_tool_header.view.toolEnableToggle
-import kotlinx.android.synthetic.main.layout_dev_tool_header.view.toolTitle
 
 @Suppress("LeakingThis")
 abstract class DevToolLayout<T : DevTool<*>>(
@@ -26,16 +22,17 @@ abstract class DevToolLayout<T : DevTool<*>>(
 ) : RelativeLayout(context), DevToolView {
     abstract val layoutRes: Int
     private val presenter: DevToolPresenter = DevToolPresenter.create(this)
+    protected val binding = LayoutDevToolBinding.inflate(context.inflater, this, true)
 
     init {
-        inflate(context, R.layout.layout_dev_tool, this)
-        inflate(context, layoutRes, devToolContentContainer)
-        menuButton.setOnClickListener(presenter::onContextMenuButtonClick)
-        toolEnableToggle.setOnCheckedChangeListener { _, isEnabled ->
+        inflate(context, layoutRes, binding.devToolContentContainer)
+        binding.headerContainer.menuButton.setOnClickListener(presenter::onContextMenuButtonClick)
+        binding.headerContainer.toolEnableToggle.setOnCheckedChangeListener { _, isEnabled ->
             presenter.onToolEnableToggleUpdated(isEnabled)
         }
-        devToolContentContainerOverlay.setOnClickListener {
-            toolEnableToggle.startAnimation(loadAnimation(context, R.anim.bounce))
+        binding.devToolContentContainerOverlay.setOnClickListener {
+            binding.headerContainer.toolEnableToggle
+                .startAnimation(loadAnimation(context, R.anim.bounce))
         }
     }
 
@@ -48,22 +45,22 @@ abstract class DevToolLayout<T : DevTool<*>>(
     abstract fun onBind(tool: T)
 
     override fun setTitle(title: String?) {
-        toolTitle.text = title
+        binding.headerContainer.toolTitle.text = title
     }
 
-    override fun showEnableToggle() = toolEnableToggle.show()
+    override fun showEnableToggle() = binding.headerContainer.toolEnableToggle.show()
 
-    override fun hideEnableToggle() = toolEnableToggle.makeInvisible()
+    override fun hideEnableToggle() = binding.headerContainer.toolEnableToggle.makeInvisible()
 
-    override fun setToolEnableState(isEnabled: Boolean) {
+    override fun setToolEnableState(isEnabled: Boolean) = with(binding) {
         devToolContentContainerOverlay.visibility = if (isEnabled) GONE else VISIBLE
         devToolCard.isEnabled = isEnabled
-        toolEnableToggle.isChecked = isEnabled
+        headerContainer.toolEnableToggle.isChecked = isEnabled
         devToolContentContainer.setEnabledRecursively(isEnabled)
     }
 
     override fun showToolContextMenu() {
-        val popup = PopupMenu(context, menuButton)
+        val popup = PopupMenu(context, binding.headerContainer.menuButton)
         popup.menuInflater.inflate(R.menu.dev_tool_context_menu, popup.menu)
         popup.setOnMenuItemClickListener(DevToolContextMenuClickListener(presenter))
         popup.show()

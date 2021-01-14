@@ -14,7 +14,7 @@
         android:requiresFadingEdge="horizontal"
         android:scrollbars="none"
         >
-        <com.maximbircu.devtools.android.presentation.tools.enum.selectors.chips.ChipGroupLayout
+        <com.maximbircu.devtools.android.presentation.tools.enumtool.selectors.chips.ChipGroupLayout
             android:id="@+id/chipGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

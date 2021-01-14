@@ -1,4 +1,4 @@
-package com.maximbircu.devtools.android.presentation.tools.enum.selectors.dialog
+package com.maximbircu.devtools.android.presentation.tools.enumtool.selectors.dialog
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

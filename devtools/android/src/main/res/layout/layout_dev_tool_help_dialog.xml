@@ -56,14 +56,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
-            android:drawableStart="@android:drawable/stat_sys_warning"
-            android:drawableLeft="@android:drawable/stat_sys_warning"
             android:drawablePadding="4dp"
-            android:drawableTint="?android:textColorPrimary"
             android:gravity="bottom"
             android:text="@string/dev_tool_help_dialog_critical_update"
             android:textAppearance="?attr/textAppearanceBody2"
             android:textStyle="bold"
+            app:drawableStartCompat="@android:drawable/stat_sys_warning"
+            app:drawableTint="?android:textColorPrimary"
             tools:targetApi="m"
             />
     </LinearLayout>
