@@ -37,6 +37,12 @@ interface DevToolPresenter : DevToolContextMenuPresenter {
     fun onToolBind(tool: DevTool<*>)
 
     /**
+     * Should be invoked as son as the user touches the input area of the dev tool trying to update
+     * the dev tool configuration value.
+     */
+    fun onAttemptToEditToolConfigValue()
+
+    /**
      * Should be called whenever the user toggles the tool enable toggle.
      */
     fun onToolEnableToggleUpdated(isEnabled: Boolean)
@@ -68,6 +74,12 @@ private class DevToolPresenterImpl(
         view.setTitle(tool.title)
         view.setToolEnableState(tool.isEnabled)
         updateToolEnableToggleVisibility()
+    }
+
+    override fun onAttemptToEditToolConfigValue() {
+        if (tool.canBeDisabled && !tool.isEnabled) {
+            onToolEnableToggleUpdated(true)
+        }
     }
 
     override fun onToolEnableToggleUpdated(isEnabled: Boolean) {

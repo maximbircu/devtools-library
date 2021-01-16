@@ -77,6 +77,20 @@ class DevToolPresenterImplTest : BasePresenterTest<DevToolView, DevToolPresenter
         verify { tool.isEnabled = true }
     }
 
+    @Test
+    fun `enables tool whenever the user tries update its configuration value`() {
+        val tool: TextTool = createTool {
+            ::isEnabled returns false
+            ::canBeDisabled returns true
+        }
+        presenter.onToolBind(tool)
+
+        presenter.onAttemptToEditToolConfigValue()
+
+        verify { tool.isEnabled = true }
+        verify { view.setToolEnableState(true) }
+    }
+
     // region Tool Context Menu
 
     @Test
