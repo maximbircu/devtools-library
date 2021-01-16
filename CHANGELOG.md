@@ -3,6 +3,9 @@ Changelog
 
 ## Version 1.0.1 *(In development)*
 
+Issue: [#68](https://github.com/maximbircu/devtools-library/issues/66)
+- Enable dev tool automatically whenever the user tries to update its configuration value
+
 Issue: [#66](https://github.com/maximbircu/devtools-library/issues/66)
 - Replace the usage of GITHUB_ACCESS_TOKEN with the standard GITHUB_TOKEN secret
 - Update targetSdk to 30
