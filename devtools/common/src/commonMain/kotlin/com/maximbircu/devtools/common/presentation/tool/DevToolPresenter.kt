@@ -37,7 +37,7 @@ interface DevToolPresenter : DevToolContextMenuPresenter {
     fun onToolBind(tool: DevTool<*>)
 
     /**
-     * Should be invoked as son as the user touches the input area of the dev tool trying to update
+     * Should be invoked as soon as the user touches the input area of the dev tool trying to update
      * the dev tool configuration value.
      */
     fun onAttemptToEditToolConfigValue()
