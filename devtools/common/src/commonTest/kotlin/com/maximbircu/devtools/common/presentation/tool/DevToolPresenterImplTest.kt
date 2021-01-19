@@ -85,6 +85,7 @@ class DevToolPresenterImplTest : BasePresenterTest<DevToolView, DevToolPresenter
             ::canBeDisabled returns true
         }
         presenter.onToolBind(tool)
+        clearAllMocks(answers = false)
 
         presenter.onAttemptToEditToolConfigValue()
 
@@ -99,7 +100,7 @@ class DevToolPresenterImplTest : BasePresenterTest<DevToolView, DevToolPresenter
             ::canBeDisabled returns true
         }
         presenter.onToolBind(tool)
-        clearAllMocks(recordedCalls = true)
+        clearAllMocks(answers = false)
 
         presenter.onAttemptToEditToolConfigValue()
 
@@ -114,7 +115,7 @@ class DevToolPresenterImplTest : BasePresenterTest<DevToolView, DevToolPresenter
             ::canBeDisabled returns false
         }
         presenter.onToolBind(tool)
-        clearAllMocks(recordedCalls = true)
+        clearAllMocks(answers = false)
 
         presenter.onAttemptToEditToolConfigValue()
 
@@ -129,7 +130,7 @@ class DevToolPresenterImplTest : BasePresenterTest<DevToolView, DevToolPresenter
             ::canBeDisabled returns false
         }
         presenter.onToolBind(tool)
-        clearAllMocks(recordedCalls = true)
+        clearAllMocks(answers = false)
 
         presenter.onAttemptToEditToolConfigValue()
 
