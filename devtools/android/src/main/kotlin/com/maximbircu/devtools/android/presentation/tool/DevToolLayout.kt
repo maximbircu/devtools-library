@@ -33,6 +33,7 @@ abstract class DevToolLayout<T : DevTool<*>>(
         binding.devToolContentContainerOverlay.setOnClickListener {
             binding.headerContainer.toolEnableToggle
                 .startAnimation(loadAnimation(context, R.anim.bounce))
+            presenter.onAttemptToEditToolConfigValue()
         }
     }
 

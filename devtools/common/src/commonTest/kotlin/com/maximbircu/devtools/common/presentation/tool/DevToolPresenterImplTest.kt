@@ -7,6 +7,7 @@ import com.maximbircu.devtools.common.presentation.tools.text.TextTool
 import com.maximbircu.devtools.common.presentation.tools.toggle.ToggleTool
 import com.maximbircu.devtools.common.utils.mockk
 import com.maximbircu.devtools.common.utils.returns
+import io.mockk.clearAllMocks
 import io.mockk.verify
 import kotlin.test.Test
 
@@ -75,6 +76,66 @@ class DevToolPresenterImplTest : BasePresenterTest<DevToolView, DevToolPresenter
         presenter.onToolEnableToggleUpdated(true)
 
         verify { tool.isEnabled = true }
+    }
+
+    @Test
+    fun `enables disabled tool when user tries to update it and the tool can be enabled`() {
+        val tool: TextTool = createTool {
+            ::isEnabled returns false
+            ::canBeDisabled returns true
+        }
+        presenter.onToolBind(tool)
+        clearAllMocks(answers = false)
+
+        presenter.onAttemptToEditToolConfigValue()
+
+        verify { tool.isEnabled = true }
+        verify { view.setToolEnableState(true) }
+    }
+
+    @Test
+    fun `doesn't enable enabled tool when user tires to update it`() {
+        val tool: TextTool = createTool {
+            ::isEnabled returns true
+            ::canBeDisabled returns true
+        }
+        presenter.onToolBind(tool)
+        clearAllMocks(answers = false)
+
+        presenter.onAttemptToEditToolConfigValue()
+
+        verify(exactly = 0) { tool.isEnabled = true }
+        verify(exactly = 0) { view.setToolEnableState(true) }
+    }
+
+    @Test
+    fun `doesn't enable a tool that can not be enabled when user tires to update it`() {
+        val tool: TextTool = createTool {
+            ::isEnabled returns true
+            ::canBeDisabled returns false
+        }
+        presenter.onToolBind(tool)
+        clearAllMocks(answers = false)
+
+        presenter.onAttemptToEditToolConfigValue()
+
+        verify(exactly = 0) { tool.isEnabled = true }
+        verify(exactly = 0) { view.setToolEnableState(true) }
+    }
+
+    @Test
+    fun `doesn't enable a disabled tool that can not be enabled when user tires to update it`() {
+        val tool: TextTool = createTool {
+            ::isEnabled returns false
+            ::canBeDisabled returns false
+        }
+        presenter.onToolBind(tool)
+        clearAllMocks(answers = false)
+
+        presenter.onAttemptToEditToolConfigValue()
+
+        verify(exactly = 0) { tool.isEnabled = true }
+        verify(exactly = 0) { view.setToolEnableState(true) }
     }
 
     // region Tool Context Menu
