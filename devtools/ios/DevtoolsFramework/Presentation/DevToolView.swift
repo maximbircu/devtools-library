@@ -3,7 +3,7 @@ import UIKit
 public class DevToolView: UIView, NibLoadable {
     @IBOutlet private var optionName: UILabel!
     @IBOutlet private var checkBox: CheckBox!
-    @IBOutlet var containerView: UIView!
+    @IBOutlet private(set) var containerView: UIView!
 
     public var containerTool: DevToolPresentable!
 
@@ -23,16 +23,15 @@ public class DevToolView: UIView, NibLoadable {
               let devToolView = DevToolView.instantiate() as? DevToolView else { return self }
 
         transferProperties(to: devToolView)
-        let replacementConstraints = reparentedConstraints(to: devToolView)
-        devToolView.addConstraints(replacementConstraints)
 
-        devToolView.containerView.transferProperties(to: devToolElementView)
-        devToolView.containerView.addSubview(devToolElementView)
+        let toolContainer: UIView = devToolView.containerView
+        toolContainer.transferProperties(to: devToolElementView)
+        toolContainer.addSubview(devToolElementView)
 
-        devToolElementView.topAnchor.constraint(equalTo: devToolView.topAnchor, constant: 0).isActive = true
-        devToolElementView.bottomAnchor.constraint(equalTo: devToolView.bottomAnchor, constant: 0).isActive = true
-        devToolElementView.leadingAnchor.constraint(equalTo: devToolView.leadingAnchor, constant: 0).isActive = true
-        devToolElementView.trailingAnchor.constraint(equalTo: devToolView.trailingAnchor, constant: 0).isActive = true
+        devToolElementView.topAnchor.constraint(equalTo: toolContainer.topAnchor, constant: 0).isActive = true
+        devToolElementView.bottomAnchor.constraint(equalTo: toolContainer.bottomAnchor, constant: 0).isActive = true
+        devToolElementView.leadingAnchor.constraint(equalTo: toolContainer.leadingAnchor, constant: 0).isActive = true
+        devToolElementView.trailingAnchor.constraint(equalTo: toolContainer.trailingAnchor, constant: 0).isActive = true
 
         return devToolView
     }

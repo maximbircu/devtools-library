@@ -18,34 +18,47 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rh4-3p-IUW">
                     <rect key="frame" x="0.0" y="0.0" width="422" height="103"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" text="Option Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIa-bi-UIL">
-                            <rect key="frame" x="16" y="12" width="103" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                            <color key="textColor" systemColor="lightTextColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ykK-uG-SCQ" customClass="CheckBox" customModule="DevtoolsFramework" customModuleProvider="target">
-                            <rect key="frame" x="357" y="10" width="25" height="25"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="12o-Xd-NxJ">
+                            <rect key="frame" x="0.0" y="0.0" width="422" height="44.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" text="Option Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIa-bi-UIL">
+                                    <rect key="frame" x="16" y="12" width="103" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                    <color key="textColor" systemColor="lightTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ykK-uG-SCQ" customClass="CheckBox" customModule="DevtoolsFramework" customModuleProvider="target">
+                                    <rect key="frame" x="357" y="10" width="25" height="25"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="25" id="M57-zR-coG"/>
+                                        <constraint firstAttribute="width" constant="25" id="t9f-w1-Ube"/>
+                                    </constraints>
+                                    <state key="normal" image="unchecked_checkbox"/>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="25" id="M57-zR-coG"/>
-                                <constraint firstAttribute="width" constant="25" id="t9f-w1-Ube"/>
+                                <constraint firstItem="ykK-uG-SCQ" firstAttribute="centerY" secondItem="eIa-bi-UIL" secondAttribute="centerY" id="2yi-8x-t5a"/>
+                                <constraint firstItem="eIa-bi-UIL" firstAttribute="leading" secondItem="12o-Xd-NxJ" secondAttribute="leading" constant="16" id="Kjz-ik-WGG"/>
+                                <constraint firstItem="eIa-bi-UIL" firstAttribute="top" secondItem="12o-Xd-NxJ" secondAttribute="top" constant="12" id="ZGW-vo-r36"/>
+                                <constraint firstAttribute="trailing" secondItem="ykK-uG-SCQ" secondAttribute="trailing" constant="40" id="guf-9a-dfb"/>
+                                <constraint firstAttribute="bottom" secondItem="eIa-bi-UIL" secondAttribute="bottom" constant="12" id="rsc-rY-eyO"/>
                             </constraints>
-                        </button>
+                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AEE-Ok-sDl">
-                            <rect key="frame" x="0.0" y="52.5" width="422" height="50.5"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <rect key="frame" x="0.0" y="44.5" width="422" height="58.5"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="eIa-bi-UIL" firstAttribute="top" secondItem="Rh4-3p-IUW" secondAttribute="top" constant="12" id="CAb-KK-Yam"/>
-                        <constraint firstItem="ykK-uG-SCQ" firstAttribute="centerY" secondItem="eIa-bi-UIL" secondAttribute="centerY" id="Vm4-n8-ZGr"/>
+                        <constraint firstItem="12o-Xd-NxJ" firstAttribute="leading" secondItem="Rh4-3p-IUW" secondAttribute="leading" id="JsH-LO-N1o"/>
+                        <constraint firstItem="12o-Xd-NxJ" firstAttribute="top" secondItem="Rh4-3p-IUW" secondAttribute="top" id="Pna-AV-TGN"/>
+                        <constraint firstAttribute="trailing" secondItem="12o-Xd-NxJ" secondAttribute="trailing" id="aYg-AP-rUM"/>
                         <constraint firstAttribute="trailing" secondItem="AEE-Ok-sDl" secondAttribute="trailing" id="bIU-rF-MnU"/>
                         <constraint firstItem="AEE-Ok-sDl" firstAttribute="leading" secondItem="Rh4-3p-IUW" secondAttribute="leading" id="fdh-PV-17H"/>
-                        <constraint firstAttribute="trailing" secondItem="ykK-uG-SCQ" secondAttribute="trailing" constant="40" id="gSR-Pj-UOb"/>
+                        <constraint firstItem="AEE-Ok-sDl" firstAttribute="top" secondItem="12o-Xd-NxJ" secondAttribute="bottom" id="hIc-Us-DTr"/>
                         <constraint firstAttribute="bottom" secondItem="AEE-Ok-sDl" secondAttribute="bottom" id="mgd-Xm-DYK"/>
-                        <constraint firstItem="AEE-Ok-sDl" firstAttribute="top" secondItem="eIa-bi-UIL" secondAttribute="bottom" constant="20" id="oOc-tN-TS2"/>
-                        <constraint firstItem="eIa-bi-UIL" firstAttribute="leading" secondItem="Rh4-3p-IUW" secondAttribute="leading" constant="16" id="sPB-oA-Ce6"/>
                     </constraints>
                 </view>
             </subviews>
@@ -67,6 +80,7 @@
         </view>
     </objects>
     <resources>
+        <image name="unchecked_checkbox" width="128" height="128"/>
         <systemColor name="lightTextColor">
             <color white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

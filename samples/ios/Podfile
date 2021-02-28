@@ -7,7 +7,7 @@ target 'DevToolsApp' do
 
   # Pods for DevToolsApp
   pod 'SwiftLint'
-  # TODO RRemove local paths before publishing
+  # TODO Remove local paths before release
   pod 'DevtoolsFramework', :path => '../../devtools/ios' # Local path for development purposes.
 
   target 'DevToolsAppTests' do

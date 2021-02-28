@@ -14,6 +14,11 @@ public class ToggleView: DevToolView, DevToolPresentable, ToggleToolView {
 
     public override func awakeFromNib() {
         presenter = ToggleToolPresenterCompanion().create(view: self)
+        if #available(iOS 13.0, *) {
+            `switch`.subviews.first?.subviews.first?.backgroundColor = UIColor.gray
+        } else {
+            `switch`.tintColor = UIColor.gray
+        }
     }
 
     @IBAction func onSwitchValueChanged() {

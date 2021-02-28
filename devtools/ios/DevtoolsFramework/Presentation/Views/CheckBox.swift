@@ -11,8 +11,9 @@ final class CheckBox: UIButton {
     }
 
     private func setupImages() {
-        setImage(UIImage(named: "checked_checkbox"), for: .selected)
-        setImage(UIImage(named: "unchecked_checkbox"), for: .normal)
+        let bundle = Bundle(for: type(of: self))
+        setImage(UIImage(named: "checked_checkbox", in: bundle, compatibleWith: nil), for: .selected)
+        setImage(UIImage(named: "unchecked_checkbox", in: bundle, compatibleWith: nil), for: .normal)
     }
 
     private func setupAction() {

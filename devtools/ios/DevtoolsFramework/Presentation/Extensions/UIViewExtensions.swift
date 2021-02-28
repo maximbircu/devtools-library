@@ -8,7 +8,7 @@ extension UIView {
             let nibType = type(of: self) as? (UIView & NibLoadable).Type else { return self }
 
         let replacement = nibType.instantiate()
-//        guard type(of: replacement) == nibType else { return self }
+        guard type(of: replacement) == nibType else { return self }
 
         transferProperties(to: replacement)
         let replacementConstraints = reparentedConstraints(to: replacement)
