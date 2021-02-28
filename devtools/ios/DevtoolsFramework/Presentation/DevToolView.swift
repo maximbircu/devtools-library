@@ -9,34 +9,30 @@ public class DevToolView: UIView, NibLoadable {
 
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
-
-//        addSubview(DevToolView.instantiate(withOwner: self))
-//        containerView.addSubview(Self.instantiate(withOwner: self))
     }
 
     public override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         print("DevToolView awake from nib")
     }
 
     override open func awakeAfter(using aDecoder: NSCoder) -> Any? {
-        let toggleView = super.awakeAfter(using: aDecoder) as! UIView
-        guard !toggleView.translatesAutoresizingMaskIntoConstraints else { return self }
-        let devToolView = DevToolView.instantiate() as! DevToolView
+        guard let devToolElementView = super.awakeAfter(using: aDecoder) as? UIView,
+              !devToolElementView.translatesAutoresizingMaskIntoConstraints,
+              let devToolView = DevToolView.instantiate() as? DevToolView else { return self }
+
         transferProperties(to: devToolView)
         let replacementConstraints = reparentedConstraints(to: devToolView)
         devToolView.addConstraints(replacementConstraints)
 
-        devToolView.containerView.transferProperties(to: toggleView)
-//        replacementConstraints = devToolView.containerView.reparentedConstraints(to: toggleView)
-//        toggleView.addConstraints(replacementConstraints)
-        devToolView.containerView.addSubview(toggleView)
+        devToolView.containerView.transferProperties(to: devToolElementView)
+        devToolView.containerView.addSubview(devToolElementView)
 
-        toggleView.topAnchor.constraint(equalTo: devToolView.topAnchor, constant: 0).isActive = true
-        toggleView.bottomAnchor.constraint(equalTo: devToolView.bottomAnchor, constant: 0).isActive = true
-        toggleView.leadingAnchor.constraint(equalTo: devToolView.leadingAnchor, constant: 0).isActive = true
-        toggleView.trailingAnchor.constraint(equalTo: devToolView.trailingAnchor, constant: 0).isActive = true
+        devToolElementView.topAnchor.constraint(equalTo: devToolView.topAnchor, constant: 0).isActive = true
+        devToolElementView.bottomAnchor.constraint(equalTo: devToolView.bottomAnchor, constant: 0).isActive = true
+        devToolElementView.leadingAnchor.constraint(equalTo: devToolView.leadingAnchor, constant: 0).isActive = true
+        devToolElementView.trailingAnchor.constraint(equalTo: devToolView.trailingAnchor, constant: 0).isActive = true
 
         return devToolView
     }

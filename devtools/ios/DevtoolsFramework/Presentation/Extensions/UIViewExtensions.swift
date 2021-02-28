@@ -1,18 +1,5 @@
 import UIKit
 
-public class ToggleToolLayout: DevtoolsFramework.DevToolView {
-
-    public required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-
-    public override func awakeFromNib() {
-        super.awakeFromNib()
-
-        containerView.addSubview(ToggleView.instantiate())
-    }
-}
-
 extension UIView {
     /// Used to intercept placeholder view's decoded from storyboards
     /// and replace them with real ones to flatten the view hieararchy

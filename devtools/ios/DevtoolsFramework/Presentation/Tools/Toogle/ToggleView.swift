@@ -16,15 +16,6 @@ public class ToggleView: DevToolView, DevToolPresentable, ToggleToolView {
         presenter = ToggleToolPresenterCompanion().create(view: self)
     }
 
-    override open func awakeAfter(using aDecoder: NSCoder) -> Any? {
-//        let superView = super.awakeAfter(using: aDecoder) as! DevToolView
-//
-//        superView.containerView.addSubview(ToggleView.instantiate())
-//
-//        return superView
-        super.awakeAfter(using: aDecoder)
-    }
-
     @IBAction func onSwitchValueChanged() {
     }
 
