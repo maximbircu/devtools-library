@@ -10,10 +10,10 @@ public class ToggleView: DevToolView, DevToolPresentable, ToggleToolView {
 
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
+        presenter = ToggleToolPresenterCompanion().create(view: self)
     }
 
     public override func awakeFromNib() {
-        presenter = ToggleToolPresenterCompanion().create(view: self)
         if #available(iOS 13.0, *) {
             `switch`.subviews.first?.subviews.first?.backgroundColor = UIColor.gray
         } else {
@@ -22,6 +22,7 @@ public class ToggleView: DevToolView, DevToolPresentable, ToggleToolView {
     }
 
     @IBAction func onSwitchValueChanged() {
+        presenter.onCheckedChangeListener(isChecked: `switch`.isOn)
     }
 
     public func setValue(value: Bool) {
@@ -29,6 +30,7 @@ public class ToggleView: DevToolView, DevToolPresentable, ToggleToolView {
     }
 
     public func onBind(tool: DevTool) {
-
+        guard let tool = tool as? ToggleTool else { return }
+        presenter.onToolBind(tool___: tool)
     }
 }

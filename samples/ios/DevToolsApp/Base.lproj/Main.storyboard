@@ -34,7 +34,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="containerView" destination="BeG-58-JcW" id="iym-10-H2e"/>
+                        <outlet property="toggleView" destination="BeG-58-JcW" id="SSZ-KS-K9W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

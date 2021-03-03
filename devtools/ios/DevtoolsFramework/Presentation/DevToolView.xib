@@ -74,7 +74,7 @@
             <connections>
                 <outlet property="checkBox" destination="ykK-uG-SCQ" id="2Lh-Vj-9RG"/>
                 <outlet property="containerView" destination="AEE-Ok-sDl" id="jBY-uK-oJt"/>
-                <outlet property="optionName" destination="eIa-bi-UIL" id="4EH-7H-NkQ"/>
+                <outlet property="optionName" destination="eIa-bi-UIL" id="63B-fC-LmF"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="339.17410714285711"/>
         </view>

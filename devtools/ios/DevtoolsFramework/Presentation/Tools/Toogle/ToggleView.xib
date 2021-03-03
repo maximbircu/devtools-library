@@ -29,6 +29,9 @@
                         <constraint firstAttribute="height" constant="31" id="Ocl-aD-wwb"/>
                         <constraint firstAttribute="width" constant="49" id="rKE-EY-ane"/>
                     </constraints>
+                    <connections>
+                        <action selector="onSwitchValueChanged" destination="1GY-tQ-oAA" eventType="valueChanged" id="5fT-wD-XQj"/>
+                    </connections>
                 </switch>
             </subviews>
             <viewLayoutGuide key="safeArea" id="8FD-yt-BNh"/>
