@@ -8,11 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		3D050E292442777600C4B92C /* DevToolsConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D050E282442777600C4B92C /* DevToolsConfiguration.swift */; };
+		3D29B33A2489ABBB001BB496 /* ToggleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D29B3392489ABBB001BB496 /* ToggleView.xib */; };
+		3D29B33C2489AD36001BB496 /* ToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D29B33B2489AD36001BB496 /* ToggleView.swift */; };
+		3D9669DB249C336400C0B3B2 /* DevToolPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9669DA249C336400C0B3B2 /* DevToolPresentable.swift */; };
+		3D9D56FD248EF8400099C039 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D56FC248EF83F0099C039 /* UIViewExtensions.swift */; };
 		3DBB68D4244746E600C675AF /* devtools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBB68D3244746E600C675AF /* devtools.framework */; };
 		3DBB68D5244746E600C675AF /* devtools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBB68D3244746E600C675AF /* devtools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3DC3B2982441FF860038896E /* DevtoolsFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC3B28E2441FF860038896E /* DevtoolsFramework.framework */; };
 		3DC3B29D2441FF860038896E /* DevtoolsFrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC3B29C2441FF860038896E /* DevtoolsFrameworkTests.swift */; };
 		3DC3B29F2441FF860038896E /* DevtoolsFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DC3B2912441FF860038896E /* DevtoolsFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3DF16343248DB24D00865C01 /* DevToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF16342248DB24D00865C01 /* DevToolView.swift */; };
+		3DF16345248DB2AF00865C01 /* DevToolView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF16344248DB2AF00865C01 /* DevToolView.xib */; };
+		3DF16347248DB58B00865C01 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF16346248DB58B00865C01 /* CheckBox.swift */; };
+		3DF1634A248DB70F00865C01 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF16349248DB70F00865C01 /* Images.xcassets */; };
+		3DF1634D248E4DDC00865C01 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF1634C248E4DDC00865C01 /* NibLoadable.swift */; };
+		3DF1634F248E4F1800865C01 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF1634E248E4F1800865C01 /* Identifiable.swift */; };
 		5062B79AA3462990EFC0BEE8 /* Pods_DevtoolsFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6717D0D096C3C4E50C34809F /* Pods_DevtoolsFramework.framework */; };
 		F64DED2046DC1E4E9F7DD1F5 /* Pods_DevtoolsFrameworkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 607C77C12EEAFE5FA9841F1A /* Pods_DevtoolsFrameworkTests.framework */; };
 /* End PBXBuildFile section */
@@ -44,6 +54,10 @@
 /* Begin PBXFileReference section */
 		1F26371CD67D712D08349A6E /* Pods-DevtoolsFrameworkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevtoolsFrameworkTests.release.xcconfig"; path = "Target Support Files/Pods-DevtoolsFrameworkTests/Pods-DevtoolsFrameworkTests.release.xcconfig"; sourceTree = "<group>"; };
 		3D050E282442777600C4B92C /* DevToolsConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevToolsConfiguration.swift; sourceTree = "<group>"; };
+		3D29B3392489ABBB001BB496 /* ToggleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToggleView.xib; sourceTree = "<group>"; };
+		3D29B33B2489AD36001BB496 /* ToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleView.swift; sourceTree = "<group>"; };
+		3D9669DA249C336400C0B3B2 /* DevToolPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevToolPresentable.swift; sourceTree = "<group>"; };
+		3D9D56FC248EF83F0099C039 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		3DBB68D3244746E600C675AF /* devtools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = devtools.framework; sourceTree = "<group>"; };
 		3DC3B28E2441FF860038896E /* DevtoolsFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DevtoolsFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC3B2912441FF860038896E /* DevtoolsFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DevtoolsFramework.h; sourceTree = "<group>"; };
@@ -51,6 +65,12 @@
 		3DC3B2972441FF860038896E /* DevtoolsFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DevtoolsFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC3B29C2441FF860038896E /* DevtoolsFrameworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevtoolsFrameworkTests.swift; sourceTree = "<group>"; };
 		3DC3B29E2441FF860038896E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DF16342248DB24D00865C01 /* DevToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevToolView.swift; sourceTree = "<group>"; };
+		3DF16344248DB2AF00865C01 /* DevToolView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DevToolView.xib; sourceTree = "<group>"; };
+		3DF16346248DB58B00865C01 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
+		3DF16349248DB70F00865C01 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3DF1634C248E4DDC00865C01 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		3DF1634E248E4F1800865C01 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		4E40BA69027EB797AB1965AE /* Pods-DevtoolsFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevtoolsFramework.debug.xcconfig"; path = "Target Support Files/Pods-DevtoolsFramework/Pods-DevtoolsFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		607C77C12EEAFE5FA9841F1A /* Pods_DevtoolsFrameworkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DevtoolsFrameworkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6717D0D096C3C4E50C34809F /* Pods_DevtoolsFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DevtoolsFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +130,37 @@
 			path = Frameworks;
 			sourceTree = "<group>";
 		};
+		3D29B3362489A9C2001BB496 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				D698E54A25EC109B00F0D058 /* Extensions */,
+				3DF1634B248E4DCA00865C01 /* Protocols */,
+				3DF16348248DB59200865C01 /* Views */,
+				3D29B3372489A9EA001BB496 /* Tools */,
+				3DF16342248DB24D00865C01 /* DevToolView.swift */,
+				3DF16344248DB2AF00865C01 /* DevToolView.xib */,
+				3D9669DA249C336400C0B3B2 /* DevToolPresentable.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		3D29B3372489A9EA001BB496 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				3D29B3382489AB84001BB496 /* Toogle */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		3D29B3382489AB84001BB496 /* Toogle */ = {
+			isa = PBXGroup;
+			children = (
+				3D29B3392489ABBB001BB496 /* ToggleView.xib */,
+				3D29B33B2489AD36001BB496 /* ToggleView.swift */,
+			);
+			path = Toogle;
+			sourceTree = "<group>";
+		};
 		3DC3B2842441FF860038896E = {
 			isa = PBXGroup;
 			children = (
@@ -133,8 +184,10 @@
 		3DC3B2902441FF860038896E /* DevtoolsFramework */ = {
 			isa = PBXGroup;
 			children = (
+				3D29B3362489A9C2001BB496 /* Presentation */,
 				3D050E0F2442000600C4B92C /* SupportingFiles */,
 				3D050E282442777600C4B92C /* DevToolsConfiguration.swift */,
+				3DF16349248DB70F00865C01 /* Images.xcassets */,
 			);
 			path = DevtoolsFramework;
 			sourceTree = "<group>";
@@ -146,6 +199,31 @@
 				3DC3B29E2441FF860038896E /* Info.plist */,
 			);
 			path = DevtoolsFrameworkTests;
+			sourceTree = "<group>";
+		};
+		3DF16348248DB59200865C01 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3DF16346248DB58B00865C01 /* CheckBox.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3DF1634B248E4DCA00865C01 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				3DF1634C248E4DDC00865C01 /* NibLoadable.swift */,
+				3DF1634E248E4F1800865C01 /* Identifiable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		D698E54A25EC109B00F0D058 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3D9D56FC248EF83F0099C039 /* UIViewExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,7 +287,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1140;
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = com.devtools.multiplatform;
 				TargetAttributes = {
 					3DC3B28D2441FF860038896E = {
@@ -245,6 +323,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DF16345248DB2AF00865C01 /* DevToolView.xib in Resources */,
+				3DF1634A248DB70F00865C01 /* Images.xcassets in Resources */,
+				3D29B33A2489ABBB001BB496 /* ToggleView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,6 +408,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DF16347248DB58B00865C01 /* CheckBox.swift in Sources */,
+				3DF1634F248E4F1800865C01 /* Identifiable.swift in Sources */,
+				3D29B33C2489AD36001BB496 /* ToggleView.swift in Sources */,
+				3DF16343248DB24D00865C01 /* DevToolView.swift in Sources */,
+				3DF1634D248E4DDC00865C01 /* NibLoadable.swift in Sources */,
+				3D9669DB249C336400C0B3B2 /* DevToolPresentable.swift in Sources */,
+				3D9D56FD248EF8400099C039 /* UIViewExtensions.swift in Sources */,
 				3D050E292442777600C4B92C /* DevToolsConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,6 +464,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -401,13 +490,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALIDATE_WORKSPACE = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -439,6 +529,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -458,13 +549,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
+				VALIDATE_WORKSPACE = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};

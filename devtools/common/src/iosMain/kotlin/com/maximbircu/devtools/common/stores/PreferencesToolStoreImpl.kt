@@ -11,11 +11,7 @@ actual open class PreferencesToolStoreImpl<T : Any> actual constructor(
 
     override var isEnabled: Boolean
         set(value) { nsUserDefaults.setBool(value, "${tool.key}_enabled") }
-        get() = nsUserDefaults.getOrDefault(
-            "${tool.key}_enabled",
-            tool.defaultEnabledValue,
-            nsUserDefaults::boolForKey
-        )
+        get() = nsUserDefaults.get("${tool.key}_enabled", tool.defaultEnabledValue)
 
     override var value: T
         get() = nsUserDefaults.get(tool.key, tool.getDefaultValue())
@@ -23,14 +19,18 @@ actual open class PreferencesToolStoreImpl<T : Any> actual constructor(
 }
 
 private fun <T : Any> NSUserDefaults.get(key: String, defaultValue: T): T {
-    @Suppress("UNCHECKED_CAST")
-    return when (defaultValue) {
-        is NSInteger -> getOrDefault(key, defaultValue, ::integerForKey)
-        is String -> getOrDefault(key, defaultValue, ::objectForKey)!!
-        is Float -> getOrDefault(key, defaultValue, ::floatForKey)
-        is Boolean -> getOrDefault(key, defaultValue, ::boolForKey)
-        is Double -> getOrDefault(key, defaultValue, ::doubleForKey)
-        else -> throw IllegalArgumentException("${defaultValue::class} is not supported!")
+    return if (objectForKey(key) != null) {
+        @Suppress("UNCHECKED_CAST")
+        when (defaultValue) {
+            is NSInteger -> integerForKey(key)
+            is String -> objectForKey(key)
+            is Float -> floatForKey(key)
+            is Boolean -> boolForKey(key)
+            is Double -> doubleForKey(key)
+            else -> throw IllegalArgumentException("${defaultValue::class} is not supported!")
+        }
+    } else {
+        defaultValue
     } as T
 }
 
@@ -42,13 +42,5 @@ private fun <T : Any> NSUserDefaults.set(value: T, key: String) {
         is Boolean -> setBool(value, key)
         is Double -> setDouble(value, key)
         else -> throw IllegalArgumentException("${value::class} is not supported!")
-    }
-}
-
-private fun <T> NSUserDefaults.getOrDefault(key: String, default: T, action: (String) -> T): T {
-    return if (objectForKey(key) != null) {
-        action(key)
-    } else {
-        default
     }
 }
