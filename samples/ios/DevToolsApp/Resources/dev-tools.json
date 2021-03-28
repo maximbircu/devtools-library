@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "toggle-tool": {
+      "type": "boolean",
+      "title": "Toggle tool",
+      "description": "A boolean configuration value tool",
+      "canBeDisabled": true,
+      "defaultEnabledValue": false,
+      "isCritical": true,
+      "default": true
+    }
+  }
+}

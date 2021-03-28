@@ -1,0 +1,12 @@
+##############################
+## Boolean
+##############################
+
+toggle-tool: !toggle {
+  title: "Toggle tool",
+  description: "A boolean configuration value tool",
+  canBeDisabled: true,
+  defaultEnabledValue: false,
+  isCritical: true,
+  default: true
+}
