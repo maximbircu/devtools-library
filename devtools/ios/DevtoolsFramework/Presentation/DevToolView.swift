@@ -6,7 +6,6 @@ public class DevToolView: UIView, devtools.DevToolView, NibLoadable {
     @IBOutlet private var checkBox: CheckBox!
     @IBOutlet private(set) var containerView: UIView!
 
-
     private var presenter: DevToolPresenter!
     internal var containerTool: DevToolPresentable!
 

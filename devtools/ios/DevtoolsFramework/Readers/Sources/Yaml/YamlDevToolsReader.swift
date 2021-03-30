@@ -3,23 +3,28 @@ import Yams
 
 final class YamlDevToolsReader: DevToolsReader {
     private let fileName: String
-    private let fileExtension: String
 
     init(fileName: String) {
-        let fileNameURL = URL(fileURLWithPath: fileName)
-        self.fileName = fileNameURL.deletingPathExtension().lastPathComponent
-        self.fileExtension = fileNameURL.pathExtension
+        self.fileName = fileName
     }
 
     func getDevTools() -> [String: DevTool] {
-        return (try? Yams.load(yaml: readYamlFile()) as? [String: DevTool]) ?? [:]
+        let tools = getTools()
+        return tools
     }
 
-    private func readYamlFile() throws -> String {
-        guard let filePath = Bundle.main.path(forResource: fileName, ofType: fileExtension) else {
-            throw CocoaError(.fileNoSuchFile)
+    private func getTools() -> [String: DevTool] {
+        let yamlDevTools = (try? Yams.load(yaml: FileReader.readFile(fileName: fileName)) as? [String: [String: Any]]) ?? [:]
+        return yamlDevTools.mapValues {
+            YamlDevTool(
+                title: $0["title"] as? String,
+                description: $0["description"] as? String ?? "",
+                canBeDisabled: $0["canBeDisabled"] as? Bool ?? false,
+                defaultEnabledValue: $0["defaultEnabledValue"] as? Bool ?? false,
+                isCritical: $0["isCritical"] as? Bool ?? false
+            )
         }
-
-        return try String(contentsOfFile: filePath)
     }
 }
+
+private final class YamlDevTool: DevTool { }

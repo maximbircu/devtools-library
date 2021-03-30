@@ -16,11 +16,13 @@ class ViewController: UIViewController {
 
         let memorySource = devToolsSource.memory(devTools: MemoryDevToolsProvider.tools)
         let yamlSource = devToolsSource.yaml(fileName: "dev-tools.yml")
+        let jsonSource = devToolsSource.json(fileName: "dev-tools.json")
 
         let devTools = DevToolsCompanion()
         let memoryArraySource = KotlinArray(size: 1) { _ in memorySource }
         memoryDevTools = devTools.create(name: "MEMORY", devToolsSource: memoryArraySource) { _ in }
-        yamlDevTools = devTools.create(name: "JSON", devToolsSource: KotlinArray(size: 1) { _ in yamlSource }) { _ in }
+        yamlDevTools = devTools.create(name: "YAML", devToolsSource: KotlinArray(size: 1) { _ in yamlSource }) { _ in }
+        jsonDevTools = devTools.create(name: "JSON", devToolsSource: KotlinArray(size: 1) { _ in jsonSource }) { _ in }
     }
 
     override func viewWillAppear(_ animated: Bool) {
