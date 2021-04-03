@@ -14,17 +14,29 @@ final class YamlDevToolsReader: DevToolsReader {
     }
 
     private func getTools() -> [String: DevTool] {
-        let yamlDevTools = (try? Yams.load(yaml: FileReader.readFile(fileName: fileName)) as? [String: [String: Any]]) ?? [:]
-        return yamlDevTools.mapValues {
-            YamlDevTool(
-                title: $0["title"] as? String,
-                description: $0["description"] as? String ?? "",
-                canBeDisabled: $0["canBeDisabled"] as? Bool ?? false,
-                defaultEnabledValue: $0["defaultEnabledValue"] as? Bool ?? false,
-                isCritical: $0["isCritical"] as? Bool ?? false
-            )
+        let node = try? Yams.compose(yaml: FileReader.readFile(fileName: fileName))
+        return parseNode(node: node!)
+    }
+
+    private func parseNode(node: Node) -> [String: DevTool] {
+        return node.mapping?.reduce(into: [String: DevTool]()) { result, node in
+            guard let devToolName = node.key.string,
+                  let devTool = parseToolByTag(node: node.value) else { return }
+            devTool.title = node.value.mapping!["title"]?.string ?? ""
+            devTool.description = node.value.mapping!["description"]?.string ?? ""
+            devTool.canBeDisabled = node.value.mapping!["canBeDisabled"]?.bool ?? false
+            devTool.defaultEnabledValue = node.value.mapping!["defaultEnabledValue"]?.bool ?? false
+            devTool.isCritical = node.value.mapping!["isCritical"]?.bool ?? false
+            result[devToolName] = devTool
+        } ?? [:]
+    }
+
+    private func parseToolByTag(node: Node) -> DevTool? {
+        switch node.tag.description {
+        case YamlDevToolsTypes.toggle.rawValue:
+            return ToggleTool(default: node.mapping!["default"]?.bool ?? false)
+        default:
+            return nil
         }
     }
 }
-
-private final class YamlDevTool: DevTool { }
