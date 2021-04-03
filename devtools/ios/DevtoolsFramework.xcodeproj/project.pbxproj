@@ -24,6 +24,7 @@
 		3DF1634D248E4DDC00865C01 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF1634C248E4DDC00865C01 /* NibLoadable.swift */; };
 		3DF1634F248E4F1800865C01 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF1634E248E4F1800865C01 /* Identifiable.swift */; };
 		62A13B59CFB7E06084C2893E /* Pods_DevtoolsFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9BE5F0CC2F329CA25A46A4F /* Pods_DevtoolsFramework.framework */; };
+		D66045662618BE07008070EF /* YamlSchemaDevtoolProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66045652618BE07008070EF /* YamlSchemaDevtoolProducer.swift */; };
 		D6B6AB902617F46800FA1457 /* YamlDevToolsTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B6AB8F2617F46800FA1457 /* YamlDevToolsTypes.swift */; };
 		D6CD456E26127A4100EE023A /* FileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CD456D26127A4100EE023A /* FileReader.swift */; };
 		D6FE8D3626110C2400D2131E /* DevToolsSourcesExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE8D3526110C2400D2131E /* DevToolsSourcesExtensions.swift */; };
@@ -80,6 +81,7 @@
 		9938A4D4F912826F151F015A /* Pods-DevtoolsFrameworkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevtoolsFrameworkTests.debug.xcconfig"; path = "Target Support Files/Pods-DevtoolsFrameworkTests/Pods-DevtoolsFrameworkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C610AB5253D67107B9008D92 /* Pods-DevtoolsFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevtoolsFramework.debug.xcconfig"; path = "Target Support Files/Pods-DevtoolsFramework/Pods-DevtoolsFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		CAC3DBFF6984C144626C49B0 /* Pods_DevtoolsFrameworkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DevtoolsFrameworkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D66045652618BE07008070EF /* YamlSchemaDevtoolProducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamlSchemaDevtoolProducer.swift; sourceTree = "<group>"; };
 		D6B6AB8F2617F46800FA1457 /* YamlDevToolsTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamlDevToolsTypes.swift; sourceTree = "<group>"; };
 		D6CD456D26127A4100EE023A /* FileReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileReader.swift; sourceTree = "<group>"; };
 		D6FE8D3526110C2400D2131E /* DevToolsSourcesExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevToolsSourcesExtensions.swift; sourceTree = "<group>"; };
@@ -229,6 +231,14 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		D66045642618BD46008070EF /* Schema */ = {
+			isa = PBXGroup;
+			children = (
+				D66045652618BE07008070EF /* YamlSchemaDevtoolProducer.swift */,
+			);
+			path = Schema;
+			sourceTree = "<group>";
+		};
 		D698E54A25EC109B00F0D058 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +268,7 @@
 		D6FE8D472611153500D2131E /* Yaml */ = {
 			isa = PBXGroup;
 			children = (
+				D66045642618BD46008070EF /* Schema */,
 				D6FE8D482611155F00D2131E /* YamlDevToolsSource.swift */,
 				D6FE8D4B261115A700D2131E /* YamlDevToolsReader.swift */,
 				D6B6AB8F2617F46800FA1457 /* YamlDevToolsTypes.swift */,
@@ -450,6 +461,7 @@
 				3DF16347248DB58B00865C01 /* CheckBox.swift in Sources */,
 				3DF1634F248E4F1800865C01 /* Identifiable.swift in Sources */,
 				3D29B33C2489AD36001BB496 /* ToggleView.swift in Sources */,
+				D66045662618BE07008070EF /* YamlSchemaDevtoolProducer.swift in Sources */,
 				3DF16343248DB24D00865C01 /* DevToolView.swift in Sources */,
 				D6FE8D4C261115A700D2131E /* YamlDevToolsReader.swift in Sources */,
 				3DF1634D248E4DDC00865C01 /* NibLoadable.swift in Sources */,
