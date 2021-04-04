@@ -1,12 +1,12 @@
- platform :ios, '12.1'
+ platform :ios, '12.0'
 
 target 'DevToolsApp' do
-  # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
   # Pods for DevToolsApp
   pod 'SwiftLint'
   # TODO Remove local paths before release
+  pod 'Yams', :git => 'git@github.com:jpsim/Yams.git', :branch => 'fix-cocoapods'
   pod 'DevtoolsFramework', :path => '../../devtools/ios' # Local path for development purposes.
 
   target 'DevToolsAppTests' do
@@ -19,4 +19,13 @@ target 'DevToolsApp' do
     # Pods for testing
   end
 
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      # Inherit the deployment target defined in this Podfile instead, e.g. platform :ios, '11.0' at the top of this file
+      config.build_settings.delete 'IPHONEOS_DEPLOYMENT_TARGET'
+    end
+  end
 end
