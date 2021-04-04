@@ -10,6 +10,94 @@
       "defaultEnabledValue": false,
       "isCritical": true,
       "default": true
+    },
+
+    "text-tool": {
+      "type": "string",
+      "title": "Text tool (String)",
+      "description": "A text configuration value tool",
+      "canBeDisabled": true,
+      "defaultEnabledValue": false,
+      "isCritical": false,
+      "default": "String config value",
+      "hint": "String config value"
+    },
+    "text-tool-integer": {
+      "type": "integer",
+      "title": "Text tool (Integer)",
+      "description": "An integer number configuration value tool",
+      "canBeDisabled": true,
+      "defaultEnabledValue": false,
+      "isCritical": true,
+      "default": 3,
+      "hint": "Integer number config value"
+    },
+    "text-tool-floating-point": {
+      "type": "number",
+      "title": "Text tool (Floating point)",
+      "description": "A floating-point number configuration value tool",
+      "canBeDisabled": true,
+      "defaultEnabledValue": false,
+      "isCritical": false,
+      "default": 3.4,
+      "hint": "Floating point number config value"
+    },
+
+    "enum-tool": {
+      "type": "string",
+      "title": "Enum tool",
+      "description": "An enum configuration value tool",
+      "canBeDisabled": true,
+      "defaultEnabledValue": false,
+      "isCritical": true,
+      "default": "Second Option Value",
+      "enum": [
+        "First Option Value",
+        "Second Option Value",
+        "Third Option Value"
+      ],
+      "allowCustom": true
+    },
+
+    "tools-group": {
+      "type": "object",
+      "title": "Tools group",
+      "properties": {
+        "toggle-tool": {
+          "type": "boolean",
+          "title": "Toggle tool",
+          "description": "A boolean configuration value tool",
+          "canBeDisabled": true,
+          "defaultEnabledValue": false,
+          "isCritical": false,
+          "default": true
+        },
+        "text-tool": {
+          "type": "string",
+          "title": "Text tool (String)",
+          "description": "A text configuration value tool",
+          "canBeDisabled": true,
+          "defaultEnabledValue": false,
+          "isCritical": true,
+          "default": " String config value",
+          "hint": "String config value"
+        },
+        "enum-tool": {
+          "type": "string",
+          "title": "Enum tool",
+          "description": "An enum configuration value tool",
+          "canBeDisabled": true,
+          "defaultEnabledValue": false,
+          "isCritical": true,
+          "default": "Second Option Value",
+          "enum": [
+            "First Option Value",
+            "Second Option Value",
+            "Third Option Value"
+          ],
+          "allowCustom": true
+        }
+      }
     }
   }
 }

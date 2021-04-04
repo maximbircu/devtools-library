@@ -30,10 +30,12 @@ final class YamlSchemaDevtoolProducer {
             )
         case YamlDevToolsTypes.enum.rawValue:
             return EnumTool(
-                defaultValueKey: toolDefaultValue?.string,
+                defaultValueKey: config["defaultValueKey"]?.string,
                 allowCustom: config["allowCustom"]?.bool ?? false,
-                optionsProvider: EnumToolOptionsProvider(options: config["options"]?.array() ?? [])
+                optionsProvider: EnumToolOptionsProvider(options: config["options"])
             )
+        case YamlDevToolsTypes.group.rawValue:
+            return GroupTool(tools: parseGroup(tools: config["tools"]))
         default:
             return nil
         }
@@ -42,14 +44,28 @@ final class YamlSchemaDevtoolProducer {
 
 extension YamlSchemaDevtoolProducer {
     class EnumToolOptionsProvider: EnumOptionsProvider {
-        let options: [ScalarConstructible]
+        let options: Node?
 
-        init(options: [ScalarConstructible]) {
+        init(options: Node?) {
             self.options = options
         }
 
-        func getOptions() -> [String : String] {
-            options.reduce(into: <#T##Result#>, <#T##updateAccumulatingResult: (inout Result, ScalarConstructible) throws -> ()##(inout Result, ScalarConstructible) throws -> ()#>)
+        func getOptions() -> [String: String] {
+            return options?.mapping?.reduce(into: [:]) { result, item in
+                guard let option = item.key.string,
+                      let optionValue = item.value.string else { return }
+                result?[option] = optionValue
+            } ?? [:]
         }
+    }
+}
+
+extension YamlSchemaDevtoolProducer {
+    private static func parseGroup(tools: Node?) -> [String: DevTool] {
+        return tools?.mapping?.reduce(into: [String: DevTool]()) { result, node in
+            guard let toolName = node.key.string,
+                  let config = node.value.mapping else { return }
+            result[toolName] = parseToolByTag(yamlTag: node.value.tag.description, config: config)
+        } ?? [:]
     }
 }
