@@ -6,7 +6,7 @@ target 'DevtoolsFramework' do
 
   # Pods for DevtoolsFramework
   pod 'SwiftLint'
-  pod 'Yams', :git => 'git@github.com:jpsim/Yams.git', :branch => 'fix-cocoapods'
+  pod 'Yams', :git => 'https://github.com/jpsim/Yams.git', :branch => 'fix-cocoapods'
 
   target 'DevtoolsFrameworkTests' do
     inherit! :search_paths

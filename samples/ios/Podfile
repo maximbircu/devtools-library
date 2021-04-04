@@ -6,7 +6,7 @@ target 'DevToolsApp' do
   # Pods for DevToolsApp
   pod 'SwiftLint'
   # TODO Remove local paths before release
-  pod 'Yams', :git => 'git@github.com:jpsim/Yams.git', :branch => 'fix-cocoapods'
+  pod 'Yams', :git => 'https://github.com/jpsim/Yams.git', :branch => 'fix-cocoapods'
   pod 'DevtoolsFramework', :path => '../../devtools/ios' # Local path for development purposes.
 
   target 'DevToolsAppTests' do
