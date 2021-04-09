@@ -1,29 +1,20 @@
 PODS:
   - SwiftLint (0.43.1)
-  - Yams (4.0.5)
+  - Yams (4.0.6)
 
 DEPENDENCIES:
   - SwiftLint
-  - Yams (from `https://github.com/jpsim/Yams.git`, branch `fix-cocoapods`)
+  - Yams (~> 4.0.6)
 
 SPEC REPOS:
   trunk:
     - SwiftLint
-
-EXTERNAL SOURCES:
-  Yams:
-    :branch: fix-cocoapods
-    :git: https://github.com/jpsim/Yams.git
-
-CHECKOUT OPTIONS:
-  Yams:
-    :commit: 40c47b7e3d8fb0069ecd1b027c94afbfbb78aef7
-    :git: https://github.com/jpsim/Yams.git
+    - Yams
 
 SPEC CHECKSUMS:
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
-  Yams: d5bb6a6d75814f9a8de6b911c0ece4801ca7e061
+  Yams: ed1c49f0d6be84f305ad3f93f997b1df039afd9e
 
-PODFILE CHECKSUM: a6604176d1ecd2ac59b15110f306e6c588184c48
+PODFILE CHECKSUM: b456b6719f7a665eff628fe0dc2fbe794b79483e
 
 COCOAPODS: 1.10.1

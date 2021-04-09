@@ -1,12 +1,13 @@
  platform :ios, '12.0'
 
+inhibit_all_warnings!
+
 target 'DevToolsApp' do
   use_frameworks!
 
   # Pods for DevToolsApp
   pod 'SwiftLint'
   # TODO Remove local paths before release
-  pod 'Yams', :git => 'https://github.com/jpsim/Yams.git', :branch => 'fix-cocoapods'
   pod 'DevtoolsFramework', :path => '../../devtools/ios' # Local path for development purposes.
 
   target 'DevToolsAppTests' do

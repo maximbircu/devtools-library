@@ -19,5 +19,5 @@ Pod::Spec.new do |spec|
   spec.resources = 'DevtoolsFramework/**/*.{xib,xcassets}' # "devtools/ios/DevtoolsFramework/**/*.xib"
   spec.vendored_frameworks = "Frameworks/devtools.framework" # "devtools/ios/Frameworks/devtools.framework"
 
-  spec.dependency "Yams"
+  spec.dependency "Yams", '~> 4.0.6'
 end
