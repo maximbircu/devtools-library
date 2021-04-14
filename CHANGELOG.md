@@ -3,6 +3,13 @@ Changelog
 
 ## Version 1.0.1 *(In development)*
 
+Issue: [#12](https://github.com/maximbircu/devtools-library/issues/12)
+- Implement iOS YAML devtools reader
+
+Issue: [#15](https://github.com/maximbircu/devtools-library/issues/15)
+- Add iOS implementation of toggle tool
+- Add intercepting of view from storyboard for replacing it with devtool with specific devtool element
+
 Issue: [#68](https://github.com/maximbircu/devtools-library/issues/66)
 - Enable dev tool automatically whenever the user tries to update its configuration value
 
@@ -13,9 +20,9 @@ Issue: [#66](https://github.com/maximbircu/devtools-library/issues/66)
 - Update appcompat to 1.2.0
 - Update constraints layout to 2.1.0-alpha2
 - Update core-ktx to 1.3.2
-- Update snakeyaml to 1.27 
+- Update snakeyaml to 1.27
 
-Issue: [#62](https://github.com/maximbircu/devtools-library/issues/62)	
+Issue: [#62](https://github.com/maximbircu/devtools-library/issues/62)
 - Fix spelling mistakes in issues templates files
 - Add maven central badges and fill in the "Add the library dependency" section from the QuickStart docs;
 
