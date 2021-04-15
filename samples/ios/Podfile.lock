@@ -1,6 +1,8 @@
 PODS:
-  - DevtoolsFramework (0.0.1)
-  - SwiftLint (0.39.2)
+  - DevtoolsFramework (0.0.1):
+    - Yams (~> 4.0.6)
+  - SwiftLint (0.43.1)
+  - Yams (4.0.6)
 
 DEPENDENCIES:
   - DevtoolsFramework (from `../../devtools/ios`)
@@ -9,15 +11,17 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - SwiftLint
+    - Yams
 
 EXTERNAL SOURCES:
   DevtoolsFramework:
     :path: "../../devtools/ios"
 
 SPEC CHECKSUMS:
-  DevtoolsFramework: e3afc7aceaab22b2b7cd0b8e061e9e38557349a8
-  SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
+  DevtoolsFramework: 4fb9540f18a2ba04c1653afb84edb21f1f36721c
+  SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
+  Yams: ed1c49f0d6be84f305ad3f93f997b1df039afd9e
 
-PODFILE CHECKSUM: bd729c7c8c523ef850fefc705cf5d8a42fb1a2bf
+PODFILE CHECKSUM: b0321a16022e8ee7c86be370688a89ac20b064f9
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.1

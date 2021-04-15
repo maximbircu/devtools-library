@@ -18,4 +18,6 @@ Pod::Spec.new do |spec|
   spec.source_files = "DevtoolsFramework/**/*.swift" # "devtools/ios/DevtoolsFramework/**/*.swift"
   spec.resources = 'DevtoolsFramework/**/*.{xib,xcassets}' # "devtools/ios/DevtoolsFramework/**/*.xib"
   spec.vendored_frameworks = "Frameworks/devtools.framework" # "devtools/ios/Frameworks/devtools.framework"
+
+  spec.dependency "Yams", '~> 4.0.6'
 end
