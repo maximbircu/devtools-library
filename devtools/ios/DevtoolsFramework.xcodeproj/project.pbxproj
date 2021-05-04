@@ -27,6 +27,10 @@
 		62A13B59CFB7E06084C2893E /* Pods_DevtoolsFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9BE5F0CC2F329CA25A46A4F /* Pods_DevtoolsFramework.framework */; };
 		D6154FF126193C57000BDEC3 /* DevToolsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6154FF026193C57000BDEC3 /* DevToolsExtensions.swift */; };
 		D66045662618BE07008070EF /* YamlSchemaDevtoolProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66045652618BE07008070EF /* YamlSchemaDevtoolProducer.swift */; };
+		D6B452E42640BC3B00AE6079 /* ConfigScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B452E32640BC3B00AE6079 /* ConfigScreenView.swift */; };
+		D6B452E72640BEAB00AE6079 /* ConfigScreenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6B452E62640BEAB00AE6079 /* ConfigScreenView.xib */; };
+		D6B452EC2640C31800AE6079 /* ConfigScreenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6B452EB2640C31800AE6079 /* ConfigScreenCell.xib */; };
+		D6B452EF2640C3D200AE6079 /* ConfigScreenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B452EE2640C3D200AE6079 /* ConfigScreenCell.swift */; };
 		D6B6AB902617F46800FA1457 /* YamlDevToolsTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B6AB8F2617F46800FA1457 /* YamlDevToolsTypes.swift */; };
 		D6CD456E26127A4100EE023A /* FileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CD456D26127A4100EE023A /* FileReader.swift */; };
 		D6FE8D3626110C2400D2131E /* DevToolsSourcesExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE8D3526110C2400D2131E /* DevToolsSourcesExtensions.swift */; };
@@ -86,6 +90,10 @@
 		C610AB5253D67107B9008D92 /* Pods-DevtoolsFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevtoolsFramework.debug.xcconfig"; path = "Target Support Files/Pods-DevtoolsFramework/Pods-DevtoolsFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		D6154FF026193C57000BDEC3 /* DevToolsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevToolsExtensions.swift; sourceTree = "<group>"; };
 		D66045652618BE07008070EF /* YamlSchemaDevtoolProducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamlSchemaDevtoolProducer.swift; sourceTree = "<group>"; };
+		D6B452E32640BC3B00AE6079 /* ConfigScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigScreenView.swift; sourceTree = "<group>"; };
+		D6B452E62640BEAB00AE6079 /* ConfigScreenView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfigScreenView.xib; sourceTree = "<group>"; };
+		D6B452EB2640C31800AE6079 /* ConfigScreenCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfigScreenCell.xib; sourceTree = "<group>"; };
+		D6B452EE2640C3D200AE6079 /* ConfigScreenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigScreenCell.swift; sourceTree = "<group>"; };
 		D6B6AB8F2617F46800FA1457 /* YamlDevToolsTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamlDevToolsTypes.swift; sourceTree = "<group>"; };
 		D6CD456D26127A4100EE023A /* FileReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileReader.swift; sourceTree = "<group>"; };
 		D6FE8D3526110C2400D2131E /* DevToolsSourcesExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevToolsSourcesExtensions.swift; sourceTree = "<group>"; };
@@ -151,6 +159,7 @@
 		3D29B3362489A9C2001BB496 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				D6B452E22640BAF900AE6079 /* ConfigScreen */,
 				D698E54A25EC109B00F0D058 /* Extensions */,
 				3DF1634B248E4DCA00865C01 /* Protocols */,
 				3DF16348248DB59200865C01 /* Views */,
@@ -260,6 +269,25 @@
 				3D9D56FC248EF83F0099C039 /* UIViewExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D6B452E22640BAF900AE6079 /* ConfigScreen */ = {
+			isa = PBXGroup;
+			children = (
+				D6B452EA2640C30000AE6079 /* Cell */,
+				D6B452E32640BC3B00AE6079 /* ConfigScreenView.swift */,
+				D6B452E62640BEAB00AE6079 /* ConfigScreenView.xib */,
+			);
+			path = ConfigScreen;
+			sourceTree = "<group>";
+		};
+		D6B452EA2640C30000AE6079 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D6B452EB2640C31800AE6079 /* ConfigScreenCell.xib */,
+				D6B452EE2640C3D200AE6079 /* ConfigScreenCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		D6FE8D3426110BBF00D2131E /* Readers */ = {
@@ -391,7 +419,9 @@
 			files = (
 				3DF16345248DB2AF00865C01 /* DevToolView.xib in Resources */,
 				3DF1634A248DB70F00865C01 /* Images.xcassets in Resources */,
+				D6B452E72640BEAB00AE6079 /* ConfigScreenView.xib in Resources */,
 				3D29B33A2489ABBB001BB496 /* ToggleView.xib in Resources */,
+				D6B452EC2640C31800AE6079 /* ConfigScreenCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,6 +521,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6B452E42640BC3B00AE6079 /* ConfigScreenView.swift in Sources */,
 				3DF16347248DB58B00865C01 /* CheckBox.swift in Sources */,
 				3DF1634F248E4F1800865C01 /* Identifiable.swift in Sources */,
 				3D29B33C2489AD36001BB496 /* ToggleView.swift in Sources */,
@@ -498,6 +529,7 @@
 				3DF16343248DB24D00865C01 /* DevToolView.swift in Sources */,
 				D6FE8D4C261115A700D2131E /* YamlDevToolsReader.swift in Sources */,
 				D6154FF126193C57000BDEC3 /* DevToolsExtensions.swift in Sources */,
+				D6B452EF2640C3D200AE6079 /* ConfigScreenCell.swift in Sources */,
 				3DF1634D248E4DDC00865C01 /* NibLoadable.swift in Sources */,
 				D6CD456E26127A4100EE023A /* FileReader.swift in Sources */,
 				D6FE8D492611155F00D2131E /* YamlDevToolsSource.swift in Sources */,
