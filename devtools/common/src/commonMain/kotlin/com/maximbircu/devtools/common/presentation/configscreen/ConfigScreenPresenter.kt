@@ -13,6 +13,10 @@ interface ConfigScreenPresenter : Presenter {
      */
     fun onCreate()
 
+    fun onAttemptToGoBack()
+
+    fun onDestroy()
+
     /**
      * Should be invoked when the user wants to apply the dev tools config changes he made.
      *
@@ -37,6 +41,14 @@ private class ConfigScreenPresenterImpl(
     private val devToolsList: DevToolsListView
 ) : BasePresenter<ConfigScreenView>(view), ConfigScreenPresenter {
     override fun onCreate() = devToolsList.showDevTools(devTools.tools.values.toList())
+
+    override fun onAttemptToGoBack() {
+        view.showConfirmationDialog(view::closeScreen)
+    }
+
+    override fun onDestroy() {
+        // TODO Reset config here
+    }
 
     override fun onApplyConfig() = devTools.persistToolsState()
 }

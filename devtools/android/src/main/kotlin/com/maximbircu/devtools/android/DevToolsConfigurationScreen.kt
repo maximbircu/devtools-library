@@ -6,8 +6,12 @@ import com.maximbircu.devtools.common.DevTools
 
 class DevToolsConfigurationScreen private constructor() {
     companion object {
-        fun attachToView(viewGroup: ViewGroup, devTools: DevTools) {
-            val devToolsList = ConfigScreenLayout(viewGroup.context, devTools)
+        fun attachToView(
+            viewGroup: ViewGroup,
+            devTools: DevTools,
+            closeScreen: (() -> Unit)? = null
+        ) {
+            val devToolsList = ConfigScreenLayout(viewGroup.context, devTools, closeScreen)
             viewGroup.addView(devToolsList)
         }
     }
