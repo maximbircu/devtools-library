@@ -53,7 +53,12 @@ private class ConfigScreenPresenterImpl(
 
     private fun setUpRouter() = router?.run {
         onBack = {
-            if (true) true.also { view.showConfirmationDialog(::closeScreen) } else false
+            if (devTools.thereExistUnsavedChanges) {
+                view.showConfirmationDialog(::closeScreen)
+                true
+            } else {
+                false
+            }
         }
     }
 }
