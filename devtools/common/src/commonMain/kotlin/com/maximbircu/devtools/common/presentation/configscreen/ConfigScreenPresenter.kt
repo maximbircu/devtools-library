@@ -13,6 +13,11 @@ interface ConfigScreenPresenter : Presenter {
      */
     fun onCreate()
 
+    /**
+     * Should be invoked when the configuration screen is closed and destroyed.
+     *
+     * Rests the in memory dev tools changes.
+     */
     fun onDestroy()
 
     /**
