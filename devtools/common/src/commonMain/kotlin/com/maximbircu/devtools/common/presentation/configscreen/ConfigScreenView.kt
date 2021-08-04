@@ -7,7 +7,5 @@ import com.maximbircu.devtools.common.core.mvp.BaseView
  * the user to manipulate their state and configuration values.
  */
 interface ConfigScreenView : BaseView {
-    fun closeScreen()
-
     fun showConfirmationDialog(onConfirmed: () -> Unit)
 }

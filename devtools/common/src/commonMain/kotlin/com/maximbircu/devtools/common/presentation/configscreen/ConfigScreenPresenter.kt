@@ -13,8 +13,6 @@ interface ConfigScreenPresenter : Presenter {
      */
     fun onCreate()
 
-    fun onAttemptToGoBack()
-
     fun onDestroy()
 
     /**
@@ -28,9 +26,10 @@ interface ConfigScreenPresenter : Presenter {
         fun create(
             view: ConfigScreenView,
             devTools: DevTools,
-            devToolsList: DevToolsListView
+            devToolsList: DevToolsListView,
+            router: ConfigurationScreenRouter? = null
         ): ConfigScreenPresenter {
-            return ConfigScreenPresenterImpl(view, devTools, devToolsList)
+            return ConfigScreenPresenterImpl(view, devTools, devToolsList, router)
         }
     }
 }
@@ -38,17 +37,23 @@ interface ConfigScreenPresenter : Presenter {
 private class ConfigScreenPresenterImpl(
     view: ConfigScreenView,
     private val devTools: DevTools,
-    private val devToolsList: DevToolsListView
+    private val devToolsList: DevToolsListView,
+    private val router: ConfigurationScreenRouter?
 ) : BasePresenter<ConfigScreenView>(view), ConfigScreenPresenter {
-    override fun onCreate() = devToolsList.showDevTools(devTools.tools.values.toList())
-
-    override fun onAttemptToGoBack() {
-        view.showConfirmationDialog(view::closeScreen)
+    override fun onCreate() {
+        devToolsList.showDevTools(devTools.tools.values.toList())
+        setUpRouter()
     }
 
     override fun onDestroy() {
-        // TODO Reset config here
+        devTools.restorePersistedState()
     }
 
     override fun onApplyConfig() = devTools.persistToolsState()
+
+    private fun setUpRouter() = router?.run {
+        onBack = {
+            if (true) true.also { view.showConfirmationDialog(::closeScreen) } else false
+        }
+    }
 }

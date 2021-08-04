@@ -8,10 +8,13 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.maximbircu.devtools.SampleApplication
 import com.maximbircu.devtools.android.DevToolsConfigurationScreen
+import com.maximbircu.devtools.common.presentation.configscreen.ConfigurationScreenRouter
 import com.maximbircu.devtools.databinding.ActivityToolsContainerBinding
 
-class YamlSourceConfigActivity : AppCompatActivity() {
+class YamlSourceConfigActivity : AppCompatActivity(), ConfigurationScreenRouter {
     private val devtools = SampleApplication.application.yamlDevTools
+
+    override var onBack: (() -> Boolean)? = null
 
     companion object {
         fun start(context: Context) {
@@ -37,11 +40,14 @@ class YamlSourceConfigActivity : AppCompatActivity() {
 
 
 
-        DevToolsConfigurationScreen.attachToView(
-            binding.devToolsContainer,
-            devtools
-        ) {
-            finish()
-        }
+        DevToolsConfigurationScreen.attachToView(binding.devToolsContainer, devtools, this)
+    }
+
+    override fun closeScreen() {
+        finish()
+    }
+
+    override fun onBackPressed() {
+        if (onBack?.invoke() == false) super.onBackPressed()
     }
 }

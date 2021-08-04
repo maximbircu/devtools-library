@@ -22,6 +22,8 @@ interface DevTools : DevToolsStorage {
      */
     fun persistToolsState()
 
+    fun restorePersistedState()
+
     /**
      * Updates all dev tools with values taken from [params].
      *
@@ -63,7 +65,7 @@ private class DevToolsImpl(
     override var onConfigUpdated: (isCriticalUpdate: Boolean) -> Unit
 ) : DevTools, DevToolsStorage by toolsStorage {
     init {
-        tools.forEachRecursively { _, tool -> tool.restorePersistedState() }
+        restorePersistedState()
     }
 
     override fun updateFromParams(params: Map<String, Any>) {
@@ -84,6 +86,10 @@ private class DevToolsImpl(
         if (atLeastOneToolWasUpdated) {
             onConfigUpdated(isCriticalUpdate)
         }
+    }
+
+    override fun restorePersistedState() {
+        tools.forEachRecursively { _, tool -> tool.restorePersistedState() }
     }
 
     private fun persistToolsStateRecursively(): Pair<Boolean, Boolean> {
