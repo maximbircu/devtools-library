@@ -38,8 +38,6 @@ class YamlSourceConfigActivity : AppCompatActivity(), ConfigurationScreenRouter 
             toast.show()
         }
 
-
-
         DevToolsConfigurationScreen.attachToView(binding.devToolsContainer, devtools, this)
     }
 
