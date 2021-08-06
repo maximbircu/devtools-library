@@ -6,6 +6,7 @@ import com.maximbircu.devtools.common.core.createTool
 import com.maximbircu.devtools.common.mvp.BasePresenterTest
 import com.maximbircu.devtools.common.presentation.list.DevToolsListView
 import com.maximbircu.devtools.common.utils.mockk
+import io.mockk.Called
 import io.mockk.every
 import io.mockk.slot
 import io.mockk.verify
@@ -14,8 +15,8 @@ import kotlin.test.assertTrue
 
 class ConfigScreenPresenterImplTest :
     BasePresenterTest<ConfigScreenView, ConfigScreenPresenter>(mockk()) {
-    private val devTools: DevTools = mockk()
-    private val devToolsList: DevToolsListView = mockk()
+    private val devTools: DevTools = mockk(relaxed = true)
+    private val devToolsList: DevToolsListView = mockk(relaxed = true)
     private val router: ConfigurationScreenRouter = mockk(relaxed = true)
 
     override fun createPresenter(): ConfigScreenPresenter = createPresenter(router)
@@ -89,7 +90,15 @@ class ConfigScreenPresenterImplTest :
         devTools.persistToolsState()
     }
 
-    private fun createPresenter(router: ConfigurationScreenRouter): ConfigScreenPresenter {
+    @Test
+    fun `doesn't use the router if it was not pass`() {
+        val presenter = createPresenter(null)
+        presenter.onCreate()
+
+        verify { view wasNot Called }
+    }
+
+    private fun createPresenter(router: ConfigurationScreenRouter?): ConfigScreenPresenter {
         return ConfigScreenPresenter.create(view, devTools, devToolsList, router)
     }
 }

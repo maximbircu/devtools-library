@@ -32,7 +32,7 @@ interface ConfigScreenPresenter : Presenter {
             view: ConfigScreenView,
             devTools: DevTools,
             devToolsList: DevToolsListView,
-            router: ConfigurationScreenRouter? = null
+            router: ConfigurationScreenRouter?
         ): ConfigScreenPresenter {
             return ConfigScreenPresenterImpl(view, devTools, devToolsList, router)
         }
