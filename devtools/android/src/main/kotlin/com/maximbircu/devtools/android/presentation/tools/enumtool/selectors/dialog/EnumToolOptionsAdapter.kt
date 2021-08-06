@@ -1,5 +1,6 @@
 package com.maximbircu.devtools.android.presentation.tools.enumtool.selectors.dialog
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.RadioButton
@@ -7,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.maximbircu.devtools.android.R
 
+@SuppressLint("NotifyDataSetChanged")
 internal class EnumToolOptionsAdapter(
     private var onOptionSelected: (String) -> Unit = {},
     private val delegate: EnumToolOptionsAdapterDelegate = EnumToolOptionsAdapterDelegate.create()
