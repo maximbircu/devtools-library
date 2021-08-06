@@ -16,7 +16,7 @@ buildscript {
 }
 
 plugins {
-    id "io.gitlab.arturbosch.detekt" version "1.6.0"
+    id "io.gitlab.arturbosch.detekt" version "1.18.0-RC3"
 }
 
 apply from: 'gradle/detekt.gradle'
@@ -25,8 +25,6 @@ apply from: 'gradle/ktlint.gradle'
 apply from: 'gradle/jacoco.gradle'
 
 allprojects {
-    apply plugin: 'io.gitlab.arturbosch.detekt'
-
     tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
         kotlinOptions {
             allWarningsAsErrors = true
