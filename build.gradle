@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
+
 buildscript {
     ext.kotlin_version = "1.5.21"
     repositories {
@@ -35,6 +37,11 @@ allprojects {
         google()
         jcenter()
         mavenCentral()
+    }
+
+    afterEvaluate {
+        def kmpExt = project.extensions.findByType(TypeOf.typeOf(KotlinMultiplatformExtension))
+        kmpExt?.sourceSets?.removeAll { it.name == "androidAndroidTestRelease" }
     }
 
     configurations.all {
