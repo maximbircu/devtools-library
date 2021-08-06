@@ -15,10 +15,6 @@ internal class JsonSchemaDevToolFactoryProducer(private val jsonObject: JsonObje
     private val properties: Map<String, JsonSchemaToolFactory<*>>
         get() = jsonObject["properties"]!!.jsonObject.toFactoriesMap()
 
-    init {
-        jsonObject["type"]?.jsonPrimitive?.content
-    }
-
     fun getDevToolFactory(): JsonSchemaToolFactory<*> {
         return if (jsonObject["enum"] != null) {
             JsonSchemaEnumToolFactory(jsonObject)
