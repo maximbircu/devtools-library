@@ -4,6 +4,7 @@ import com.maximbircu.devtools.common.mvp.BaseTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
+import kotlin.test.assertTrue
 
 class EnumToolTest : BaseTest() {
     @Test
@@ -15,7 +16,7 @@ class EnumToolTest : BaseTest() {
 
     @Test
     fun `throws exception if the default value key was not provided`() {
-        val tool = createTool(defaultValueKey = null)
+        val tool = EnumTool(optionsProvider = StubOptionsProvider())
 
         assertFailsWith(NullPointerException::class) { tool.getDefaultValue() }
     }
@@ -25,6 +26,13 @@ class EnumToolTest : BaseTest() {
         val tool = createTool(defaultValueKey = "fourth-option")
 
         assertFailsWith(IllegalArgumentException::class) { tool.getDefaultValue() }
+    }
+
+    @Test
+    fun `uses field value in case an options provider was not provided`() {
+        val tool = EnumTool()
+
+        assertTrue(tool.options.isEmpty())
     }
 
     private fun createTool(

@@ -100,9 +100,9 @@ class DevToolsImplTest : BaseTest() {
                     },
                     "second-tool" to createTool()
                 )
-            ),
-            onConfigUpdate = onConfigUpdate
+            )
         )
+        devTools.onConfigUpdated = onConfigUpdate
 
         devTools.persistToolsState()
 
