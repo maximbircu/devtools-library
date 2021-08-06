@@ -17,7 +17,7 @@ class GroupToolContextMenuClickListenerTest : BaseTest() {
     private val listener = GroupToolContextMenuClickListener(presenter)
 
     @Test
-    fun `notifies about "enable all" click and consumes the action`() {
+    fun `notifies about enable all click and consumes the action`() {
         val isActionConsumed = listener.onMenuItemClick(createMenuItem(R.id.enable_all))
 
         verify { presenter.onEnableAll() }
@@ -25,7 +25,7 @@ class GroupToolContextMenuClickListenerTest : BaseTest() {
     }
 
     @Test
-    fun `notifies about "disable all" click and consumes the action`() {
+    fun `notifies about disable all click and consumes the action`() {
         val isActionConsumed = listener.onMenuItemClick(createMenuItem(R.id.disable_all))
 
         verify { presenter.onDisableAll() }
@@ -33,7 +33,7 @@ class GroupToolContextMenuClickListenerTest : BaseTest() {
     }
 
     @Test
-    fun `notifies about "set all to default" click and consumes the action`() {
+    fun `notifies about set all to default click and consumes the action`() {
         val isActionConsumed = listener.onMenuItemClick(createMenuItem(R.id.set_all_to_default))
 
         verify { presenter.onSetAllToDefault() }
@@ -41,7 +41,7 @@ class GroupToolContextMenuClickListenerTest : BaseTest() {
     }
 
     @Test
-    fun `notifies about "reset all changes" click and consumes the action`() {
+    fun `notifies about reset all changes click and consumes the action`() {
         val isActionConsumed = listener.onMenuItemClick(createMenuItem(R.id.reset_all_changes))
 
         verify { presenter.onResetAllChanges() }

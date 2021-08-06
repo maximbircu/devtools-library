@@ -6,7 +6,7 @@ import com.maximbircu.devtools.common.mvp.BaseTest
 import com.maximbircu.devtools.common.readers.jsonschema.JsonSchemaToolFactory
 import com.maximbircu.devtools.common.utils.mockk
 import io.mockk.every
-import kotlinx.serialization.json.json
+import kotlinx.serialization.json.buildJsonObject
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -18,7 +18,7 @@ class JsonSchemaGroupToolFactoryTest : BaseTest() {
             "second-tool" to createTool()
         )
         val properties = expectedTools.map { (key, value) -> key to createSchemaToolFactory(value) }
-        val factory = JsonSchemaGroupToolFactory(json { }, properties.toMap())
+        val factory = JsonSchemaGroupToolFactory(buildJsonObject { }, properties.toMap())
 
         val tool = factory.create()
 
