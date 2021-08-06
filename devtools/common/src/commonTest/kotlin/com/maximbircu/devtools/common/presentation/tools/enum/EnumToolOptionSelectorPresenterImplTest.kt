@@ -90,7 +90,13 @@ class EnumToolOptionSelectorPresenterImplTest :
 
     @Test
     fun `hides custom value input view if selected option is not custom`() {
-        presenter.onToolBind(createTool { ::value returns "some custom value" })
+        val fakeOptions = mapOf("first-option" to "first-value", "second-option" to "second-value")
+        val tool: EnumTool = createTool {
+            ::allowCustom returns false
+            ::options returns fakeOptions
+            ::value returns "first-value"
+        }
+        presenter.onToolBind(tool)
 
         presenter.onOptionSelected("second-option")
 
