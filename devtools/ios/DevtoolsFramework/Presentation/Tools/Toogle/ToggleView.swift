@@ -29,7 +29,7 @@ public class ToggleView: DevToolView, DevToolPresentable, ToggleToolView {
         `switch`.setOn(value, animated: true)
     }
 
-    public func onBind(tool: DevTool) {
+    public func onBind(tool: DevTool<AnyObject>) {
         guard let tool = tool as? ToggleTool else { return }
         presenter.onToolBind(tool___: tool)
     }
