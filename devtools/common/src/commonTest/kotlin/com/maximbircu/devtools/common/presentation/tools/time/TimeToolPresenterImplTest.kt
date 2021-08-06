@@ -21,10 +21,12 @@ class TimeToolPresenterImplTest : BasePresenterTest<TimeToolView, TimeToolPresen
 
     @Test
     fun `sets time when new time selected`() {
-        presenter.onToolBind(createTool {
-            ::title returns "Time Tool"
-            ::value returns 10000
-        })
+        presenter.onToolBind(
+            createTool {
+                ::title returns "Time Tool"
+                ::value returns 10000
+            }
+        )
 
         presenter.onTimeSelected(Time("1d 2h 3m 4s 5ms"))
 
@@ -33,10 +35,12 @@ class TimeToolPresenterImplTest : BasePresenterTest<TimeToolView, TimeToolPresen
 
     @Test
     fun `displays time selection dialog on click`() {
-        presenter.onToolBind(createTool {
-            ::title returns "Time Tool"
-            ::value returns 10000
-        })
+        presenter.onToolBind(
+            createTool {
+                ::title returns "Time Tool"
+                ::value returns 10000
+            }
+        )
 
         presenter.onClick("1d 2h 3m 4s 5ms")
 

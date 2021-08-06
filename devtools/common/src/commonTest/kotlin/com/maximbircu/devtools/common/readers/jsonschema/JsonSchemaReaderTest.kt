@@ -38,6 +38,6 @@ class JsonSchemaReaderTest : BaseTest() {
                 }
               }
             }
-          """.trimIndent()
+        """.trimIndent()
     }
 }

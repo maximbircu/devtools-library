@@ -47,6 +47,6 @@ class JsonSchemaSourceTest : BaseTest() {
                 }
               }
             }
-          """.trimIndent()
+        """.trimIndent()
     }
 }
