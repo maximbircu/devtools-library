@@ -2,6 +2,12 @@ Changelog
 =========
 
 ## Version 1.0.1 *(In development)*
+Issue: [#73](https://github.com/maximbircu/devtools-library/issues/73)
+- Implemented a discard dialog - in case the user will try to leave the configuration screen with unsaved changes the screen will not close and a discard dialog will be displayed instead. The dialog will be closed and the unsaved changes discarded in case the user will hit the OK button.
+- Updated some libraries including kotlinx-serialization and migrated to AGP 7
+- Update targetSdkVersion to 31
+- Update to latest ktlint
+- Update to latest detekt
 
 Issue: [#12](https://github.com/maximbircu/devtools-library/issues/12)
 - Implement iOS YAML devtools reader

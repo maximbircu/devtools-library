@@ -1,5 +1,5 @@
 import devtools
 
 public protocol DevToolPresentable: DevToolView {
-    func onBind(tool: DevTool)
+    func onBind(tool: DevTool<AnyObject>)
 }

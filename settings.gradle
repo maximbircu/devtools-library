@@ -1,7 +1,5 @@
 rootProject.name = "devtools-library"
 
-enableFeaturePreview('GRADLE_METADATA')
-
 include ':devtools:common'
 include ':devtools:android'
 include ':devtools:ios'

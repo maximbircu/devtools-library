@@ -5,13 +5,18 @@ subprojects {
         }
 
         dependencies {
-            ktlint "com.pinterest:ktlint:0.36.0"
+            ktlint("com.pinterest:ktlint:0.42.1") {
+                attributes {
+                    attribute(Bundling.BUNDLING_ATTRIBUTE, getObjects().named(Bundling, Bundling.EXTERNAL))
+                }
+            }
         }
 
         task ktlint(type: JavaExec, group: "verification") {
             description = "Check Kotlin code style."
             classpath = configurations.ktlint
             main = "com.pinterest.ktlint.Main"
+            args "src/**/*.kt"
         }
 
         task ktlintFormat(type: JavaExec, group: "formatting") {

@@ -16,6 +16,7 @@ import io.mockk.clearAllMocks
 import io.mockk.spyk
 import io.mockk.verify
 import kotlin.test.Test
+import kotlin.test.assertTrue
 
 class DevToolsImplTest : BaseTest() {
     @Test
@@ -99,9 +100,9 @@ class DevToolsImplTest : BaseTest() {
                     },
                     "second-tool" to createTool()
                 )
-            ),
-            onConfigUpdate = onConfigUpdate
+            )
         )
+        devTools.onConfigUpdated = onConfigUpdate
 
         devTools.persistToolsState()
 
@@ -170,5 +171,22 @@ class DevToolsImplTest : BaseTest() {
         tools.values.forEach { tool -> verify { tool wasNot Called } }
         childTools.values.forEach { tool -> verify { tool wasNot Called } }
         verify(exactly = 0) { devTools.persistToolsState() }
+    }
+
+    @Test
+    fun `checks `() {
+        val tools = mapOf(
+            "first-tool" to createTool { ::hasUnsavedChanges returns true },
+            "second-tool" to createTool<GroupTool> {
+                ::tools returns mapOf(
+                    "first-child-tool" to createTool<ToggleTool>(),
+                    "second-child-tool" to createTool<TextTool> { ::hasUnsavedChanges returns true }
+                )
+            }
+        )
+
+        val devTools = DevTools.create("TEST", DevToolsSources.memory(tools))
+
+        assertTrue(devTools.thereExistUnsavedChanges)
     }
 }

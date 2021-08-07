@@ -1,12 +1,14 @@
+import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
+
 buildscript {
-    ext.kotlin_version = "1.3.72"
+    ext.kotlin_version = "1.5.21"
     repositories {
         google()
         jcenter()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.0'
+        classpath 'com.android.tools.build:gradle:7.0.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version"
         classpath "org.jetbrains.dokka:dokka-gradle-plugin:0.10.1"
@@ -14,7 +16,7 @@ buildscript {
 }
 
 plugins {
-    id "io.gitlab.arturbosch.detekt" version "1.6.0"
+    id "io.gitlab.arturbosch.detekt" version "1.18.0-RC3"
 }
 
 apply from: 'gradle/detekt.gradle'
@@ -23,8 +25,6 @@ apply from: 'gradle/ktlint.gradle'
 apply from: 'gradle/jacoco.gradle'
 
 allprojects {
-    apply plugin: 'io.gitlab.arturbosch.detekt'
-
     tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
         kotlinOptions {
             allWarningsAsErrors = true
@@ -35,6 +35,11 @@ allprojects {
         google()
         jcenter()
         mavenCentral()
+    }
+
+    afterEvaluate {
+        def kmpExt = project.extensions.findByType(TypeOf.typeOf(KotlinMultiplatformExtension))
+        kmpExt?.sourceSets?.removeAll { it.name == "androidAndroidTestRelease" }
     }
 
     configurations.all {

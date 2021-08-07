@@ -13,7 +13,7 @@ configurePublishing {
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
 
     buildTypes {
         release {
@@ -28,6 +28,8 @@ android {
     }
 
     libraryVariants.all { it.generateBuildConfig.enabled = false }
+
+    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
 }
 
 kotlin {
@@ -54,7 +56,7 @@ kotlin {
         commonMain {
             dependencies {
                 implementation "org.jetbrains.kotlin:kotlin-stdlib-common"
-                implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:0.20.0"
+                implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.2"
             }
         }
 
@@ -62,14 +64,12 @@ kotlin {
             dependsOn commonMain
             dependencies {
                 implementation "org.jetbrains.kotlin:kotlin-stdlib"
-                implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.20.0"
             }
         }
 
         iosMain {
             dependsOn commonMain
             dependencies {
-                implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:0.20.0"
             }
         }
 
@@ -77,8 +77,7 @@ kotlin {
             dependencies {
                 implementation "org.jetbrains.kotlin:kotlin-test-common"
                 implementation "org.jetbrains.kotlin:kotlin-test-annotations-common"
-                implementation "io.mockk:mockk:1.9.3"
-                implementation "io.mockk:mockk-common:1.9.3"
+                implementation "io.mockk:mockk-common:1.12.0"
             }
         }
 
@@ -86,6 +85,7 @@ kotlin {
             dependencies {
                 implementation "org.jetbrains.kotlin:kotlin-test"
                 implementation "org.jetbrains.kotlin:kotlin-test-junit"
+                implementation "io.mockk:mockk:1.12.0"
             }
         }
     }
@@ -103,7 +103,7 @@ kotlin {
     afterEvaluate {
         tasks.forEach { task ->
             def taskName = task.name
-            if(taskName.toLowerCase().contains("ios") && taskName.toLowerCase().contains("test")) {
+            if (taskName.toLowerCase().contains("ios") && taskName.toLowerCase().contains("test")) {
                 task.setEnabled(false)
             }
             if (taskName.contains("assemble")) {

@@ -11,4 +11,11 @@ class TimeToolTest : BaseTest() {
 
         assertEquals(93784005, tool.getDefaultValue())
     }
+
+    @Test
+    fun `uses default values`() {
+        val tool = TimeTool()
+
+        assertEquals(0, tool.getDefaultValue())
+    }
 }

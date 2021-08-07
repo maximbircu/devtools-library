@@ -20,7 +20,8 @@ class DevToolsParserImplTest : BaseTest() {
             "first-source-first-tool" to createTool(),
             "first-source-second-tool" to createTool()
         )
-        val childTools = mapOf<String, DevTool<*>>("child-tool" to createTool())
+        val childChildTools = mapOf<String, DevTool<*>>("child-child-tool" to createTool())
+        val childTools = mapOf<String, DevTool<*>>("child-tool" to spyk(GroupTool(childChildTools)))
         val source2Tools = mapOf<String, DevTool<*>>(
             "second-source-first-tool" to createTool(),
             "second-source-second-tool" to createTool(),

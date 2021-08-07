@@ -2,22 +2,22 @@ import devtools
 import Yams
 
 final class YamlSchemaDevtoolProducer {
-    static func createDevTool(yamlTag: String, config: Node.Mapping) -> DevTool? {
-        let devTool = parseToolByTag(yamlTag: yamlTag, config: config)
-        devTool?.title = config["title"]?.string
-        devTool?.description = config["description"]?.string ?? ""
-        devTool?.canBeDisabled = config["canBeDisabled"]?.bool ?? true
-        devTool?.defaultEnabledValue = config["defaultEnabledValue"]?.bool ?? false
-        devTool?.isCritical = config["isCritical"]?.bool ?? true
+    static func createDevTool(yamlTag: String, config: Node.Mapping) -> DevTool<AnyObject>? {
+        guard let devTool = parseToolByTag(yamlTag: yamlTag, config: config) as? DevTool<AnyObject> else { return nil }
+        devTool.title = config["title"]?.string
+        devTool.description_ = config["description"]?.string ?? ""
+        devTool.canBeDisabled = config["canBeDisabled"]?.bool ?? true
+        devTool.defaultEnabledValue = config["defaultEnabledValue"]?.bool ?? false
+        devTool.isCritical = config["isCritical"]?.bool ?? true
 
         return devTool
     }
 
-    private static func parseToolByTag(yamlTag: String, config: Node.Mapping) -> DevTool? {
+    private static func parseToolByTag(yamlTag: String, config: Node.Mapping) -> Any? {
         let toolDefaultValue = config["default"]
         switch yamlTag {
         case YamlDevToolsTypes.toggle.rawValue:
-            return ToggleTool(default: toolDefaultValue?.bool ?? false)
+            return ToggleTool(default: toolDefaultValue?.bool ?? false) as DevTool<KotlinBoolean>
         case YamlDevToolsTypes.text.rawValue:
             return TextTool(default: toolDefaultValue?.string ?? "", hint: config["hint"]?.string)
         case YamlDevToolsTypes.time.rawValue:
@@ -61,11 +61,11 @@ extension YamlSchemaDevtoolProducer {
 }
 
 extension YamlSchemaDevtoolProducer {
-    private static func parseGroup(tools: Node?) -> [String: DevTool] {
+    private static func parseGroup(tools: Node?) -> [String: DevTool<AnyObject>] {
         return tools?.mapping?.reduce(into: [String: DevTool]()) { result, node in
             guard let toolName = node.key.string,
                   let config = node.value.mapping else { return }
-            result[toolName] = parseToolByTag(yamlTag: node.value.tag.description, config: config)
+            result[toolName] = parseToolByTag(yamlTag: node.value.tag.description, config: config) as? DevTool<AnyObject>
         } ?? [:]
     }
 }

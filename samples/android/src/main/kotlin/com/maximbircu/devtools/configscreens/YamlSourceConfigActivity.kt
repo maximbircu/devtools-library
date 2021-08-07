@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.maximbircu.devtools.SampleApplication
 import com.maximbircu.devtools.android.DevToolsConfigurationScreen
+import com.maximbircu.devtools.common.presentation.configscreen.ConfigurationScreenRouter
 import com.maximbircu.devtools.databinding.ActivityToolsContainerBinding
 
 class YamlSourceConfigActivity : AppCompatActivity() {
@@ -35,6 +36,14 @@ class YamlSourceConfigActivity : AppCompatActivity() {
             toast.show()
         }
 
-        DevToolsConfigurationScreen.attachToView(binding.devToolsContainer, devtools)
+        DevToolsConfigurationScreen.attachToView(
+            rootView = binding.devToolsContainer,
+            devTools = devtools,
+            configScreenRouter = object : ConfigurationScreenRouter {
+                override var onBack: (() -> Boolean)? = null
+
+                override fun closeScreen() = finish()
+            }
+        )
     }
 }

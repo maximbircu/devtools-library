@@ -14,6 +14,13 @@ interface ConfigScreenPresenter : Presenter {
     fun onCreate()
 
     /**
+     * Should be invoked when the configuration screen is closed and destroyed.
+     *
+     * Rests the in memory dev tools changes.
+     */
+    fun onDestroy()
+
+    /**
      * Should be invoked when the user wants to apply the dev tools config changes he made.
      *
      * Will notify the [DevTools] to persist the dev tools state.
@@ -24,9 +31,10 @@ interface ConfigScreenPresenter : Presenter {
         fun create(
             view: ConfigScreenView,
             devTools: DevTools,
-            devToolsList: DevToolsListView
+            devToolsList: DevToolsListView,
+            router: ConfigurationScreenRouter?
         ): ConfigScreenPresenter {
-            return ConfigScreenPresenterImpl(view, devTools, devToolsList)
+            return ConfigScreenPresenterImpl(view, devTools, devToolsList, router)
         }
     }
 }
@@ -34,9 +42,28 @@ interface ConfigScreenPresenter : Presenter {
 private class ConfigScreenPresenterImpl(
     view: ConfigScreenView,
     private val devTools: DevTools,
-    private val devToolsList: DevToolsListView
+    private val devToolsList: DevToolsListView,
+    private val router: ConfigurationScreenRouter?
 ) : BasePresenter<ConfigScreenView>(view), ConfigScreenPresenter {
-    override fun onCreate() = devToolsList.showDevTools(devTools.tools.values.toList())
+    override fun onCreate() {
+        devToolsList.showDevTools(devTools.tools.values.toList())
+        setUpRouter()
+    }
+
+    override fun onDestroy() {
+        devTools.restorePersistedState()
+    }
 
     override fun onApplyConfig() = devTools.persistToolsState()
+
+    private fun setUpRouter() = router?.run {
+        onBack = {
+            if (devTools.thereExistUnsavedChanges) {
+                view.showConfirmationDialog(::closeScreen)
+                true
+            } else {
+                false
+            }
+        }
+    }
 }

@@ -14,6 +14,10 @@ class GroupToolStore : PreferencesToolStore<Unit> {
      * its children themselves.
      */
     override var isEnabled: Boolean = true
+        @Suppress("UNUSED_PARAMETER")
+        set(value) = throw IllegalStateException("Can not enable/disable a group tool")
 
     override var value: Unit = Unit
+        @Suppress("UNUSED_PARAMETER")
+        set(value) = throw IllegalStateException("Can not modify a group tool value")
 }

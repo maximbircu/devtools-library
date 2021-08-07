@@ -7,8 +7,9 @@ import com.maximbircu.devtools.common.readers.jsonschema.factories.JsonSchemaTex
 import com.maximbircu.devtools.common.readers.jsonschema.factories.JsonSchemaTextToolFactory
 import com.maximbircu.devtools.common.readers.jsonschema.factories.JsonSchemaTextToolIntegerFactory
 import com.maximbircu.devtools.common.readers.jsonschema.factories.JsonSchemaToggleToolFactory
-import kotlinx.serialization.json.json
-import kotlinx.serialization.json.jsonArray
+import kotlinx.serialization.json.buildJsonObject
+import kotlinx.serialization.json.put
+import kotlinx.serialization.json.putJsonObject
 import kotlin.test.Test
 import kotlin.test.assertFailsWith
 import kotlin.test.assertTrue
@@ -16,7 +17,7 @@ import kotlin.test.assertTrue
 class JsonSchemaDevToolFactoryProducerTest : BaseTest() {
     @Test
     fun `creates toggle tool factory for boolean type`() {
-        val jsonObject = json { "type" to "boolean" }
+        val jsonObject = buildJsonObject { put("type", "boolean") }
         val factoryProducer = JsonSchemaDevToolFactoryProducer(jsonObject)
 
         assertTrue(factoryProducer.getDevToolFactory() is JsonSchemaToggleToolFactory)
@@ -24,7 +25,7 @@ class JsonSchemaDevToolFactoryProducerTest : BaseTest() {
 
     @Test
     fun `creates text tool factory for string type`() {
-        val jsonObject = json { "type" to "string" }
+        val jsonObject = buildJsonObject { put("type", "string") }
         val factoryProducer = JsonSchemaDevToolFactoryProducer(jsonObject)
 
         assertTrue(factoryProducer.getDevToolFactory() is JsonSchemaTextToolFactory)
@@ -32,7 +33,7 @@ class JsonSchemaDevToolFactoryProducerTest : BaseTest() {
 
     @Test
     fun `creates integer text tool factory for integer type`() {
-        val jsonObject = json { "type" to "integer" }
+        val jsonObject = buildJsonObject { put("type", "integer") }
         val factoryProducer = JsonSchemaDevToolFactoryProducer(jsonObject)
 
         assertTrue(factoryProducer.getDevToolFactory() is JsonSchemaTextToolIntegerFactory)
@@ -40,7 +41,7 @@ class JsonSchemaDevToolFactoryProducerTest : BaseTest() {
 
     @Test
     fun `creates double text tool factory for number type`() {
-        val jsonObject = json { "type" to "number" }
+        val jsonObject = buildJsonObject { put("type", "number") }
         val factoryProducer = JsonSchemaDevToolFactoryProducer(jsonObject)
 
         assertTrue(factoryProducer.getDevToolFactory() is JsonSchemaTextToolDoubleFactory)
@@ -48,9 +49,9 @@ class JsonSchemaDevToolFactoryProducerTest : BaseTest() {
 
     @Test
     fun `creates group tool factory for object type`() {
-        val jsonObject = json {
-            "type" to "object"
-            "properties" to json { }
+        val jsonObject = buildJsonObject {
+            put("type", "object")
+            putJsonObject("properties") {}
         }
         val factoryProducer = JsonSchemaDevToolFactoryProducer(jsonObject)
 
@@ -59,9 +60,9 @@ class JsonSchemaDevToolFactoryProducerTest : BaseTest() {
 
     @Test
     fun `creates enum tool factory when enum tag is present`() {
-        val jsonObject = json {
-            "type" to "string"
-            "enum" to jsonArray { }
+        val jsonObject = buildJsonObject {
+            put("type", "string")
+            putJsonObject("enum") { }
         }
         val factoryProducer = JsonSchemaDevToolFactoryProducer(jsonObject)
 
@@ -70,7 +71,7 @@ class JsonSchemaDevToolFactoryProducerTest : BaseTest() {
 
     @Test
     fun `throws exception in case the object type is not supported`() {
-        val jsonObject = json { "type" to "some not supported type" }
+        val jsonObject = buildJsonObject { put("type", "some not supported type") }
         val factoryProducer = JsonSchemaDevToolFactoryProducer(jsonObject)
 
         assertFailsWith(IllegalArgumentException::class) { factoryProducer.getDevToolFactory() }

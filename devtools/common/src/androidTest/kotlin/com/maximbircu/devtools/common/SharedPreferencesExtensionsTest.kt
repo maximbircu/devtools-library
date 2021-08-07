@@ -137,7 +137,7 @@ class SharedPreferencesExtensionsTest : BaseTest() {
     @Test
     fun `restores double value properly if the key exists and it was stored`() {
         every { sharedPrefs.contains("radio-tool") } returns true
-        every { sharedPrefs.all["radio-tool"] } returns doubleToRawLongBits(25.3)
+        every { sharedPrefs.all } returns mapOf("radio-tool" to doubleToRawLongBits(25.3))
 
         val actualValue = sharedPrefs.getDouble("radio-tool", 30.0)
 

@@ -1,8 +1,10 @@
 package com.maximbircu.devtools.common.readers.jsonschema.factories
 
 import com.maximbircu.devtools.common.mvp.BaseTest
-import kotlinx.serialization.json.json
-import kotlinx.serialization.json.jsonArray
+import kotlinx.serialization.json.add
+import kotlinx.serialization.json.buildJsonObject
+import kotlinx.serialization.json.put
+import kotlinx.serialization.json.putJsonArray
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
@@ -15,12 +17,12 @@ class JsonSchemaEnumToolFactoryTest : BaseTest() {
 
     @Test
     fun `creates a proper enum dev tool with default value provided`() {
-        val enumToolJsonObject = json {
-            "default" to "Second Option"
-            "enum" to jsonArray {
-                +"First Option"
-                +"Second Option"
-                +"Third Option"
+        val enumToolJsonObject = buildJsonObject {
+            put("default", "Second Option")
+            putJsonArray("enum") {
+                add("First Option")
+                add("Second Option")
+                add("Third Option")
             }
         }
         val expectedOptions = enumValues.map { it to it }.toMap()
@@ -35,12 +37,12 @@ class JsonSchemaEnumToolFactoryTest : BaseTest() {
 
     @Test
     fun `creates a proper enum dev tool with allow custom flags provided`() {
-        val enumToolJsonObject = json {
-            "allowCustom" to true
-            "enum" to jsonArray {
-                +"First Option"
-                +"Second Option"
-                +"Third Option"
+        val enumToolJsonObject = buildJsonObject {
+            put("allowCustom", true)
+            putJsonArray("enum") {
+                add("First Option")
+                add("Second Option")
+                add("Third Option")
             }
         }
         val expectedOptions = enumValues.map { it to it }.toMap()
@@ -55,15 +57,15 @@ class JsonSchemaEnumToolFactoryTest : BaseTest() {
 
     @Test
     fun `creates a proper enum dev tool with default value and allow custom flags provided`() {
-        val enumToolJsonObject = json {
-            "title" to "Enum tool"
-            "default" to "Second Option"
-            "enum" to jsonArray {
-                +"First Option"
-                +"Second Option"
-                +"Third Option"
+        val enumToolJsonObject = buildJsonObject {
+            put("title", "Enum tool")
+            put("default", "Second Option")
+            putJsonArray("enum") {
+                add("First Option")
+                add("Second Option")
+                add("Third Option")
             }
-            "allowCustom" to true
+            put("allowCustom", true)
         }
         val expectedOptions = enumValues.map { it to it }.toMap()
         val factory = JsonSchemaEnumToolFactory(enumToolJsonObject)

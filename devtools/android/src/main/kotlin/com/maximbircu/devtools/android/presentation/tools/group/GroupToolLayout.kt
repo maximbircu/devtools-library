@@ -1,5 +1,6 @@
 package com.maximbircu.devtools.android.presentation.tools.group
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.widget.PopupMenu
 import com.maximbircu.devtools.android.R
@@ -34,6 +35,7 @@ class GroupToolLayout(context: Context) : DevToolLayout<GroupTool>(context), Gro
         popup.show()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun refreshToolData() {
         devToolsViewsContainer.adapter?.notifyDataSetChanged()
     }

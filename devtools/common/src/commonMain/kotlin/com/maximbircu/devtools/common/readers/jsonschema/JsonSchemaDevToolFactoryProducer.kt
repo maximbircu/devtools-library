@@ -7,11 +7,13 @@ import com.maximbircu.devtools.common.readers.jsonschema.factories.JsonSchemaTex
 import com.maximbircu.devtools.common.readers.jsonschema.factories.JsonSchemaTextToolIntegerFactory
 import com.maximbircu.devtools.common.readers.jsonschema.factories.JsonSchemaToggleToolFactory
 import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.jsonObject
+import kotlinx.serialization.json.jsonPrimitive
 
 internal class JsonSchemaDevToolFactoryProducer(private val jsonObject: JsonObject) {
-    private val type = jsonObject.getValue("type").primitive.content
+    private val type = jsonObject["type"]!!.jsonPrimitive.content
     private val properties: Map<String, JsonSchemaToolFactory<*>>
-        get() = jsonObject.getValue("properties").jsonObject.toFactoriesMap()
+        get() = jsonObject["properties"]!!.jsonObject.toFactoriesMap()
 
     fun getDevToolFactory(): JsonSchemaToolFactory<*> {
         return if (jsonObject["enum"] != null) {

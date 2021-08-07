@@ -7,7 +7,9 @@ import com.maximbircu.devtools.common.presentation.tools.group.GroupTool
 import com.maximbircu.devtools.common.presentation.tools.text.TextTool
 import com.maximbircu.devtools.common.presentation.tools.toggle.ToggleTool
 import com.maximbircu.devtools.common.utils.returns
-import kotlinx.serialization.json.json
+import kotlinx.serialization.json.buildJsonObject
+import kotlinx.serialization.json.put
+import kotlinx.serialization.json.putJsonObject
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
@@ -69,11 +71,11 @@ class DevToolsStorageImplTest : BaseTest() {
                 )
             )
         )
-        val expectedConfigJsonString = json {
-            "first-tool" to true
-            "second-tool" to json {
-                "first-child-tool" to "First value"
-                "second-child-tool" to "Second value"
+        val expectedConfigJsonString = buildJsonObject {
+            put("first-tool", true)
+            putJsonObject("second-tool") {
+                put("first-child-tool", "First value")
+                put("second-child-tool", "Second value")
             }
         }.toString()
         val storage: DevToolsStorage = DevToolsStorageImpl(tools)
@@ -119,11 +121,11 @@ class DevToolsStorageImplTest : BaseTest() {
                 )
             )
         )
-        val expectedConfigJsonString = json {
-            "first-tool" to true
-            "third-tool" to json {
-                "second-child-tool" to "Second value"
-                "third-child-tool" to 3.4
+        val expectedConfigJsonString = buildJsonObject {
+            put("first-tool", true)
+            putJsonObject("third-tool") {
+                put("second-child-tool", "Second value")
+                put("third-child-tool", 3.4)
             }
         }.toString()
         val storage: DevToolsStorage = DevToolsStorageImpl(tools)

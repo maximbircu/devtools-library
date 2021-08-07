@@ -34,7 +34,7 @@ public class DevToolView: UIView, devtools.DevToolView, NibLoadable {
         return devToolView
     }
 
-    public func bind(tool: DevTool) {
+    public func bind(tool: DevTool<AnyObject>) {
         presenter.onToolBind(tool: tool)
         containerTool.onBind(tool: tool)
     }
@@ -43,7 +43,7 @@ public class DevToolView: UIView, devtools.DevToolView, NibLoadable {
         checkBox.isHidden = true
     }
 
-    public func refreshToolData(tool: DevTool) {
+    public func refreshToolData(tool: DevTool<AnyObject>) {
         bind(tool: tool)
     }
 
@@ -59,7 +59,7 @@ public class DevToolView: UIView, devtools.DevToolView, NibLoadable {
         checkBox.isHidden = false
     }
 
-    public func showHelpDialog(tool: DevTool) {
+    public func showHelpDialog(tool: DevTool<AnyObject>) {
 
     }
 

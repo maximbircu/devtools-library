@@ -1,7 +1,7 @@
 import devtools
 
 public extension DevToolsSources {
-    static func memory(devTools: [String: DevTool]) -> DevToolsSource {
+    static func memory(devTools: [String: DevTool<AnyObject>]) -> DevToolsSource {
         return DevToolsSources().memory(devTools: devTools)
     }
 

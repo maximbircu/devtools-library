@@ -2,6 +2,7 @@ package com.maximbircu.devtools.common.stores
 
 import android.content.SharedPreferences
 import com.maximbircu.devtools.common.SharedPreferencesProvider
+import com.maximbircu.devtools.common.core.createTool
 import com.maximbircu.devtools.common.mvp.BaseTest
 import com.maximbircu.devtools.common.presentation.tools.toggle.ToggleTool
 import com.maximbircu.devtools.common.utils.mockk
@@ -54,6 +55,11 @@ class PreferencesToolStoreImplTest : BaseTest() {
         every { sharedPrefs.getBoolean("toggle-tool", false) } returns true
 
         assertTrue(preferencesStore.value)
+    }
+
+    @Test
+    fun `creates a proper instance of prefs store implementation`() {
+        assertTrue(PreferencesToolStore.create<Int>(createTool { }) is PreferencesToolStoreImpl)
     }
 
     private fun createPreferencesStore(

@@ -22,6 +22,10 @@ interface DevTools : DevToolsStorage {
      */
     fun persistToolsState()
 
+    fun restorePersistedState()
+
+    val thereExistUnsavedChanges: Boolean
+
     /**
      * Updates all dev tools with values taken from [params].
      *
@@ -63,8 +67,20 @@ private class DevToolsImpl(
     override var onConfigUpdated: (isCriticalUpdate: Boolean) -> Unit
 ) : DevTools, DevToolsStorage by toolsStorage {
     init {
-        tools.forEachRecursively { _, tool -> tool.restorePersistedState() }
+        restorePersistedState()
     }
+
+    override val thereExistUnsavedChanges: Boolean
+        get() {
+            var hasUnsavedChanges = false
+            tools.forEachRecursively { _, devTool ->
+                if (devTool.hasUnsavedChanges) {
+                    hasUnsavedChanges = true
+                    return@forEachRecursively
+                }
+            }
+            return hasUnsavedChanges
+        }
 
     override fun updateFromParams(params: Map<String, Any>) {
         if (params.isEmpty()) return
@@ -84,6 +100,10 @@ private class DevToolsImpl(
         if (atLeastOneToolWasUpdated) {
             onConfigUpdated(isCriticalUpdate)
         }
+    }
+
+    override fun restorePersistedState() {
+        tools.forEachRecursively { _, tool -> tool.restorePersistedState() }
     }
 
     private fun persistToolsStateRecursively(): Pair<Boolean, Boolean> {

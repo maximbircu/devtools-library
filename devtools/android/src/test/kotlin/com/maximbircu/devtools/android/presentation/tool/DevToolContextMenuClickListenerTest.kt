@@ -17,7 +17,7 @@ class DevToolContextMenuClickListenerTest : BaseTest() {
     private val listener = DevToolContextMenuClickListener(presenter)
 
     @Test
-    fun `notifies about "help" click and consumes the action`() {
+    fun `notifies about help click and consumes the action`() {
         val isActionConsumed = listener.onMenuItemClick(createMenuItem(R.id.help))
 
         verify { presenter.onHelp() }
@@ -25,7 +25,7 @@ class DevToolContextMenuClickListenerTest : BaseTest() {
     }
 
     @Test
-    fun `notifies about "select default value" click and consumes the action`() {
+    fun `notifies about select default value click and consumes the action`() {
         val isActionConsumed = listener.onMenuItemClick(createMenuItem(R.id.select_default_value))
 
         verify { presenter.onSelectDefaultValue() }
@@ -33,7 +33,7 @@ class DevToolContextMenuClickListenerTest : BaseTest() {
     }
 
     @Test
-    fun `notifies about "reset changes" click and consumes the action`() {
+    fun `notifies about reset changes click and consumes the action`() {
         val isActionConsumed = listener.onMenuItemClick(createMenuItem(R.id.reset_changes))
 
         verify { presenter.onResetChanges() }
