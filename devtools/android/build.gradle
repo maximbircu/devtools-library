@@ -54,7 +54,7 @@ dependencies {
     debugApi(project(':devtools:common')) { transitive = true }
     releaseApi("com.maximbircu:devtools-common:1.0.0") { transitive = true }
 
-    implementation "org.yaml:snakeyaml:1.27"
+    implementation "org.yaml:snakeyaml:1.29"
     implementation "com.google.android.material:material:1.4.0"
 
     // kotlin
@@ -71,5 +71,5 @@ dependencies {
     // test
     testImplementation "org.jetbrains.kotlin:kotlin-test"
     testImplementation "org.jetbrains.kotlin:kotlin-test-junit"
-    testImplementation "io.mockk:mockk:1.9.3"
+    testImplementation "io.mockk:mockk:1.12.0"
 }

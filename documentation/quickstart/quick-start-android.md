@@ -109,12 +109,20 @@
     You just need to create a separate activity for the configuration screen and open it whenever you need to update your app config.
     
     ```Kotlin
-    class DevToolsActivity: AppCompatActivity() {
+    class DevToolsActivity: AppCompatActivity(), ConfigurationScreenRouter  {
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
     
             val contentView = findViewById<ViewGroup>(android.R.id.content)
-            DevToolsConfigurationScreen.attachToView(contentView, SampleApplication.application.devtools)
+             DevToolsConfigurationScreen.attachToView(
+                  rootView = binding.devToolsContainer,
+                  devTools = devtools,
+                  configScreenRouter = object : ConfigurationScreenRouter {
+                      override var onBack: (() -> Boolean)? = null
+      
+                      override fun closeScreen() = finish()
+                  }
+              )
         }
     }
     ```

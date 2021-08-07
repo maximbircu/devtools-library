@@ -12,11 +12,20 @@ class DevToolsActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         val contentView = findViewById<ViewGroup>(android.R.id.content)
-        DevToolsConfigurationScreen.attachToView(contentView, MyApplication.application.devtools)
+        DevToolsConfigurationScreen.attachToView(
+            rootView = binding.devToolsContainer,
+            devTools = devtools,
+            configScreenRouter = object : ConfigurationScreenRouter {
+                override var onBack: (() -> Boolean)? = null
+
+                override fun closeScreen() = finish()
+            }
+        )
     }
 }
 ```
 You can attach this config screen view to any other view from your app.
+Note that `configScreenRouter` parameter is optional the library needs it to show a neat confirmation dialog when the config screen users will try to close the screen having unsaved changes.
 
 ## Theming
 The android library is based on material design. There is a [Theme.DevTools](../../devtools/android/src/main/res/values/styles.xml#L3) that you might extend inside your app to update the colors, text appearance, and shaping.
