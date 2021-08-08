@@ -5,5 +5,6 @@ final class ConfigScreenCell: UITableViewCell, NibLoadable {
 
     func addDevToolView(toolView: UIView) {
         self.contentView.addSubview(toolView)
+        self.contentView.attachSubview(toolView)
     }
 }

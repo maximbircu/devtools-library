@@ -7,7 +7,7 @@ class ViewController: UIViewController {
     private var yamlDevTools: DevTools!
     private var jsonDevTools: DevTools!
 
-    @IBOutlet var toggleView: ToggleView!
+    @IBOutlet var configScreenView: DevtoolsFramework.ConfigScreenView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +23,7 @@ class ViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         memoryDevTools.tools.forEach { $0.value.restorePersistedState() }
-        guard let toggle = memoryDevTools.tools["toggle-tool"] else { return }
-        toggleView.bind(tool: toggle)
+        configScreenView.showDevTools(tools: memoryDevTools.tools.map { $0.value })
     }
 
     override func viewWillDisappear(_ animated: Bool) {

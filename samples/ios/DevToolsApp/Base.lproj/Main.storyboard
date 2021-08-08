@@ -17,24 +17,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BeG-58-JcW" customClass="ToggleView" customModule="DevtoolsFramework">
-                                <rect key="frame" x="0.0" y="386" width="375" height="50"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KeS-pP-xX1" customClass="ConfigScreenView" customModule="DevtoolsFramework">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="ggS-MG-ghj"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="BeG-58-JcW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OS0-bV-JHF"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BeG-58-JcW" secondAttribute="trailing" id="cY7-Mv-UVy"/>
-                            <constraint firstItem="BeG-58-JcW" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="keu-1u-3sH"/>
+                            <constraint firstItem="KeS-pP-xX1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="019-Ev-X3e"/>
+                            <constraint firstItem="KeS-pP-xX1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hcc-XY-fQd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KeS-pP-xX1" secondAttribute="bottom" id="lF4-Ha-y1H"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KeS-pP-xX1" secondAttribute="trailing" id="wmY-KT-Xi0"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="toggleView" destination="BeG-58-JcW" id="SSZ-KS-K9W"/>
+                        <outlet property="configScreenView" destination="KeS-pP-xX1" id="ae8-F3-MaZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

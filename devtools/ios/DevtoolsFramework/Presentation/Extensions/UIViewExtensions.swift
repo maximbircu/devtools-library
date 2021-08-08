@@ -48,4 +48,13 @@ extension UIView {
         target.bounds = bounds
         target.clipsToBounds = clipsToBounds
     }
+
+    func attachSubview(_ view: UIView, left: CGFloat = 0, right: CGFloat = 0,
+                       top: CGFloat = 0, bottom: CGFloat = 0) {
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
+        view.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
+        view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
+        view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
+    }
 }
