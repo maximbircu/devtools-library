@@ -27,6 +27,7 @@
 		62A13B59CFB7E06084C2893E /* Pods_DevtoolsFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9BE5F0CC2F329CA25A46A4F /* Pods_DevtoolsFramework.framework */; };
 		D6154FF126193C57000BDEC3 /* DevToolsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6154FF026193C57000BDEC3 /* DevToolsExtensions.swift */; };
 		D66045662618BE07008070EF /* YamlSchemaDevtoolProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66045652618BE07008070EF /* YamlSchemaDevtoolProducer.swift */; };
+		D69ACB5E26BF49990025132A /* DevToolsRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69ACB5D26BF49990025132A /* DevToolsRegistry.swift */; };
 		D6B452E42640BC3B00AE6079 /* ConfigScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B452E32640BC3B00AE6079 /* ConfigScreenView.swift */; };
 		D6B452E72640BEAB00AE6079 /* ConfigScreenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6B452E62640BEAB00AE6079 /* ConfigScreenView.xib */; };
 		D6B452EC2640C31800AE6079 /* ConfigScreenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6B452EB2640C31800AE6079 /* ConfigScreenCell.xib */; };
@@ -90,6 +91,7 @@
 		C610AB5253D67107B9008D92 /* Pods-DevtoolsFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevtoolsFramework.debug.xcconfig"; path = "Target Support Files/Pods-DevtoolsFramework/Pods-DevtoolsFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		D6154FF026193C57000BDEC3 /* DevToolsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevToolsExtensions.swift; sourceTree = "<group>"; };
 		D66045652618BE07008070EF /* YamlSchemaDevtoolProducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YamlSchemaDevtoolProducer.swift; sourceTree = "<group>"; };
+		D69ACB5D26BF49990025132A /* DevToolsRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevToolsRegistry.swift; sourceTree = "<group>"; };
 		D6B452E32640BC3B00AE6079 /* ConfigScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigScreenView.swift; sourceTree = "<group>"; };
 		D6B452E62640BEAB00AE6079 /* ConfigScreenView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfigScreenView.xib; sourceTree = "<group>"; };
 		D6B452EB2640C31800AE6079 /* ConfigScreenCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfigScreenCell.xib; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				D660457126193A0A008070EF /* Extensions */,
 				D6FE8D3426110BBF00D2131E /* Readers */,
 				3D29B3362489A9C2001BB496 /* Presentation */,
+				D69ACB5D26BF49990025132A /* DevToolsRegistry.swift */,
 				3D050E0F2442000600C4B92C /* SupportingFiles */,
 				3D050E282442777600C4B92C /* DevToolsConfiguration.swift */,
 				3DF16349248DB70F00865C01 /* Images.xcassets */,
@@ -529,6 +532,7 @@
 				3DF16343248DB24D00865C01 /* DevToolView.swift in Sources */,
 				D6FE8D4C261115A700D2131E /* YamlDevToolsReader.swift in Sources */,
 				D6154FF126193C57000BDEC3 /* DevToolsExtensions.swift in Sources */,
+				D69ACB5E26BF49990025132A /* DevToolsRegistry.swift in Sources */,
 				D6B452EF2640C3D200AE6079 /* ConfigScreenCell.swift in Sources */,
 				3DF1634D248E4DDC00865C01 /* NibLoadable.swift in Sources */,
 				D6CD456E26127A4100EE023A /* FileReader.swift in Sources */,

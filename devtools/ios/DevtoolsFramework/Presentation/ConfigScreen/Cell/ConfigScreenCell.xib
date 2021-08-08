@@ -12,7 +12,7 @@
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="118" id="WKU-8O-COi" customClass="ConfigScreenCell" customModule="DevtoolsFramework" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="442" height="118"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WKU-8O-COi" id="x9s-VR-hk2" customClass="DevToolView" customModule="DevtoolsFramework" customModuleProvider="target">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WKU-8O-COi" id="x9s-VR-hk2">
                 <rect key="frame" x="0.0" y="0.0" width="442" height="118"/>
                 <autoresizingMask key="autoresizingMask"/>
             </tableViewCellContentView>
