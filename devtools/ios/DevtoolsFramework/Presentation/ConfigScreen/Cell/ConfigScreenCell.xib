@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,8 +16,28 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WKU-8O-COi" id="x9s-VR-hk2">
                 <rect key="frame" x="0.0" y="0.0" width="442" height="118"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zYJ-Q1-H6H" customClass="DevToolView" customModule="DevtoolsFramework" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="442" height="118"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="zYJ-Q1-H6H" firstAttribute="top" secondItem="x9s-VR-hk2" secondAttribute="top" id="dTA-pU-3SR"/>
+                    <constraint firstItem="zYJ-Q1-H6H" firstAttribute="leading" secondItem="x9s-VR-hk2" secondAttribute="leading" id="dWe-kE-Jlh"/>
+                    <constraint firstAttribute="bottom" secondItem="zYJ-Q1-H6H" secondAttribute="bottom" id="ljF-mj-MO1"/>
+                    <constraint firstAttribute="trailing" secondItem="zYJ-Q1-H6H" secondAttribute="trailing" id="sBW-JD-V5N"/>
+                </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="devToolView" destination="zYJ-Q1-H6H" id="mxB-tn-Djv"/>
+            </connections>
             <point key="canvasLocation" x="149.27536231884059" y="173.4375"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

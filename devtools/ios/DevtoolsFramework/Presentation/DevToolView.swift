@@ -17,7 +17,7 @@ public class DevToolView: UIView, devtools.DevToolView, NibLoadable {
     override open func awakeAfter(using aDecoder: NSCoder) -> Any? {
         guard let devToolElementView = super.awakeAfter(using: aDecoder) as? DevToolPresentable,
               !devToolElementView.translatesAutoresizingMaskIntoConstraints,
-              let devToolView = DevToolView.instantiate() as? DevToolView else { return self }
+              let devToolView = DevToolView.instantiate() as? DevToolView else { return super.awakeAfter(using: aDecoder) }
 
         transferProperties(to: devToolView)
 

@@ -25,6 +25,7 @@ public final class ConfigScreenView: UIView, devtools.ConfigScreenView, NibLoada
 extension ConfigScreenView: DevToolsListView {
     public func showDevTools(tools: [DevTool]) {
         devtools = tools
+        devtools.forEach{ $0.restorePersistedState() }
         configTableView.reloadData()
     }
 
@@ -40,8 +41,11 @@ extension ConfigScreenView: UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ConfigScreenCell.identifier, for: indexPath)
-        let devToolView = DevToolsRegistry.getDevtoolView(tool: devtools[indexPath.item])
+        let devTool = devtools[indexPath.item]
+        let devToolView = DevToolsRegistry.getDevtoolView(tool: devTool)
         (cell as? ConfigScreenCell)?.addDevToolView(toolView: devToolView)
+        // TODO: Add devtool bind for seting presenters.
+        //(devToolView as? DevToolPresentable)?.bind(tool: devTool)
 
         return cell
     }
