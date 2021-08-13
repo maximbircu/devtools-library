@@ -29,9 +29,6 @@
                         <constraint firstAttribute="height" constant="31" id="Ocl-aD-wwb"/>
                         <constraint firstAttribute="width" constant="49" id="rKE-EY-ane"/>
                     </constraints>
-                    <connections>
-                        <action selector="onSwitchValueChanged" destination="1GY-tQ-oAA" eventType="valueChanged" id="5fT-wD-XQj"/>
-                    </connections>
                 </switch>
             </subviews>
             <viewLayoutGuide key="safeArea" id="8FD-yt-BNh"/>
@@ -45,7 +42,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="switch" destination="p9k-Ff-cxK" id="jY8-LH-rDi"/>
+                <outlet property="switch" destination="p9k-Ff-cxK" id="ODU-0l-vPC"/>
             </connections>
             <point key="canvasLocation" x="-93.478260869565219" y="-1.3392857142857142"/>
         </view>

@@ -15,9 +15,11 @@ public class DevToolView: UIView, devtools.DevToolView, NibLoadable {
     }
 
     override open func awakeAfter(using aDecoder: NSCoder) -> Any? {
-        guard let devToolElementView = super.awakeAfter(using: aDecoder) as? DevToolPresentable,
-              !devToolElementView.translatesAutoresizingMaskIntoConstraints,
-              let devToolView = DevToolView.instantiate() as? DevToolView else { return super.awakeAfter(using: aDecoder) }
+        guard let devToolElementView = (self as? DevToolPresentable)?.devToolView,
+              type(of: self) == type(of: devToolElementView),
+              let devToolView = DevToolView.instantiate() as? DevToolView else {
+            return self
+        }
 
         transferProperties(to: devToolView)
 
@@ -25,13 +27,9 @@ public class DevToolView: UIView, devtools.DevToolView, NibLoadable {
         let toolContainer: UIView = devToolView.containerView
         toolContainer.transferProperties(to: devToolElementView)
         toolContainer.addSubview(devToolElementView)
+        toolContainer.attachSubview(devToolElementView)
 
-        devToolElementView.topAnchor.constraint(equalTo: toolContainer.topAnchor, constant: 0).isActive = true
-        devToolElementView.bottomAnchor.constraint(equalTo: toolContainer.bottomAnchor, constant: 0).isActive = true
-        devToolElementView.leadingAnchor.constraint(equalTo: toolContainer.leadingAnchor, constant: 0).isActive = true
-        devToolElementView.trailingAnchor.constraint(equalTo: toolContainer.trailingAnchor, constant: 0).isActive = true
-
-        return devToolView
+        return devToolElementView
     }
 
     public func bind(tool: DevTool) {

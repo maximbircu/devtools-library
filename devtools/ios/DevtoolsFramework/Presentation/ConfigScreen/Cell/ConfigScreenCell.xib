@@ -28,6 +28,11 @@
                     <constraint firstAttribute="bottom" secondItem="zYJ-Q1-H6H" secondAttribute="bottom" id="ljF-mj-MO1"/>
                     <constraint firstAttribute="trailing" secondItem="zYJ-Q1-H6H" secondAttribute="trailing" id="sBW-JD-V5N"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="subviews">
+                        <exclude reference="zYJ-Q1-H6H"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="devToolView" destination="zYJ-Q1-H6H" id="mxB-tn-Djv"/>

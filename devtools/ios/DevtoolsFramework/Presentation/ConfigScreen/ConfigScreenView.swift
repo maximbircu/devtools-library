@@ -43,6 +43,7 @@ extension ConfigScreenView: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: ConfigScreenCell.identifier, for: indexPath)
         let devTool = devtools[indexPath.item]
         let devToolView = DevToolsRegistry.getDevtoolView(tool: devTool)
+        devToolView.translatesAutoresizingMaskIntoConstraints = false
         (cell as? ConfigScreenCell)?.addDevToolView(toolView: devToolView)
         // TODO: Add devtool bind for seting presenters.
         //(devToolView as? DevToolPresentable)?.bind(tool: devTool)

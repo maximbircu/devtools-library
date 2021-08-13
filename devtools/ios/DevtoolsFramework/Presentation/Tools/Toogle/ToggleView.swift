@@ -14,19 +14,19 @@ public class ToggleView: DevToolView, DevToolPresentable, ToggleToolView {
     }
 
     public override func awakeFromNib() {
-        if #available(iOS 13.0, *) {
-            `switch`.subviews.first?.subviews.first?.backgroundColor = UIColor.gray
-        } else {
-            `switch`.tintColor = UIColor.gray
-        }
+//        if #available(iOS 13.0, *) {
+//            `switch`.subviews.first?.subviews.first?.backgroundColor = UIColor.gray
+//        } else {
+//            `switch`.tintColor = UIColor.gray
+//        }
     }
 
     @IBAction func onSwitchValueChanged() {
-        presenter.onCheckedChangeListener(isChecked: `switch`.isOn)
+//        presenter.onCheckedChangeListener(isChecked: `switch`.isOn)
     }
 
     public func setValue(value: Bool) {
-        `switch`.setOn(value, animated: true)
+//        `switch`.setOn(value, animated: true)
     }
 
     public func onBind(tool: DevTool) {
