@@ -56,7 +56,7 @@ class UpdateChangelog : Command(
     override fun execute(args: Array<String>) {
         val newVersionName = args[1]
         changelogFileParser.setReleaseDate(newVersionName)
-        changelogFileParser.addNewVersion(gradlePropertiesFileParser.version)
+        changelogFileParser.addNewVersion()
     }
 }
 
@@ -65,10 +65,7 @@ class UpdateChangelog : Command(
  *************************************************************************************/
 class GradlePropertiesFileParser {
     private val file = File("./gradle.properties")
-
     private val String.isVersion: Boolean get() = contains("PROJECT_VERSION_NAME")
-
-    val version get() = file.readLines().first { it.isVersion }.substringAfter("=")
 
     fun update(newVresionName: String) {
         file.transform { line ->
@@ -102,7 +99,7 @@ class ChangelogFileParser {
         }
     }
 
-    fun addNewVersion(version: String) {
+    fun addNewVersion() {
         file.replaceLines { lines ->
             lines.toMutableList().apply {
                 add(2, "")
