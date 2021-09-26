@@ -1,14 +1,9 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-multiplatform'
 apply plugin: 'kotlinx-serialization'
-
 apply from: "$rootDir/gradle/publishing.gradle"
 
 configureJacoco {
-    srcDirs = kotlin.sourceSets.commonMain.kotlin.srcDirs
-}
-
-configurePublishing {
     srcDirs = kotlin.sourceSets.commonMain.kotlin.srcDirs
 }
 
@@ -108,6 +103,18 @@ kotlin {
             }
             if (taskName.contains("assemble")) {
                 task.dependsOn "releaseFatFramework"
+            }
+        }
+
+        configurePublishing { artifactId = "devtools-common" }
+
+        publishing {
+            publications {
+                kotlinMultiplatform(MavenPublication) {
+                    groupId = 'com.maximbircu'
+                    artifactId = "devtools-common"
+                    version = getProjectVersion()
+                }
             }
         }
     }

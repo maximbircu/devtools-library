@@ -1,0 +1,140 @@
+name: CI
+
+on:
+  push:
+    branches: [ release-android-\d+.\d+.\d+ ]
+
+jobs:
+  checkstyle:
+    name: Styling (Android lint, Detekt and Ktlint)
+    runs-on: ubuntu-latest
+    steps:
+      - name: SCM
+        uses: actions/checkout@v2
+
+      - name: Check project styling
+        uses: eskatos/gradle-command-action@v1
+        with:
+          arguments: lintDebug detekt ktlint
+
+  test:
+    name: Unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: SCM
+        uses: actions/checkout@v2
+
+      - name: Test
+        uses: eskatos/gradle-command-action@v1
+        with:
+          arguments: testDebugUnitTest
+
+      - name: JaCoCo
+        uses: eskatos/gradle-command-action@v1
+        with:
+          arguments: jacocoTestReport
+
+      - name: Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
+
+  build:
+    name: Assemble artifacts
+    runs-on: macos-latest
+    steps:
+      - name: SCM
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: Assemble
+        uses: eskatos/gradle-command-action@v1
+        with:
+          arguments: assembleDebug
+
+  release:
+    name: Release Android library to Maven Central
+    runs-on: ubuntu-latest
+    env:
+      KOTLIN_VERSION: 1.5.31
+    steps:
+      - name: SCM
+        uses: actions/checkout@v2
+
+      - name: Set up git
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+
+      - name: Export current version name
+        run: |
+          echo "OLD_VERSION_NAME=$(grep -r -o PROJECT_VERSION_NAME=".*" --include gradle.properties . | cut -d'=' -f 2)" >> $GITHUB_ENV
+
+      - name: Get version name to be released
+        run: |
+          echo "NEW_VERSION_NAME=$(echo $GITHUB_REF | cut -d'-' -f 3)" >> $GITHUB_ENV
+
+      - name: Release to Maven Central
+        uses: eskatos/gradle-command-action@v1
+        env:
+          MAVEN_CENTRALL_USERNAME: ${{ secrets.MAVEN_CENTRALL_USERNAME }}
+          MAVEN_CENTRALL_PASSWORD: ${{ secrets.MAVEN_CENTRALL_PASSWORD }}
+          SIGNING_KEY_ID: ${{ secrets.SIGNING_KEY_ID }}
+          SINGING_KEY_PASSPHRASE: ${{ secrets.SINGING_KEY_PASSPHRASE }}
+          SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
+        with:
+          arguments: -Prelease publishReleasePublicationToMavenRepository
+
+      - name: Generate changelog file
+        uses: maximbircu/kscript-action@v1.0.1
+        with:
+          kotlin-version: ${{ env.KOTLIN_VERSION }}
+          kotlin-script: scripts/release.kt --generate-changelog ${{ env.NEW_VERSION_NAME }}
+
+      - name: Push an annotated git tag with Changelog
+        run: |
+          git tag ${{env.NEW_VERSION_NAME}} -F changelog.txt
+          git push origin ${{env.NEW_VERSION_NAME}}
+          rm -r changelog.txt
+
+      - name: Bump version
+        uses: maximbircu/kscript-action@v1.0.1
+        with:
+          kotlin-version: ${{ env.KOTLIN_VERSION }}
+          kotlin-script: scripts/release.kt --update-version ${{ env.NEW_VERSION_NAME }}
+
+      - name: Update changelog file for the new vrsion
+        uses: maximbircu/kscript-action@v1.0.1
+        with:
+          kotlin-version: ${{ env.KOTLIN_VERSION }}
+          kotlin-script: scripts/release.kt --update-changelog ${{ env.NEW_VERSION_NAME }}
+
+      - name: Open version uodate pull request
+        id: cpr
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Update version name to ${{ env.NEW_VERSION_NAME }}
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          signoff: false
+          base: master
+          branch: 0-update-version-name
+          delete-branch: true
+          title: Update version name to ${{ env.NEW_VERSION_NAME }}
+          body: |
+            Update version name!
+            - Pervious: ${{ env.OLD_VERSION_NAME }}
+            - New: ${{ env.NEW_VERSION_NAME }}
+
+            This pull request was generated automatically.
+
+          labels: |
+            tech
+          assignees: maximbircu
+          reviewers: maximbircu
+          draft: false
