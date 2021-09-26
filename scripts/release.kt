@@ -24,7 +24,7 @@ fun main(args: Array<String>) {
 }
 
 /*************************************************************************************
- *** Commands
+ *** Commands.
  *************************************************************************************/
 class GenerateChangelogFile : Command(
     name = "--generate-changelog",
@@ -61,7 +61,7 @@ class UpdateChangelog : Command(
 }
 
 /*************************************************************************************
- *** Files parsers
+ *** Files parsers.
  *************************************************************************************/
 class GradlePropertiesFileParser {
     private val file = File("./gradle.properties")
@@ -125,7 +125,7 @@ class ChangelogFileParser {
 }
 
 /*************************************************************************************
- *** Utils
+ *** Utils.
  *************************************************************************************/
 fun File.transform(transform: (String) -> String) {
     val newLines = readLines().map(transform)
@@ -139,6 +139,7 @@ fun File.replaceLines(modifiedLines: (List<String>) -> List<String>) {
 
 fun today(): String = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
 
+@Suppress("TooGenericExceptionThrown")
 fun String.execute(): String {
     val process = Runtime.getRuntime().exec(this)
     val output = InputStreamReader(process.inputStream).readText()
@@ -147,6 +148,7 @@ fun String.execute(): String {
     return output.trim()
 }
 
+@Suppress("TooGenericExceptionThrown")
 fun Array<String>.execute(): String {
     val process = Runtime.getRuntime().exec(this)
     val output = InputStreamReader(process.inputStream).readText()
