@@ -1,5 +1,4 @@
 apply plugin: 'maven-publish'
-apply plugin: 'org.jetbrains.dokka'
 apply plugin: 'signing'
 
 ext.configurePublishing = { Closure getConfig ->
@@ -13,12 +12,7 @@ ext.configurePublishing = { Closure getConfig ->
             from config.srcDirs
         }
 
-        dokka {
-            outputFormat = 'javadoc'
-            outputDirectory = "$buildDir/dokka"
-        }
-
-        task javadocJar(type: Jar, dependsOn: dokka) {
+        task javadocJar(type: Jar) {
             classifier 'javadoc'
         }
 
