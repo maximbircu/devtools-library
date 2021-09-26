@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ release-android-\d+.\d+.\d+ ]
 
 jobs:
   checkstyle:
@@ -72,7 +72,11 @@ jobs:
 
       - name: Export current version name
         run: |
-          echo "VERSION_NAME=$(grep -r -o PROJECT_VERSION_NAME=".*" --include gradle.properties . | cut -d'=' -f 2)" >> $GITHUB_ENV
+          echo "OLD_VERSION_NAME=$(grep -r -o PROJECT_VERSION_NAME=".*" --include gradle.properties . | cut -d'=' -f 2)" >> $GITHUB_ENV
+
+      - name: Get version name to be released
+        run: |
+          echo "NEW_VERSION_NAME=$(echo $GITHUB_REF | cut -d'-' -f 3)" >> $GITHUB_ENV
 
       - name: Release to Maven Central
         uses: eskatos/gradle-command-action@v1
@@ -86,32 +90,28 @@ jobs:
           arguments: -Prelease publishReleasePublicationToMavenRepository
 
       - name: Generate changelog file
-        uses: maximbircu/kscript-action@3-make-kotlin-and-kscript-versions-configurable
+        uses: maximbircu/kscript-action@v1.0.1
         with:
           kotlin-version: ${{ env.KOTLIN_VERSION }}
-          kotlin-script: scripts/release.kt --generate-changelog
+          kotlin-script: scripts/release.kt --generate-changelog ${{ env.NEW_VERSION_NAME }}
 
       - name: Push an annotated git tag with Changelog
         run: |
-          git tag ${{env.VERSION_NAME}} -F changelog.txt
-          git push origin ${{env.VERSION_NAME}}
+          git tag ${{env.NEW_VERSION_NAME}} -F changelog.txt
+          git push origin ${{env.NEW_VERSION_NAME}}
           rm -r changelog.txt
 
       - name: Bump version
-        uses: maximbircu/kscript-action@3-make-kotlin-and-kscript-versions-configurable
+        uses: maximbircu/kscript-action@v1.0.1
         with:
           kotlin-version: ${{ env.KOTLIN_VERSION }}
-          kotlin-script: scripts/release.kt --bump-version
+          kotlin-script: scripts/release.kt --update-version ${{ env.NEW_VERSION_NAME }}
 
       - name: Update changelog file for the new vrsion
-        uses: maximbircu/kscript-action@3-make-kotlin-and-kscript-versions-configurable
+        uses: maximbircu/kscript-action@v1.0.1
         with:
           kotlin-version: ${{ env.KOTLIN_VERSION }}
-          kotlin-script: scripts/release.kt --update-changelog
-
-      - name: Export current version name
-        run: |
-          echo "NEW_VERSION_NAME=$(grep -r -o PROJECT_VERSION_NAME=".*" --include gradle.properties . | cut -d'=' -f 2)" >> $GITHUB_ENV
+          kotlin-script: scripts/release.kt --update-changelog ${{ env.NEW_VERSION_NAME }}
 
       - name: Open version uodate pull request
         id: cpr
@@ -122,12 +122,13 @@ jobs:
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: false
+          base: master
           branch: 0-update-version-name
           delete-branch: true
           title: Update version name to ${{ env.NEW_VERSION_NAME }}
           body: |
             Update version name!
-            - Pervious: ${{ env.VERSION_NAME }}
+            - Pervious: ${{ env.OLD_VERSION_NAME }}
             - New: ${{ env.NEW_VERSION_NAME }}
 
             This pull request was generated automatically.

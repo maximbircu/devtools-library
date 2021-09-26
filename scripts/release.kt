@@ -9,8 +9,7 @@ private val gradlePropertiesFileParser = GradlePropertiesFileParser()
 private val changelogFileParser = ChangelogFileParser()
 
 private val commands = listOf(
-    UpdateCommonVersion(),
-    BumpVersionName(),
+    UpdateVersionName(),
     UpdateChangelog(),
     GenerateChangelogFile()
 )
@@ -20,44 +19,49 @@ fun main(args: Array<String>) {
     if (command == null) {
         commands.forEach { println("${it.name} - ${it.description}") }
     } else {
-        command.execute()
+        command.execute(args)
     }
 }
 
 /*************************************************************************************
- *** Commands.
+ *** Commands
  *************************************************************************************/
 class GenerateChangelogFile : Command(
     name = "--generate-changelog",
     description = "Generates a changelog.txt file"
 ) {
-    override fun execute() {
+    override fun execute(args: Array<String>) {
+        val newVersionName = args[1]
         changelogFileParser.createChangelogFile(
-            version = gradlePropertiesFileParser.version,
+            version = newVersionName,
             fileName = "changelog.txt"
         )
     }
 }
 
-class BumpVersionName : Command(
-    name = "--bump-version",
+class UpdateVersionName : Command(
+    name = "--update-version",
     description = "Bumps version name"
 ) {
-    override fun execute() = gradlePropertiesFileParser.increment()
+    override fun execute(args: Array<String>) {
+        val newVersionName = args[1]
+        gradlePropertiesFileParser.update(newVersionName)
+    }
 }
 
 class UpdateChangelog : Command(
     name = "--update-changelog",
     description = "Updates changelog file for the new version"
 ) {
-    override fun execute() {
-        changelogFileParser.setReleaseDate()
+    override fun execute(args: Array<String>) {
+        val newVersionName = args[1]
+        changelogFileParser.setReleaseDate(newVersionName)
         changelogFileParser.addNewVersion(gradlePropertiesFileParser.version)
     }
 }
 
 /*************************************************************************************
- *** Files parsers.
+ *** Files parsers
  *************************************************************************************/
 class GradlePropertiesFileParser {
     private val file = File("./gradle.properties")
@@ -65,19 +69,18 @@ class GradlePropertiesFileParser {
     private val String.isVersion: Boolean get() = contains("PROJECT_VERSION_NAME")
 
     val version get() = file.readLines().first { it.isVersion }.substringAfter("=")
-    val nextVersion get() = version.increment()
 
-    fun increment() {
+    fun update(newVresionName: String) {
         file.transform { line ->
             if (line.isVersion) {
-                "PROJECT_VERSION_NAME=${version.increment()}"
+                "PROJECT_VERSION_NAME=${newVresionName}"
             } else {
                 line
             }
         }
     }
 
-    private fun String.increment(): String {
+    private fun String.update(): String {
         val delimiter = "."
         val split = this.split(delimiter)
         val oldPatch = split.last().toInt()
@@ -89,10 +92,10 @@ class GradlePropertiesFileParser {
 class ChangelogFileParser {
     private val file = File("CHANGELOG.md")
 
-    fun setReleaseDate() {
+    fun setReleaseDate(newVresionName: String) {
         file.transform { line ->
             if (line.contains("(In development)")) {
-                line.replace("In development", today())
+                "## Version $newVresionName *${today()}*"
             } else {
                 line
             }
@@ -103,7 +106,7 @@ class ChangelogFileParser {
         file.replaceLines { lines ->
             lines.toMutableList().apply {
                 add(2, "")
-                add(2, "## Version $version *(In development)*")
+                add(2, "## *(In development)*")
                 add(2, "")
             }
         }
@@ -111,7 +114,7 @@ class ChangelogFileParser {
 
     fun createChangelogFile(version: String, fileName: String) {
         val changelogFile = File(fileName)
-        changelogFile.writeText("Release v1.0.1\n${getChangeLog(version)}".trim())
+        changelogFile.writeText("Release $version\n${getChangeLog(version)}".trim())
     }
 
     private fun getChangeLog(version: String): String = file.readLines().run {
@@ -122,14 +125,13 @@ class ChangelogFileParser {
 }
 
 /*************************************************************************************
- *** Utils.
+ *** Utils
  *************************************************************************************/
 fun File.transform(transform: (String) -> String) {
     val newLines = readLines().map(transform)
     printWriter().use { writer -> newLines.forEach(writer::println) }
 }
 
-@Suppress("TooGenericExceptionThrown")
 fun File.replaceLines(modifiedLines: (List<String>) -> List<String>) {
     val newLines = modifiedLines(readLines())
     printWriter().use { writer -> newLines.forEach(writer::println) }
@@ -137,7 +139,6 @@ fun File.replaceLines(modifiedLines: (List<String>) -> List<String>) {
 
 fun today(): String = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
 
-@Suppress("TooGenericExceptionThrown")
 fun String.execute(): String {
     val process = Runtime.getRuntime().exec(this)
     val output = InputStreamReader(process.inputStream).readText()
@@ -146,7 +147,6 @@ fun String.execute(): String {
     return output.trim()
 }
 
-@Suppress("TooGenericExceptionThrown")
 fun Array<String>.execute(): String {
     val process = Runtime.getRuntime().exec(this)
     val output = InputStreamReader(process.inputStream).readText()
@@ -156,5 +156,5 @@ fun Array<String>.execute(): String {
 }
 
 abstract class Command(val name: String, val description: String) {
-    abstract fun execute()
+    abstract fun execute(args: Array<String>)
 }
