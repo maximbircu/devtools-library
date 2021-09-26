@@ -5,8 +5,59 @@ on:
     branches: [ master ]
 
 jobs:
+  checkstyle:
+    name: Styling (Android lint, Detekt and Ktlint)
+    runs-on: ubuntu-latest
+    steps:
+      - name: SCM
+        uses: actions/checkout@v2
+
+      - name: Check project styling
+        uses: eskatos/gradle-command-action@v1
+        with:
+          arguments: lintDebug detekt ktlint
+
+  test:
+    name: Unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: SCM
+        uses: actions/checkout@v2
+
+      - name: Test
+        uses: eskatos/gradle-command-action@v1
+        with:
+          arguments: testDebugUnitTest
+
+      - name: JaCoCo
+        uses: eskatos/gradle-command-action@v1
+        with:
+          arguments: jacocoTestReport
+
+      - name: Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
+
+  build:
+    name: Assemble artifacts
+    runs-on: macos-latest
+    steps:
+      - name: SCM
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: Assemble
+        uses: eskatos/gradle-command-action@v1
+        with:
+          arguments: assembleDebug
+
   release:
-    name: Release
+    name: Release Android library to Maven Central
     runs-on: ubuntu-latest
     env:
       KOTLIN_VERSION: 1.5.31
