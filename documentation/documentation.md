@@ -389,6 +389,15 @@ Not ready yet.
 
 #### 🤖 Android
 
+#### Automated
+
+1. Just push the `release-android-X.X.X`
+1. Log in to [](https://oss.sonatype.org/)
+1. Open [](https://oss.sonatype.org/#stagingRepositories)
+1. Close the repository
+
+#### Manual
+
 1. Checkout the latest `master` branch commit
 1. Release the project to Maven Central by running
     ```shell script

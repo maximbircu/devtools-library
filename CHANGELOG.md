@@ -5,7 +5,7 @@ Changelog
 Issue: [#56](https://github.com/maximbircu/devtools-library/issues/56)
 1. Got rid of Jcenter dep
 2. Adjusted maven publish logic so that the whole project will be published at once and there'll be no need to upload the modules separately.
-3. Got rid of redundant `master.yml` GH action workflow in favor of `release-android.yml` that runs all required checks and uploads the library to Maven Central.
+3. Implement `release-android.yml` that runs all required checks and uploads the library to Maven Central.
 
 Issue: [#73](https://github.com/maximbircu/devtools-library/issues/73)
 - Implemented a discard dialog - in case the user will try to leave the configuration screen with unsaved changes the screen will not close and a discard dialog will be displayed instead. The dialog will be closed and the unsaved changes discarded in case the user will hit the OK button.
