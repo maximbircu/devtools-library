@@ -390,17 +390,11 @@ Not ready yet.
 #### 🤖 Android
 
 1. Checkout the latest `master` branch commit
-1. Release the common module to maven by running
+1. Release the project to Maven Central by running
     ```shell script
-    ./gradlew -Prelease publishCommonPublicationToMavenRepository
+    ./gradlew -Prelease publishReleasePublicationToMavenRepository
     ```
-1.Open a PR to update the `common` dependency for Android library release configuration.
-1. Checkout the latest `master` branch commit
-1. Release the android library to maven by running
-    ```shell script
-    ./gradlew -Prelease publishAndroidPublicationToMavenRepository
-    ```
-1. Create and push a new tag
+1. Create and push a new tag for the new version
 1. Open a new PR to bump up to the library version and update the [changelog file](../CHANGELOG.md).
 
 ℹ️ The deployment process will be automated after we hve the iOS library ready [#56](https://github.com/maximbircu/devtools-library/issues/56).
