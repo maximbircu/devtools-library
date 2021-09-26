@@ -1,41 +1,25 @@
 apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
-ext.configurePublishing = { Closure getConfig ->
+ext.configurePublishing = { getConfig ->
     afterEvaluate {
         def config = new PublishConfiguration()
         getConfig.delegate = config
         getConfig.run()
 
-        task sourceJar(type: Jar) {
-            classifier "sources"
-            from config.srcDirs
-        }
-
-        task javadocJar(type: Jar) {
-            classifier 'javadoc'
-        }
-
         publishing {
             publications {
-                "$name"(MavenPublication) {
+                release(MavenPublication) {
                     groupId = 'com.maximbircu'
-                    artifactId = "devtools-$name"
-
-                    if(project.hasProperty('release')) {
-                        version = PROJECT_VERSION_NAME
-                    } else {
-                        version = "$PROJECT_VERSION_NAME-SNAPSHOT"
-                    }
+                    artifactId = config.artifactId
+                    version = getProjectVersion()
 
                     from components.release
-                    artifact(sourceJar)
                     artifact(javadocJar)
 
                     pom {
                         name = 'Dev Tools Library'
-                        description =
-                                'Multiplatform, pluggable, extensible, and dynamic config library which supports YAML and JSON as a source.'
+                        description = 'Multiplatform, pluggable, extensible, and dynamic config library which supports YAML and JSON as a source.'
                         url = 'https://github.com/maximbircu/devtools-library'
                         licenses {
                             license {
@@ -72,14 +56,29 @@ ext.configurePublishing = { Closure getConfig ->
                 }
             }
         }
+    }
+}
 
-        signing {
-            setRequired { !version.toString().endsWith("-SNAPSHOT") }
-            sign publishing.publications["$name"]
-        }
+task javadocJar(type: Jar) {
+    classifier 'javadoc'
+}
+
+ext.getProjectVersion = {
+    project.hasProperty('release') ? PROJECT_VERSION_NAME : "$PROJECT_VERSION_NAME-SNAPSHOT"
+}
+
+ext.configureSiging = {
+    signing {
+        setRequired { !version.toString().endsWith("-SNAPSHOT") }
+        useInMemoryPgpKeys(
+                System.getenv('SIGNING_KEY_ID') ?: SIGNING_KEY_ID,
+                System.getenv('SIGNING_KEY') ?: SIGNING_KEY,
+                System.getenv('SINGING_KEY_PASSPHRASE') ?: SINGING_KEY_PASSPHRASE,
+        )
+        sign publishing.publications
     }
 }
 
 class PublishConfiguration {
-    Collection srcDirs = []
+    def artifactId
 }

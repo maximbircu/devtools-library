@@ -3,10 +3,6 @@ apply plugin: 'kotlin-android'
 
 apply from: "$rootDir/gradle/publishing.gradle"
 
-configurePublishing {
-    srcDirs = android.sourceSets.main.kotlin.srcDirs
-}
-
 configureJacoco {
     srcDirs = android.sourceSets.main.kotlin.srcDirs
     excludes = [
@@ -51,8 +47,7 @@ android {
 }
 
 dependencies {
-    debugApi(project(':devtools:common')) { transitive = true }
-    releaseApi("com.maximbircu:devtools-common:1.0.0") { transitive = true }
+    api project(':devtools:common')
 
     implementation "org.yaml:snakeyaml:1.29"
     implementation "com.google.android.material:material:1.4.0"
@@ -72,4 +67,8 @@ dependencies {
     testImplementation "org.jetbrains.kotlin:kotlin-test"
     testImplementation "org.jetbrains.kotlin:kotlin-test-junit"
     testImplementation "io.mockk:mockk:1.12.0"
+}
+
+afterEvaluate {
+    configurePublishing { artifactId = "devtools-android" }
 }
