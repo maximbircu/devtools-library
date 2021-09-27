@@ -2,6 +2,9 @@ Changelog
 =========
 
 ## *(In development)*
+
+
+## Version 1.0.1 *2021-09-26*
 Issue: [#56](https://github.com/maximbircu/devtools-library/issues/56)
 1. Got rid of Jcenter dep
 2. Adjusted maven publish logic so that the whole project will be published at once and there'll be no need to upload the modules separately.
