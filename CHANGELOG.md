@@ -3,6 +3,8 @@ Changelog
 
 ## *(In development)*
 
+Issue: [#82](https://github.com/maximbircu/devtools-library/issues/82)
+Fix the artifacts signing
 
 ## Version 1.0.1 *2021-09-26*
 Issue: [#56](https://github.com/maximbircu/devtools-library/issues/56)
@@ -46,7 +48,7 @@ Issue: [#64](https://github.com/maximbircu/devtools-library/issues/64)
 - Migrate from deprecated Kotlin Synthetics to Android ViewBinding
 - Update Gradle to 6.7.1 and AGP to 4.1.0
 
-## Version 1.0.0 06/05/2020
+## Version 1.0.0 *06/05/2020*
 Issue: [#58](https://github.com/maximbircu/devtools-library/issues/58)
 - Update the Android library common module dependency for release configuration to 1.0.0
 
