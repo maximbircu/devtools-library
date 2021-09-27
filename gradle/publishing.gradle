@@ -56,6 +56,16 @@ ext.configurePublishing = { getConfig ->
                 }
             }
         }
+
+        signing {
+            setRequired { !version.toString().endsWith("-SNAPSHOT") }
+            useInMemoryPgpKeys(
+                    System.getenv('SIGNING_KEY_ID') ?: SIGNING_KEY_ID,
+                    System.getenv('SIGNING_KEY') ?: SIGNING_KEY,
+                    System.getenv('SINGING_KEY_PASSPHRASE') ?: SINGING_KEY_PASSPHRASE,
+            )
+            sign publishing.publications
+        }
     }
 }
 
@@ -65,18 +75,6 @@ task javadocJar(type: Jar) {
 
 ext.getProjectVersion = {
     project.hasProperty('release') ? PROJECT_VERSION_NAME : "$PROJECT_VERSION_NAME-SNAPSHOT"
-}
-
-ext.configureSiging = {
-    signing {
-        setRequired { !version.toString().endsWith("-SNAPSHOT") }
-        useInMemoryPgpKeys(
-                System.getenv('SIGNING_KEY_ID') ?: SIGNING_KEY_ID,
-                System.getenv('SIGNING_KEY') ?: SIGNING_KEY,
-                System.getenv('SINGING_KEY_PASSPHRASE') ?: SINGING_KEY_PASSPHRASE,
-        )
-        sign publishing.publications
-    }
 }
 
 class PublishConfiguration {
