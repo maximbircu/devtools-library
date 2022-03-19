@@ -315,7 +315,7 @@
 				3DC3B28B2441FF860038896E /* Frameworks */,
 				3DC3B28C2441FF860038896E /* Resources */,
 				3DBB68D6244746E600C675AF /* Embed Frameworks */,
-				3D799FF5244D1CEC008E39CA /* Switf Lint */,
+				3D799FF5244D1CEC008E39CA /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -422,7 +422,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DevtoolsFramework-DevtoolsFrameworkTests/Pods-DevtoolsFramework-DevtoolsFrameworkTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3D799FF5244D1CEC008E39CA /* Switf Lint */ = {
+		3D799FF5244D1CEC008E39CA /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -431,14 +431,14 @@
 			);
 			inputPaths = (
 			);
-			name = "Switf Lint";
+			name = SwiftLint;
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint --config $SRCROOT/.swiftlint.yml\n";
 		};
 		76EF6DC7AFA0C89CA93B7DCB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
