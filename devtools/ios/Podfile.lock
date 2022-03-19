@@ -1,10 +1,10 @@
 PODS:
   - SwiftLint (0.43.1)
-  - Yams (4.0.6)
+  - Yams (5.0.0)
 
 DEPENDENCIES:
   - SwiftLint
-  - Yams (~> 4.0.6)
+  - Yams (= 5.0.0)
 
 SPEC REPOS:
   trunk:
@@ -13,8 +13,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
-  Yams: ed1c49f0d6be84f305ad3f93f997b1df039afd9e
+  Yams: b5c3e188ceeb8321a9830b1d0e791ccea9af3201
 
-PODFILE CHECKSUM: b456b6719f7a665eff628fe0dc2fbe794b79483e
+PODFILE CHECKSUM: 801c8210508e49f1c069e3be4bade4a691f6fa5e
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.3

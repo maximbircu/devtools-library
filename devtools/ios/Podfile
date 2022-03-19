@@ -1,19 +1,15 @@
- platform :ios, '12.0'
+platform :ios, '12.0'
 
 inhibit_all_warnings!
 
-target 'DevtoolsFramework' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
+use_frameworks!
 
-  # Pods for DevtoolsFramework
+target 'DevtoolsFramework' do
   pod 'SwiftLint'
-  pod 'Yams', '~> 4.0.6'
+  pod 'Yams', '5.0.0'
 
   target 'DevtoolsFrameworkTests' do
-    # Pods for testing
   end
-
 end
 
 post_install do |installer|
