@@ -1,3 +1,5 @@
 included: # paths to include during linting. `--path` is ignored if present.
-  - DevtoolsFramework
-  - DevtoolsFrameworkTests
+  - DevToolsApp
+  - DevToolsAppTests
+  - DevToolsAppUITests
+
