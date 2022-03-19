@@ -360,7 +360,7 @@ The library is composed of 5 modules:
            - <a href="https://developer.android.com/studio/write/lint">lint</a>
         </td>
         <td>
-            Not ready yet.
+           - <a href="https://github.com/realm/SwiftLint">SwiftLint</a>
         </td>
     </tr>
 </table>
