@@ -360,7 +360,7 @@ The library is composed of 5 modules:
            - <a href="https://developer.android.com/studio/write/lint">lint</a>
         </td>
         <td>
-            Not ready yet.
+           - <a href="https://github.com/realm/SwiftLint">SwiftLint</a>
         </td>
     </tr>
 </table>
@@ -406,4 +406,4 @@ Not ready yet.
 1. Create and push a new tag for the new version
 1. Open a new PR to bump up to the library version and update the [changelog file](../CHANGELOG.md).
 
-ℹ️ The deployment process will be automated after we hve the iOS library ready [#56](https://github.com/maximbircu/devtools-library/issues/56).
+ℹ️ The deployment process will be automated after we have the iOS library ready [#56](https://github.com/maximbircu/devtools-library/issues/56).
