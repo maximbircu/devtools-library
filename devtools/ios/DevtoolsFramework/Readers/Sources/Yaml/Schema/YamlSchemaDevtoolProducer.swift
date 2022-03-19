@@ -65,7 +65,10 @@ extension YamlSchemaDevtoolProducer {
         return tools?.mapping?.reduce(into: [String: DevTool]()) { result, node in
             guard let toolName = node.key.string,
                   let config = node.value.mapping else { return }
-            result[toolName] = parseToolByTag(yamlTag: node.value.tag.description, config: config) as? DevTool<AnyObject>
+            result[toolName] = parseToolByTag(
+                yamlTag: node.value.tag.description,
+                config: config
+            ) as? DevTool<AnyObject>
         } ?? [:]
     }
 }
