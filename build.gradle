@@ -18,7 +18,7 @@ plugins {
 }
 
 apply from: 'gradle/detekt.gradle'
-apply from: 'gradle/lint.gradle'
+apply from: 'gradle/lint/lint.gradle'
 apply from: 'gradle/ktlint.gradle'
 apply from: 'gradle/jacoco.gradle'
 
