@@ -3,8 +3,20 @@ Changelog
 
 ## *(In development)*
 
+Issue: [#89](https://github.com/maximbircu/devtools-library/issues/89)
+- Update target SDK version to 32
+- Update Kotlin version to 1.6.10
+- Update Gradle to 7.1.2
+- Update the following libraries
+    - material: [1.4.0](https://github.com/material-components/material-components-android/releases/tag/1.4.0) -> [1.5.0](https://github.com/material-components/material-components-android/releases/tag/1.5.0)
+    - core-ktx: [1.6.0](https://developer.android.com/jetpack/androidx/releases/core#1.6.0) -> [1.7.0](https://developer.android.com/jetpack/androidx/releases/core#1.7.0)
+    - appcompat: [1.3.1](https://developer.android.com/jetpack/androidx/releases/appcompat#1.3.1) -> [1.4.1](https://developer.android.com/jetpack/androidx/releases/appcompat#1.4.1)
+    - constraintlayout: [2.1.1](https://developer.android.com/jetpack/androidx/releases/constraintlayout#constraintlayout-2.1.1) -> [2.1.3](https://developer.android.com/jetpack/androidx/releases/constraintlayout#constraintlayout-2.1.3)
+    - fragment-ktx: [1.3.6](https://developer.android.com/jetpack/androidx/releases/fragment#1.3.6) -> [1.4.1](https://developer.android.com/jetpack/androidx/releases/fragment#1.4.1)
+    - ktlint: [0.42.1](https://github.com/pinterest/ktlint/releases/tag/0.42.1) -> [0.45.0](https://github.com/pinterest/ktlint/releases/tag/0.45.0)
+
 Issue: [#82](https://github.com/maximbircu/devtools-library/issues/82)
-Fix the artifacts signing
+- Fix the artifacts signing
 
 ## Version 1.0.1 *2021-09-26*
 Issue: [#56](https://github.com/maximbircu/devtools-library/issues/56)

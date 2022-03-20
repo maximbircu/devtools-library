@@ -1,13 +1,13 @@
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 buildscript {
-    ext.kotlin_version = "1.5.31"
+    ext.kotlin_version = "1.6.10"
     repositories {
         google()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.2'
+        classpath 'com.android.tools.build:gradle:7.1.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version"
     }
@@ -18,7 +18,7 @@ plugins {
 }
 
 apply from: 'gradle/detekt.gradle'
-apply from: 'gradle/lint.gradle'
+apply from: 'gradle/lint/lint.gradle'
 apply from: 'gradle/ktlint.gradle'
 apply from: 'gradle/jacoco.gradle'
 

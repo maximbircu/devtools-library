@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lint>
+    <issue id="OldTargetApi" severity="informational" />
+    <issue id="GradleDependency" severity="informational" />
+    <issue id="ObsoleteLintCustomCheck" severity="informational" />
+</lint>
