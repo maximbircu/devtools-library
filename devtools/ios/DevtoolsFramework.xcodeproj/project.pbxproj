@@ -405,23 +405,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		39217395546790B49F2A431E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DevtoolsFramework-DevtoolsFrameworkTests/Pods-DevtoolsFramework-DevtoolsFrameworkTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DevtoolsFramework-DevtoolsFrameworkTests/Pods-DevtoolsFramework-DevtoolsFrameworkTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DevtoolsFramework-DevtoolsFrameworkTests/Pods-DevtoolsFramework-DevtoolsFrameworkTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		3D799FF5244D1CEC008E39CA /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
