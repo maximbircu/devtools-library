@@ -15,7 +15,7 @@ Issue: [#89](https://github.com/maximbircu/devtools-library/issues/89)
     - fragment-ktx: [1.3.6](https://developer.android.com/jetpack/androidx/releases/fragment#1.3.6) -> [1.4.1](https://developer.android.com/jetpack/androidx/releases/fragment#1.4.1)
 
 Issue: [#82](https://github.com/maximbircu/devtools-library/issues/82)
-Fix the artifacts signing
+- Fix the artifacts signing
 
 ## Version 1.0.1 *2021-09-26*
 Issue: [#56](https://github.com/maximbircu/devtools-library/issues/56)
