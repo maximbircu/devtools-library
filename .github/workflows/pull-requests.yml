@@ -93,8 +93,11 @@ jobs:
         with:
           arguments: releaseFatFramework
 
+      - name: Install Ruby dependencies
+        run: bundle install
+
       - name: Install Framework pod dependencies
-        run: pod install
+        run: bundle exec pod install
 
       - name: Framework Build and Test
         run: |
