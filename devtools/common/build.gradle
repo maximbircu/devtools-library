@@ -8,7 +8,7 @@ configureJacoco {
 }
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 32
 
     buildTypes {
         release {
