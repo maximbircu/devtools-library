@@ -15,7 +15,7 @@ allprojects {
                     xmlReport true
                     disable = disabledRules
                     checkDependencies true
-                    lintConfig file("lint/lint.xml")
+                    lintConfig file("gradle/lint/lint.xml")
                 }
             }
         }
