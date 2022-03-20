@@ -8,7 +8,7 @@ Pod::Spec.new do |spec|
   spec.author       = { "Alexandr Vdovicenco" => "vdovicenco.alexandr@gmail.com" }
 
   spec.swift_version          = "5.0"
-  spec.ios.deployment_target  = "10.0"
+  spec.ios.deployment_target  = "12.0"
 
   spec.source = {
     :git => "git@github.com:maximbircu/devtools-library.git",
@@ -19,5 +19,5 @@ Pod::Spec.new do |spec|
   spec.resources = 'DevtoolsFramework/**/*.{xib,xcassets}' # "devtools/ios/DevtoolsFramework/**/*.xib"
   spec.vendored_frameworks = "Frameworks/devtools.framework" # "devtools/ios/Frameworks/devtools.framework"
 
-  spec.dependency "Yams", '~> 4.0.6'
+  spec.dependency "Yams", '5.0.0'
 end
