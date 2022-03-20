@@ -1,25 +1,21 @@
- platform :ios, '12.0'
+platform :ios, '12.0'
 
 inhibit_all_warnings!
+use_frameworks!
 
 target 'DevToolsApp' do
-  use_frameworks!
+  pod 'SwiftLint', '0.46.5'
 
-  # Pods for DevToolsApp
-  pod 'SwiftLint'
   # TODO Remove local paths before release
   pod 'DevtoolsFramework', :path => '../../devtools/ios' # Local path for development purposes.
 
   target 'DevToolsAppTests' do
     inherit! :search_paths
-    # Pods for testingq
   end
 
   target 'DevToolsAppUITests' do
     inherit! :search_paths
-    # Pods for testing
   end
-
 end
 
 post_install do |installer|
