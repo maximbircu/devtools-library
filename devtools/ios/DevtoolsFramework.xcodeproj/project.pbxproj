@@ -315,7 +315,7 @@
 				3DC3B28B2441FF860038896E /* Frameworks */,
 				3DC3B28C2441FF860038896E /* Resources */,
 				3DBB68D6244746E600C675AF /* Embed Frameworks */,
-				3D799FF5244D1CEC008E39CA /* Switf Lint */,
+				3D799FF5244D1CEC008E39CA /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -405,7 +405,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3D799FF5244D1CEC008E39CA /* Switf Lint */ = {
+		3D799FF5244D1CEC008E39CA /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -414,7 +414,7 @@
 			);
 			inputPaths = (
 			);
-			name = "Switf Lint";
+			name = SwiftLint;
 			outputFileListPaths = (
 			);
 			outputPaths = (
